@@ -45,4 +45,22 @@ To add a python script to your packages ./scripts directory, you need to:
 $ chmod +x my_script.py
 ```
 
+# Running Simulation
+All information about the PandaSimulator can be found [here.](https://github.com/justagist/panda_simulator) (including setup). You will need to go through the install process as the repos couldn't be added to this repo.
+
+## Usage
+Use argument load_gripper:=false for starting without gripper for both commands. More options listed in their launch files. 
+``` shell
+# Start the MoveIt server and roscore
+$ roslaunch panda_sim_moveit sim_move_group.launch 
+
+# Start the simulator
+$ roslaunch panda_gazebo panda_world.launch
+
+# Can test with demo showing the task-space control using Franka ROS Interface
+$ roslaunch panda_simulator_examples demo_task_space_control.launch
+```
+
+# Notes
+- Use `catkin build` rather than catkin_make. Explination [here.](https://answers.ros.org/question/320613/catkin_make-vs-catkin_make_isolated-which-is-preferred/)
 
