@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="cws_planning" name="cws_talker" type="talker_demo.py" output="screen"/>
+    <node pkg="cws_planning" name="cws_listener" type="listener.py" output="screen"/>
+</launch>

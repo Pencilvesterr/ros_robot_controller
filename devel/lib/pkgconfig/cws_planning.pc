@@ -1,0 +1,1 @@
+/home/morgan/projects/cws_ws/devel/.private/cws_planning/lib/pkgconfig/cws_planning.pc

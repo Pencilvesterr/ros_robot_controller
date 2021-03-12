@@ -1,0 +1,1 @@
+/home/morgan/projects/cws_ws/devel/.private/franka_msgs/share/roseus/ros/franka_msgs/msg/ErrorRecoveryGoal.l

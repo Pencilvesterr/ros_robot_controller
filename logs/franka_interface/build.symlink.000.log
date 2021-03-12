@@ -1,0 +1,7 @@
+Symlinking /home/morgan/projects/cws_ws/devel/share/franka_interface/cmake/franka_interfaceConfig-version.cmake
+Symlinking /home/morgan/projects/cws_ws/devel/share/franka_interface/cmake/franka_interfaceConfig.cmake
+Symlinking /home/morgan/projects/cws_ws/devel/lib/libcustom_franka_state_controller.so
+Symlinking /home/morgan/projects/cws_ws/devel/lib/franka_interface/custom_franka_control_node
+Symlinking /home/morgan/projects/cws_ws/devel/lib/pkgconfig/franka_interface.pc
+Symlinking /home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/franka_dataflow/__init__.py
+Symlinking /home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/franka_interface/__init__.py

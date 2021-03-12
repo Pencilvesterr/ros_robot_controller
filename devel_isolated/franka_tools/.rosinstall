@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/morgan/projects/cws_ws/devel_isolated/franka_tools/setup.sh
