@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/share/franka_gripper/msg/StopFeedback.msg
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/share/franka_gripper/msg/StopFeedback.msg

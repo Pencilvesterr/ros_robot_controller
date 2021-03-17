@@ -1,20 +1,21 @@
 [100%] Built target python_module_PyKDL
 [36mInstall the project...[0m
 -- Install configuration: ""
--- Up-to-date: /home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so
--- Up-to-date: /home/morgan/projects/cws_ws/devel/share/python_orocos_kdl/package.xml
--- Up-to-date: /home/morgan/projects/cws_ws/devel/_setup_util.py
--- Up-to-date: /home/morgan/projects/cws_ws/devel/env.sh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/setup.bash
--- Up-to-date: /home/morgan/projects/cws_ws/devel/local_setup.bash
--- Up-to-date: /home/morgan/projects/cws_ws/devel/setup.sh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/local_setup.sh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/setup.zsh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/local_setup.zsh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/.rosinstall
--- Up-to-date: /home/morgan/projects/cws_ws/devel/etc/catkin/profile.d/python_orocos_kdl_site_packages.bash
--- Up-to-date: /home/morgan/projects/cws_ws/devel/share/python_orocos_kdl/catkin_env_hook/python_orocos_kdl_site_packages.bash
--- Up-to-date: /home/morgan/projects/cws_ws/devel/etc/catkin/profile.d/python_orocos_kdl_site_packages.tcsh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/share/python_orocos_kdl/catkin_env_hook/python_orocos_kdl_site_packages.tcsh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/etc/catkin/profile.d/python_orocos_kdl_site_packages.zsh
--- Up-to-date: /home/morgan/projects/cws_ws/devel/share/python_orocos_kdl/catkin_env_hook/python_orocos_kdl_site_packages.zsh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so
+-- Set runtime path of "/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so" to ""
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/share/python_orocos_kdl/package.xml
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/_setup_util.py
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/env.sh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/setup.bash
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/local_setup.bash
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/setup.sh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/local_setup.sh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/setup.zsh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/local_setup.zsh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/.rosinstall
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/etc/catkin/profile.d/python_orocos_kdl_site_packages.bash
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/share/python_orocos_kdl/catkin_env_hook/python_orocos_kdl_site_packages.bash
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/etc/catkin/profile.d/python_orocos_kdl_site_packages.tcsh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/share/python_orocos_kdl/catkin_env_hook/python_orocos_kdl_site_packages.tcsh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/etc/catkin/profile.d/python_orocos_kdl_site_packages.zsh
+-- Installing: /home/morgan/projects/ros_cws_planner/devel/share/python_orocos_kdl/catkin_env_hook/python_orocos_kdl_site_packages.zsh

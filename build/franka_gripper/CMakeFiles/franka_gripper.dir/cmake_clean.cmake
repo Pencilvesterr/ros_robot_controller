@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o"
-  "/home/morgan/projects/cws_ws/devel/.private/franka_gripper/lib/libfranka_gripper.pdb"
-  "/home/morgan/projects/cws_ws/devel/.private/franka_gripper/lib/libfranka_gripper.so"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.pdb"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so"
 )
 
 # Per-language clean rules from dependency scanning.

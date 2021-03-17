@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_panda_description/share/franka_panda_description/cmake/franka_panda_descriptionConfig-version.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_panda_description/share/franka_panda_description/cmake/franka_panda_descriptionConfig-version.cmake

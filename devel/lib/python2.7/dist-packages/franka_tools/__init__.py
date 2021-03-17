@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_tools/lib/python2.7/dist-packages/franka_tools/__init__.py
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_tools/lib/python2.7/dist-packages/franka_tools/__init__.py

@@ -67,14 +67,14 @@ set(franka_core_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(franka_core_msgs_SOURCE_PREFIX /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_common/franka_core_msgs)
-  set(franka_core_msgs_DEVEL_PREFIX /home/morgan/projects/cws_ws/devel/.private/franka_core_msgs)
+  set(franka_core_msgs_SOURCE_PREFIX /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_common/franka_core_msgs)
+  set(franka_core_msgs_DEVEL_PREFIX /home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs)
   set(franka_core_msgs_INSTALL_PREFIX "")
   set(franka_core_msgs_PREFIX ${franka_core_msgs_DEVEL_PREFIX})
 else()
   set(franka_core_msgs_SOURCE_PREFIX "")
   set(franka_core_msgs_DEVEL_PREFIX "")
-  set(franka_core_msgs_INSTALL_PREFIX /home/morgan/projects/cws_ws/install)
+  set(franka_core_msgs_INSTALL_PREFIX /home/morgan/projects/ros_cws_planner/install)
   set(franka_core_msgs_PREFIX ${franka_core_msgs_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(franka_core_msgs_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include " STREQUAL " ")
+if(NOT "/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include " STREQUAL " ")
   set(franka_core_msgs_INCLUDE_DIRS "")
-  set(_include_dirs "/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include")
+  set(_include_dirs "/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include " S
         message(FATAL_ERROR "Project 'franka_core_msgs' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'franka_core_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/morgan/projects/cws_ws/src/franka_ros_interface/franka_common/franka_core_msgs/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'franka_core_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_common/franka_core_msgs/${idir}'.  ${_report}")
     endif()
     _list_append_unique(franka_core_msgs_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/lib;/home/morgan/projects/cws_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/lib;/home/morgan/projects/ros_cws_planner/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

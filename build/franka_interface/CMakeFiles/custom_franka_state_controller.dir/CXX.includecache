@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/EndPointState.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/EndPointState.h
 string
 -
 vector
@@ -28,7 +28,7 @@ geometry_msgs/WrenchStamped.h
 geometry_msgs/WrenchStamped.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/RobotState.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/RobotState.h
 string
 -
 vector
@@ -50,7 +50,7 @@ franka_msgs/Errors.h
 franka_msgs/Errors.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/include/franka_msgs/Errors.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h
 string
 -
 vector
@@ -66,7 +66,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/src/franka_ros/franka_hw/include/franka_hw/franka_cartesian_command_interface.h
+/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_cartesian_command_interface.h
 array
 -
 franka_hw/franka_state_interface.h
@@ -74,7 +74,7 @@ franka_hw/franka_state_interface.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/cws_ws/src/franka_ros/franka_hw/include/franka_hw/franka_model_interface.h
+/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_model_interface.h
 array
 -
 string
@@ -86,7 +86,7 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/cws_ws/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
+/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
 string
 -
 franka/robot_state.h
@@ -94,11 +94,11 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/cws_ws/src/franka_ros/franka_hw/include/franka_hw/trigger_rate.h
+/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/trigger_rate.h
 ros/time.h
 -
 
-/home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface/include/franka_interface/robot_state_controller.h
+/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface/include/franka_interface/robot_state_controller.h
 cstdint
 -
 memory
@@ -130,7 +130,7 @@ controller_manager/controller_manager.h
 Eigen/Dense
 -
 
-/home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp
 franka_interface/robot_state_controller.h
 -
 cmath

@@ -7,8 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/panda_sim_controllers.dir/src/panda_joint_velocity_controller.cpp.o"
   "CMakeFiles/panda_sim_controllers.dir/src/panda_joint_effort_controller.cpp.o"
   "CMakeFiles/panda_sim_controllers.dir/src/panda_gripper_controller.cpp.o"
-  "/home/morgan/projects/cws_ws/devel/.private/panda_sim_controllers/lib/libpanda_sim_controllers.pdb"
-  "/home/morgan/projects/cws_ws/devel/.private/panda_sim_controllers/lib/libpanda_sim_controllers.so"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_controllers/lib/libpanda_sim_controllers.pdb"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_controllers/lib/libpanda_sim_controllers.so"
 )
 
 # Per-language clean rules from dependency scanning.

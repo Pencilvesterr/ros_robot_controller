@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_custom_action_server
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_custom_action_server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_sim_custom_action_server
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_sim_custom_action_server
 
 # Utility rule file for trajectory_msgs_generate_messages_eus.
 
@@ -67,6 +67,6 @@ CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 
 CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/panda_sim_custom_action_server && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_custom_action_server /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_custom_action_server /home/morgan/projects/cws_ws/build/panda_sim_custom_action_server /home/morgan/projects/cws_ws/build/panda_sim_custom_action_server /home/morgan/projects/cws_ws/build/panda_sim_custom_action_server/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/panda_sim_custom_action_server && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_custom_action_server /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_custom_action_server /home/morgan/projects/ros_cws_planner/build/panda_sim_custom_action_server /home/morgan/projects/ros_cws_planner/build/panda_sim_custom_action_server /home/morgan/projects/ros_cws_planner/build/panda_sim_custom_action_server/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend
 

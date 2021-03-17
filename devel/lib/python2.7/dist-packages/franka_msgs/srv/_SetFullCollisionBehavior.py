@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/lib/python2.7/dist-packages/franka_msgs/srv/_SetFullCollisionBehavior.py
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/lib/python2.7/dist-packages/franka_msgs/srv/_SetFullCollisionBehavior.py

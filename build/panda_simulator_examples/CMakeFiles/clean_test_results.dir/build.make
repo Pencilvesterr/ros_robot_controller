@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/panda_simulator/panda_simulator_examples
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_simulator_examples
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_simulator_examples
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples
 
 # Utility rule file for clean_test_results.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_simulator_examples
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/morgan/projects/cws_ws/build/panda_simulator_examples/test_results
+	/usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/panda_simulator_examples && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/panda_simulator/panda_simulator_examples /home/morgan/projects/cws_ws/src/panda_simulator/panda_simulator_examples /home/morgan/projects/cws_ws/build/panda_simulator_examples /home/morgan/projects/cws_ws/build/panda_simulator_examples /home/morgan/projects/cws_ws/build/panda_simulator_examples/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_simulator_examples /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_simulator_examples /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "rospy;panda_moveit_config".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "panda_sim_moveit"
-PROJECT_SPACE_DIR = "/home/morgan/projects/cws_ws/devel/.private/panda_sim_moveit"
+PROJECT_SPACE_DIR = "/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_moveit"
 PROJECT_VERSION = "1.0.0"

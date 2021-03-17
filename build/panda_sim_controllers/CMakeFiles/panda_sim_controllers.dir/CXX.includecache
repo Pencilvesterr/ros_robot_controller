@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/JointCommand.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointCommand.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/JointControllerStates.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointControllerStates.h
 string
 -
 vector
@@ -44,7 +44,7 @@ std_msgs/Header.h
 control_msgs/JointControllerState.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/RobotState.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/RobotState.h
 string
 -
 vector
@@ -66,7 +66,7 @@ franka_msgs/Errors.h
 franka_msgs/Errors.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspAction.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspAction.h
 string
 -
 vector
@@ -88,7 +88,7 @@ franka_gripper/GraspActionResult.h
 franka_gripper/GraspActionFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspActionFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspActionFeedback.h
 string
 -
 vector
@@ -110,7 +110,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/GraspFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspActionGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspActionGoal.h
 string
 -
 vector
@@ -132,7 +132,7 @@ actionlib_msgs/GoalID.h
 franka_gripper/GraspGoal.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspActionResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspActionResult.h
 string
 -
 vector
@@ -154,7 +154,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/GraspResult.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspEpsilon.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspEpsilon.h
 string
 -
 vector
@@ -170,7 +170,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspFeedback.h
 string
 -
 vector
@@ -186,7 +186,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspGoal.h
 string
 -
 vector
@@ -204,7 +204,7 @@ ros/message_operations.h
 franka_gripper/GraspEpsilon.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspResult.h
 string
 -
 vector
@@ -220,7 +220,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingAction.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingAction.h
 string
 -
 vector
@@ -242,7 +242,7 @@ franka_gripper/HomingActionResult.h
 franka_gripper/HomingActionFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingActionFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingActionFeedback.h
 string
 -
 vector
@@ -264,7 +264,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/HomingFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingActionGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingActionGoal.h
 string
 -
 vector
@@ -286,7 +286,7 @@ actionlib_msgs/GoalID.h
 franka_gripper/HomingGoal.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingActionResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingActionResult.h
 string
 -
 vector
@@ -308,7 +308,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/HomingResult.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingFeedback.h
 string
 -
 vector
@@ -324,7 +324,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingGoal.h
 string
 -
 vector
@@ -340,7 +340,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/HomingResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/HomingResult.h
 string
 -
 vector
@@ -356,7 +356,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveAction.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveAction.h
 string
 -
 vector
@@ -378,7 +378,7 @@ franka_gripper/MoveActionResult.h
 franka_gripper/MoveActionFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveActionFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveActionFeedback.h
 string
 -
 vector
@@ -400,7 +400,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/MoveFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveActionGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveActionGoal.h
 string
 -
 vector
@@ -422,7 +422,7 @@ actionlib_msgs/GoalID.h
 franka_gripper/MoveGoal.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveActionResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveActionResult.h
 string
 -
 vector
@@ -444,7 +444,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/MoveResult.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveFeedback.h
 string
 -
 vector
@@ -460,7 +460,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveGoal.h
 string
 -
 vector
@@ -476,7 +476,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/MoveResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/MoveResult.h
 string
 -
 vector
@@ -492,7 +492,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopAction.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopAction.h
 string
 -
 vector
@@ -514,7 +514,7 @@ franka_gripper/StopActionResult.h
 franka_gripper/StopActionFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopActionFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopActionFeedback.h
 string
 -
 vector
@@ -536,7 +536,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/StopFeedback.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopActionGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopActionGoal.h
 string
 -
 vector
@@ -558,7 +558,7 @@ actionlib_msgs/GoalID.h
 franka_gripper/StopGoal.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopActionResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopActionResult.h
 string
 -
 vector
@@ -580,7 +580,7 @@ actionlib_msgs/GoalStatus.h
 franka_gripper/StopResult.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopFeedback.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopFeedback.h
 string
 -
 vector
@@ -596,7 +596,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopGoal.h
 string
 -
 vector
@@ -612,7 +612,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopResult.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopResult.h
 string
 -
 vector
@@ -628,7 +628,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/include/franka_msgs/Errors.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h
 string
 -
 vector
@@ -644,7 +644,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_hardware_interface/include/panda_hardware_interface/shared_joint_interface.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_hardware_interface/include/panda_hardware_interface/shared_joint_interface.h
 cassert
 -
 string
@@ -658,7 +658,7 @@ hardware_interface/joint_command_interface.h
 panda_hardware_interface/sum_command_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_hardware_interface/include/panda_hardware_interface/sum_command_interface.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_hardware_interface/include/panda_hardware_interface/sum_command_interface.h
 cassert
 -
 string
@@ -670,7 +670,7 @@ hardware_interface/joint_state_interface.h
 hardware_interface/joint_command_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/joint_array_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/joint_array_controller.h
 map
 -
 memory
@@ -684,7 +684,7 @@ realtime_tools/realtime_buffer.h
 panda_hardware_interface/shared_joint_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_effort_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_effort_controller.h
 panda_sim_controllers/joint_array_controller.h
 -
 franka_core_msgs/JointCommand.h
@@ -696,7 +696,7 @@ ros/node_handle.h
 control_toolbox/pid.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_gravity_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_gravity_controller.h
 panda_sim_controllers/joint_array_controller.h
 -
 franka_core_msgs/RobotState.h
@@ -714,7 +714,7 @@ ros/time.h
 control_toolbox/pid.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_gripper_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_gripper_controller.h
 mutex
 -
 urdf/model.h
@@ -744,13 +744,13 @@ franka_gripper/MoveAction.h
 franka_gripper/StopAction.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_joint_effort_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_joint_effort_controller.h
 forward_command_controller/forward_command_controller.h
 -
 panda_hardware_interface/shared_joint_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_joint_position_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_joint_position_controller.h
 ros/node_handle.h
 -
 urdf/model.h
@@ -778,7 +778,7 @@ realtime_tools/realtime_buffer.h
 panda_hardware_interface/shared_joint_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_joint_velocity_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_joint_velocity_controller.h
 ros/node_handle.h
 -
 boost/thread/condition.hpp
@@ -800,7 +800,7 @@ realtime_tools/realtime_publisher.h
 panda_hardware_interface/shared_joint_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_position_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_position_controller.h
 mutex
 -
 panda_sim_controllers/joint_array_controller.h
@@ -824,7 +824,7 @@ realtime_tools/realtime_box.h
 panda_hardware_interface/shared_joint_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_velocity_controller.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/panda_velocity_controller.h
 panda_sim_controllers/joint_array_controller.h
 -
 franka_core_msgs/JointCommand.h
@@ -844,19 +844,19 @@ control_toolbox/pid.h
 panda_hardware_interface/shared_joint_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_effort_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_effort_controller.cpp
 panda_sim_controllers/panda_effort_controller.h
 -
 pluginlib/class_list_macros.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_gravity_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_gravity_controller.cpp
 panda_sim_controllers/panda_gravity_controller.h
 -
 pluginlib/class_list_macros.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_gripper_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_gripper_controller.cpp
 panda_sim_controllers/panda_gripper_controller.h
 -
 franka_gripper/GraspAction.h
@@ -874,13 +874,13 @@ pluginlib/class_list_macros.h
 yaml-cpp/yaml.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_joint_effort_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_joint_effort_controller.cpp
 panda_sim_controllers/panda_joint_effort_controller.h
 -
 pluginlib/class_list_macros.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_joint_position_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_joint_position_controller.cpp
 panda_sim_controllers/panda_joint_position_controller.h
 -
 angles/angles.h
@@ -888,19 +888,19 @@ angles/angles.h
 pluginlib/class_list_macros.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_joint_velocity_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_joint_velocity_controller.cpp
 panda_sim_controllers/panda_joint_velocity_controller.h
 -
 pluginlib/class_list_macros.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_position_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_position_controller.cpp
 panda_sim_controllers/panda_position_controller.h
 -
 pluginlib/class_list_macros.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/src/panda_velocity_controller.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/src/panda_velocity_controller.cpp
 panda_sim_controllers/panda_velocity_controller.h
 -
 pluginlib/class_list_macros.h

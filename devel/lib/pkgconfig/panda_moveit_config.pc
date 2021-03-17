@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/panda_moveit_config/lib/pkgconfig/panda_moveit_config.pc
+/home/morgan/projects/ros_cws_planner/devel/.private/panda_moveit_config/lib/pkgconfig/panda_moveit_config.pc

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/cws_planning
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/cws_planning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/cws_planning
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/cws_planning
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/cws_ws/build/cws_planning/CMakeFiles /home/morgan/projects/cws_ws/build/cws_planning/gtest/CMakeFiles/progress.marks
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/cws_ws/build/cws_planning/CMakeFiles 0
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles /home/morgan/projects/ros_cws_planner/build/cws_planning/gtest/CMakeFiles/progress.marks
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/clean
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,17 +154,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(MAKE) -f CMakeFiles/Makefile2 gtest/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -191,6 +191,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

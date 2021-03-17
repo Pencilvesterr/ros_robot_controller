@@ -1,4 +1,4 @@
-prefix=/home/morgan/projects/cws_ws/install
+prefix=/home/morgan/projects/ros_cws_planner/install
 
 Name: franka_moveit
 Description: Description of franka_moveit

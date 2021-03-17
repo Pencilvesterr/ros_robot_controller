@@ -6,23 +6,23 @@
 
 #include "sipAPIPyKDL.h"
 
-#line 675 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 675 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainjnttojacsolver.hpp>
 using namespace KDL;
-#line 13 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 13 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 18 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 18 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 22 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 361 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 22 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 361 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 26 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 26 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
 
 class sipChainJntToJacSolver : public  ::ChainJntToJacSolver
@@ -284,25 +284,25 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainJntToJacSolver = {
     0
 };
 
-#line 662 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 662 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainiksolvervel_pinv_givens.hpp>
 using namespace KDL;
-#line 295 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 295 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 300 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 300 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 304 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 281 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 304 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 281 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 310 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 310 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
 
 class sipChainIkSolverVel_pinv_givens : public  ::ChainIkSolverVel_pinv_givens
@@ -584,25 +584,25 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainIkSolverVel_pinv_givens = {
     0
 };
 
-#line 637 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 637 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainiksolvervel_pinv_nso.hpp>
 using namespace KDL;
-#line 599 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 599 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 604 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 604 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 608 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 281 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 608 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 281 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 614 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 614 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
 
 class sipChainIkSolverVel_pinv_nso : public  ::ChainIkSolverVel_pinv_nso
@@ -1124,25 +1124,25 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainIkSolverVel_pinv_nso = {
     0
 };
 
-#line 623 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 623 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainiksolverpos_lma.hpp>
 using namespace KDL;
-#line 1149 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1149 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 1154 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 1154 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 1158 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 201 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 1158 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 201 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 1164 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1164 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
 
 class sipChainIkSolverPos_LMA : public  ::ChainIkSolverPos_LMA
@@ -1430,25 +1430,25 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainIkSolverPos_LMA = {
     0
 };
 
-#line 536 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 536 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainiksolvervel_wdls.hpp>
 using namespace KDL;
-#line 1459 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1459 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 1464 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 1464 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 1468 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 281 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 1468 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 281 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 1474 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1474 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
 
 class sipChainIkSolverVel_wdls : public  ::ChainIkSolverVel_wdls
@@ -1604,7 +1604,7 @@ static PyObject *meth_ChainIkSolverVel_wdls_setWeightTS(PyObject *sipSelf, PyObj
         {
             int sipIsErr = 0;
 
-#line 547 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 547 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
     //void setWeightTS(const Eigen::MatrixXd& Mx);
     //Mx has to be a 6x6 Matrix
 
@@ -1638,7 +1638,7 @@ static PyObject *meth_ChainIkSolverVel_wdls_setWeightTS(PyObject *sipSelf, PyObj
         }
     }
     sipCpp->setWeightTS(Mx);
-#line 1667 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1667 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
             if (sipIsErr)
                 return 0;
@@ -1670,7 +1670,7 @@ static PyObject *meth_ChainIkSolverVel_wdls_setWeightJS(PyObject *sipSelf, PyObj
         {
             int sipIsErr = 0;
 
-#line 584 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 584 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
     //void setWeightJS(const Eigen::MatrixXd& Mx);
     //Mx has to be a simetric positive definite Matrix
     //unsigned int nOfJoints=sipCpp->chain.getNrOfJoints(); //To check that we are receiving valid data dimensions. This doesn't work, chain is a private member. todo: How can we check for this?
@@ -1700,7 +1700,7 @@ static PyObject *meth_ChainIkSolverVel_wdls_setWeightJS(PyObject *sipSelf, PyObj
         }
     }
     sipCpp->setWeightJS(Mq);
-#line 1730 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1730 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
             if (sipIsErr)
                 return 0;
@@ -1896,25 +1896,25 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainIkSolverVel_wdls = {
     0
 };
 
-#line 523 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 523 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainiksolvervel_pinv.hpp>
 using namespace KDL;
-#line 1932 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1932 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 1937 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 1937 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 1941 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
-#line 281 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 1941 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 281 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 1947 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
+#line 1947 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart2.cpp"
 
 
 class sipChainIkSolverVel_pinv : public  ::ChainIkSolverVel_pinv

@@ -1,8 +1,8 @@
-# Install script for directory: /home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl
+# Install script for directory: /home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/cws_ws/devel")
+  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/ros_cws_planner/devel")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,35 +38,35 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so")
+  if(EXISTS "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so"
+         FILE "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so")
+   "/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages" TYPE SHARED_LIBRARY FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL.so")
-  if(EXISTS "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages" TYPE SHARED_LIBRARY FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL.so")
+  if(EXISTS "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so"
-         OLD_RPATH "/home/morgan/projects/cws_ws/devel/lib:"
+         FILE "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so"
+         OLD_RPATH "/home/morgan/projects/ros_cws_planner/devel/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/morgan/projects/cws_ws/devel/lib/python2.7/dist-packages/PyKDL.so")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/PyKDL.so")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl" TYPE FILE FILES "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -81,112 +81,112 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/_setup_util.py")
+   "/home/morgan/projects/ros_cws_planner/devel/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel" TYPE PROGRAM FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/env.sh")
+   "/home/morgan/projects/ros_cws_planner/devel/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel" TYPE PROGRAM FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/setup.bash;/home/morgan/projects/cws_ws/devel/local_setup.bash")
+   "/home/morgan/projects/ros_cws_planner/devel/setup.bash;/home/morgan/projects/ros_cws_planner/devel/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/setup.bash"
-    "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/setup.bash"
+    "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/setup.sh;/home/morgan/projects/cws_ws/devel/local_setup.sh")
+   "/home/morgan/projects/ros_cws_planner/devel/setup.sh;/home/morgan/projects/ros_cws_planner/devel/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/setup.sh"
-    "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/setup.sh"
+    "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/setup.zsh;/home/morgan/projects/cws_ws/devel/local_setup.zsh")
+   "/home/morgan/projects/ros_cws_planner/devel/setup.zsh;/home/morgan/projects/ros_cws_planner/devel/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/setup.zsh"
-    "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/setup.zsh"
+    "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/devel/.rosinstall")
+   "/home/morgan/projects/ros_cws_planner/devel/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/devel" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/devel" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/.rosinstall")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl/catkin_env_hook" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl/catkin_env_hook" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.tcsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.tcsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl/catkin_env_hook" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.tcsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl/catkin_env_hook" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.tcsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl/catkin_env_hook" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/python_orocos_kdl/catkin_env_hook" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/catkin_generated/installspace/python_orocos_kdl_site_packages.zsh")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/morgan/projects/cws_ws/build/python_orocos_kdl/gtest/cmake_install.cmake")
+  include("/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/gtest/cmake_install.cmake")
 
 endif()
 
@@ -198,5 +198,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/morgan/projects/cws_ws/build/python_orocos_kdl/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/share/franka_hw/cmake/franka_hwConfig-version.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/share/franka_hw/cmake/franka_hwConfig-version.cmake

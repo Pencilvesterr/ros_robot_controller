@@ -7,9 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/morgan/projects/cws_ws/devel/.private/franka_tools:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/morgan/projects/cws_ws/devel/.private/franka_tools/lib:$LD_LIBRARY_PATH"
-export PWD='/home/morgan/projects/cws_ws/build/franka_tools'
-export PYTHONPATH="/home/morgan/projects/cws_ws/devel/.private/franka_tools/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/cws_ws/devel/.private/franka_tools/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/morgan/projects/cws_ws/src/franka_ros_interface/franka_tools:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/franka_tools:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/franka_tools/lib:$LD_LIBRARY_PATH"
+export PWD='/home/morgan/projects/ros_cws_planner/build/franka_tools'
+export PYTHONPATH='/home/morgan/projects/ros_cws_planner/devel/.private/franka_tools/lib/python2.7/dist-packages:/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/franka_tools/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_tools:$ROS_PACKAGE_PATH"

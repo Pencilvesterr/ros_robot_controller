@@ -1,8 +1,8 @@
-# Install script for directory: /home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/orocos_kdl/tests
+# Install script for directory: /home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/orocos_kdl/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/cws_ws/devel")
+  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/ros_cws_planner/devel")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

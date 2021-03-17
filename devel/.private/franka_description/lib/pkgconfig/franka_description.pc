@@ -1,4 +1,4 @@
-prefix=/home/morgan/projects/cws_ws/devel/.private/franka_description
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/franka_description
 
 Name: franka_description
 Description: Description of franka_description

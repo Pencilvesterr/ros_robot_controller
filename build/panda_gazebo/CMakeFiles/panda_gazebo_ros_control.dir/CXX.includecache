@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/EndPointState.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/EndPointState.h
 string
 -
 vector
@@ -28,7 +28,7 @@ geometry_msgs/WrenchStamped.h
 geometry_msgs/WrenchStamped.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/JointCommand.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointCommand.h
 string
 -
 vector
@@ -46,7 +46,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/JointLimits.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointLimits.h
 string
 -
 vector
@@ -62,7 +62,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_core_msgs/include/franka_core_msgs/RobotState.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/RobotState.h
 string
 -
 vector
@@ -84,7 +84,7 @@ franka_msgs/Errors.h
 franka_msgs/Errors.h
 -
 
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/include/franka_msgs/Errors.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h
 string
 -
 vector
@@ -100,197 +100,197 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/articulatedbodyinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/articulatedbodyinertia.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 rotationalinertia.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/rotationalinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/rotationalinertia.hpp
 rigidbodyinertia.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/rigidbodyinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/rigidbodyinertia.hpp
 Eigen/Core
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
 segment.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/segment.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/segment.hpp
 string
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chaindynparam.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chaindynparam.hpp
 chainidsolver_recursive_newton_euler.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver_recursive_newton_euler.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver_recursive_newton_euler.hpp
 articulatedbodyinertia.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/articulatedbodyinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/articulatedbodyinertia.hpp
 jntspaceinertiamatrix.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntspaceinertiamatrix.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntspaceinertiamatrix.hpp
 Eigen/StdVector
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolver.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolver.hpp
 chain.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
 framevel.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.hpp
 frameacc.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.hpp
 jntarray.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 jntarrayvel.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayvel.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayvel.hpp
 jntarrayacc.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayacc.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayacc.hpp
 solveri.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolverpos_recursive.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolverpos_recursive.hpp
 chainfksolver.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolver.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolver.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolvervel_recursive.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolvervel_recursive.hpp
 chainfksolver.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolver.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainfksolver.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver.hpp
 chain.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 jntarray.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 solveri.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver_recursive_newton_euler.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver_recursive_newton_euler.hpp
 chainidsolver.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainidsolver.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chainjnttojacsolver.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chainjnttojacsolver.hpp
 solveri.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 jacobian.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
 jntarray.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 chain.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/config.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/config.h
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.hpp
 utilities/rall2d.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall2d.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall2d.h
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 frameacc.inl
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.inl
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.inl
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.inl
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.inl
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 utilities/kdl-config.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/kdl-config.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/kdl-config.h
 utilities/utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 frames.inl
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.inl
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.inl
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.inl
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.inl
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.hpp
 utilities/utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 utilities/rall1d.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall1d.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall1d.h
 utilities/traits.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/traits.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/traits.h
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 framevel.inl
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.inl
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.inl
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.inl
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.inl
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 Eigen/Core
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 jacobian.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
 Eigen/Core
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayacc.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayacc.hpp
 utilities/utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 jntarray.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 jntarrayvel.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayvel.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayvel.hpp
 frameacc.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frameacc.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayvel.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarrayvel.hpp
 utilities/utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 jntarray.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 framevel.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/framevel.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntspaceinertiamatrix.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntspaceinertiamatrix.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 jacobian.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jacobian.hpp
 jntarray.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/jntarray.hpp
 Eigen/Core
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/joint.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/joint.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 string
 -
 exception
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/rigidbodyinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/rigidbodyinertia.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 rotationalinertia.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/rotationalinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/rotationalinertia.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/rotationalinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/rotationalinertia.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/segment.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/segment.hpp
 frames.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/frames.hpp
 rigidbodyinertia.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/rigidbodyinertia.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/rigidbodyinertia.hpp
 joint.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/joint.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/joint.hpp
 vector
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/solveri.hpp
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/tree.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/tree.hpp
 config.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/config.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/config.h
 segment.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/segment.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/segment.hpp
 chain.hpp
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/chain.hpp
 string
 -
 map
@@ -298,29 +298,29 @@ map
 boost/shared_ptr.hpp
 -
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/kdl-config.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/kdl-config.h
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall1d.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall1d.h
 assert.h
 -
 utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall2d.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/rall2d.h
 math.h
 -
 assert.h
 -
 utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/traits.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/traits.h
 utility.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/utility.h
 kdl-config.h
-/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/kdl-config.h
+/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include/kdl/utilities/kdl-config.h
 cstdlib
 -
 cassert
@@ -328,7 +328,7 @@ cassert
 cmath
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/include/panda_gazebo/arm_controller_interface.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/include/panda_gazebo/arm_controller_interface.h
 mutex
 -
 ros/ros.h
@@ -342,7 +342,7 @@ realtime_tools/realtime_box.h
 franka_core_msgs/JointCommand.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/include/panda_gazebo/arm_kinematics_interface.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/include/panda_gazebo/arm_kinematics_interface.h
 map
 -
 string
@@ -376,11 +376,11 @@ kdl/tree.hpp
 urdf/model.h
 -
 kdl/chainfksolver.hpp
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/include/panda_gazebo/kdl/chainfksolver.hpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/include/panda_gazebo/kdl/chainfksolver.hpp
 panda_gazebo/kdl_methods.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/include/panda_gazebo/kdl_methods.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/include/panda_gazebo/kdl_methods.h
 kdl/chainidsolver_recursive_newton_euler.hpp
 -
 kdl/chainfksolverpos_recursive.hpp
@@ -406,7 +406,7 @@ kdl_parser/kdl_parser.hpp
 tf_conversions/tf_kdl.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/include/panda_gazebo/panda_gazebo_ros_control_plugin.h
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/include/panda_gazebo/panda_gazebo_ros_control_plugin.h
 gazebo_ros_control/gazebo_ros_control_plugin.h
 -
 panda_gazebo/arm_controller_interface.h
@@ -414,13 +414,13 @@ panda_gazebo/arm_controller_interface.h
 panda_gazebo/arm_kinematics_interface.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/src/arm_controller_interface.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/src/arm_controller_interface.cpp
 panda_gazebo/arm_controller_interface.h
 -
 controller_manager_msgs/SwitchController.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/src/arm_kinematics_interface.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/src/arm_kinematics_interface.cpp
 panda_gazebo/arm_kinematics_interface.h
 -
 memory
@@ -434,11 +434,11 @@ kdl_parser/kdl_parser.hpp
 tf_conversions/tf_kdl.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/src/kdl_methods.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/src/kdl_methods.cpp
 panda_gazebo/kdl_methods.h
 -
 
-/home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo/src/panda_gazebo_ros_control_plugin.cpp
+/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo/src/panda_gazebo_ros_control_plugin.cpp
 panda_gazebo/panda_gazebo_ros_control_plugin.h
 -
 

@@ -1,8 +1,8 @@
 franka_ros/franka_control
-/home/morgan/projects/cws_ws/devel/.private/franka_control/cmake.lock /home/morgan/projects/cws_ws/devel/./cmake.lock
-/home/morgan/projects/cws_ws/devel/.private/franka_control/share/franka_control/cmake/franka_controlConfig.cmake /home/morgan/projects/cws_ws/devel/share/franka_control/cmake/franka_controlConfig.cmake
-/home/morgan/projects/cws_ws/devel/.private/franka_control/share/franka_control/cmake/franka_controlConfig-version.cmake /home/morgan/projects/cws_ws/devel/share/franka_control/cmake/franka_controlConfig-version.cmake
-/home/morgan/projects/cws_ws/devel/.private/franka_control/lib/libfranka_state_controller.so /home/morgan/projects/cws_ws/devel/lib/libfranka_state_controller.so
-/home/morgan/projects/cws_ws/devel/.private/franka_control/lib/franka_control/franka_control_node /home/morgan/projects/cws_ws/devel/lib/franka_control/franka_control_node
-/home/morgan/projects/cws_ws/devel/.private/franka_control/lib/franka_control/franka_combined_control_node /home/morgan/projects/cws_ws/devel/lib/franka_control/franka_combined_control_node
-/home/morgan/projects/cws_ws/devel/.private/franka_control/lib/pkgconfig/franka_control.pc /home/morgan/projects/cws_ws/devel/lib/pkgconfig/franka_control.pc
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/cmake.lock /home/morgan/projects/ros_cws_planner/devel/./cmake.lock
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/share/franka_control/cmake/franka_controlConfig.cmake /home/morgan/projects/ros_cws_planner/devel/share/franka_control/cmake/franka_controlConfig.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/share/franka_control/cmake/franka_controlConfig-version.cmake /home/morgan/projects/ros_cws_planner/devel/share/franka_control/cmake/franka_controlConfig-version.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/libfranka_state_controller.so /home/morgan/projects/ros_cws_planner/devel/lib/libfranka_state_controller.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/franka_control/franka_control_node /home/morgan/projects/ros_cws_planner/devel/lib/franka_control/franka_control_node
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/franka_control/franka_combined_control_node /home/morgan/projects/ros_cws_planner/devel/lib/franka_control/franka_combined_control_node
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/pkgconfig/franka_control.pc /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/franka_control.pc

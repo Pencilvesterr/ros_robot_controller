@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/panda_simulator/panda_hardware_interface
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_hardware_interface
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_hardware_interface
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_hardware_interface
 
 # Utility rule file for rosgraph_msgs_generate_messages_py.
 
@@ -67,6 +67,6 @@ CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/panda_hardware_interface && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/panda_simulator/panda_hardware_interface /home/morgan/projects/cws_ws/src/panda_simulator/panda_hardware_interface /home/morgan/projects/cws_ws/build/panda_hardware_interface /home/morgan/projects/cws_ws/build/panda_hardware_interface /home/morgan/projects/cws_ws/build/panda_hardware_interface/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/panda_hardware_interface && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_hardware_interface /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_hardware_interface /home/morgan/projects/ros_cws_planner/build/panda_hardware_interface /home/morgan/projects/ros_cws_planner/build/panda_hardware_interface /home/morgan/projects/ros_cws_planner/build/panda_hardware_interface/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
 

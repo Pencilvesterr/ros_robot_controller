@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/usr/src/googletest/googletest/src/gtest-all.cc" "/home/morgan/projects/cws_ws/build/python_orocos_kdl/gtest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o"
-  "/usr/src/googletest/googlemock/src/gmock-all.cc" "/home/morgan/projects/cws_ws/build/python_orocos_kdl/gtest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+  "/usr/src/googletest/googletest/src/gtest-all.cc" "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/gtest/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o"
+  "/usr/src/googletest/googlemock/src/gmock-all.cc" "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/gtest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,7 +16,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include"
+  "/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include"
   "/usr/include/eigen3"
   "/usr/include/python2.7"
   "/usr/src/googletest/googlemock/include"

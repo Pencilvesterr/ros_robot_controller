@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -
 
 CXX_DEFINES = -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS
 
-CXX_INCLUDES = -I/home/morgan/projects/cws_ws/devel/share/orocos_kdl/cmake/../../../include -I/usr/include/eigen3 -I/usr/include/python2.7 -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -I/usr/src/googletest/googletest/include -I/usr/src/googletest/googletest 
+CXX_INCLUDES = -I/home/morgan/projects/ros_cws_planner/devel/share/orocos_kdl/cmake/../../../include -I/usr/include/eigen3 -I/usr/include/python2.7 -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -I/usr/src/googletest/googletest/include -I/usr/src/googletest/googletest 
 

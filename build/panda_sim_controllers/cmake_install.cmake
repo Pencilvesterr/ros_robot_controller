@@ -1,8 +1,8 @@
-# Install script for directory: /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers
+# Install script for directory: /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/cws_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/ros_cws_planner/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,98 +49,98 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/install/_setup_util.py")
+   "/home/morgan/projects/ros_cws_planner/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/install" TYPE PROGRAM FILES "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/install/env.sh")
+   "/home/morgan/projects/ros_cws_planner/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/install" TYPE PROGRAM FILES "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/install/setup.bash;/home/morgan/projects/cws_ws/install/local_setup.bash")
+   "/home/morgan/projects/ros_cws_planner/install/setup.bash;/home/morgan/projects/ros_cws_planner/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/install" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/setup.bash"
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/setup.bash"
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/install/setup.sh;/home/morgan/projects/cws_ws/install/local_setup.sh")
+   "/home/morgan/projects/ros_cws_planner/install/setup.sh;/home/morgan/projects/ros_cws_planner/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/install" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/setup.sh"
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/setup.sh"
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/install/setup.zsh;/home/morgan/projects/cws_ws/install/local_setup.zsh")
+   "/home/morgan/projects/ros_cws_planner/install/setup.zsh;/home/morgan/projects/ros_cws_planner/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/install" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/setup.zsh"
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/setup.zsh"
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/cws_ws/install/.rosinstall")
+   "/home/morgan/projects/ros_cws_planner/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/cws_ws/install" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/.rosinstall")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/panda_sim_controllers.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/panda_sim_controllers.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/panda_sim_controllers/cmake" TYPE FILE FILES
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/panda_sim_controllersConfig.cmake"
-    "/home/morgan/projects/cws_ws/build/panda_sim_controllers/catkin_generated/installspace/panda_sim_controllersConfig-version.cmake"
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/panda_sim_controllersConfig.cmake"
+    "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/catkin_generated/installspace/panda_sim_controllersConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/panda_sim_controllers" TYPE FILE FILES "/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/panda_sim_controllers" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -150,12 +150,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpanda_sim_controllers.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/morgan/projects/cws_ws/devel/.private/panda_sim_controllers/lib/libpanda_sim_controllers.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_controllers/lib/libpanda_sim_controllers.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpanda_sim_controllers.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpanda_sim_controllers.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpanda_sim_controllers.so"
-         OLD_RPATH "/home/morgan/projects/cws_ws/devel/.private/franka_gripper/lib:/opt/ros/melodic/lib:"
+         OLD_RPATH "/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib:/opt/ros/melodic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpanda_sim_controllers.so")
@@ -165,18 +165,18 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/panda_sim_controllers" TYPE DIRECTORY FILES
-    "/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/config"
-    "/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/launch"
+    "/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/config"
+    "/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/launch"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/panda_sim_controllers" TYPE DIRECTORY FILES "/home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/panda_sim_controllers" TYPE DIRECTORY FILES "/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_controllers/include/panda_sim_controllers/")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/morgan/projects/cws_ws/build/panda_sim_controllers/gtest/cmake_install.cmake")
+  include("/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/gtest/cmake_install.cmake")
 
 endif()
 
@@ -188,5 +188,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/morgan/projects/cws_ws/build/panda_sim_controllers/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/morgan/projects/ros_cws_planner/build/panda_sim_controllers/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

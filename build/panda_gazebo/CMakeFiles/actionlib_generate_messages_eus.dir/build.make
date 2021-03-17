@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_gazebo
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_gazebo
 
 # Utility rule file for actionlib_generate_messages_eus.
 
@@ -67,6 +67,6 @@ CMakeFiles/actionlib_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/actionlib_generate_messages_eus.dir/clean
 
 CMakeFiles/actionlib_generate_messages_eus.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/panda_gazebo && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo /home/morgan/projects/cws_ws/src/panda_simulator/panda_gazebo /home/morgan/projects/cws_ws/build/panda_gazebo /home/morgan/projects/cws_ws/build/panda_gazebo /home/morgan/projects/cws_ws/build/panda_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/panda_gazebo && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_gazebo /home/morgan/projects/ros_cws_planner/build/panda_gazebo /home/morgan/projects/ros_cws_planner/build/panda_gazebo /home/morgan/projects/ros_cws_planner/build/panda_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/actionlib_generate_messages_eus.dir/depend
 

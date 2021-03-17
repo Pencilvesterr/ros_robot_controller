@@ -4,8 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/franka_ros_controllers.dir/src/effort_joint_position_controller.cpp.o"
   "CMakeFiles/franka_ros_controllers.dir/src/effort_joint_torque_controller.cpp.o"
   "CMakeFiles/franka_ros_controllers.dir/src/velocity_joint_velocity_controller.cpp.o"
-  "/home/morgan/projects/cws_ws/devel/.private/franka_ros_controllers/lib/libfranka_ros_controllers.pdb"
-  "/home/morgan/projects/cws_ws/devel/.private/franka_ros_controllers/lib/libfranka_ros_controllers.so"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/libfranka_ros_controllers.pdb"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/libfranka_ros_controllers.so"
 )
 
 # Per-language clean rules from dependency scanning.

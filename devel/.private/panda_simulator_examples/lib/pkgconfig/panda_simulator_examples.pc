@@ -1,4 +1,4 @@
-prefix=/home/morgan/projects/cws_ws/devel/.private/panda_simulator_examples
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/panda_simulator_examples
 
 Name: panda_simulator_examples
 Description: Description of panda_simulator_examples

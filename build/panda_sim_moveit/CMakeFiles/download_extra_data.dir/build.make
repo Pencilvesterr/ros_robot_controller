@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_moveit
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_moveit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_sim_moveit
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_sim_moveit
 
 # Utility rule file for download_extra_data.
 
@@ -67,6 +67,6 @@ CMakeFiles/download_extra_data.dir/clean:
 .PHONY : CMakeFiles/download_extra_data.dir/clean
 
 CMakeFiles/download_extra_data.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/panda_sim_moveit && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_moveit /home/morgan/projects/cws_ws/src/panda_simulator/panda_sim_moveit /home/morgan/projects/cws_ws/build/panda_sim_moveit /home/morgan/projects/cws_ws/build/panda_sim_moveit /home/morgan/projects/cws_ws/build/panda_sim_moveit/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/panda_sim_moveit && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_moveit /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_sim_moveit /home/morgan/projects/ros_cws_planner/build/panda_sim_moveit /home/morgan/projects/ros_cws_planner/build/panda_sim_moveit /home/morgan/projects/ros_cws_planner/build/panda_sim_moveit/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/download_extra_data.dir/depend
 

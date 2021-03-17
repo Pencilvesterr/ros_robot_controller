@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/cws_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/ros_cws_planner/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/morgan/projects/cws_ws/build/panda_sim_custom_action_server/gtest/googlemock/cmake_install.cmake")
+  include("/home/morgan/projects/ros_cws_planner/build/panda_sim_custom_action_server/gtest/googlemock/cmake_install.cmake")
 
 endif()
 

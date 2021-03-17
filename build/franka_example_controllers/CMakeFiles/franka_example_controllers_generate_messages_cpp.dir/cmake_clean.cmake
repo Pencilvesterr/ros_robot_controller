@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/franka_example_controllers_generate_messages_cpp"
-  "/home/morgan/projects/cws_ws/devel/.private/franka_example_controllers/include/franka_example_controllers/JointTorqueComparison.h"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers/include/franka_example_controllers/JointTorqueComparison.h"
 )
 
 # Per-language clean rules from dependency scanning.

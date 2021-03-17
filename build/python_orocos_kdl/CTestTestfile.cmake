@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl
-# Build directory: /home/morgan/projects/cws_ws/build/python_orocos_kdl
+# Source directory: /home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl
+# Build directory: /home/morgan/projects/ros_cws_planner/build/python_orocos_kdl
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

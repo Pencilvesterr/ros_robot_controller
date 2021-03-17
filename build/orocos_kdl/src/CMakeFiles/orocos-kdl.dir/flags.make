@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG -fPIC     -I/usr/include/eigen3
 
 CXX_DEFINES = -Dorocos_kdl_EXPORTS
 
-CXX_INCLUDES = -I/usr/include/eigen3 -I/home/morgan/projects/cws_ws/build/orocos_kdl/src 
+CXX_INCLUDES = -I/usr/include/eigen3 -I/home/morgan/projects/ros_cws_planner/build/orocos_kdl/src 
 

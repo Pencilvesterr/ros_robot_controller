@@ -67,14 +67,14 @@ set(franka_example_controllers_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(franka_example_controllers_SOURCE_PREFIX /home/morgan/projects/cws_ws/src/franka_ros/franka_example_controllers)
-  set(franka_example_controllers_DEVEL_PREFIX /home/morgan/projects/cws_ws/devel/.private/franka_example_controllers)
+  set(franka_example_controllers_SOURCE_PREFIX /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_example_controllers)
+  set(franka_example_controllers_DEVEL_PREFIX /home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers)
   set(franka_example_controllers_INSTALL_PREFIX "")
   set(franka_example_controllers_PREFIX ${franka_example_controllers_DEVEL_PREFIX})
 else()
   set(franka_example_controllers_SOURCE_PREFIX "")
   set(franka_example_controllers_DEVEL_PREFIX "")
-  set(franka_example_controllers_INSTALL_PREFIX /home/morgan/projects/cws_ws/install)
+  set(franka_example_controllers_INSTALL_PREFIX /home/morgan/projects/ros_cws_planner/install)
   set(franka_example_controllers_PREFIX ${franka_example_controllers_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/morgan/projects/cws_ws/install/lib;/home/morgan/projects/cws_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/morgan/projects/ros_cws_planner/install/lib;/home/morgan/projects/ros_cws_planner/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

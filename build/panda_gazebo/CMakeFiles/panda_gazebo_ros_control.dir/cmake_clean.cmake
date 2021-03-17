@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/panda_gazebo_ros_control.dir/src/arm_controller_interface.cpp.o"
   "CMakeFiles/panda_gazebo_ros_control.dir/src/arm_kinematics_interface.cpp.o"
   "CMakeFiles/panda_gazebo_ros_control.dir/src/kdl_methods.cpp.o"
-  "/home/morgan/projects/cws_ws/devel/.private/panda_gazebo/lib/libpanda_gazebo_ros_control.pdb"
-  "/home/morgan/projects/cws_ws/devel/.private/panda_gazebo/lib/libpanda_gazebo_ros_control.so"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/panda_gazebo/lib/libpanda_gazebo_ros_control.pdb"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/panda_gazebo/lib/libpanda_gazebo_ros_control.so"
 )
 
 # Per-language clean rules from dependency scanning.

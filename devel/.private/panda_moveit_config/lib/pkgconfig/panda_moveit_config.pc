@@ -1,4 +1,4 @@
-prefix=/home/morgan/projects/cws_ws/devel/.private/panda_moveit_config
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/panda_moveit_config
 
 Name: panda_moveit_config
 Description: Description of panda_moveit_config

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/panda_simulator/panda_simulator_examples
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_simulator_examples
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/panda_simulator_examples
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples
 
 # Utility rule file for actionlib_generate_messages_nodejs.
 
@@ -67,6 +67,6 @@ CMakeFiles/actionlib_generate_messages_nodejs.dir/clean:
 .PHONY : CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
 
 CMakeFiles/actionlib_generate_messages_nodejs.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/panda_simulator_examples && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/panda_simulator/panda_simulator_examples /home/morgan/projects/cws_ws/src/panda_simulator/panda_simulator_examples /home/morgan/projects/cws_ws/build/panda_simulator_examples /home/morgan/projects/cws_ws/build/panda_simulator_examples /home/morgan/projects/cws_ws/build/panda_simulator_examples/CMakeFiles/actionlib_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_simulator_examples /home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_simulator_examples /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples /home/morgan/projects/ros_cws_planner/build/panda_simulator_examples/CMakeFiles/actionlib_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/actionlib_generate_messages_nodejs.dir/depend
 

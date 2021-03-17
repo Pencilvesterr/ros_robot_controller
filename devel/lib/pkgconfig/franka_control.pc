@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_control/lib/pkgconfig/franka_control.pc
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/pkgconfig/franka_control.pc

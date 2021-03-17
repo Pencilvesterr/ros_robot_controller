@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/share/franka_msgs/msg/ErrorRecoveryResult.msg
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/share/franka_msgs/msg/ErrorRecoveryResult.msg

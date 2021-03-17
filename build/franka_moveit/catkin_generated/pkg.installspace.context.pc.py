@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "franka_moveit"
-PROJECT_SPACE_DIR = "/home/morgan/projects/cws_ws/install"
+PROJECT_SPACE_DIR = "/home/morgan/projects/ros_cws_planner/install"
 PROJECT_VERSION = "0.7.1"

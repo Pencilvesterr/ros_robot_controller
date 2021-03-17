@@ -1,4 +1,4 @@
-prefix=/home/morgan/projects/cws_ws/devel/.private/cws_planning
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning
 
 Name: cws_planning
 Description: Description of cws_planning

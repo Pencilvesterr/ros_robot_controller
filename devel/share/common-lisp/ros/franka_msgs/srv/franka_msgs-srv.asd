@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/share/common-lisp/ros/franka_msgs/srv/franka_msgs-srv.asd
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/share/common-lisp/ros/franka_msgs/srv/franka_msgs-srv.asd

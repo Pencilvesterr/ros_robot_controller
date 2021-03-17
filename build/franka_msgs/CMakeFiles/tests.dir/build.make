@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/franka_ros/franka_msgs
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/franka_msgs
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_msgs
 
 # Utility rule file for tests.
 
@@ -67,6 +67,6 @@ CMakeFiles/tests.dir/clean:
 .PHONY : CMakeFiles/tests.dir/clean
 
 CMakeFiles/tests.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/franka_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/franka_ros/franka_msgs /home/morgan/projects/cws_ws/src/franka_ros/franka_msgs /home/morgan/projects/cws_ws/build/franka_msgs /home/morgan/projects/cws_ws/build/franka_msgs /home/morgan/projects/cws_ws/build/franka_msgs/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/franka_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_msgs /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_msgs /home/morgan/projects/ros_cws_planner/build/franka_msgs /home/morgan/projects/ros_cws_planner/build/franka_msgs /home/morgan/projects/ros_cws_planner/build/franka_msgs/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tests.dir/depend
 

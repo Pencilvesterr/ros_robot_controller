@@ -1,8 +1,8 @@
-# Install script for directory: /home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/orocos_kdl/doc
+# Install script for directory: /home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/orocos_kdl/doc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/cws_ws/devel")
+  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/ros_cws_planner/devel")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/liborocos-kdl" TYPE FILE OPTIONAL FILES "/home/morgan/projects/cws_ws/build/orocos_kdl/doc/kdl.tag")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/liborocos-kdl" TYPE FILE OPTIONAL FILES "/home/morgan/projects/ros_cws_planner/build/orocos_kdl/doc/kdl.tag")
 endif()
 

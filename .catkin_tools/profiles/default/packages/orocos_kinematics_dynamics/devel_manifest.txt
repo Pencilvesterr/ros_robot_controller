@@ -1,2 +1,2 @@
 orocos_kinematics_dynamics/orocos_kinematics_dynamics
-/home/morgan/projects/cws_ws/devel/.private/orocos_kinematics_dynamics/cmake.lock /home/morgan/projects/cws_ws/devel/./cmake.lock
+/home/morgan/projects/ros_cws_planner/devel/.private/orocos_kinematics_dynamics/cmake.lock /home/morgan/projects/ros_cws_planner/devel/./cmake.lock

@@ -7,7 +7,8 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/morgan/projects/cws_ws/devel/.private/panda_hardware_interface:$CMAKE_PREFIX_PATH"
-export PWD='/home/morgan/projects/cws_ws/build/panda_hardware_interface'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/cws_ws/devel/.private/panda_hardware_interface/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/morgan/projects/cws_ws/src/panda_simulator/panda_hardware_interface:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/panda_hardware_interface:$CMAKE_PREFIX_PATH"
+export PWD='/home/morgan/projects/ros_cws_planner/build/panda_hardware_interface'
+export PYTHONPATH='/opt/ros/melodic/lib/python2.7/dist-packages'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/panda_hardware_interface/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/src/panda_simulator/panda_hardware_interface:$ROS_PACKAGE_PATH"

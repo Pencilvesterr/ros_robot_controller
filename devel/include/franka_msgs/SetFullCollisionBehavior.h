@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehavior.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehavior.h

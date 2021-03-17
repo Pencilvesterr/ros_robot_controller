@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/franka_interface
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_interface
 
 # Include any dependencies generated for this target.
 include CMakeFiles/custom_franka_state_controller.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/custom_franka_state_controller.dir/progress.make
 include CMakeFiles/custom_franka_state_controller.dir/flags.make
 
 CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o: CMakeFiles/custom_franka_state_controller.dir/flags.make
-CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o: /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/cws_ws/build/franka_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o -c /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp
+CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o: /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o -c /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp
 
 CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp > CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp > CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.i
 
 CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp -o CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface/src/robot_state_controller.cpp -o CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.s
 
 CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o.requires:
 
@@ -88,57 +88,57 @@ custom_franka_state_controller_OBJECTS = \
 # External object files for target custom_franka_state_controller
 custom_franka_state_controller_EXTERNAL_OBJECTS =
 
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: CMakeFiles/custom_franka_state_controller.dir/build.make
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libfranka.so.0.8.0
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /home/morgan/projects/cws_ws/devel/.private/franka_control/lib/libfranka_state_controller.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/libfranka_hw.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/libfranka_control_services.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libfranka.so.0.8.0
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libactionlib.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libcombined_robot_hw.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/liburdf.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole_bridge.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libcontroller_manager.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libclass_loader.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/libPocoFoundation.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libdl.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libroslib.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librospack.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librealtime_tools.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libroscpp.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librostime.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libcpp_common.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: CMakeFiles/custom_franka_state_controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/morgan/projects/cws_ws/build/franka_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so"
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: CMakeFiles/custom_franka_state_controller.dir/src/robot_state_controller.cpp.o
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: CMakeFiles/custom_franka_state_controller.dir/build.make
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libfranka.so.0.8.0
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/libfranka_state_controller.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_hw.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_control_services.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libfranka.so.0.8.0
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libactionlib.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libcombined_robot_hw.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/liburdf.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole_bridge.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libcontroller_manager.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libclass_loader.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/libPocoFoundation.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libdl.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libroslib.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librospack.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librealtime_tools.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libroscpp.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/librostime.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /opt/ros/melodic/lib/libcpp_common.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so: CMakeFiles/custom_franka_state_controller.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/custom_franka_state_controller.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/custom_franka_state_controller.dir/build: /home/morgan/projects/cws_ws/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so
+CMakeFiles/custom_franka_state_controller.dir/build: /home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib/libcustom_franka_state_controller.so
 
 .PHONY : CMakeFiles/custom_franka_state_controller.dir/build
 
@@ -151,6 +151,6 @@ CMakeFiles/custom_franka_state_controller.dir/clean:
 .PHONY : CMakeFiles/custom_franka_state_controller.dir/clean
 
 CMakeFiles/custom_franka_state_controller.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/franka_interface && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface /home/morgan/projects/cws_ws/src/franka_ros_interface/franka_interface /home/morgan/projects/cws_ws/build/franka_interface /home/morgan/projects/cws_ws/build/franka_interface /home/morgan/projects/cws_ws/build/franka_interface/CMakeFiles/custom_franka_state_controller.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/franka_interface && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_interface /home/morgan/projects/ros_cws_planner/build/franka_interface /home/morgan/projects/ros_cws_planner/build/franka_interface /home/morgan/projects/ros_cws_planner/build/franka_interface/CMakeFiles/custom_franka_state_controller.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/custom_franka_state_controller.dir/depend
 

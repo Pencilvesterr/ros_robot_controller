@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/franka_ros/franka_hw
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/franka_hw
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_hw
 
 # Include any dependencies generated for this target.
 include test/CMakeFiles/franka_hw_test.dir/depend.make
@@ -58,17 +58,17 @@ include test/CMakeFiles/franka_hw_test.dir/progress.make
 include test/CMakeFiles/franka_hw_test.dir/flags.make
 
 test/CMakeFiles/franka_hw_test.dir/main.cpp.o: test/CMakeFiles/franka_hw_test.dir/flags.make
-test/CMakeFiles/franka_hw_test.dir/main.cpp.o: /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/cws_ws/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/franka_hw_test.dir/main.cpp.o"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/main.cpp.o -c /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/main.cpp
+test/CMakeFiles/franka_hw_test.dir/main.cpp.o: /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/franka_hw_test.dir/main.cpp.o"
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/main.cpp.o -c /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/main.cpp
 
 test/CMakeFiles/franka_hw_test.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/franka_hw_test.dir/main.cpp.i"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/main.cpp > CMakeFiles/franka_hw_test.dir/main.cpp.i
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/main.cpp > CMakeFiles/franka_hw_test.dir/main.cpp.i
 
 test/CMakeFiles/franka_hw_test.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/franka_hw_test.dir/main.cpp.s"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/main.cpp -o CMakeFiles/franka_hw_test.dir/main.cpp.s
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/main.cpp -o CMakeFiles/franka_hw_test.dir/main.cpp.s
 
 test/CMakeFiles/franka_hw_test.dir/main.cpp.o.requires:
 
@@ -82,17 +82,17 @@ test/CMakeFiles/franka_hw_test.dir/main.cpp.o.provides.build: test/CMakeFiles/fr
 
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o: test/CMakeFiles/franka_hw_test.dir/flags.make
-test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o: /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/cws_ws/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o -c /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp
+test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o: /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o"
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o -c /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.i"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp > CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.i
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp > CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.i
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.s"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp -o CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.s
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_controller_switching_test.cpp -o CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.s
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o.requires:
 
@@ -106,17 +106,17 @@ test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o.pro
 
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o: test/CMakeFiles/franka_hw_test.dir/flags.make
-test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o: /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/cws_ws/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o -c /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp
+test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o: /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o"
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o -c /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.i"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp > CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.i
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp > CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.i
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.s"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp -o CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.s
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_hw_interfaces_test.cpp -o CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.s
 
 test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o.requires:
 
@@ -130,17 +130,17 @@ test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o.provides.buil
 
 
 test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o: test/CMakeFiles/franka_hw_test.dir/flags.make
-test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o: /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/cws_ws/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o -c /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp
+test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o: /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o"
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o -c /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp
 
 test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.i"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp > CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.i
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp > CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.i
 
 test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.s"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp -o CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.s
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test/franka_combinable_hw_controller_switching_test.cpp -o CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.s
 
 test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o.requires:
 
@@ -163,91 +163,91 @@ franka_hw_test_OBJECTS = \
 # External object files for target franka_hw_test
 franka_hw_test_EXTERNAL_OBJECTS =
 
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/main.cpp.o
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/build.make
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: gtest/googlemock/gtest/libgtest.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libactionlib.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcombined_robot_hw.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/liburdf.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libclass_loader.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/libPocoFoundation.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libdl.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroslib.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librospack.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpython2.7.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_bridge.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librostime.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcpp_common.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/libfranka_hw.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/libfranka_control_services.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libactionlib.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcombined_robot_hw.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/liburdf.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libclass_loader.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/libPocoFoundation.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libdl.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroslib.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librospack.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpython2.7.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_bridge.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librostime.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcpp_common.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libfranka.so.0.8.0
-/home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/morgan/projects/cws_ws/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable /home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test"
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/franka_hw_test.dir/link.txt --verbose=$(VERBOSE)
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/main.cpp.o
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/franka_hw_controller_switching_test.cpp.o
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/franka_hw_interfaces_test.cpp.o
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/franka_combinable_hw_controller_switching_test.cpp.o
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/build.make
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: gtest/googlemock/gtest/libgtest.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libactionlib.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcombined_robot_hw.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/liburdf.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libclass_loader.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/libPocoFoundation.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libdl.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroslib.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librospack.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_bridge.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librostime.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcpp_common.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_hw.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_control_services.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libactionlib.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcombined_robot_hw.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/liburdf.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_model.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liburdfdom_world.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libclass_loader.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/libPocoFoundation.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libdl.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroslib.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librospack.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_bridge.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/librostime.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libcpp_common.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: /opt/ros/melodic/lib/libfranka.so.0.8.0
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test: test/CMakeFiles/franka_hw_test.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_hw/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable /home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test"
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/franka_hw_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-test/CMakeFiles/franka_hw_test.dir/build: /home/morgan/projects/cws_ws/devel/.private/franka_hw/lib/franka_hw/franka_hw_test
+test/CMakeFiles/franka_hw_test.dir/build: /home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/franka_hw/franka_hw_test
 
 .PHONY : test/CMakeFiles/franka_hw_test.dir/build
 
@@ -259,10 +259,10 @@ test/CMakeFiles/franka_hw_test.dir/requires: test/CMakeFiles/franka_hw_test.dir/
 .PHONY : test/CMakeFiles/franka_hw_test.dir/requires
 
 test/CMakeFiles/franka_hw_test.dir/clean:
-	cd /home/morgan/projects/cws_ws/build/franka_hw/test && $(CMAKE_COMMAND) -P CMakeFiles/franka_hw_test.dir/cmake_clean.cmake
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw/test && $(CMAKE_COMMAND) -P CMakeFiles/franka_hw_test.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/franka_hw_test.dir/clean
 
 test/CMakeFiles/franka_hw_test.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/franka_hw && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/franka_ros/franka_hw /home/morgan/projects/cws_ws/src/franka_ros/franka_hw/test /home/morgan/projects/cws_ws/build/franka_hw /home/morgan/projects/cws_ws/build/franka_hw/test /home/morgan/projects/cws_ws/build/franka_hw/test/CMakeFiles/franka_hw_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/franka_hw && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/test /home/morgan/projects/ros_cws_planner/build/franka_hw /home/morgan/projects/ros_cws_planner/build/franka_hw/test /home/morgan/projects/ros_cws_planner/build/franka_hw/test/CMakeFiles/franka_hw_test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/franka_hw_test.dir/depend
 

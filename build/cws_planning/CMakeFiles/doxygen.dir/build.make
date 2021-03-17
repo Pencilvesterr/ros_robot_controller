@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/cws_planning
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/cws_planning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/cws_planning
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/cws_planning
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/cws_planning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/cws_planning /home/morgan/projects/cws_ws/src/cws_planning /home/morgan/projects/cws_ws/build/cws_planning /home/morgan/projects/cws_ws/build/cws_planning /home/morgan/projects/cws_ws/build/cws_planning/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/cws_planning /home/morgan/projects/ros_cws_planner/src/cws_planning /home/morgan/projects/ros_cws_planner/build/cws_planning /home/morgan/projects/ros_cws_planner/build/cws_planning /home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

@@ -6,41 +6,41 @@
 
 #include "sipAPIPyKDL.h"
 
-#line 100 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 100 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 13 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 13 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
-#line 102 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 102 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 20 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 26 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 20 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 26 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 26 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 26 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 26 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 26 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 30 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 44 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 30 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 44 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 34 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 207 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 34 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 207 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 38 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 281 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 38 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 281 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 44 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 44 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
 
 PyDoc_STRVAR(doc_RotationVel_value, "value(self) -> Rotation");
@@ -670,12 +670,12 @@ static PyObject *pickle_RotationVel(void *sipCppV)
      ::RotationVel *sipCpp = reinterpret_cast< ::RotationVel *>(sipCppV);
     PyObject *sipRes;
 
-#line 139 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 139 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
     const sipTypeDef *vector_type = sipFindType("Vector");
     const sipTypeDef *rotation_type = sipFindType("Rotation");
     sipRes = Py_BuildValue("OO", sipConvertFromType(&(sipCpp->R), rotation_type, Py_None),
                                  sipConvertFromType(&(sipCpp->w), vector_type, Py_None));
-#line 698 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 698 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
     return sipRes;
 }
@@ -948,21 +948,21 @@ sipClassTypeDef sipTypeDef_PyKDL_RotationVel = {
     0
 };
 
-#line 44 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 44 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 978 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 978 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
-#line 26 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 26 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 985 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 26 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 985 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 26 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 989 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 989 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
 
 PyDoc_STRVAR(doc_VectorVel_value, "value(self) -> Vector");
@@ -1424,11 +1424,11 @@ static PyObject *pickle_VectorVel(void *sipCppV)
      ::VectorVel *sipCpp = reinterpret_cast< ::VectorVel *>(sipCppV);
     PyObject *sipRes;
 
-#line 64 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 64 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
     const sipTypeDef *vector_type = sipFindType("Vector");
     sipRes = Py_BuildValue("OO", sipConvertFromType(&(sipCpp->p), vector_type, Py_None),
                                  sipConvertFromType(&(sipCpp->v), vector_type, Py_None));
-#line 1460 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 1460 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
     return sipRes;
 }
@@ -1697,19 +1697,19 @@ sipClassTypeDef sipTypeDef_PyKDL_VectorVel = {
     0
 };
 
-#line 26 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 26 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 1736 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 1736 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
-#line 44 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 44 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 1741 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 207 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
+#line 1741 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 207 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/framevel.sip"
 #include <kdl/framevel.hpp>
 using namespace KDL;
-#line 1745 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 1745 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
 
 extern "C" {static PyObject *slot_doubleVel___mul__(PyObject *,PyObject *);}
@@ -1944,34 +1944,34 @@ sipClassTypeDef sipTypeDef_PyKDL_doubleVel = {
     0
 };
 
-#line 708 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 708 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainidsolver_recursive_newton_euler.hpp>
 using namespace KDL;
-#line 1985 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 1985 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 1990 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 26 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 1990 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 26 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 1996 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 1996 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 2000 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 27 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 2000 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 27 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <vector>
-#line 2003 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 352 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 2003 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 352 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 2009 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 2009 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
 
 class sipChainIdSolver_RNE : public  ::ChainIdSolver_RNE
@@ -2261,24 +2261,24 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainIdSolver_RNE = {
     0
 };
 
-#line 699 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 699 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainidsolver.hpp>
 using namespace KDL;
-#line 2306 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 2306 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
-#line 280 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 280 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 2311 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 27 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 2311 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 27 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <vector>
-#line 2314 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 352 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
+#line 2314 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 352 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/frames.sip"
 #include <kdl/frames.hpp>
 #include <kdl/frames_io.hpp>
 #include <sstream>
 using namespace KDL;
-#line 2320 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 2320 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
 
 /* Cast a pointer to a type somewhere in its inheritance hierarchy. */
@@ -2365,23 +2365,23 @@ sipClassTypeDef sipTypeDef_PyKDL_ChainIdSolver = {
     0
 };
 
-#line 687 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 687 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chainjnttojacdotsolver.hpp>
 using namespace KDL;
-#line 2410 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 2410 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
-#line 241 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 241 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/chain.hpp>
 using namespace KDL;
-#line 2415 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 331 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 2415 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 331 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarrayvel.hpp>
 using namespace KDL;
-#line 2419 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
-#line 361 "/home/morgan/projects/cws_ws/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
+#line 2419 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 361 "/home/morgan/projects/ros_cws_planner/src/orocos_kinematics_dynamics/python_orocos_kdl/PyKDL/kinfam.sip"
 #include <kdl/jntarray.hpp>
 using namespace KDL;
-#line 2423 "/home/morgan/projects/cws_ws/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
+#line 2423 "/home/morgan/projects/ros_cws_planner/build/python_orocos_kdl/PyKDL/sipPyKDLpart1.cpp"
 
 
 class sipChainJntToJacDotSolver : public  ::ChainJntToJacDotSolver

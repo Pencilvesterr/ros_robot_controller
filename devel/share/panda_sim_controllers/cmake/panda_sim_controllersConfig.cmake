@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/panda_sim_controllers/share/panda_sim_controllers/cmake/panda_sim_controllersConfig.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_controllers/share/panda_sim_controllers/cmake/panda_sim_controllersConfig.cmake

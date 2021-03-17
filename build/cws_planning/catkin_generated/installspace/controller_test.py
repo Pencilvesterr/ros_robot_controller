@@ -1,5 +1,4 @@
-
-#! /usr/bin/env python
+#!/usr/bin/env python2
 
 """
     Script to test PandaArm controller command interface.

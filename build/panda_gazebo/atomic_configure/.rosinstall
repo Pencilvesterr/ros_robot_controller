@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/morgan/projects/cws_ws/devel/.private/panda_gazebo/setup.sh
+    local-name: /home/morgan/projects/ros_cws_planner/devel/.private/panda_gazebo/setup.sh

@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/StopGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/StopGoal.h

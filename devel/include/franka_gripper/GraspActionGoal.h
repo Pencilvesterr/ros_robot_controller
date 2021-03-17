@@ -1,1 +1,1 @@
-/home/morgan/projects/cws_ws/devel/.private/franka_gripper/include/franka_gripper/GraspActionGoal.h
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/include/franka_gripper/GraspActionGoal.h

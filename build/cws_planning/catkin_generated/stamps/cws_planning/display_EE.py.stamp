@@ -1,4 +1,3 @@
-
 #! /usr/bin/env python
 import rospy
 from panda_robot import PandaArm

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/cws_ws/src/franka_ros/franka_visualization
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_visualization
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/cws_ws/build/franka_visualization
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_visualization
 
 # Utility rule file for sensor_msgs_generate_messages_py.
 
@@ -67,6 +67,6 @@ CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/sensor_msgs_generate_messages_py.dir/depend:
-	cd /home/morgan/projects/cws_ws/build/franka_visualization && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/cws_ws/src/franka_ros/franka_visualization /home/morgan/projects/cws_ws/src/franka_ros/franka_visualization /home/morgan/projects/cws_ws/build/franka_visualization /home/morgan/projects/cws_ws/build/franka_visualization /home/morgan/projects/cws_ws/build/franka_visualization/CMakeFiles/sensor_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/franka_visualization && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_visualization /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_visualization /home/morgan/projects/ros_cws_planner/build/franka_visualization /home/morgan/projects/ros_cws_planner/build/franka_visualization /home/morgan/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/sensor_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
 
