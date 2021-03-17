@@ -1,3 +1,3 @@
-Symlinking /home/morgan/projects/ros_cws_planner/devel/share/panda_sim_moveit/cmake/panda_sim_moveitConfig.cmake
-Symlinking /home/morgan/projects/ros_cws_planner/devel/share/panda_sim_moveit/cmake/panda_sim_moveitConfig-version.cmake
-Symlinking /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/panda_sim_moveit.pc
+Linked: (/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_moveit/share/panda_sim_moveit/cmake/panda_sim_moveitConfig.cmake, /home/morgan/projects/ros_cws_planner/devel/share/panda_sim_moveit/cmake/panda_sim_moveitConfig.cmake)
+Linked: (/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_moveit/share/panda_sim_moveit/cmake/panda_sim_moveitConfig-version.cmake, /home/morgan/projects/ros_cws_planner/devel/share/panda_sim_moveit/cmake/panda_sim_moveitConfig-version.cmake)
+Linked: (/home/morgan/projects/ros_cws_planner/devel/.private/panda_sim_moveit/lib/pkgconfig/panda_sim_moveit.pc, /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/panda_sim_moveit.pc)

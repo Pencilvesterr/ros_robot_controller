@@ -48,23 +48,19 @@ $ chmod +x my_script.py
 # Running Simulation
 All information about the PandaSimulator can be found [here.](https://github.com/justagist/panda_simulator) (including setup). You will need to go through the install process as the repos couldn't be added to this repo.
 
-## Usage
+# Setup
 Use argument load_gripper:=false for starting without gripper for both commands. More options listed in their launch files. 
 ``` shell
 # If you get permission errors, run this command in the new tab before each following command
 $ sudo bash
 
-# Start the MoveIt server and roscore
+# Start the MoveIt server, panda move group and roscore (necessity for Melodic)
 $ roslaunch panda_sim_moveit sim_move_group.launch 
 
 # Start the simulator
 $ roslaunch panda_gazebo panda_world.launch
 
-# Start the Franka ROS Interface 'Driver' (otherwise can't access PandaRobot for controlling with Python)
-$ cd ~/projects/ros_cws_planner && ./franka.sh master
-$ roslaunch franka_interface interface.launch
-
-# Can test with demo showing the task-space control using Franka ROS Interface
+# Demo showing the task-space control using MoveIt
 $ roslaunch panda_simulator_examples demo_task_space_control.launch
 ```
 
@@ -72,8 +68,11 @@ $ roslaunch panda_simulator_examples demo_task_space_control.launch
 To get Panda Robot package to control the robot through the Franka ROS interface, you will first need to ensure that the interface is running and connected with the robot. The ./franka.sh file may need to be updated with your computer's IP address.
 
 ``` shell
-# Setup the Franka ROS Interface 
-$ ./franka.sh master
+# Starts the Franka Interface environment (master is the comp attached to the robot)
+$ cd ~/projects/ros_cws_planner && ./franka.sh master
+
+# Start the Franka ROS Interface 'Driver' (otherwise can't access PandaRobot for controlling with Python)
+$ roslaunch franka_interface interface.launch
 
 # Then launch the needed nodes
 # TODO:... 
@@ -82,11 +81,7 @@ $ ./franka.sh master
 - Use `catkin build` rather than catkin_make. Explination [here.](https://answers.ros.org/question/320613/catkin_make-vs-catkin_make_isolated-which-is-preferred/)
 
 
-
-
-
-
-TRYYYYYYY 
-roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
-roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true
-roslaucnh panda_moveit_config moveit_rviz.launch
+## Official guide for starting in the lab
+- roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
+- roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true
+- roslaucnh panda_moveit_config moveit_rviz.launch
