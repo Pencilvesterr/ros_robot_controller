@@ -54,14 +54,21 @@ Use argument load_gripper:=false for starting without gripper for both commands.
 # If you get permission errors, run this command in the new tab before each following command
 $ sudo bash
 
+# Start the simulator FIRST! 
+$ roslaunch panda_gazebo panda_world.launch
+
 # Start the MoveIt server, panda move group and roscore (necessity for Melodic)
 $ roslaunch panda_sim_moveit sim_move_group.launch 
 
-# Start the simulator
-$ roslaunch panda_gazebo panda_world.launch
-
 # Demo showing the task-space control using MoveIt
 $ roslaunch panda_simulator_examples demo_task_space_control.launch
+```
+# Setting up nodes for CWS Planning
+``` shell
+$ rosrun cws_planning listener.py
+
+# Can also launch this if you want to send CWS zones manually during testing 
+$ rosrun cws_planning talker_demo.py
 ```
 
 # Running with real robot
@@ -74,9 +81,23 @@ $ cd ~/projects/ros_cws_planner && ./franka.sh master
 # Start the Franka ROS Interface 'Driver' (otherwise can't access PandaRobot for controlling with Python)
 $ roslaunch franka_interface interface.launch
 
-# Then launch the needed nodes
-# TODO:... 
+# Launch the rosconnector bridge to communicate with the robot
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+
+# Then launch the listener node that controls the robot
+$ rosrun cws_planning listener.py
 ```
+
+## Setting Up ROS Bridge
+To connect the HoloLens to the ROS nodes, you have to go through a ros bridge connector. Please clone the following package into your workspace's ./src directory 
+
+For running the rosbridge, please refer to [this link](http://wiki.ros.org/rosbridge_suite/Tutorials/RunningRosbridge). Then ensure within the unity project ROS Connector > ROS Connector (Script) > ROS Brdige Server Url starts with the first IP address when you run 'hostname -I' in a terminal window. 
+
+``` shell
+# The launch the ros connector with 
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+```
+
 # Notes
 - Use `catkin build` rather than catkin_make. Explination [here.](https://answers.ros.org/question/320613/catkin_make-vs-catkin_make_isolated-which-is-preferred/)
 

@@ -46,7 +46,8 @@ def callback(data):
         rospy.logerr('The sent cws zone does not have a pre-set location: ' + str(cws_selected))
 
 def listener():
-    rospy.Subscriber('cws_selected', Int16, callback)
+    TOPIC = 'cws_selected'
+    rospy.Subscriber(TOPIC, Int16, callback)
     rospy.loginfo("---Subscriber setup---")
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
