@@ -1,16 +1,16 @@
 
 "use strict";
 
-let EndPointState = require('./EndPointState.js');
 let JointLimits = require('./JointLimits.js');
-let JointControllerStates = require('./JointControllerStates.js');
 let JointCommand = require('./JointCommand.js');
+let JointControllerStates = require('./JointControllerStates.js');
+let EndPointState = require('./EndPointState.js');
 let RobotState = require('./RobotState.js');
 
 module.exports = {
-  EndPointState: EndPointState,
   JointLimits: JointLimits,
-  JointControllerStates: JointControllerStates,
   JointCommand: JointCommand,
+  JointControllerStates: JointControllerStates,
+  EndPointState: EndPointState,
   RobotState: RobotState,
 };

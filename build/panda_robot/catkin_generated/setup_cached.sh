@@ -7,9 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/panda_robot:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/panda_robot/lib:$LD_LIBRARY_PATH"
-export PWD='/home/morgan/projects/ros_cws_planner/build/panda_robot'
-export PYTHONPATH='/home/morgan/projects/ros_cws_planner/devel/.private/panda_robot/lib/python2.7/dist-packages:/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/panda_robot/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/src/panda_robot:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/panda_robot:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/panda_robot/lib:$LD_LIBRARY_PATH"
+export PWD='/home/hrigroup2/projects/ros_cws_planner/build/panda_robot'
+export PYTHONPATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/panda_robot/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/hrigroup2/projects/ros_cws_planner/devel/.private/panda_robot/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/hrigroup2/projects/ros_cws_planner/src/panda_robot:$ROS_PACKAGE_PATH"

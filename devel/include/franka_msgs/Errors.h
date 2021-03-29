@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h

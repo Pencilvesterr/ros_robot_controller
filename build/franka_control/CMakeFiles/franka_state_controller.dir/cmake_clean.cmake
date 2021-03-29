@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/franka_state_controller.dir/src/franka_state_controller.cpp.o"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/libfranka_state_controller.pdb"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib/libfranka_state_controller.so"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_control/lib/libfranka_state_controller.pdb"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_control/lib/libfranka_state_controller.so"
 )
 
 # Per-language clean rules from dependency scanning.

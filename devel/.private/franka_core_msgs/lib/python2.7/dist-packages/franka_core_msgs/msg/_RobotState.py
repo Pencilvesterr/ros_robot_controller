@@ -10,7 +10,7 @@ import franka_msgs.msg
 import std_msgs.msg
 
 class RobotState(genpy.Message):
-  _md5sum = "5b1c24f59317c607d71ccadfc0800957"
+  _md5sum = "c8266681ae33e1871ee269db6bb0c93b"
   _type = "franka_core_msgs/RobotState"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -55,11 +55,9 @@ float64[49] mass_matrix # mass matrix of end-effector wrt base frame # Vectorize
 
 float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major
 
-# float64[16] O_T_EE # ----- moved to endpointstate msg # Vectorized 4x4, column-major
+# float64[16] O_T_EE # ----- in tip state # Vectorized 4x4, column-major
 float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major
 float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major
-float64[16] F_T_NE # Nominal End effector frame pose in flange frame (fixed in Desk) # Vectorized 4x4, column-major
-float64[16] NE_T_EE # End effector frame pose in Nominal End effector frame # Vectorized 4x4, column-major
 float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major
 float64 time
 
@@ -139,8 +137,8 @@ bool instability_detected
   ROBOT_MODE_USER_STOPPED = 5
   ROBOT_MODE_AUTOMATIC_ERROR_RECOVERY = 6
 
-  __slots__ = ['header','cartesian_collision','cartesian_contact','O_dP_EE','q_d','dq_d','dtau_J','tau_J_d','joint_collision','joint_contact','tau_ext_hat_filtered','F_x_Cee','F_x_Cload','F_x_Ctotal','I_ee','I_load','I_total','m_ee','m_load','m_total','gravity','coriolis','mass_matrix','O_Jac_EE','O_T_EE_d','F_T_EE','F_T_NE','NE_T_EE','EE_T_K','time','robot_mode','current_errors','last_motion_errors']
-  _slot_types = ['std_msgs/Header','float64[6]','float64[6]','float64[6]','float64[7]','float64[7]','float64[7]','float64[7]','float64[7]','float64[7]','float64[7]','float64[3]','float64[3]','float64[3]','float64[9]','float64[9]','float64[9]','float64','float64','float64','float64[7]','float64[7]','float64[49]','float64[42]','float64[16]','float64[16]','float64[16]','float64[16]','float64[16]','float64','uint8','franka_msgs/Errors','franka_msgs/Errors']
+  __slots__ = ['header','cartesian_collision','cartesian_contact','O_dP_EE','q_d','dq_d','dtau_J','tau_J_d','joint_collision','joint_contact','tau_ext_hat_filtered','F_x_Cee','F_x_Cload','F_x_Ctotal','I_ee','I_load','I_total','m_ee','m_load','m_total','gravity','coriolis','mass_matrix','O_Jac_EE','O_T_EE_d','F_T_EE','EE_T_K','time','robot_mode','current_errors','last_motion_errors']
+  _slot_types = ['std_msgs/Header','float64[6]','float64[6]','float64[6]','float64[7]','float64[7]','float64[7]','float64[7]','float64[7]','float64[7]','float64[7]','float64[3]','float64[3]','float64[3]','float64[9]','float64[9]','float64[9]','float64','float64','float64','float64[7]','float64[7]','float64[49]','float64[42]','float64[16]','float64[16]','float64[16]','float64','uint8','franka_msgs/Errors','franka_msgs/Errors']
 
   def __init__(self, *args, **kwds):
     """
@@ -150,7 +148,7 @@ bool instability_detected
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,cartesian_collision,cartesian_contact,O_dP_EE,q_d,dq_d,dtau_J,tau_J_d,joint_collision,joint_contact,tau_ext_hat_filtered,F_x_Cee,F_x_Cload,F_x_Ctotal,I_ee,I_load,I_total,m_ee,m_load,m_total,gravity,coriolis,mass_matrix,O_Jac_EE,O_T_EE_d,F_T_EE,F_T_NE,NE_T_EE,EE_T_K,time,robot_mode,current_errors,last_motion_errors
+       header,cartesian_collision,cartesian_contact,O_dP_EE,q_d,dq_d,dtau_J,tau_J_d,joint_collision,joint_contact,tau_ext_hat_filtered,F_x_Cee,F_x_Cload,F_x_Ctotal,I_ee,I_load,I_total,m_ee,m_load,m_total,gravity,coriolis,mass_matrix,O_Jac_EE,O_T_EE_d,F_T_EE,EE_T_K,time,robot_mode,current_errors,last_motion_errors
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -211,10 +209,6 @@ bool instability_detected
         self.O_T_EE_d = [0.] * 16
       if self.F_T_EE is None:
         self.F_T_EE = [0.] * 16
-      if self.F_T_NE is None:
-        self.F_T_NE = [0.] * 16
-      if self.NE_T_EE is None:
-        self.NE_T_EE = [0.] * 16
       if self.EE_T_K is None:
         self.EE_T_K = [0.] * 16
       if self.time is None:
@@ -252,8 +246,6 @@ bool instability_detected
       self.O_Jac_EE = [0.] * 42
       self.O_T_EE_d = [0.] * 16
       self.F_T_EE = [0.] * 16
-      self.F_T_NE = [0.] * 16
-      self.NE_T_EE = [0.] * 16
       self.EE_T_K = [0.] * 16
       self.time = 0.
       self.robot_mode = 0
@@ -304,8 +296,6 @@ bool instability_detected
       buff.write(_get_struct_42d().pack(*self.O_Jac_EE))
       buff.write(_get_struct_16d().pack(*self.O_T_EE_d))
       buff.write(_get_struct_16d().pack(*self.F_T_EE))
-      buff.write(_get_struct_16d().pack(*self.F_T_NE))
-      buff.write(_get_struct_16d().pack(*self.NE_T_EE))
       buff.write(_get_struct_16d().pack(*self.EE_T_K))
       _x = self
       buff.write(_get_struct_d73B().pack(_x.time, _x.robot_mode, _x.current_errors.joint_position_limits_violation, _x.current_errors.cartesian_position_limits_violation, _x.current_errors.self_collision_avoidance_violation, _x.current_errors.joint_velocity_violation, _x.current_errors.cartesian_velocity_violation, _x.current_errors.force_control_safety_violation, _x.current_errors.joint_reflex, _x.current_errors.cartesian_reflex, _x.current_errors.max_goal_pose_deviation_violation, _x.current_errors.max_path_pose_deviation_violation, _x.current_errors.cartesian_velocity_profile_safety_violation, _x.current_errors.joint_position_motion_generator_start_pose_invalid, _x.current_errors.joint_motion_generator_position_limits_violation, _x.current_errors.joint_motion_generator_velocity_limits_violation, _x.current_errors.joint_motion_generator_velocity_discontinuity, _x.current_errors.joint_motion_generator_acceleration_discontinuity, _x.current_errors.cartesian_position_motion_generator_start_pose_invalid, _x.current_errors.cartesian_motion_generator_elbow_limit_violation, _x.current_errors.cartesian_motion_generator_velocity_limits_violation, _x.current_errors.cartesian_motion_generator_velocity_discontinuity, _x.current_errors.cartesian_motion_generator_acceleration_discontinuity, _x.current_errors.cartesian_motion_generator_elbow_sign_inconsistent, _x.current_errors.cartesian_motion_generator_start_elbow_invalid, _x.current_errors.cartesian_motion_generator_joint_position_limits_violation, _x.current_errors.cartesian_motion_generator_joint_velocity_limits_violation, _x.current_errors.cartesian_motion_generator_joint_velocity_discontinuity, _x.current_errors.cartesian_motion_generator_joint_acceleration_discontinuity, _x.current_errors.cartesian_position_motion_generator_invalid_frame, _x.current_errors.force_controller_desired_force_tolerance_violation, _x.current_errors.controller_torque_discontinuity, _x.current_errors.start_elbow_sign_inconsistent, _x.current_errors.communication_constraints_violation, _x.current_errors.power_limit_violation, _x.current_errors.joint_p2p_insufficient_torque_for_planning, _x.current_errors.tau_j_range_violation, _x.current_errors.instability_detected, _x.last_motion_errors.joint_position_limits_violation, _x.last_motion_errors.cartesian_position_limits_violation, _x.last_motion_errors.self_collision_avoidance_violation, _x.last_motion_errors.joint_velocity_violation, _x.last_motion_errors.cartesian_velocity_violation, _x.last_motion_errors.force_control_safety_violation, _x.last_motion_errors.joint_reflex, _x.last_motion_errors.cartesian_reflex, _x.last_motion_errors.max_goal_pose_deviation_violation, _x.last_motion_errors.max_path_pose_deviation_violation, _x.last_motion_errors.cartesian_velocity_profile_safety_violation, _x.last_motion_errors.joint_position_motion_generator_start_pose_invalid, _x.last_motion_errors.joint_motion_generator_position_limits_violation, _x.last_motion_errors.joint_motion_generator_velocity_limits_violation, _x.last_motion_errors.joint_motion_generator_velocity_discontinuity, _x.last_motion_errors.joint_motion_generator_acceleration_discontinuity, _x.last_motion_errors.cartesian_position_motion_generator_start_pose_invalid, _x.last_motion_errors.cartesian_motion_generator_elbow_limit_violation, _x.last_motion_errors.cartesian_motion_generator_velocity_limits_violation, _x.last_motion_errors.cartesian_motion_generator_velocity_discontinuity, _x.last_motion_errors.cartesian_motion_generator_acceleration_discontinuity, _x.last_motion_errors.cartesian_motion_generator_elbow_sign_inconsistent, _x.last_motion_errors.cartesian_motion_generator_start_elbow_invalid, _x.last_motion_errors.cartesian_motion_generator_joint_position_limits_violation, _x.last_motion_errors.cartesian_motion_generator_joint_velocity_limits_violation, _x.last_motion_errors.cartesian_motion_generator_joint_velocity_discontinuity, _x.last_motion_errors.cartesian_motion_generator_joint_acceleration_discontinuity, _x.last_motion_errors.cartesian_position_motion_generator_invalid_frame, _x.last_motion_errors.force_controller_desired_force_tolerance_violation, _x.last_motion_errors.controller_torque_discontinuity, _x.last_motion_errors.start_elbow_sign_inconsistent, _x.last_motion_errors.communication_constraints_violation, _x.last_motion_errors.power_limit_violation, _x.last_motion_errors.joint_p2p_insufficient_torque_for_planning, _x.last_motion_errors.tau_j_range_violation, _x.last_motion_errors.instability_detected))
@@ -409,12 +399,6 @@ bool instability_detected
       start = end
       end += 128
       self.F_T_EE = _get_struct_16d().unpack(str[start:end])
-      start = end
-      end += 128
-      self.F_T_NE = _get_struct_16d().unpack(str[start:end])
-      start = end
-      end += 128
-      self.NE_T_EE = _get_struct_16d().unpack(str[start:end])
       start = end
       end += 128
       self.EE_T_K = _get_struct_16d().unpack(str[start:end])
@@ -538,8 +522,6 @@ bool instability_detected
       buff.write(self.O_Jac_EE.tostring())
       buff.write(self.O_T_EE_d.tostring())
       buff.write(self.F_T_EE.tostring())
-      buff.write(self.F_T_NE.tostring())
-      buff.write(self.NE_T_EE.tostring())
       buff.write(self.EE_T_K.tostring())
       _x = self
       buff.write(_get_struct_d73B().pack(_x.time, _x.robot_mode, _x.current_errors.joint_position_limits_violation, _x.current_errors.cartesian_position_limits_violation, _x.current_errors.self_collision_avoidance_violation, _x.current_errors.joint_velocity_violation, _x.current_errors.cartesian_velocity_violation, _x.current_errors.force_control_safety_violation, _x.current_errors.joint_reflex, _x.current_errors.cartesian_reflex, _x.current_errors.max_goal_pose_deviation_violation, _x.current_errors.max_path_pose_deviation_violation, _x.current_errors.cartesian_velocity_profile_safety_violation, _x.current_errors.joint_position_motion_generator_start_pose_invalid, _x.current_errors.joint_motion_generator_position_limits_violation, _x.current_errors.joint_motion_generator_velocity_limits_violation, _x.current_errors.joint_motion_generator_velocity_discontinuity, _x.current_errors.joint_motion_generator_acceleration_discontinuity, _x.current_errors.cartesian_position_motion_generator_start_pose_invalid, _x.current_errors.cartesian_motion_generator_elbow_limit_violation, _x.current_errors.cartesian_motion_generator_velocity_limits_violation, _x.current_errors.cartesian_motion_generator_velocity_discontinuity, _x.current_errors.cartesian_motion_generator_acceleration_discontinuity, _x.current_errors.cartesian_motion_generator_elbow_sign_inconsistent, _x.current_errors.cartesian_motion_generator_start_elbow_invalid, _x.current_errors.cartesian_motion_generator_joint_position_limits_violation, _x.current_errors.cartesian_motion_generator_joint_velocity_limits_violation, _x.current_errors.cartesian_motion_generator_joint_velocity_discontinuity, _x.current_errors.cartesian_motion_generator_joint_acceleration_discontinuity, _x.current_errors.cartesian_position_motion_generator_invalid_frame, _x.current_errors.force_controller_desired_force_tolerance_violation, _x.current_errors.controller_torque_discontinuity, _x.current_errors.start_elbow_sign_inconsistent, _x.current_errors.communication_constraints_violation, _x.current_errors.power_limit_violation, _x.current_errors.joint_p2p_insufficient_torque_for_planning, _x.current_errors.tau_j_range_violation, _x.current_errors.instability_detected, _x.last_motion_errors.joint_position_limits_violation, _x.last_motion_errors.cartesian_position_limits_violation, _x.last_motion_errors.self_collision_avoidance_violation, _x.last_motion_errors.joint_velocity_violation, _x.last_motion_errors.cartesian_velocity_violation, _x.last_motion_errors.force_control_safety_violation, _x.last_motion_errors.joint_reflex, _x.last_motion_errors.cartesian_reflex, _x.last_motion_errors.max_goal_pose_deviation_violation, _x.last_motion_errors.max_path_pose_deviation_violation, _x.last_motion_errors.cartesian_velocity_profile_safety_violation, _x.last_motion_errors.joint_position_motion_generator_start_pose_invalid, _x.last_motion_errors.joint_motion_generator_position_limits_violation, _x.last_motion_errors.joint_motion_generator_velocity_limits_violation, _x.last_motion_errors.joint_motion_generator_velocity_discontinuity, _x.last_motion_errors.joint_motion_generator_acceleration_discontinuity, _x.last_motion_errors.cartesian_position_motion_generator_start_pose_invalid, _x.last_motion_errors.cartesian_motion_generator_elbow_limit_violation, _x.last_motion_errors.cartesian_motion_generator_velocity_limits_violation, _x.last_motion_errors.cartesian_motion_generator_velocity_discontinuity, _x.last_motion_errors.cartesian_motion_generator_acceleration_discontinuity, _x.last_motion_errors.cartesian_motion_generator_elbow_sign_inconsistent, _x.last_motion_errors.cartesian_motion_generator_start_elbow_invalid, _x.last_motion_errors.cartesian_motion_generator_joint_position_limits_violation, _x.last_motion_errors.cartesian_motion_generator_joint_velocity_limits_violation, _x.last_motion_errors.cartesian_motion_generator_joint_velocity_discontinuity, _x.last_motion_errors.cartesian_motion_generator_joint_acceleration_discontinuity, _x.last_motion_errors.cartesian_position_motion_generator_invalid_frame, _x.last_motion_errors.force_controller_desired_force_tolerance_violation, _x.last_motion_errors.controller_torque_discontinuity, _x.last_motion_errors.start_elbow_sign_inconsistent, _x.last_motion_errors.communication_constraints_violation, _x.last_motion_errors.power_limit_violation, _x.last_motion_errors.joint_p2p_insufficient_torque_for_planning, _x.last_motion_errors.tau_j_range_violation, _x.last_motion_errors.instability_detected))
@@ -644,12 +626,6 @@ bool instability_detected
       start = end
       end += 128
       self.F_T_EE = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=16)
-      start = end
-      end += 128
-      self.F_T_NE = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=16)
-      start = end
-      end += 128
-      self.NE_T_EE = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=16)
       start = end
       end += 128
       self.EE_T_K = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=16)

@@ -53,8 +53,6 @@ struct RobotState_
     , O_Jac_EE()
     , O_T_EE_d()
     , F_T_EE()
-    , F_T_NE()
-    , NE_T_EE()
     , EE_T_K()
     , time(0.0)
     , robot_mode(0)
@@ -104,10 +102,6 @@ struct RobotState_
 
       F_T_EE.assign(0.0);
 
-      F_T_NE.assign(0.0);
-
-      NE_T_EE.assign(0.0);
-
       EE_T_K.assign(0.0);
   }
   RobotState_(const ContainerAllocator& _alloc)
@@ -137,8 +131,6 @@ struct RobotState_
     , O_Jac_EE()
     , O_T_EE_d()
     , F_T_EE()
-    , F_T_NE()
-    , NE_T_EE()
     , EE_T_K()
     , time(0.0)
     , robot_mode(0)
@@ -188,10 +180,6 @@ struct RobotState_
       O_T_EE_d.assign(0.0);
 
       F_T_EE.assign(0.0);
-
-      F_T_NE.assign(0.0);
-
-      NE_T_EE.assign(0.0);
 
       EE_T_K.assign(0.0);
   }
@@ -275,12 +263,6 @@ struct RobotState_
 
    typedef boost::array<double, 16>  _F_T_EE_type;
   _F_T_EE_type F_T_EE;
-
-   typedef boost::array<double, 16>  _F_T_NE_type;
-  _F_T_NE_type F_T_NE;
-
-   typedef boost::array<double, 16>  _NE_T_EE_type;
-  _NE_T_EE_type NE_T_EE;
 
    typedef boost::array<double, 16>  _EE_T_K_type;
   _EE_T_K_type EE_T_K;
@@ -398,8 +380,6 @@ bool operator==(const ::franka_core_msgs::RobotState_<ContainerAllocator1> & lhs
     lhs.O_Jac_EE == rhs.O_Jac_EE &&
     lhs.O_T_EE_d == rhs.O_T_EE_d &&
     lhs.F_T_EE == rhs.F_T_EE &&
-    lhs.F_T_NE == rhs.F_T_NE &&
-    lhs.NE_T_EE == rhs.NE_T_EE &&
     lhs.EE_T_K == rhs.EE_T_K &&
     lhs.time == rhs.time &&
     lhs.robot_mode == rhs.robot_mode &&
@@ -461,12 +441,12 @@ struct MD5Sum< ::franka_core_msgs::RobotState_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5b1c24f59317c607d71ccadfc0800957";
+    return "c8266681ae33e1871ee269db6bb0c93b";
   }
 
   static const char* value(const ::franka_core_msgs::RobotState_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5b1c24f59317c607ULL;
-  static const uint64_t static_value2 = 0xd71ccadfc0800957ULL;
+  static const uint64_t static_value1 = 0xc8266681ae33e187ULL;
+  static const uint64_t static_value2 = 0x1ee269db6bb0c93bULL;
 };
 
 template<class ContainerAllocator>
@@ -527,11 +507,9 @@ struct Definition< ::franka_core_msgs::RobotState_<ContainerAllocator> >
 "\n"
 "float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major\n"
 "\n"
-"# float64[16] O_T_EE # ----- moved to endpointstate msg # Vectorized 4x4, column-major\n"
+"# float64[16] O_T_EE # ----- in tip state # Vectorized 4x4, column-major\n"
 "float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major\n"
 "float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major\n"
-"float64[16] F_T_NE # Nominal End effector frame pose in flange frame (fixed in Desk) # Vectorized 4x4, column-major\n"
-"float64[16] NE_T_EE # End effector frame pose in Nominal End effector frame # Vectorized 4x4, column-major\n"
 "float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major\n"
 "float64 time\n"
 "\n"
@@ -645,8 +623,6 @@ namespace serialization
       stream.next(m.O_Jac_EE);
       stream.next(m.O_T_EE_d);
       stream.next(m.F_T_EE);
-      stream.next(m.F_T_NE);
-      stream.next(m.NE_T_EE);
       stream.next(m.EE_T_K);
       stream.next(m.time);
       stream.next(m.robot_mode);
@@ -810,18 +786,6 @@ struct Printer< ::franka_core_msgs::RobotState_<ContainerAllocator> >
     {
       s << indent << "  F_T_EE[" << i << "]: ";
       Printer<double>::stream(s, indent + "  ", v.F_T_EE[i]);
-    }
-    s << indent << "F_T_NE[]" << std::endl;
-    for (size_t i = 0; i < v.F_T_NE.size(); ++i)
-    {
-      s << indent << "  F_T_NE[" << i << "]: ";
-      Printer<double>::stream(s, indent + "  ", v.F_T_NE[i]);
-    }
-    s << indent << "NE_T_EE[]" << std::endl;
-    for (size_t i = 0; i < v.NE_T_EE.size(); ++i)
-    {
-      s << indent << "  NE_T_EE[" << i << "]: ";
-      Printer<double>::stream(s, indent + "  ", v.NE_T_EE[i]);
     }
     s << indent << "EE_T_K[]" << std::endl;
     for (size_t i = 0; i < v.EE_T_K.size(); ++i)

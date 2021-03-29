@@ -13,21 +13,21 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_moveit"
+echo_and_run cd "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_moveit"
 
 # ensure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/morgan/projects/ros_cws_planner/install/lib/python2.7/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/home/hrigroup2/projects/ros_cws_planner/install/lib/python2.7/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/morgan/projects/ros_cws_planner/install/lib/python2.7/dist-packages:/home/morgan/projects/ros_cws_planner/build/franka_moveit/lib/python2.7/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/morgan/projects/ros_cws_planner/build/franka_moveit" \
+    PYTHONPATH="/home/hrigroup2/projects/ros_cws_planner/install/lib/python2.7/dist-packages:/home/hrigroup2/projects/ros_cws_planner/build/franka_moveit/lib/python2.7/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/home/hrigroup2/projects/ros_cws_planner/build/franka_moveit" \
     "/usr/bin/python2" \
-    "/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_moveit/setup.py" \
+    "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_moveit/setup.py" \
      \
-    build --build-base "/home/morgan/projects/ros_cws_planner/build/franka_moveit" \
+    build --build-base "/home/hrigroup2/projects/ros_cws_planner/build/franka_moveit" \
     install \
     --root="${DESTDIR-/}" \
-    --install-layout=deb --prefix="/home/morgan/projects/ros_cws_planner/install" --install-scripts="/home/morgan/projects/ros_cws_planner/install/bin"
+    --install-layout=deb --prefix="/home/hrigroup2/projects/ros_cws_planner/install" --install-scripts="/home/hrigroup2/projects/ros_cws_planner/install/bin"

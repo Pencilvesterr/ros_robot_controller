@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/pkgconfig/franka_gripper.pc
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/pkgconfig/franka_gripper.pc

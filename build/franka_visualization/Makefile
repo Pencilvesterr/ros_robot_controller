@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_visualization
+CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_visualization
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_visualization
+CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/ros_cws_planner/build/franka_visualization/CMakeFiles /home/morgan/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/ros_cws_planner/build/franka_visualization/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

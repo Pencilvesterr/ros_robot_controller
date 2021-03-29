@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/lib;/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib;/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/lib;/opt/ros/melodic/lib")
+set(ORDERED_PATHS "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_interface/lib;/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_hw/lib;/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_control/lib;/opt/ros/melodic/lib")

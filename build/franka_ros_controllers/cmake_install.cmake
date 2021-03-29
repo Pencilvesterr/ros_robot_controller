@@ -1,8 +1,8 @@
-# Install script for directory: /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers
+# Install script for directory: /home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/morgan/projects/ros_cws_planner/install")
+  set(CMAKE_INSTALL_PREFIX "/home/hrigroup2/projects/ros_cws_planner/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,114 +49,114 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/ros_cws_planner/install/_setup_util.py")
+   "/home/hrigroup2/projects/ros_cws_planner/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/hrigroup2/projects/ros_cws_planner/install" TYPE PROGRAM FILES "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/ros_cws_planner/install/env.sh")
+   "/home/hrigroup2/projects/ros_cws_planner/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/hrigroup2/projects/ros_cws_planner/install" TYPE PROGRAM FILES "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/ros_cws_planner/install/setup.bash;/home/morgan/projects/ros_cws_planner/install/local_setup.bash")
+   "/home/hrigroup2/projects/ros_cws_planner/install/setup.bash;/home/hrigroup2/projects/ros_cws_planner/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/setup.bash"
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/hrigroup2/projects/ros_cws_planner/install" TYPE FILE FILES
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/setup.bash"
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/ros_cws_planner/install/setup.sh;/home/morgan/projects/ros_cws_planner/install/local_setup.sh")
+   "/home/hrigroup2/projects/ros_cws_planner/install/setup.sh;/home/hrigroup2/projects/ros_cws_planner/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/setup.sh"
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/hrigroup2/projects/ros_cws_planner/install" TYPE FILE FILES
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/setup.sh"
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/ros_cws_planner/install/setup.zsh;/home/morgan/projects/ros_cws_planner/install/local_setup.zsh")
+   "/home/hrigroup2/projects/ros_cws_planner/install/setup.zsh;/home/hrigroup2/projects/ros_cws_planner/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/setup.zsh"
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/hrigroup2/projects/ros_cws_planner/install" TYPE FILE FILES
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/setup.zsh"
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/morgan/projects/ros_cws_planner/install/.rosinstall")
+   "/home/hrigroup2/projects/ros_cws_planner/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/hrigroup2/projects/ros_cws_planner/install" TYPE FILE FILES "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/.rosinstall")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/franka_ros_controllers" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/include/franka_ros_controllers/joint_controller_paramsConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/franka_ros_controllers" TYPE FILE FILES "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/include/franka_ros_controllers/joint_controller_paramsConfig.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/franka_ros_controllers" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/franka_ros_controllers" TYPE FILE FILES "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/__init__.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/cfg")
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/franka_ros_controllers" TYPE DIRECTORY FILES "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/franka_ros_controllers" TYPE DIRECTORY FILES "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/franka_ros_controllers.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/franka_ros_controllers.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers/cmake" TYPE FILE FILES
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/franka_ros_controllersConfig.cmake"
-    "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/franka_ros_controllersConfig-version.cmake"
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/franka_ros_controllersConfig.cmake"
+    "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/catkin_generated/installspace/franka_ros_controllersConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers" TYPE FILE FILES "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -166,12 +166,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libfranka_ros_controllers.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/libfranka_ros_controllers.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/libfranka_ros_controllers.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libfranka_ros_controllers.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libfranka_ros_controllers.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libfranka_ros_controllers.so"
-         OLD_RPATH "/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib:/opt/ros/melodic/lib:"
+         OLD_RPATH "/home/hrigroup2/git/libfranka/build:/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_hw/lib:/opt/ros/melodic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libfranka_ros_controllers.so")
@@ -180,16 +180,16 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers" TYPE DIRECTORY FILES "/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/config")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers" TYPE DIRECTORY FILES "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/config")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/controller_plugins.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/franka_ros_controllers" TYPE FILE FILES "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/controller_plugins.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/gtest/cmake_install.cmake")
+  include("/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/gtest/cmake_install.cmake")
 
 endif()
 
@@ -201,5 +201,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/morgan/projects/ros_cws_planner/build/franka_ros_controllers/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hrigroup2/projects/ros_cws_planner/build/franka_ros_controllers/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

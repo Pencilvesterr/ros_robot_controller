@@ -137,16 +137,6 @@
     :initarg :F_T_EE
     :type (cl:vector cl:float)
    :initform (cl:make-array 16 :element-type 'cl:float :initial-element 0.0))
-   (F_T_NE
-    :reader F_T_NE
-    :initarg :F_T_NE
-    :type (cl:vector cl:float)
-   :initform (cl:make-array 16 :element-type 'cl:float :initial-element 0.0))
-   (NE_T_EE
-    :reader NE_T_EE
-    :initarg :NE_T_EE
-    :type (cl:vector cl:float)
-   :initform (cl:make-array 16 :element-type 'cl:float :initial-element 0.0))
    (EE_T_K
     :reader EE_T_K
     :initarg :EE_T_K
@@ -311,16 +301,6 @@
 (cl:defmethod F_T_EE-val ((m <RobotState>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader franka_core_msgs-msg:F_T_EE-val is deprecated.  Use franka_core_msgs-msg:F_T_EE instead.")
   (F_T_EE m))
-
-(cl:ensure-generic-function 'F_T_NE-val :lambda-list '(m))
-(cl:defmethod F_T_NE-val ((m <RobotState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader franka_core_msgs-msg:F_T_NE-val is deprecated.  Use franka_core_msgs-msg:F_T_NE instead.")
-  (F_T_NE m))
-
-(cl:ensure-generic-function 'NE_T_EE-val :lambda-list '(m))
-(cl:defmethod NE_T_EE-val ((m <RobotState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader franka_core_msgs-msg:NE_T_EE-val is deprecated.  Use franka_core_msgs-msg:NE_T_EE instead.")
-  (NE_T_EE m))
 
 (cl:ensure-generic-function 'EE_T_K-val :lambda-list '(m))
 (cl:defmethod EE_T_K-val ((m <RobotState>))
@@ -616,26 +596,6 @@
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream)))
    (cl:slot-value msg 'F_T_EE))
-  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-double-float-bits ele)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream)))
-   (cl:slot-value msg 'F_T_NE))
-  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-double-float-bits ele)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream)))
-   (cl:slot-value msg 'NE_T_EE))
   (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-double-float-bits ele)))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
@@ -978,32 +938,6 @@
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
     (cl:setf (cl:aref vals i) (roslisp-utils:decode-double-float-bits bits)))))
-  (cl:setf (cl:slot-value msg 'F_T_NE) (cl:make-array 16))
-  (cl:let ((vals (cl:slot-value msg 'F_T_NE)))
-    (cl:dotimes (i 16)
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:aref vals i) (roslisp-utils:decode-double-float-bits bits)))))
-  (cl:setf (cl:slot-value msg 'NE_T_EE) (cl:make-array 16))
-  (cl:let ((vals (cl:slot-value msg 'NE_T_EE)))
-    (cl:dotimes (i 16)
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:aref vals i) (roslisp-utils:decode-double-float-bits bits)))))
   (cl:setf (cl:slot-value msg 'EE_T_K) (cl:make-array 16))
   (cl:let ((vals (cl:slot-value msg 'EE_T_K)))
     (cl:dotimes (i 16)
@@ -1040,16 +974,16 @@
   "franka_core_msgs/RobotState")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<RobotState>)))
   "Returns md5sum for a message object of type '<RobotState>"
-  "5b1c24f59317c607d71ccadfc0800957")
+  "c8266681ae33e1871ee269db6bb0c93b")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'RobotState)))
   "Returns md5sum for a message object of type 'RobotState"
-  "5b1c24f59317c607d71ccadfc0800957")
+  "c8266681ae33e1871ee269db6bb0c93b")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<RobotState>)))
   "Returns full string definition for message of type '<RobotState>"
-  (cl:format cl:nil "std_msgs/Header header~%~%float64[6] cartesian_collision~%float64[6] cartesian_contact~%float64[6] O_dP_EE # EE vel computed as J*dq~%~%# float64[7] q # joint position, velocity, and effort in joint_states topic~%# float64[7] dq~%~%float64[7] q_d~%float64[7] dq_d~%# float64[7] tau_J~%float64[7] dtau_J # torque derivative~%float64[7] tau_J_d # desired joint torque~%# float64[6] K_F_ext_hat_K~%# float64[2] elbow~%# float64[2] elbow_d~%~%float64[7] joint_collision~%float64[7] joint_contact~%~%# float64[6] O_F_ext_hat_K # in tip state~%~%float64[7] tau_ext_hat_filtered # filtered external torque~%float64[3] F_x_Cee # Configured center of mass of the end effector load with respect to flange frame.~%float64[3] F_x_Cload # Configured center of mass of the external load with respect to flange frame.~%float64[3] F_x_Ctotal # Combined center of mass of the end effector load and the external load with respect to flange frame.~%float64[9] I_ee # Configured rotational inertia matrix of the end effector load with respect to center of mass.~%float64[9] I_load~%float64[9] I_total~%~%float64 m_ee # configured mass of end-effector~%float64 m_load # configured mass of external load~%float64 m_total~%~%~%float64[7] gravity~%float64[7] coriolis~%float64[49] mass_matrix # mass matrix of end-effector wrt base frame # Vectorized 7x7, column-major~%~%float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major~%~%# float64[16] O_T_EE # ----- moved to endpointstate msg # Vectorized 4x4, column-major~%float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major~%float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major~%float64[16] F_T_NE # Nominal End effector frame pose in flange frame (fixed in Desk) # Vectorized 4x4, column-major~%float64[16] NE_T_EE # End effector frame pose in Nominal End effector frame # Vectorized 4x4, column-major~%float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major~%float64 time~%~%uint8 ROBOT_MODE_OTHER=0~%uint8 ROBOT_MODE_IDLE=1~%uint8 ROBOT_MODE_MOVE=2~%uint8 ROBOT_MODE_GUIDING=3~%uint8 ROBOT_MODE_REFLEX=4~%uint8 ROBOT_MODE_USER_STOPPED=5~%uint8 ROBOT_MODE_AUTOMATIC_ERROR_RECOVERY=6~%uint8 robot_mode~%~%franka_msgs/Errors current_errors~%franka_msgs/Errors last_motion_errors~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: franka_msgs/Errors~%bool joint_position_limits_violation~%bool cartesian_position_limits_violation~%bool self_collision_avoidance_violation~%bool joint_velocity_violation~%bool cartesian_velocity_violation~%bool force_control_safety_violation~%bool joint_reflex~%bool cartesian_reflex~%bool max_goal_pose_deviation_violation~%bool max_path_pose_deviation_violation~%bool cartesian_velocity_profile_safety_violation~%bool joint_position_motion_generator_start_pose_invalid~%bool joint_motion_generator_position_limits_violation~%bool joint_motion_generator_velocity_limits_violation~%bool joint_motion_generator_velocity_discontinuity~%bool joint_motion_generator_acceleration_discontinuity~%bool cartesian_position_motion_generator_start_pose_invalid~%bool cartesian_motion_generator_elbow_limit_violation~%bool cartesian_motion_generator_velocity_limits_violation~%bool cartesian_motion_generator_velocity_discontinuity~%bool cartesian_motion_generator_acceleration_discontinuity~%bool cartesian_motion_generator_elbow_sign_inconsistent~%bool cartesian_motion_generator_start_elbow_invalid~%bool cartesian_motion_generator_joint_position_limits_violation~%bool cartesian_motion_generator_joint_velocity_limits_violation~%bool cartesian_motion_generator_joint_velocity_discontinuity~%bool cartesian_motion_generator_joint_acceleration_discontinuity~%bool cartesian_position_motion_generator_invalid_frame~%bool force_controller_desired_force_tolerance_violation~%bool controller_torque_discontinuity~%bool start_elbow_sign_inconsistent~%bool communication_constraints_violation~%bool power_limit_violation~%bool joint_p2p_insufficient_torque_for_planning~%bool tau_j_range_violation~%bool instability_detected~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%float64[6] cartesian_collision~%float64[6] cartesian_contact~%float64[6] O_dP_EE # EE vel computed as J*dq~%~%# float64[7] q # joint position, velocity, and effort in joint_states topic~%# float64[7] dq~%~%float64[7] q_d~%float64[7] dq_d~%# float64[7] tau_J~%float64[7] dtau_J # torque derivative~%float64[7] tau_J_d # desired joint torque~%# float64[6] K_F_ext_hat_K~%# float64[2] elbow~%# float64[2] elbow_d~%~%float64[7] joint_collision~%float64[7] joint_contact~%~%# float64[6] O_F_ext_hat_K # in tip state~%~%float64[7] tau_ext_hat_filtered # filtered external torque~%float64[3] F_x_Cee # Configured center of mass of the end effector load with respect to flange frame.~%float64[3] F_x_Cload # Configured center of mass of the external load with respect to flange frame.~%float64[3] F_x_Ctotal # Combined center of mass of the end effector load and the external load with respect to flange frame.~%float64[9] I_ee # Configured rotational inertia matrix of the end effector load with respect to center of mass.~%float64[9] I_load~%float64[9] I_total~%~%float64 m_ee # configured mass of end-effector~%float64 m_load # configured mass of external load~%float64 m_total~%~%~%float64[7] gravity~%float64[7] coriolis~%float64[49] mass_matrix # mass matrix of end-effector wrt base frame # Vectorized 7x7, column-major~%~%float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major~%~%# float64[16] O_T_EE # ----- in tip state # Vectorized 4x4, column-major~%float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major~%float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major~%float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major~%float64 time~%~%uint8 ROBOT_MODE_OTHER=0~%uint8 ROBOT_MODE_IDLE=1~%uint8 ROBOT_MODE_MOVE=2~%uint8 ROBOT_MODE_GUIDING=3~%uint8 ROBOT_MODE_REFLEX=4~%uint8 ROBOT_MODE_USER_STOPPED=5~%uint8 ROBOT_MODE_AUTOMATIC_ERROR_RECOVERY=6~%uint8 robot_mode~%~%franka_msgs/Errors current_errors~%franka_msgs/Errors last_motion_errors~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: franka_msgs/Errors~%bool joint_position_limits_violation~%bool cartesian_position_limits_violation~%bool self_collision_avoidance_violation~%bool joint_velocity_violation~%bool cartesian_velocity_violation~%bool force_control_safety_violation~%bool joint_reflex~%bool cartesian_reflex~%bool max_goal_pose_deviation_violation~%bool max_path_pose_deviation_violation~%bool cartesian_velocity_profile_safety_violation~%bool joint_position_motion_generator_start_pose_invalid~%bool joint_motion_generator_position_limits_violation~%bool joint_motion_generator_velocity_limits_violation~%bool joint_motion_generator_velocity_discontinuity~%bool joint_motion_generator_acceleration_discontinuity~%bool cartesian_position_motion_generator_start_pose_invalid~%bool cartesian_motion_generator_elbow_limit_violation~%bool cartesian_motion_generator_velocity_limits_violation~%bool cartesian_motion_generator_velocity_discontinuity~%bool cartesian_motion_generator_acceleration_discontinuity~%bool cartesian_motion_generator_elbow_sign_inconsistent~%bool cartesian_motion_generator_start_elbow_invalid~%bool cartesian_motion_generator_joint_position_limits_violation~%bool cartesian_motion_generator_joint_velocity_limits_violation~%bool cartesian_motion_generator_joint_velocity_discontinuity~%bool cartesian_motion_generator_joint_acceleration_discontinuity~%bool cartesian_position_motion_generator_invalid_frame~%bool force_controller_desired_force_tolerance_violation~%bool controller_torque_discontinuity~%bool start_elbow_sign_inconsistent~%bool communication_constraints_violation~%bool power_limit_violation~%bool joint_p2p_insufficient_torque_for_planning~%bool tau_j_range_violation~%bool instability_detected~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'RobotState)))
   "Returns full string definition for message of type 'RobotState"
-  (cl:format cl:nil "std_msgs/Header header~%~%float64[6] cartesian_collision~%float64[6] cartesian_contact~%float64[6] O_dP_EE # EE vel computed as J*dq~%~%# float64[7] q # joint position, velocity, and effort in joint_states topic~%# float64[7] dq~%~%float64[7] q_d~%float64[7] dq_d~%# float64[7] tau_J~%float64[7] dtau_J # torque derivative~%float64[7] tau_J_d # desired joint torque~%# float64[6] K_F_ext_hat_K~%# float64[2] elbow~%# float64[2] elbow_d~%~%float64[7] joint_collision~%float64[7] joint_contact~%~%# float64[6] O_F_ext_hat_K # in tip state~%~%float64[7] tau_ext_hat_filtered # filtered external torque~%float64[3] F_x_Cee # Configured center of mass of the end effector load with respect to flange frame.~%float64[3] F_x_Cload # Configured center of mass of the external load with respect to flange frame.~%float64[3] F_x_Ctotal # Combined center of mass of the end effector load and the external load with respect to flange frame.~%float64[9] I_ee # Configured rotational inertia matrix of the end effector load with respect to center of mass.~%float64[9] I_load~%float64[9] I_total~%~%float64 m_ee # configured mass of end-effector~%float64 m_load # configured mass of external load~%float64 m_total~%~%~%float64[7] gravity~%float64[7] coriolis~%float64[49] mass_matrix # mass matrix of end-effector wrt base frame # Vectorized 7x7, column-major~%~%float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major~%~%# float64[16] O_T_EE # ----- moved to endpointstate msg # Vectorized 4x4, column-major~%float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major~%float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major~%float64[16] F_T_NE # Nominal End effector frame pose in flange frame (fixed in Desk) # Vectorized 4x4, column-major~%float64[16] NE_T_EE # End effector frame pose in Nominal End effector frame # Vectorized 4x4, column-major~%float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major~%float64 time~%~%uint8 ROBOT_MODE_OTHER=0~%uint8 ROBOT_MODE_IDLE=1~%uint8 ROBOT_MODE_MOVE=2~%uint8 ROBOT_MODE_GUIDING=3~%uint8 ROBOT_MODE_REFLEX=4~%uint8 ROBOT_MODE_USER_STOPPED=5~%uint8 ROBOT_MODE_AUTOMATIC_ERROR_RECOVERY=6~%uint8 robot_mode~%~%franka_msgs/Errors current_errors~%franka_msgs/Errors last_motion_errors~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: franka_msgs/Errors~%bool joint_position_limits_violation~%bool cartesian_position_limits_violation~%bool self_collision_avoidance_violation~%bool joint_velocity_violation~%bool cartesian_velocity_violation~%bool force_control_safety_violation~%bool joint_reflex~%bool cartesian_reflex~%bool max_goal_pose_deviation_violation~%bool max_path_pose_deviation_violation~%bool cartesian_velocity_profile_safety_violation~%bool joint_position_motion_generator_start_pose_invalid~%bool joint_motion_generator_position_limits_violation~%bool joint_motion_generator_velocity_limits_violation~%bool joint_motion_generator_velocity_discontinuity~%bool joint_motion_generator_acceleration_discontinuity~%bool cartesian_position_motion_generator_start_pose_invalid~%bool cartesian_motion_generator_elbow_limit_violation~%bool cartesian_motion_generator_velocity_limits_violation~%bool cartesian_motion_generator_velocity_discontinuity~%bool cartesian_motion_generator_acceleration_discontinuity~%bool cartesian_motion_generator_elbow_sign_inconsistent~%bool cartesian_motion_generator_start_elbow_invalid~%bool cartesian_motion_generator_joint_position_limits_violation~%bool cartesian_motion_generator_joint_velocity_limits_violation~%bool cartesian_motion_generator_joint_velocity_discontinuity~%bool cartesian_motion_generator_joint_acceleration_discontinuity~%bool cartesian_position_motion_generator_invalid_frame~%bool force_controller_desired_force_tolerance_violation~%bool controller_torque_discontinuity~%bool start_elbow_sign_inconsistent~%bool communication_constraints_violation~%bool power_limit_violation~%bool joint_p2p_insufficient_torque_for_planning~%bool tau_j_range_violation~%bool instability_detected~%~%~%"))
+  (cl:format cl:nil "std_msgs/Header header~%~%float64[6] cartesian_collision~%float64[6] cartesian_contact~%float64[6] O_dP_EE # EE vel computed as J*dq~%~%# float64[7] q # joint position, velocity, and effort in joint_states topic~%# float64[7] dq~%~%float64[7] q_d~%float64[7] dq_d~%# float64[7] tau_J~%float64[7] dtau_J # torque derivative~%float64[7] tau_J_d # desired joint torque~%# float64[6] K_F_ext_hat_K~%# float64[2] elbow~%# float64[2] elbow_d~%~%float64[7] joint_collision~%float64[7] joint_contact~%~%# float64[6] O_F_ext_hat_K # in tip state~%~%float64[7] tau_ext_hat_filtered # filtered external torque~%float64[3] F_x_Cee # Configured center of mass of the end effector load with respect to flange frame.~%float64[3] F_x_Cload # Configured center of mass of the external load with respect to flange frame.~%float64[3] F_x_Ctotal # Combined center of mass of the end effector load and the external load with respect to flange frame.~%float64[9] I_ee # Configured rotational inertia matrix of the end effector load with respect to center of mass.~%float64[9] I_load~%float64[9] I_total~%~%float64 m_ee # configured mass of end-effector~%float64 m_load # configured mass of external load~%float64 m_total~%~%~%float64[7] gravity~%float64[7] coriolis~%float64[49] mass_matrix # mass matrix of end-effector wrt base frame # Vectorized 7x7, column-major~%~%float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major~%~%# float64[16] O_T_EE # ----- in tip state # Vectorized 4x4, column-major~%float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major~%float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major~%float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major~%float64 time~%~%uint8 ROBOT_MODE_OTHER=0~%uint8 ROBOT_MODE_IDLE=1~%uint8 ROBOT_MODE_MOVE=2~%uint8 ROBOT_MODE_GUIDING=3~%uint8 ROBOT_MODE_REFLEX=4~%uint8 ROBOT_MODE_USER_STOPPED=5~%uint8 ROBOT_MODE_AUTOMATIC_ERROR_RECOVERY=6~%uint8 robot_mode~%~%franka_msgs/Errors current_errors~%franka_msgs/Errors last_motion_errors~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: franka_msgs/Errors~%bool joint_position_limits_violation~%bool cartesian_position_limits_violation~%bool self_collision_avoidance_violation~%bool joint_velocity_violation~%bool cartesian_velocity_violation~%bool force_control_safety_violation~%bool joint_reflex~%bool cartesian_reflex~%bool max_goal_pose_deviation_violation~%bool max_path_pose_deviation_violation~%bool cartesian_velocity_profile_safety_violation~%bool joint_position_motion_generator_start_pose_invalid~%bool joint_motion_generator_position_limits_violation~%bool joint_motion_generator_velocity_limits_violation~%bool joint_motion_generator_velocity_discontinuity~%bool joint_motion_generator_acceleration_discontinuity~%bool cartesian_position_motion_generator_start_pose_invalid~%bool cartesian_motion_generator_elbow_limit_violation~%bool cartesian_motion_generator_velocity_limits_violation~%bool cartesian_motion_generator_velocity_discontinuity~%bool cartesian_motion_generator_acceleration_discontinuity~%bool cartesian_motion_generator_elbow_sign_inconsistent~%bool cartesian_motion_generator_start_elbow_invalid~%bool cartesian_motion_generator_joint_position_limits_violation~%bool cartesian_motion_generator_joint_velocity_limits_violation~%bool cartesian_motion_generator_joint_velocity_discontinuity~%bool cartesian_motion_generator_joint_acceleration_discontinuity~%bool cartesian_position_motion_generator_invalid_frame~%bool force_controller_desired_force_tolerance_violation~%bool controller_torque_discontinuity~%bool start_elbow_sign_inconsistent~%bool communication_constraints_violation~%bool power_limit_violation~%bool joint_p2p_insufficient_torque_for_planning~%bool tau_j_range_violation~%bool instability_detected~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <RobotState>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
@@ -1078,8 +1012,6 @@
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'O_Jac_EE) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'O_T_EE_d) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'F_T_EE) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
-     0 (cl:reduce #'cl:+ (cl:slot-value msg 'F_T_NE) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
-     0 (cl:reduce #'cl:+ (cl:slot-value msg 'NE_T_EE) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      0 (cl:reduce #'cl:+ (cl:slot-value msg 'EE_T_K) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      8
      1
@@ -1115,8 +1047,6 @@
     (cl:cons ':O_Jac_EE (O_Jac_EE msg))
     (cl:cons ':O_T_EE_d (O_T_EE_d msg))
     (cl:cons ':F_T_EE (F_T_EE msg))
-    (cl:cons ':F_T_NE (F_T_NE msg))
-    (cl:cons ':NE_T_EE (NE_T_EE msg))
     (cl:cons ':EE_T_K (EE_T_K msg))
     (cl:cons ':time (time msg))
     (cl:cons ':robot_mode (robot_mode msg))

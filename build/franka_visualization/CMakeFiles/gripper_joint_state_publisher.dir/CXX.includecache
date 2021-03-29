@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_visualization/src/gripper_joint_state_publisher.cpp
-franka/exception.h
--
-franka/gripper.h
--
-ros/ros.h
--
-sensor_msgs/JointState.h
--
-
-/opt/ros/melodic/include/libfranka/franka/control_types.h
+/home/hrigroup2/git/libfranka/include/franka/control_types.h
 array
 -
 cmath
@@ -24,7 +14,7 @@ cmath
 initializer_list
 -
 
-/opt/ros/melodic/include/libfranka/franka/duration.h
+/home/hrigroup2/git/libfranka/include/franka/duration.h
 chrono
 -
 cstdint
@@ -32,13 +22,13 @@ cstdint
 ratio
 -
 
-/opt/ros/melodic/include/libfranka/franka/errors.h
+/home/hrigroup2/git/libfranka/include/franka/errors.h
 array
 -
 ostream
 -
 
-/opt/ros/melodic/include/libfranka/franka/exception.h
+/home/hrigroup2/git/libfranka/include/franka/exception.h
 stdexcept
 -
 string
@@ -46,7 +36,7 @@ string
 franka/log.h
 -
 
-/opt/ros/melodic/include/libfranka/franka/gripper.h
+/home/hrigroup2/git/libfranka/include/franka/gripper.h
 cstdint
 -
 memory
@@ -56,7 +46,7 @@ string
 franka/gripper_state.h
 -
 
-/opt/ros/melodic/include/libfranka/franka/gripper_state.h
+/home/hrigroup2/git/libfranka/include/franka/gripper_state.h
 cstdint
 -
 ostream
@@ -64,7 +54,7 @@ ostream
 franka/duration.h
 -
 
-/opt/ros/melodic/include/libfranka/franka/log.h
+/home/hrigroup2/git/libfranka/include/franka/log.h
 vector
 -
 franka/control_types.h
@@ -72,7 +62,7 @@ franka/control_types.h
 franka/robot_state.h
 -
 
-/opt/ros/melodic/include/libfranka/franka/robot_state.h
+/home/hrigroup2/git/libfranka/include/franka/robot_state.h
 array
 -
 ostream
@@ -80,6 +70,16 @@ ostream
 franka/duration.h
 -
 franka/errors.h
+-
+
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_visualization/src/gripper_joint_state_publisher.cpp
+franka/exception.h
+-
+franka/gripper.h
+-
+ros/ros.h
+-
+sensor_msgs/JointState.h
 -
 
 /opt/ros/melodic/include/ros/advertise_options.h

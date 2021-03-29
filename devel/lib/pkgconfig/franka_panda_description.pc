@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_panda_description/lib/pkgconfig/franka_panda_description.pc
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_panda_description/lib/pkgconfig/franka_panda_description.pc

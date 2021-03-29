@@ -74,6 +74,8 @@ $ rosrun cws_planning talker_demo.py
 # Running with real robot
 To get Panda Robot package to control the robot through the Franka ROS interface, you will first need to ensure that the interface is running and connected with the robot. The ./franka.sh file may need to be updated with your computer's IP address.
 
+If you are running on a new computer, make sure you follow the [franka robot installation guide](https://www.saifsidhik.page/panda_robot). Make sure you install the v0.7.1 branch for franka ros interface.
+
 ``` shell
 # Starts the Franka Interface environment (master is the comp attached to the robot)
 $ cd ~/projects/ros_cws_planner && ./franka.sh master

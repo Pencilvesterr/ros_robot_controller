@@ -6,7 +6,81 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointCommand.h
+/home/hrigroup2/git/libfranka/include/franka/command_types.h
+array
+-
+cstdint
+-
+
+/home/hrigroup2/git/libfranka/include/franka/control_types.h
+array
+-
+cmath
+-
+initializer_list
+-
+
+/home/hrigroup2/git/libfranka/include/franka/duration.h
+chrono
+-
+cstdint
+-
+ratio
+-
+
+/home/hrigroup2/git/libfranka/include/franka/errors.h
+array
+-
+ostream
+-
+
+/home/hrigroup2/git/libfranka/include/franka/lowpass_filter.h
+array
+-
+cmath
+-
+
+/home/hrigroup2/git/libfranka/include/franka/model.h
+array
+-
+memory
+-
+franka/robot.h
+-
+franka/robot_state.h
+-
+
+/home/hrigroup2/git/libfranka/include/franka/robot.h
+functional
+-
+memory
+-
+mutex
+-
+string
+-
+franka/command_types.h
+-
+franka/control_types.h
+-
+franka/duration.h
+-
+franka/lowpass_filter.h
+-
+franka/robot_state.h
+-
+
+/home/hrigroup2/git/libfranka/include/franka/robot_state.h
+array
+-
+ostream
+-
+franka/duration.h
+-
+franka/errors.h
+-
+
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointCommand.h
 string
 -
 vector
@@ -24,7 +98,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointControllerStates.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointControllerStates.h
 string
 -
 vector
@@ -44,7 +118,7 @@ std_msgs/Header.h
 control_msgs/JointControllerState.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointLimits.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_core_msgs/include/franka_core_msgs/JointLimits.h
 string
 -
 vector
@@ -60,7 +134,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/include/franka_ros_controllers/joint_controller_paramsConfig.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/include/franka_ros_controllers/joint_controller_paramsConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -78,7 +152,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_model_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_model_interface.h
 array
 -
 string
@@ -90,7 +164,7 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
 string
 -
 franka/robot_state.h
@@ -98,11 +172,11 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/trigger_rate.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/trigger_rate.h
 ros/time.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/effort_joint_impedance_controller.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/effort_joint_impedance_controller.h
 memory
 -
 string
@@ -138,7 +212,7 @@ ros/time.h
 franka_hw/franka_model_interface.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/effort_joint_position_controller.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/effort_joint_position_controller.h
 memory
 -
 string
@@ -174,7 +248,7 @@ ros/time.h
 mutex
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/effort_joint_torque_controller.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/effort_joint_torque_controller.h
 memory
 -
 string
@@ -208,7 +282,7 @@ mutex
 franka_hw/franka_model_interface.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/position_joint_position_controller.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/position_joint_position_controller.h
 array
 -
 string
@@ -242,7 +316,7 @@ ros/node_handle.h
 ros/time.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/velocity_joint_velocity_controller.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/include/franka_ros_controllers/velocity_joint_velocity_controller.h
 string
 -
 vector
@@ -276,7 +350,7 @@ ros/node_handle.h
 ros/time.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/effort_joint_impedance_controller.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/effort_joint_impedance_controller.cpp
 franka_ros_controllers/effort_joint_impedance_controller.h
 -
 cmath
@@ -292,7 +366,7 @@ ros/ros.h
 franka/robot_state.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/effort_joint_position_controller.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/effort_joint_position_controller.cpp
 franka_ros_controllers/effort_joint_position_controller.h
 -
 cmath
@@ -308,7 +382,7 @@ ros/ros.h
 franka/robot_state.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/effort_joint_torque_controller.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/effort_joint_torque_controller.cpp
 franka_ros_controllers/effort_joint_torque_controller.h
 -
 cmath
@@ -322,7 +396,7 @@ pluginlib/class_list_macros.h
 ros/ros.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/position_joint_position_controller.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/position_joint_position_controller.cpp
 franka_ros_controllers/position_joint_position_controller.h
 -
 cmath
@@ -338,7 +412,7 @@ pluginlib/class_list_macros.h
 ros/ros.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/velocity_joint_velocity_controller.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_ros_controllers/src/velocity_joint_velocity_controller.cpp
 franka_ros_controllers/velocity_joint_velocity_controller.h
 -
 cmath
@@ -828,80 +902,6 @@ hardware_interface/controller_info.h
 ros/console.h
 -
 ros/node_handle.h
--
-
-/opt/ros/melodic/include/libfranka/franka/command_types.h
-array
--
-cstdint
--
-
-/opt/ros/melodic/include/libfranka/franka/control_types.h
-array
--
-cmath
--
-initializer_list
--
-
-/opt/ros/melodic/include/libfranka/franka/duration.h
-chrono
--
-cstdint
--
-ratio
--
-
-/opt/ros/melodic/include/libfranka/franka/errors.h
-array
--
-ostream
--
-
-/opt/ros/melodic/include/libfranka/franka/lowpass_filter.h
-array
--
-cmath
--
-
-/opt/ros/melodic/include/libfranka/franka/model.h
-array
--
-memory
--
-franka/robot.h
--
-franka/robot_state.h
--
-
-/opt/ros/melodic/include/libfranka/franka/robot.h
-functional
--
-memory
--
-mutex
--
-string
--
-franka/command_types.h
--
-franka/control_types.h
--
-franka/duration.h
--
-franka/lowpass_filter.h
--
-franka/robot_state.h
--
-
-/opt/ros/melodic/include/libfranka/franka/robot_state.h
-array
--
-ostream
--
-franka/duration.h
--
-franka/errors.h
 -
 
 /opt/ros/melodic/include/pluginlib/./class_list_macros.hpp

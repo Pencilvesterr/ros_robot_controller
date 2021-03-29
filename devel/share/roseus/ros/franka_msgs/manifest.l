@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/share/roseus/ros/franka_msgs/manifest.l
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/share/roseus/ros/franka_msgs/manifest.l

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_control/src/franka_control_node.cpp" "/home/morgan/projects/ros_cws_planner/build/franka_control/CMakeFiles/franka_control_node.dir/src/franka_control_node.cpp.o"
+  "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_control/src/franka_control_node.cpp" "/home/hrigroup2/projects/ros_cws_planner/build/franka_control/CMakeFiles/franka_control_node.dir/src/franka_control_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,9 +17,9 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/opt/ros/melodic/include/libfranka"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include"
-  "/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include"
+  "/home/hrigroup2/git/libfranka/include"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include"
+  "/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include"
   "/opt/ros/melodic/include"
   "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

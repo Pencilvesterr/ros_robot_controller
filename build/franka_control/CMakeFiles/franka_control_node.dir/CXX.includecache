@@ -6,7 +6,103 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryAction.h
+/home/hrigroup2/git/libfranka/include/franka/command_types.h
+array
+-
+cstdint
+-
+
+/home/hrigroup2/git/libfranka/include/franka/control_types.h
+array
+-
+cmath
+-
+initializer_list
+-
+
+/home/hrigroup2/git/libfranka/include/franka/duration.h
+chrono
+-
+cstdint
+-
+ratio
+-
+
+/home/hrigroup2/git/libfranka/include/franka/errors.h
+array
+-
+ostream
+-
+
+/home/hrigroup2/git/libfranka/include/franka/exception.h
+stdexcept
+-
+string
+-
+franka/log.h
+-
+
+/home/hrigroup2/git/libfranka/include/franka/log.h
+vector
+-
+franka/control_types.h
+-
+franka/robot_state.h
+-
+
+/home/hrigroup2/git/libfranka/include/franka/lowpass_filter.h
+array
+-
+cmath
+-
+
+/home/hrigroup2/git/libfranka/include/franka/model.h
+array
+-
+memory
+-
+franka/robot.h
+-
+franka/robot_state.h
+-
+
+/home/hrigroup2/git/libfranka/include/franka/rate_limiting.h
+array
+-
+limits
+-
+
+/home/hrigroup2/git/libfranka/include/franka/robot.h
+functional
+-
+memory
+-
+mutex
+-
+string
+-
+franka/command_types.h
+-
+franka/control_types.h
+-
+franka/duration.h
+-
+franka/lowpass_filter.h
+-
+franka/robot_state.h
+-
+
+/home/hrigroup2/git/libfranka/include/franka/robot_state.h
+array
+-
+ostream
+-
+franka/duration.h
+-
+franka/errors.h
+-
+
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryAction.h
 string
 -
 vector
@@ -28,7 +124,7 @@ franka_msgs/ErrorRecoveryActionResult.h
 franka_msgs/ErrorRecoveryActionFeedback.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryActionFeedback.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryActionFeedback.h
 string
 -
 vector
@@ -50,7 +146,7 @@ actionlib_msgs/GoalStatus.h
 franka_msgs/ErrorRecoveryFeedback.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryActionGoal.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryActionGoal.h
 string
 -
 vector
@@ -72,7 +168,7 @@ actionlib_msgs/GoalID.h
 franka_msgs/ErrorRecoveryGoal.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryActionResult.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryActionResult.h
 string
 -
 vector
@@ -94,7 +190,7 @@ actionlib_msgs/GoalStatus.h
 franka_msgs/ErrorRecoveryResult.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryFeedback.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryFeedback.h
 string
 -
 vector
@@ -110,7 +206,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryGoal.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryGoal.h
 string
 -
 vector
@@ -126,7 +222,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryResult.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/ErrorRecoveryResult.h
 string
 -
 vector
@@ -142,7 +238,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetCartesianImpedance.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetCartesianImpedance.h
 ros/service_traits.h
 -
 franka_msgs/SetCartesianImpedanceRequest.h
@@ -150,7 +246,7 @@ franka_msgs/SetCartesianImpedanceRequest.h
 franka_msgs/SetCartesianImpedanceResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetCartesianImpedanceRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetCartesianImpedanceRequest.h
 string
 -
 vector
@@ -166,7 +262,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetCartesianImpedanceResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetCartesianImpedanceResponse.h
 string
 -
 vector
@@ -182,7 +278,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetEEFrame.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetEEFrame.h
 ros/service_traits.h
 -
 franka_msgs/SetEEFrameRequest.h
@@ -190,7 +286,7 @@ franka_msgs/SetEEFrameRequest.h
 franka_msgs/SetEEFrameResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetEEFrameRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetEEFrameRequest.h
 string
 -
 vector
@@ -206,7 +302,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetEEFrameResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetEEFrameResponse.h
 string
 -
 vector
@@ -222,7 +318,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetForceTorqueCollisionBehavior.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetForceTorqueCollisionBehavior.h
 ros/service_traits.h
 -
 franka_msgs/SetForceTorqueCollisionBehaviorRequest.h
@@ -230,7 +326,7 @@ franka_msgs/SetForceTorqueCollisionBehaviorRequest.h
 franka_msgs/SetForceTorqueCollisionBehaviorResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetForceTorqueCollisionBehaviorRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetForceTorqueCollisionBehaviorRequest.h
 string
 -
 vector
@@ -246,7 +342,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetForceTorqueCollisionBehaviorResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetForceTorqueCollisionBehaviorResponse.h
 string
 -
 vector
@@ -262,7 +358,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehavior.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehavior.h
 ros/service_traits.h
 -
 franka_msgs/SetFullCollisionBehaviorRequest.h
@@ -270,7 +366,7 @@ franka_msgs/SetFullCollisionBehaviorRequest.h
 franka_msgs/SetFullCollisionBehaviorResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehaviorRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehaviorRequest.h
 string
 -
 vector
@@ -286,7 +382,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehaviorResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetFullCollisionBehaviorResponse.h
 string
 -
 vector
@@ -302,7 +398,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetJointImpedance.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetJointImpedance.h
 ros/service_traits.h
 -
 franka_msgs/SetJointImpedanceRequest.h
@@ -310,7 +406,7 @@ franka_msgs/SetJointImpedanceRequest.h
 franka_msgs/SetJointImpedanceResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetJointImpedanceRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetJointImpedanceRequest.h
 string
 -
 vector
@@ -326,7 +422,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetJointImpedanceResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetJointImpedanceResponse.h
 string
 -
 vector
@@ -342,7 +438,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetKFrame.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetKFrame.h
 ros/service_traits.h
 -
 franka_msgs/SetKFrameRequest.h
@@ -350,7 +446,7 @@ franka_msgs/SetKFrameRequest.h
 franka_msgs/SetKFrameResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetKFrameRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetKFrameRequest.h
 string
 -
 vector
@@ -366,7 +462,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetKFrameResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetKFrameResponse.h
 string
 -
 vector
@@ -382,7 +478,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetLoad.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetLoad.h
 ros/service_traits.h
 -
 franka_msgs/SetLoadRequest.h
@@ -390,7 +486,7 @@ franka_msgs/SetLoadRequest.h
 franka_msgs/SetLoadResponse.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetLoadRequest.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetLoadRequest.h
 string
 -
 vector
@@ -406,7 +502,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetLoadResponse.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/SetLoadResponse.h
 string
 -
 vector
@@ -422,7 +518,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_control/src/franka_control_node.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_control/src/franka_control_node.cpp
 algorithm
 -
 atomic
@@ -444,13 +540,13 @@ franka_msgs/ErrorRecoveryAction.h
 ros/ros.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/control_mode.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/control_mode.h
 ostream
 -
 type_traits
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_cartesian_command_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_cartesian_command_interface.h
 array
 -
 franka_hw/franka_state_interface.h
@@ -458,7 +554,7 @@ franka_hw/franka_state_interface.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_hw.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_hw.h
 array
 -
 atomic
@@ -508,7 +604,7 @@ franka_hw/franka_state_interface.h
 franka_hw/resource_helpers.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_model_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_model_interface.h
 array
 -
 string
@@ -520,7 +616,7 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
 string
 -
 franka/robot_state.h
@@ -528,7 +624,7 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/resource_helpers.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/resource_helpers.h
 list
 -
 map
@@ -542,7 +638,7 @@ hardware_interface/controller_info.h
 franka_hw/control_mode.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/services.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/services.h
 vector
 -
 franka/exception.h
@@ -1396,102 +1492,6 @@ urdf_model/joint.h
 urdf/urdfdom_compatibility.h
 -
 joint_limits_interface/joint_limits.h
--
-
-/opt/ros/melodic/include/libfranka/franka/command_types.h
-array
--
-cstdint
--
-
-/opt/ros/melodic/include/libfranka/franka/control_types.h
-array
--
-cmath
--
-initializer_list
--
-
-/opt/ros/melodic/include/libfranka/franka/duration.h
-chrono
--
-cstdint
--
-ratio
--
-
-/opt/ros/melodic/include/libfranka/franka/errors.h
-array
--
-ostream
--
-
-/opt/ros/melodic/include/libfranka/franka/exception.h
-stdexcept
--
-string
--
-franka/log.h
--
-
-/opt/ros/melodic/include/libfranka/franka/log.h
-vector
--
-franka/control_types.h
--
-franka/robot_state.h
--
-
-/opt/ros/melodic/include/libfranka/franka/lowpass_filter.h
-array
--
-cmath
--
-
-/opt/ros/melodic/include/libfranka/franka/model.h
-array
--
-memory
--
-franka/robot.h
--
-franka/robot_state.h
--
-
-/opt/ros/melodic/include/libfranka/franka/rate_limiting.h
-array
--
-limits
--
-
-/opt/ros/melodic/include/libfranka/franka/robot.h
-functional
--
-memory
--
-mutex
--
-string
--
-franka/command_types.h
--
-franka/control_types.h
--
-franka/duration.h
--
-franka/lowpass_filter.h
--
-franka/robot_state.h
--
-
-/opt/ros/melodic/include/libfranka/franka/robot_state.h
-array
--
-ostream
--
-franka/duration.h
--
-franka/errors.h
 -
 
 /opt/ros/melodic/include/pluginlib/././class_loader.hpp

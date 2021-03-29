@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/panda_robot
+CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/panda_robot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/panda_robot
+CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/panda_robot
 
 # Utility rule file for geometry_msgs_generate_messages_py.
 
@@ -67,6 +67,6 @@ CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/geometry_msgs_generate_messages_py.dir/depend:
-	cd /home/morgan/projects/ros_cws_planner/build/panda_robot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/panda_robot /home/morgan/projects/ros_cws_planner/src/panda_robot /home/morgan/projects/ros_cws_planner/build/panda_robot /home/morgan/projects/ros_cws_planner/build/panda_robot /home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/geometry_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hrigroup2/projects/ros_cws_planner/build/panda_robot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hrigroup2/projects/ros_cws_planner/src/panda_robot /home/hrigroup2/projects/ros_cws_planner/src/panda_robot /home/hrigroup2/projects/ros_cws_planner/build/panda_robot /home/hrigroup2/projects/ros_cws_planner/build/panda_robot /home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/geometry_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
 

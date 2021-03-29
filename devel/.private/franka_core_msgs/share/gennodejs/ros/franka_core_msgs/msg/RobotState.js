@@ -46,8 +46,6 @@ class RobotState {
       this.O_Jac_EE = null;
       this.O_T_EE_d = null;
       this.F_T_EE = null;
-      this.F_T_NE = null;
-      this.NE_T_EE = null;
       this.EE_T_K = null;
       this.time = null;
       this.robot_mode = null;
@@ -210,18 +208,6 @@ class RobotState {
       }
       else {
         this.F_T_EE = new Array(16).fill(0);
-      }
-      if (initObj.hasOwnProperty('F_T_NE')) {
-        this.F_T_NE = initObj.F_T_NE
-      }
-      else {
-        this.F_T_NE = new Array(16).fill(0);
-      }
-      if (initObj.hasOwnProperty('NE_T_EE')) {
-        this.NE_T_EE = initObj.NE_T_EE
-      }
-      else {
-        this.NE_T_EE = new Array(16).fill(0);
       }
       if (initObj.hasOwnProperty('EE_T_K')) {
         this.EE_T_K = initObj.EE_T_K
@@ -398,18 +384,6 @@ class RobotState {
     }
     // Serialize message field [F_T_EE]
     bufferOffset = _arraySerializer.float64(obj.F_T_EE, buffer, bufferOffset, 16);
-    // Check that the constant length array field [F_T_NE] has the right length
-    if (obj.F_T_NE.length !== 16) {
-      throw new Error('Unable to serialize array field F_T_NE - length must be 16')
-    }
-    // Serialize message field [F_T_NE]
-    bufferOffset = _arraySerializer.float64(obj.F_T_NE, buffer, bufferOffset, 16);
-    // Check that the constant length array field [NE_T_EE] has the right length
-    if (obj.NE_T_EE.length !== 16) {
-      throw new Error('Unable to serialize array field NE_T_EE - length must be 16')
-    }
-    // Serialize message field [NE_T_EE]
-    bufferOffset = _arraySerializer.float64(obj.NE_T_EE, buffer, bufferOffset, 16);
     // Check that the constant length array field [EE_T_K] has the right length
     if (obj.EE_T_K.length !== 16) {
       throw new Error('Unable to serialize array field EE_T_K - length must be 16')
@@ -483,10 +457,6 @@ class RobotState {
     data.O_T_EE_d = _arrayDeserializer.float64(buffer, bufferOffset, 16)
     // Deserialize message field [F_T_EE]
     data.F_T_EE = _arrayDeserializer.float64(buffer, bufferOffset, 16)
-    // Deserialize message field [F_T_NE]
-    data.F_T_NE = _arrayDeserializer.float64(buffer, bufferOffset, 16)
-    // Deserialize message field [NE_T_EE]
-    data.NE_T_EE = _arrayDeserializer.float64(buffer, bufferOffset, 16)
     // Deserialize message field [EE_T_K]
     data.EE_T_K = _arrayDeserializer.float64(buffer, bufferOffset, 16)
     // Deserialize message field [time]
@@ -503,7 +473,7 @@ class RobotState {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 2409;
+    return length + 2153;
   }
 
   static datatype() {
@@ -513,7 +483,7 @@ class RobotState {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5b1c24f59317c607d71ccadfc0800957';
+    return 'c8266681ae33e1871ee269db6bb0c93b';
   }
 
   static messageDefinition() {
@@ -561,11 +531,9 @@ class RobotState {
     
     float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major
     
-    # float64[16] O_T_EE # ----- moved to endpointstate msg # Vectorized 4x4, column-major
+    # float64[16] O_T_EE # ----- in tip state # Vectorized 4x4, column-major
     float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major
     float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major
-    float64[16] F_T_NE # Nominal End effector frame pose in flange frame (fixed in Desk) # Vectorized 4x4, column-major
-    float64[16] NE_T_EE # End effector frame pose in Nominal End effector frame # Vectorized 4x4, column-major
     float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major
     float64 time
     
@@ -825,20 +793,6 @@ class RobotState {
     }
     else {
       resolved.F_T_EE = new Array(16).fill(0)
-    }
-
-    if (msg.F_T_NE !== undefined) {
-      resolved.F_T_NE = msg.F_T_NE;
-    }
-    else {
-      resolved.F_T_NE = new Array(16).fill(0)
-    }
-
-    if (msg.NE_T_EE !== undefined) {
-      resolved.NE_T_EE = msg.NE_T_EE;
-    }
-    else {
-      resolved.NE_T_EE = new Array(16).fill(0)
     }
 
     if (msg.EE_T_K !== undefined) {

@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers/share/franka_example_controllers/cmake/franka_example_controllersConfig-version.cmake
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_example_controllers/share/franka_example_controllers/cmake/franka_example_controllersConfig-version.cmake

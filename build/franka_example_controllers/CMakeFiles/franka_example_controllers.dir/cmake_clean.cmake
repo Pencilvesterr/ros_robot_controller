@@ -9,8 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/franka_example_controllers.dir/src/cartesian_impedance_example_controller.cpp.o"
   "CMakeFiles/franka_example_controllers.dir/src/force_example_controller.cpp.o"
   "CMakeFiles/franka_example_controllers.dir/src/dual_arm_cartesian_impedance_example_controller.cpp.o"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers/lib/libfranka_example_controllers.pdb"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers/lib/libfranka_example_controllers.so"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_example_controllers/lib/libfranka_example_controllers.pdb"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_example_controllers/lib/libfranka_example_controllers.so"
 )
 
 # Per-language clean rules from dependency scanning.

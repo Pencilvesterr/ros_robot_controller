@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_interface/share/franka_interface/cmake/franka_interfaceConfig.cmake
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_interface/share/franka_interface/cmake/franka_interfaceConfig.cmake

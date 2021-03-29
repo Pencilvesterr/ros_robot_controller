@@ -51,10 +51,6 @@
           O_T_EE_D
           F_T_EE-VAL
           F_T_EE
-          F_T_NE-VAL
-          F_T_NE
-          NE_T_EE-VAL
-          NE_T_EE
           EE_T_K-VAL
           EE_T_K
           TIME-VAL

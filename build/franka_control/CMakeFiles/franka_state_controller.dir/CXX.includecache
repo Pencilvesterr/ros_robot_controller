@@ -6,7 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h
+/home/hrigroup2/git/libfranka/include/franka/duration.h
+chrono
+-
+cstdint
+-
+ratio
+-
+
+/home/hrigroup2/git/libfranka/include/franka/errors.h
+array
+-
+ostream
+-
+
+/home/hrigroup2/git/libfranka/include/franka/robot_state.h
+array
+-
+ostream
+-
+franka/duration.h
+-
+franka/errors.h
+-
+
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/Errors.h
 string
 -
 vector
@@ -22,7 +46,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/FrankaState.h
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include/franka_msgs/FrankaState.h
 string
 -
 vector
@@ -44,7 +68,7 @@ franka_msgs/Errors.h
 franka_msgs/Errors.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_control/src/franka_state_controller.cpp
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_control/src/franka_state_controller.cpp
 franka_control/franka_state_controller.h
 -
 cmath
@@ -72,7 +96,7 @@ tf/tf.h
 tf/transform_datatypes.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_cartesian_command_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_cartesian_command_interface.h
 array
 -
 franka_hw/franka_state_interface.h
@@ -80,7 +104,7 @@ franka_hw/franka_state_interface.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/franka_state_interface.h
 string
 -
 franka/robot_state.h
@@ -88,7 +112,7 @@ franka/robot_state.h
 hardware_interface/internal/hardware_resource_manager.h
 -
 
-/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/trigger_rate.h
+/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_hw/include/franka_hw/trigger_rate.h
 ros/time.h
 -
 
@@ -586,30 +610,6 @@ hardware_interface/controller_info.h
 ros/console.h
 -
 ros/node_handle.h
--
-
-/opt/ros/melodic/include/libfranka/franka/duration.h
-chrono
--
-cstdint
--
-ratio
--
-
-/opt/ros/melodic/include/libfranka/franka/errors.h
-array
--
-ostream
--
-
-/opt/ros/melodic/include/libfranka/franka/robot_state.h
-array
--
-ostream
--
-franka/duration.h
--
-franka/errors.h
 -
 
 /opt/ros/melodic/include/pluginlib/./class_list_macros.hpp

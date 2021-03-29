@@ -39,7 +39,7 @@
 (defconstant franka_core_msgs::RobotState::*ROBOT_MODE_AUTOMATIC_ERROR_RECOVERY* 6)
 (defclass franka_core_msgs::RobotState
   :super ros::object
-  :slots (_header _cartesian_collision _cartesian_contact _O_dP_EE _q_d _dq_d _dtau_J _tau_J_d _joint_collision _joint_contact _tau_ext_hat_filtered _F_x_Cee _F_x_Cload _F_x_Ctotal _I_ee _I_load _I_total _m_ee _m_load _m_total _gravity _coriolis _mass_matrix _O_Jac_EE _O_T_EE_d _F_T_EE _F_T_NE _NE_T_EE _EE_T_K _time _robot_mode _current_errors _last_motion_errors ))
+  :slots (_header _cartesian_collision _cartesian_contact _O_dP_EE _q_d _dq_d _dtau_J _tau_J_d _joint_collision _joint_contact _tau_ext_hat_filtered _F_x_Cee _F_x_Cload _F_x_Ctotal _I_ee _I_load _I_total _m_ee _m_load _m_total _gravity _coriolis _mass_matrix _O_Jac_EE _O_T_EE_d _F_T_EE _EE_T_K _time _robot_mode _current_errors _last_motion_errors ))
 
 (defmethod franka_core_msgs::RobotState
   (:init
@@ -70,8 +70,6 @@
     ((:O_Jac_EE __O_Jac_EE) (make-array 42 :initial-element 0.0 :element-type :float))
     ((:O_T_EE_d __O_T_EE_d) (make-array 16 :initial-element 0.0 :element-type :float))
     ((:F_T_EE __F_T_EE) (make-array 16 :initial-element 0.0 :element-type :float))
-    ((:F_T_NE __F_T_NE) (make-array 16 :initial-element 0.0 :element-type :float))
-    ((:NE_T_EE __NE_T_EE) (make-array 16 :initial-element 0.0 :element-type :float))
     ((:EE_T_K __EE_T_K) (make-array 16 :initial-element 0.0 :element-type :float))
     ((:time __time) 0.0)
     ((:robot_mode __robot_mode) 0)
@@ -105,8 +103,6 @@
    (setq _O_Jac_EE __O_Jac_EE)
    (setq _O_T_EE_d __O_T_EE_d)
    (setq _F_T_EE __F_T_EE)
-   (setq _F_T_NE __F_T_NE)
-   (setq _NE_T_EE __NE_T_EE)
    (setq _EE_T_K __EE_T_K)
    (setq _time (float __time))
    (setq _robot_mode (round __robot_mode))
@@ -195,12 +191,6 @@
   (:F_T_EE
    (&optional __F_T_EE)
    (if __F_T_EE (setq _F_T_EE __F_T_EE)) _F_T_EE)
-  (:F_T_NE
-   (&optional __F_T_NE)
-   (if __F_T_NE (setq _F_T_NE __F_T_NE)) _F_T_NE)
-  (:NE_T_EE
-   (&optional __NE_T_EE)
-   (if __NE_T_EE (setq _NE_T_EE __NE_T_EE)) _NE_T_EE)
   (:EE_T_K
    (&optional __EE_T_K)
    (if __EE_T_K (setq _EE_T_K __EE_T_K)) _EE_T_K)
@@ -278,10 +268,6 @@
     ;; float64[16] _O_T_EE_d
     (* 8    16)
     ;; float64[16] _F_T_EE
-    (* 8    16)
-    ;; float64[16] _F_T_NE
-    (* 8    16)
-    ;; float64[16] _NE_T_EE
     (* 8    16)
     ;; float64[16] _EE_T_K
     (* 8    16)
@@ -393,14 +379,6 @@
      ;; float64[16] _F_T_EE
      (dotimes (i 16)
        (sys::poke (elt _F_T_EE i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-       )
-     ;; float64[16] _F_T_NE
-     (dotimes (i 16)
-       (sys::poke (elt _F_T_NE i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-       )
-     ;; float64[16] _NE_T_EE
-     (dotimes (i 16)
-       (sys::poke (elt _NE_T_EE i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
        )
      ;; float64[16] _EE_T_K
      (dotimes (i 16)
@@ -514,14 +492,6 @@
    (dotimes (i (length _F_T_EE))
      (setf (elt _F_T_EE i) (sys::peek buf ptr- :double)) (incf ptr- 8)
      )
-   ;; float64[16] _F_T_NE
-   (dotimes (i (length _F_T_NE))
-     (setf (elt _F_T_NE i) (sys::peek buf ptr- :double)) (incf ptr- 8)
-     )
-   ;; float64[16] _NE_T_EE
-   (dotimes (i (length _NE_T_EE))
-     (setf (elt _NE_T_EE i) (sys::peek buf ptr- :double)) (incf ptr- 8)
-     )
    ;; float64[16] _EE_T_K
    (dotimes (i (length _EE_T_K))
      (setf (elt _EE_T_K i) (sys::peek buf ptr- :double)) (incf ptr- 8)
@@ -538,7 +508,7 @@
    self)
   )
 
-(setf (get franka_core_msgs::RobotState :md5sum-) "5b1c24f59317c607d71ccadfc0800957")
+(setf (get franka_core_msgs::RobotState :md5sum-) "c8266681ae33e1871ee269db6bb0c93b")
 (setf (get franka_core_msgs::RobotState :datatype-) "franka_core_msgs/RobotState")
 (setf (get franka_core_msgs::RobotState :definition-)
       "std_msgs/Header header
@@ -583,11 +553,9 @@ float64[49] mass_matrix # mass matrix of end-effector wrt base frame # Vectorize
 
 float64[42] O_Jac_EE # zero jacobian of end-effector frame. Vectorized 6x7 Jacobian, column-major
 
-# float64[16] O_T_EE # ----- moved to endpointstate msg # Vectorized 4x4, column-major
+# float64[16] O_T_EE # ----- in tip state # Vectorized 4x4, column-major
 float64[16] O_T_EE_d # Last desired end effector pose of motion generation in base frame.  # Vectorized 4x4, column-major
 float64[16] F_T_EE # End effector frame pose in flange frame # Vectorized 4x4, column-major
-float64[16] F_T_NE # Nominal End effector frame pose in flange frame (fixed in Desk) # Vectorized 4x4, column-major
-float64[16] NE_T_EE # End effector frame pose in Nominal End effector frame # Vectorized 4x4, column-major
 float64[16] EE_T_K # Stiffness frame pose in end effector frame # Vectorized 4x4, column-major
 float64 time
 
@@ -662,6 +630,6 @@ bool instability_detected
 
 
 
-(provide :franka_core_msgs/RobotState "5b1c24f59317c607d71ccadfc0800957")
+(provide :franka_core_msgs/RobotState "c8266681ae33e1871ee269db6bb0c93b")
 
 

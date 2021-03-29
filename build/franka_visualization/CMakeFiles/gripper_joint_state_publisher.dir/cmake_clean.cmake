@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gripper_joint_state_publisher.dir/src/gripper_joint_state_publisher.cpp.o"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_visualization/lib/franka_visualization/gripper_joint_state_publisher.pdb"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_visualization/lib/franka_visualization/gripper_joint_state_publisher"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_visualization/lib/franka_visualization/gripper_joint_state_publisher.pdb"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_visualization/lib/franka_visualization/gripper_joint_state_publisher"
 )
 
 # Per-language clean rules from dependency scanning.

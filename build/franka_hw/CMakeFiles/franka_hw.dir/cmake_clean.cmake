@@ -5,8 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/franka_hw.dir/src/franka_combined_hw.cpp.o"
   "CMakeFiles/franka_hw.dir/src/resource_helpers.cpp.o"
   "CMakeFiles/franka_hw.dir/src/trigger_rate.cpp.o"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_hw.pdb"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_hw.so"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_hw.pdb"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_hw/lib/libfranka_hw.so"
 )
 
 # Per-language clean rules from dependency scanning.

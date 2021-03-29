@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/googletest")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/morgan/projects/ros_cws_planner/build/franka_hw")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/hrigroup2/projects/ros_cws_planner/build/franka_hw")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

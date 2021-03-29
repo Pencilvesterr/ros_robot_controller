@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/cfg/__init__.py
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_ros_controllers/lib/python2.7/dist-packages/franka_ros_controllers/cfg/__init__.py

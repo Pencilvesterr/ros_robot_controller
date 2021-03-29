@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper
+CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_gripper
+CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/franka_gripper
 
 # Include any dependencies generated for this target.
 include CMakeFiles/franka_gripper.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/franka_gripper.dir/progress.make
 include CMakeFiles/franka_gripper.dir/flags.make
 
 CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o: CMakeFiles/franka_gripper.dir/flags.make
-CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o: /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_gripper/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o -c /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp
+CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o: /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hrigroup2/projects/ros_cws_planner/build/franka_gripper/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o -c /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp
 
 CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp > CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp > CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.i
 
 CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp -o CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper/src/franka_gripper.cpp -o CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.s
 
 CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o.requires:
 
@@ -88,34 +88,34 @@ franka_gripper_OBJECTS = \
 # External object files for target franka_gripper
 franka_gripper_EXTERNAL_OBJECTS =
 
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: CMakeFiles/franka_gripper.dir/build.make
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libfranka.so.0.8.0
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libactionlib.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libroscpp.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librosconsole.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librostime.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libcpp_common.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: CMakeFiles/franka_gripper.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/franka_gripper/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so"
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: CMakeFiles/franka_gripper.dir/src/franka_gripper.cpp.o
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: CMakeFiles/franka_gripper.dir/build.make
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /home/hrigroup2/git/libfranka/build/libfranka.so.0.7.1
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libactionlib.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libroscpp.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librosconsole.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/librostime.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /opt/ros/melodic/lib/libcpp_common.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so: CMakeFiles/franka_gripper.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hrigroup2/projects/ros_cws_planner/build/franka_gripper/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/franka_gripper.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/franka_gripper.dir/build: /home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so
+CMakeFiles/franka_gripper.dir/build: /home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/lib/libfranka_gripper.so
 
 .PHONY : CMakeFiles/franka_gripper.dir/build
 
@@ -128,6 +128,6 @@ CMakeFiles/franka_gripper.dir/clean:
 .PHONY : CMakeFiles/franka_gripper.dir/clean
 
 CMakeFiles/franka_gripper.dir/depend:
-	cd /home/morgan/projects/ros_cws_planner/build/franka_gripper && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper /home/morgan/projects/ros_cws_planner/src/franka_ros/franka_gripper /home/morgan/projects/ros_cws_planner/build/franka_gripper /home/morgan/projects/ros_cws_planner/build/franka_gripper /home/morgan/projects/ros_cws_planner/build/franka_gripper/CMakeFiles/franka_gripper.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hrigroup2/projects/ros_cws_planner/build/franka_gripper && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper /home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper /home/hrigroup2/projects/ros_cws_planner/build/franka_gripper /home/hrigroup2/projects/ros_cws_planner/build/franka_gripper /home/hrigroup2/projects/ros_cws_planner/build/franka_gripper/CMakeFiles/franka_gripper.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/franka_gripper.dir/depend
 

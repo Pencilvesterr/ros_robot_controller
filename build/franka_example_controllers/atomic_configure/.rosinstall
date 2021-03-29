@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers/setup.sh
+    local-name: /home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_example_controllers/setup.sh

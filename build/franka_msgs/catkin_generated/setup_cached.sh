@@ -7,8 +7,10 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs:$CMAKE_PREFIX_PATH"
-export PWD='/home/morgan/projects/ros_cws_planner/build/franka_msgs'
-export PYTHONPATH='/opt/ros/melodic/lib/python2.7/dist-packages'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/franka_msgs/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/src/franka_ros/franka_msgs:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD='/home/hrigroup2/projects/ros_cws_planner/build/franka_msgs'
+export PYTHONPATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/lib/python2.7/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_msgs:$ROS_PACKAGE_PATH"

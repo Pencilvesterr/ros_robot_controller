@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_tools
+CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_tools
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/franka_tools
+CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/franka_tools
 
 # Utility rule file for std_msgs_generate_messages_py.
 
@@ -67,6 +67,6 @@ CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 .PHONY : CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 CMakeFiles/std_msgs_generate_messages_py.dir/depend:
-	cd /home/morgan/projects/ros_cws_planner/build/franka_tools && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_tools /home/morgan/projects/ros_cws_planner/src/franka_ros_interface/franka_tools /home/morgan/projects/ros_cws_planner/build/franka_tools /home/morgan/projects/ros_cws_planner/build/franka_tools /home/morgan/projects/ros_cws_planner/build/franka_tools/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hrigroup2/projects/ros_cws_planner/build/franka_tools && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_tools /home/hrigroup2/projects/ros_cws_planner/src/franka_ros_interface/franka_tools /home/hrigroup2/projects/ros_cws_planner/build/franka_tools /home/hrigroup2/projects/ros_cws_planner/build/franka_tools /home/hrigroup2/projects/ros_cws_planner/build/franka_tools/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/std_msgs_generate_messages_py.dir/depend
 

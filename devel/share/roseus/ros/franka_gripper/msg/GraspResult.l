@@ -1,1 +1,1 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_gripper/share/roseus/ros/franka_gripper/msg/GraspResult.l
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/share/roseus/ros/franka_gripper/msg/GraspResult.l

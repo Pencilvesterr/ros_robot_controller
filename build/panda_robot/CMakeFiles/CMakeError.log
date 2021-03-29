@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp
+Change Dir: /home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0e2cc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0e2cc.dir/build.make CMakeFiles/cmTC_0e2cc.dir/build
-make[1]: Entering directory '/home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0e2cc.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_0e2cc.dir/CheckSymbolExists.c.o   -c /home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_0e2cc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e2cc.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_0e2cc.dir/CheckSymbolExists.c.o  -o cmTC_0e2cc 
-CMakeFiles/cmTC_0e2cc.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_75127/fast"
+/usr/bin/make -f CMakeFiles/cmTC_75127.dir/build.make CMakeFiles/cmTC_75127.dir/build
+make[1]: Entering directory '/home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_75127.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_75127.dir/CheckSymbolExists.c.o   -c /home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_75127
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75127.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_75127.dir/CheckSymbolExists.c.o  -o cmTC_75127 
+CMakeFiles/cmTC_75127.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_0e2cc.dir/build.make:97: recipe for target 'cmTC_0e2cc' failed
-make[1]: *** [cmTC_0e2cc] Error 1
-make[1]: Leaving directory '/home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_0e2cc/fast' failed
-make: *** [cmTC_0e2cc/fast] Error 2
+CMakeFiles/cmTC_75127.dir/build.make:97: recipe for target 'cmTC_75127' failed
+make[1]: *** [cmTC_75127] Error 1
+make[1]: Leaving directory '/home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_75127/fast' failed
+make: *** [cmTC_75127/fast] Error 2
 
-File /home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp
+Change Dir: /home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8bfde/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8bfde.dir/build.make CMakeFiles/cmTC_8bfde.dir/build
-make[1]: Entering directory '/home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8bfde.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_8bfde.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_8bfde
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8bfde.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_8bfde.dir/CheckFunctionExists.c.o  -o cmTC_8bfde -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_a2e05/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a2e05.dir/build.make CMakeFiles/cmTC_a2e05.dir/build
+make[1]: Entering directory '/home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2e05.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a2e05.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a2e05
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2e05.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_a2e05.dir/CheckFunctionExists.c.o  -o cmTC_a2e05 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_8bfde.dir/build.make:97: recipe for target 'cmTC_8bfde' failed
-make[1]: *** [cmTC_8bfde] Error 1
-make[1]: Leaving directory '/home/morgan/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_8bfde/fast' failed
-make: *** [cmTC_8bfde/fast] Error 2
+CMakeFiles/cmTC_a2e05.dir/build.make:97: recipe for target 'cmTC_a2e05' failed
+make[1]: *** [cmTC_a2e05] Error 1
+make[1]: Leaving directory '/home/hrigroup2/projects/ros_cws_planner/build/panda_robot/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a2e05/fast' failed
+make: *** [cmTC_a2e05/fast] Error 2
 
 
