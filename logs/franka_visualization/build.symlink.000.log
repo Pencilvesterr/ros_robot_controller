@@ -1,5 +1,0 @@
-Symlinking /home/hrigroup2/projects/ros_cws_planner/devel/share/franka_visualization/cmake/franka_visualizationConfig-version.cmake
-Symlinking /home/hrigroup2/projects/ros_cws_planner/devel/share/franka_visualization/cmake/franka_visualizationConfig.cmake
-Symlinking /home/hrigroup2/projects/ros_cws_planner/devel/lib/franka_visualization/robot_joint_state_publisher
-Symlinking /home/hrigroup2/projects/ros_cws_planner/devel/lib/franka_visualization/gripper_joint_state_publisher
-Symlinking /home/hrigroup2/projects/ros_cws_planner/devel/lib/pkgconfig/franka_visualization.pc

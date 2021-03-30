@@ -1,0 +1,1 @@
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/panda_sim_controllers/lib/pkgconfig/panda_sim_controllers.pc

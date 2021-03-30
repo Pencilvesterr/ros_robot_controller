@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "panda_robot")
-set(panda_robot_VERSION "0.7.1")
+set(panda_robot_VERSION "0.0.1")
 set(panda_robot_MAINTAINER "Saif Sidhik <sxs1412@bham.ac.uk>")
 set(panda_robot_PACKAGE_FORMAT "1")
 set(panda_robot_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "franka_interface" "franka_core_msgs")

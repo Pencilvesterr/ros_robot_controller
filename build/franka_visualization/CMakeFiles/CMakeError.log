@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_07d2a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_07d2a.dir/build.make CMakeFiles/cmTC_07d2a.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_5f9df/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5f9df.dir/build.make CMakeFiles/cmTC_5f9df.dir/build
 make[1]: Entering directory '/home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_07d2a.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_07d2a.dir/CheckSymbolExists.c.o   -c /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_07d2a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07d2a.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_07d2a.dir/CheckSymbolExists.c.o  -o cmTC_07d2a 
-CMakeFiles/cmTC_07d2a.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_5f9df.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5f9df.dir/CheckSymbolExists.c.o   -c /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5f9df
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f9df.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5f9df.dir/CheckSymbolExists.c.o  -o cmTC_5f9df 
+CMakeFiles/cmTC_5f9df.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_07d2a.dir/build.make:97: recipe for target 'cmTC_07d2a' failed
-make[1]: *** [cmTC_07d2a] Error 1
+CMakeFiles/cmTC_5f9df.dir/build.make:97: recipe for target 'cmTC_5f9df' failed
+make[1]: *** [cmTC_5f9df] Error 1
 make[1]: Leaving directory '/home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_07d2a/fast' failed
-make: *** [cmTC_07d2a/fast] Error 2
+Makefile:126: recipe for target 'cmTC_5f9df/fast' failed
+make: *** [cmTC_5f9df/fast] Error 2
 
 File /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ac4db/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ac4db.dir/build.make CMakeFiles/cmTC_ac4db.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a00de/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a00de.dir/build.make CMakeFiles/cmTC_a00de.dir/build
 make[1]: Entering directory '/home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ac4db.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ac4db.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_ac4db
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac4db.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_ac4db.dir/CheckFunctionExists.c.o  -o cmTC_ac4db -lpthreads 
+Building C object CMakeFiles/cmTC_a00de.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a00de.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a00de
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a00de.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_a00de.dir/CheckFunctionExists.c.o  -o cmTC_a00de -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_ac4db.dir/build.make:97: recipe for target 'cmTC_ac4db' failed
-make[1]: *** [cmTC_ac4db] Error 1
+CMakeFiles/cmTC_a00de.dir/build.make:97: recipe for target 'cmTC_a00de' failed
+make[1]: *** [cmTC_a00de] Error 1
 make[1]: Leaving directory '/home/hrigroup2/projects/ros_cws_planner/build/franka_visualization/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_ac4db/fast' failed
-make: *** [cmTC_ac4db/fast] Error 2
+Makefile:126: recipe for target 'cmTC_a00de/fast' failed
+make: *** [cmTC_a00de/fast] Error 2
 
 

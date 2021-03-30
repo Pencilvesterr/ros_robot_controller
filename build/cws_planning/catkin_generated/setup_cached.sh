@@ -11,5 +11,6 @@ export CMAKE_PREFIX_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.privat
 export LD_LIBRARY_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/hrigroup2/projects/ros_cws_planner/build/cws_planning'
+export PYTHONPATH='/home/hrigroup2/projects/ros_cws_planner/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/hrigroup2/projects/ros_cws_planner/src/cws_planning:$ROS_PACKAGE_PATH"

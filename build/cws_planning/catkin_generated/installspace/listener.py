@@ -6,18 +6,29 @@ from std_msgs.msg import Int16
 from panda_robot import PandaArm
 import quaternion
 
+r.move_to_joint_positions({'panda_joint3': -1.9679309454524294, 'panda_joint2': -0.9986074692858208, 'panda_joint1': -0.4831874746084213, 'panda_joint7': 0.5257545814596943,'panda_joint6': 2.1555897599054616, 'panda_joint5': -1.2375366110536785, 'panda_joint4': -1.993352550473124})
+
+
 LOCATION_POSITION = {
     1: {
-        'pos': numpy.array([0.45050132, -0.33909326,  0.29167399]),
-        'ori': numpy.quaternion(-0.00820482144626581, 0.999658825563928, 0.014268675933549, -0.0202809828234555)
+        'pos': {
+            'panda_joint3': -0.6910661271413148, 'panda_joint2': 0.8728888037851951, 'panda_joint1': 0.20965062271945253, 'panda_joint7': 1.5578828821265034, 
+            'panda_joint6': 2.3562994836966196, 'panda_joint5': 0.7204521271652617, 'panda_joint4': -1.6932375942404445
+        }
+
     },
     2: {
-        'pos': numpy.array([0.45116247, 0.04518949, 0.28994951]),
-        'ori': numpy.quaternion(-0.005552933327, 0.99967321758, 0.013878288047, -0.020736829410)
-    },
+        'pos':{
+            'panda_joint3': -1.9422652795691238, 'panda_joint2': -0.6341644614704849, 'panda_joint1': 0.21989295471132844, 'panda_joint7': 1.5004606638035278, 
+            'panda_joint6': 2.4824534694005114, 'panda_joint5': -1.0128861088487837, 'panda_joint4': -2.473418408377128
+        }
+
+    }
     3: {
-        'pos': numpy.array([0.4271424,  0.45832332, 0.30650098]),
-        'ori': numpy.quaternion(-0.00970434986010763, 0.999628653903166, 0.014554248937302, -0.0208938681772511)
+        'pos':{
+            'panda_joint3': -1.9465294132400142, 'panda_joint2': -1.14798288051681, 'panda_joint1': -0.44161139181893594, 'panda_joint7': 0.2921920249544912,
+            'panda_joint6': 2.0378925764828897, 'panda_joint5': -1.114895020617379, 'panda_joint4': -1.6992888378558897
+        }
     }
 }
 
@@ -38,9 +49,9 @@ def callback(data):
         # Leave in neutral
         return
     elif cws_selected in LOCATION_POSITION.keys():
-        pos = LOCATION_POSITION[cws_selected]['pos']
-        ori = LOCATION_POSITION[cws_selected]['ori']
-        panda.move_to_cartesian_pose(pos,ori)
+        joint_pos = LOCATION_POSITION[cws_selected]['pos']
+        panda.move_to_joint_positions()
+        panda.move_to_joint_positions(joint_pos)
         current_cws = cws_selected
     else:
         rospy.logerr('The sent cws zone does not have a pre-set location: ' + str(cws_selected))
