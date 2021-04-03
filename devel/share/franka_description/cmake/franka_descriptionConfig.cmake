@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/franka_description/share/franka_description/cmake/franka_descriptionConfig.cmake

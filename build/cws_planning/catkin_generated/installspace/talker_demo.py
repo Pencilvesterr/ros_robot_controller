@@ -10,11 +10,10 @@ def talker():
     pub = rospy.Publisher('cws_selected', Int16, queue_size=10)
     rospy.init_node('talker', anonymous=True)
     rate = rospy.Rate(1) # 10hz
-    i = 0
     while not rospy.is_shutdown():
-        i += 1 
-        rospy.loginfo("Sending: " + str(i))
-        pub.publish(i)
+        selected_cws = int(raw_input("Select a cws: "))
+        rospy.loginfo("Sending: " + str(selected_cws))
+        pub.publish(selected_cws)
         rate.sleep()
 
 if __name__ == '__main__':

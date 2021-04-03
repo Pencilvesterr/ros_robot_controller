@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "panda_moveit_config")
-set(panda_moveit_config_VERSION "0.7.4")
+set(panda_moveit_config_VERSION "0.7.5")
 set(panda_moveit_config_MAINTAINER "Mike Lautman <mike@picknik.ai>")
 set(panda_moveit_config_PACKAGE_FORMAT "1")
 set(panda_moveit_config_BUILD_DEPENDS )

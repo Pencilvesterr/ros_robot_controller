@@ -1,1 +1,0 @@
-set(ORDERED_PATHS "/home/morgan/projects/cws_ws/devel_isolated/franka_gripper/lib;/opt/ros/melodic/lib")
