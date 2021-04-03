@@ -163,6 +163,7 @@ catkin_install_python(PROGRAMS
   scripts/talker_demo.py
   scripts/controller_test.py
   scripts/display_EE.py
+  scripts/moveit_listener.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
