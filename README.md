@@ -7,11 +7,11 @@ Install [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) and ensur
 $ cd ~/projects/cws_ws
 $ source ~/projects/cws_ws/devel/setup.bash
 ```
-If you do not want to have to source the workspace each time you open a terminal, run the following
+If you do not want to have to source the workspace each time you open a terminal, run the following (not on the lab computer though)
 ``` shell
 $ echo 'source ~/projects/cws_ws/devel/setup.bash' >> ~/.bashrc
 ```
-Ensure that libfranka and franka_ros are installed so that you can control the Panda robot (assuming you're using the core Python install on your computer?)
+Ensure that libfranka and franka_ros are installed so that you can control the Panda robot (assuming you're using the core Python install on your computer?) (dont do this on lab computers)
 ``` shell
 $ sudo apt install ros-melodic-libfranka ros-melodic-franka-ros
 ```
@@ -63,26 +63,26 @@ $ rosrun cws_planning talker_demo.py
 
 # Running with real robot
 ## Building at Lab
-If you're using this at the lab for the first time, make sure you build the project and use libfranka that is compatible with the server running the panda arm. Follow the instrucitons here from "Buildind the ROS Package". Do not install libfranka with sudo apt. 
+If you're using this at the lab for the first time, make sure you build the project and use libfranka that is compatible with the server running the panda arm. Follow the instrucitons [here](https://frankaemika.github.io/docs/installation_linux.html) from "Buildind the ROS Package". Do not install libfranka with sudo apt! 
 
 ``` shell
 $ catkin build -DCMAKE_BUILD=Release -DFranka_DIR:PATH=~/git/libfranka/build
 ```
 
 # Running at Lab
-
-To get Panda Robot package to control the robot through the Franka ROS interface, you will first need to ensure that the interface is running and connected with the robot. The ./franka.sh file may need to be updated with your computer's IP address.
-
 ``` shell
+# Connect to the robot. Ensure that both ethernet connections are setup
 $ roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
 $ roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true
-$ roslaunch panda_moveit_config moveit_rviz.launch
 
 # Launch the rosconnector bridge to communicate with the robot
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 
 # Then launch the listener node that controls the robot
 $ rosrun cws_planning moveit_listener.py
+
+# If you want Rviz too
+$ roslaunch panda_moveit_config moveit_rviz.launch
 ```
 
 ## Setting Up ROS Bridge
