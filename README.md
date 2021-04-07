@@ -62,18 +62,27 @@ $ rosrun cws_planning talker_demo.py
 ```
 
 # Running with real robot
+## Building at Lab
+If you're using this at the lab for the first time, make sure you build the project and use libfranka that is compatible with the server running the panda arm. Follow the instrucitons here from "Buildind the ROS Package". Do not install libfranka with sudo apt. 
+
+``` shell
+$ catkin build -DCMAKE_BUILD=Release -DFranka_DIR:PATH=~/git/libfranka/build
+```
+
+# Running at Lab
+
 To get Panda Robot package to control the robot through the Franka ROS interface, you will first need to ensure that the interface is running and connected with the robot. The ./franka.sh file may need to be updated with your computer's IP address.
 
 ``` shell
 $ roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
 $ roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true
-$ roslaucnh panda_moveit_config moveit_rviz.launch
+$ roslaunch panda_moveit_config moveit_rviz.launch
 
 # Launch the rosconnector bridge to communicate with the robot
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 
 # Then launch the listener node that controls the robot
-$ rosrun cws_planning listener.py
+$ rosrun cws_planning moveit_listener.py
 ```
 
 ## Setting Up ROS Bridge

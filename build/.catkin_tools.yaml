@@ -1,6 +1,6 @@
-devel_space: /home/morgan/projects/ros_cws_planner/devel
+devel_space: /home/hrigroup2/projects/ros_cws_planner/devel
 install: false
-install_space: /home/morgan/projects/ros_cws_planner/install
+install_space: /home/hrigroup2/projects/ros_cws_planner/install
 profile: default
-source_space: /home/morgan/projects/ros_cws_planner/src
-workspace: /home/morgan/projects/ros_cws_planner
+source_space: /home/hrigroup2/projects/ros_cws_planner/src
+workspace: /home/hrigroup2/projects/ros_cws_planner
