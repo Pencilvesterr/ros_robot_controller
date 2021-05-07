@@ -88,4 +88,10 @@ $ roslaunch rosbridge_server rosbridge_websocket.launch
 
 # Notes
 - Use `catkin build` rather than catkin_make. Explination [here.](https://answers.ros.org/question/320613/catkin_make-vs-catkin_make_isolated-which-is-preferred/)
-
+- Resolve the "robot model parameter not found", add the following to the launch file and make sure that the launch file has been run atleast once so that the param server has the correct values
+    ``` xml
+    <include file="$(find panda_moveit_config)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="true"/>
+    </include>
+    ```
+    

@@ -1,4 +1,9 @@
 <launch>
+
+    <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+    <include file="$(find panda_moveit_config)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="true"/>
+    </include>
     <node pkg="cws_planning" name="cws_talker" type="talker_demo.py" output="screen"/>
-    <node pkg="cws_planning" name="cws_listener" type="listener.py" output="screen"/>
+    <node pkg="cws_planning" name="cws_listener" type="moveit_listener.py" output="screen"/>
 </launch>
