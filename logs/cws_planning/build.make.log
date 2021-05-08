@@ -1,0 +1,18 @@
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _cws_planning_generate_messages_check_deps_TrafficLight
+[ 14%] [34m[1mGenerating C++ code from cws_planning/TrafficLight.msg[0m
+[ 42%] [34m[1mGenerating EusLisp code from cws_planning/TrafficLight.msg[0m
+[ 42%] [34m[1mGenerating Python from MSG cws_planning/TrafficLight[0m
+[ 71%] [34m[1mGenerating Lisp code from cws_planning/TrafficLight.msg[0m
+[ 71%] [34m[1mGenerating Javascript code from cws_planning/TrafficLight.msg[0m
+[ 71%] Built target cws_planning_generate_messages_nodejs
+[ 71%] Built target cws_planning_generate_messages_lisp
+[ 85%] Built target cws_planning_generate_messages_eus
+[100%] [34m[1mGenerating Python msg __init__.py for cws_planning[0m
+[100%] Built target cws_planning_generate_messages_cpp
+[100%] Built target cws_planning_generate_messages_py
+[100%] Built target cws_planning_generate_messages

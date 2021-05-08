@@ -1,0 +1,4 @@
+uint8 block_selected
+uint8 block_status
+uint8 zone_selected
+uint8 zone_status
