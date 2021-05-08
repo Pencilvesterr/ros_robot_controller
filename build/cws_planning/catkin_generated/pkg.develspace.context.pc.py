@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/morgan/projects/ros_cws_planner/devel/.
 PROJECT_CATKIN_DEPENDS = "rospy;std_msgs;message_runtime".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "cws_planning"
-PROJECT_SPACE_DIR = "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning"
+PROJECT_SPACE_DIR = "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning"
 PROJECT_VERSION = "0.0.0"

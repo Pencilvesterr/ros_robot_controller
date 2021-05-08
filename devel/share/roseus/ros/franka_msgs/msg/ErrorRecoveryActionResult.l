@@ -1,0 +1,1 @@
+/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/share/roseus/ros/franka_msgs/msg/ErrorRecoveryActionResult.l

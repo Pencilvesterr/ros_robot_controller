@@ -15,6 +15,4 @@ cws_planning
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/cws_planning/cmake/cws_planning-msg-extras.cmake /home/morgan/projects/ros_cws_planner/devel/share/cws_planning/cmake/cws_planning-msg-extras.cmake
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/TrafficLight.h /home/morgan/projects/ros_cws_planner/devel/include/cws_planning/TrafficLight.h
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/pkgconfig/cws_planning.pc /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/cws_planning.pc
-/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/__init__.py /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/cws_planning/__init__.py
-/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/cws_planning/msg/__init__.py
-/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py
+

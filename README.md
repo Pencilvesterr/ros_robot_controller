@@ -7,7 +7,7 @@ Install [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) and ensur
 $ cd ~/projects/cws_ws
 $ source ~/projects/cws_ws/devel/setup.bash
 ```
-If you do not want to have to source the workspace each time you open a terminal, run the following
+If you do not want to have to source the workspace each time you open a terminal, run the following (not on the lab computer though)
 ``` shell
 $ echo 'source ~/projects/cws_ws/devel/setup.bash' >> ~/.bashrc
 ```
@@ -73,7 +73,10 @@ $ roslaucnh panda_moveit_config moveit_rviz.launch
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 
 # Then launch the listener node that controls the robot
-$ rosrun cws_planning listener.py
+$ rosrun cws_planning moveit_listener.py
+
+# If you want Rviz too
+$ roslaunch panda_moveit_config moveit_rviz.launch
 ```
 
 ## Setting Up ROS Bridge
