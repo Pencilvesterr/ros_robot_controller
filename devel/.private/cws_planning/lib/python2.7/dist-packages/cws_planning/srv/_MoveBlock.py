@@ -126,15 +126,14 @@ import struct
 
 
 class MoveBlockResponse(genpy.Message):
-  _md5sum = "64379aa9ffbb0f8771915781c7d12eac"
+  _md5sum = "358e233cde0c8a8bcfea4ce193f8fc15"
   _type = "cws_planning/MoveBlockResponse"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """bool success
-int32 temp
 
 """
-  __slots__ = ['success','temp']
-  _slot_types = ['bool','int32']
+  __slots__ = ['success']
+  _slot_types = ['bool']
 
   def __init__(self, *args, **kwds):
     """
@@ -144,7 +143,7 @@ int32 temp
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       success,temp
+       success
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -155,11 +154,8 @@ int32 temp
       # message fields cannot be None, assign default values for those that are
       if self.success is None:
         self.success = False
-      if self.temp is None:
-        self.temp = 0
     else:
       self.success = False
-      self.temp = 0
 
   def _get_types(self):
     """
@@ -173,8 +169,8 @@ int32 temp
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self
-      buff.write(_get_struct_Bi().pack(_x.success, _x.temp))
+      _x = self.success
+      buff.write(_get_struct_B().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -186,10 +182,9 @@ int32 temp
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
-      _x = self
       start = end
-      end += 5
-      (_x.success, _x.temp,) = _get_struct_Bi().unpack(str[start:end])
+      end += 1
+      (self.success,) = _get_struct_B().unpack(str[start:end])
       self.success = bool(self.success)
       return self
     except struct.error as e:
@@ -203,8 +198,8 @@ int32 temp
     :param numpy: numpy python module
     """
     try:
-      _x = self
-      buff.write(_get_struct_Bi().pack(_x.success, _x.temp))
+      _x = self.success
+      buff.write(_get_struct_B().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -217,10 +212,9 @@ int32 temp
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
-      _x = self
       start = end
-      end += 5
-      (_x.success, _x.temp,) = _get_struct_Bi().unpack(str[start:end])
+      end += 1
+      (self.success,) = _get_struct_B().unpack(str[start:end])
       self.success = bool(self.success)
       return self
     except struct.error as e:
@@ -230,14 +224,14 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_Bi = None
-def _get_struct_Bi():
-    global _struct_Bi
-    if _struct_Bi is None:
-        _struct_Bi = struct.Struct("<Bi")
-    return _struct_Bi
+_struct_B = None
+def _get_struct_B():
+    global _struct_B
+    if _struct_B is None:
+        _struct_B = struct.Struct("<B")
+    return _struct_B
 class MoveBlock(object):
   _type          = 'cws_planning/MoveBlock'
-  _md5sum = 'ce9e787312db48692e8fbbc8b03d8015'
+  _md5sum = 'e344a651812b0bbffc3452f20f9ea415'
   _request_class  = MoveBlockRequest
   _response_class = MoveBlockResponse

@@ -6,4 +6,6 @@
   :components ((:file "_package")
     (:file "MoveBlock" :depends-on ("_package_MoveBlock"))
     (:file "_package_MoveBlock" :depends-on ("_package"))
+    (:file "ResetRobot" :depends-on ("_package_ResetRobot"))
+    (:file "_package_ResetRobot" :depends-on ("_package"))
   ))

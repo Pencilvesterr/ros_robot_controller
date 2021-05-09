@@ -421,7 +421,7 @@ class NodeManagerMoveIt(object):
         req.block_number
         req.block_zone 
 
-        return MoveBlockResponse(true, req.block_number + 1)
+        return MoveBlockResponse(True, req.block_number + 1)
             
     def start_listener(self):
         # Reset Panda to home position
@@ -440,8 +440,3 @@ if __name__ == '__main__':
 #       ...      
 #   except rospy.ROSInterruptException:
 #     return
-
-
-like legit what the fuck is about this delay
-
-

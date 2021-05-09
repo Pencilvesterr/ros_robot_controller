@@ -133,7 +133,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning/srv" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning/srv" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
+    "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

@@ -113,7 +113,6 @@ class MoveBlockResponse {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.success = null;
-      this.temp = null;
     }
     else {
       if (initObj.hasOwnProperty('success')) {
@@ -122,12 +121,6 @@ class MoveBlockResponse {
       else {
         this.success = false;
       }
-      if (initObj.hasOwnProperty('temp')) {
-        this.temp = initObj.temp
-      }
-      else {
-        this.temp = 0;
-      }
     }
   }
 
@@ -135,8 +128,6 @@ class MoveBlockResponse {
     // Serializes a message object of type MoveBlockResponse
     // Serialize message field [success]
     bufferOffset = _serializer.bool(obj.success, buffer, bufferOffset);
-    // Serialize message field [temp]
-    bufferOffset = _serializer.int32(obj.temp, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -146,13 +137,11 @@ class MoveBlockResponse {
     let data = new MoveBlockResponse(null);
     // Deserialize message field [success]
     data.success = _deserializer.bool(buffer, bufferOffset);
-    // Deserialize message field [temp]
-    data.temp = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 5;
+    return 1;
   }
 
   static datatype() {
@@ -162,14 +151,13 @@ class MoveBlockResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '64379aa9ffbb0f8771915781c7d12eac';
+    return '358e233cde0c8a8bcfea4ce193f8fc15';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     bool success
-    int32 temp
     
     
     `;
@@ -188,13 +176,6 @@ class MoveBlockResponse {
       resolved.success = false
     }
 
-    if (msg.temp !== undefined) {
-      resolved.temp = msg.temp;
-    }
-    else {
-      resolved.temp = 0
-    }
-
     return resolved;
     }
 };
@@ -202,6 +183,6 @@ class MoveBlockResponse {
 module.exports = {
   Request: MoveBlockRequest,
   Response: MoveBlockResponse,
-  md5sum() { return 'ce9e787312db48692e8fbbc8b03d8015'; },
+  md5sum() { return 'e344a651812b0bbffc3452f20f9ea415'; },
   datatype() { return 'cws_planning/MoveBlock'; }
 };

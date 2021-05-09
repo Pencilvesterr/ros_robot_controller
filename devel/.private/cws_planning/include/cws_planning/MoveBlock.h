@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::cws_planning::MoveBlock > {
   static const char* value()
   {
-    return "ce9e787312db48692e8fbbc8b03d8015";
+    return "e344a651812b0bbffc3452f20f9ea415";
   }
 
   static const char* value(const ::cws_planning::MoveBlock&) { return value(); }

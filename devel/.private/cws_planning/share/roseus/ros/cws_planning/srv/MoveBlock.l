@@ -68,31 +68,24 @@
 
 (defclass cws_planning::MoveBlockResponse
   :super ros::object
-  :slots (_success _temp ))
+  :slots (_success ))
 
 (defmethod cws_planning::MoveBlockResponse
   (:init
    (&key
     ((:success __success) nil)
-    ((:temp __temp) 0)
     )
    (send-super :init)
    (setq _success __success)
-   (setq _temp (round __temp))
    self)
   (:success
    (&optional __success)
    (if __success (setq _success __success)) _success)
-  (:temp
-   (&optional __temp)
-   (if __temp (setq _temp __temp)) _temp)
   (:serialization-length
    ()
    (+
     ;; bool _success
     1
-    ;; int32 _temp
-    4
     ))
   (:serialize
    (&optional strm)
@@ -100,16 +93,12 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; bool _success
        (if _success (write-byte -1 s) (write-byte 0 s))
-     ;; int32 _temp
-       (write-long _temp s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
    ;; bool _success
      (setq _success (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; int32 _temp
-     (setq _temp (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
@@ -118,7 +107,7 @@
   :super ros::object
   :slots ())
 
-(setf (get cws_planning::MoveBlock :md5sum-) "ce9e787312db48692e8fbbc8b03d8015")
+(setf (get cws_planning::MoveBlock :md5sum-) "e344a651812b0bbffc3452f20f9ea415")
 (setf (get cws_planning::MoveBlock :datatype-) "cws_planning/MoveBlock")
 (setf (get cws_planning::MoveBlock :request) cws_planning::MoveBlockRequest)
 (setf (get cws_planning::MoveBlock :response) cws_planning::MoveBlockResponse)
@@ -126,7 +115,7 @@
 (defmethod cws_planning::MoveBlockRequest
   (:response () (instance cws_planning::MoveBlockResponse :init)))
 
-(setf (get cws_planning::MoveBlockRequest :md5sum-) "ce9e787312db48692e8fbbc8b03d8015")
+(setf (get cws_planning::MoveBlockRequest :md5sum-) "e344a651812b0bbffc3452f20f9ea415")
 (setf (get cws_planning::MoveBlockRequest :datatype-) "cws_planning/MoveBlockRequest")
 (setf (get cws_planning::MoveBlockRequest :definition-)
       "
@@ -134,11 +123,10 @@ int32 block_number
 int32 block_zone
 ---
 bool success
-int32 temp
 
 ")
 
-(setf (get cws_planning::MoveBlockResponse :md5sum-) "ce9e787312db48692e8fbbc8b03d8015")
+(setf (get cws_planning::MoveBlockResponse :md5sum-) "e344a651812b0bbffc3452f20f9ea415")
 (setf (get cws_planning::MoveBlockResponse :datatype-) "cws_planning/MoveBlockResponse")
 (setf (get cws_planning::MoveBlockResponse :definition-)
       "
@@ -146,12 +134,11 @@ int32 block_number
 int32 block_zone
 ---
 bool success
-int32 temp
 
 ")
 
 
 
-(provide :cws_planning/MoveBlock "ce9e787312db48692e8fbbc8b03d8015")
+(provide :cws_planning/MoveBlock "e344a651812b0bbffc3452f20f9ea415")
 
 

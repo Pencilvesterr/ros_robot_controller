@@ -75,10 +75,10 @@
   "cws_planning/MoveBlockRequest")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<MoveBlock-request>)))
   "Returns md5sum for a message object of type '<MoveBlock-request>"
-  "ce9e787312db48692e8fbbc8b03d8015")
+  "e344a651812b0bbffc3452f20f9ea415")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'MoveBlock-request)))
   "Returns md5sum for a message object of type 'MoveBlock-request"
-  "ce9e787312db48692e8fbbc8b03d8015")
+  "e344a651812b0bbffc3452f20f9ea415")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MoveBlock-request>)))
   "Returns full string definition for message of type '<MoveBlock-request>"
   (cl:format cl:nil "~%int32 block_number~%int32 block_zone~%~%~%"))
@@ -103,12 +103,7 @@
     :reader success
     :initarg :success
     :type cl:boolean
-    :initform cl:nil)
-   (temp
-    :reader temp
-    :initarg :temp
-    :type cl:integer
-    :initform 0))
+    :initform cl:nil))
 )
 
 (cl:defclass MoveBlock-response (<MoveBlock-response>)
@@ -123,30 +118,13 @@
 (cl:defmethod success-val ((m <MoveBlock-response>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader cws_planning-srv:success-val is deprecated.  Use cws_planning-srv:success instead.")
   (success m))
-
-(cl:ensure-generic-function 'temp-val :lambda-list '(m))
-(cl:defmethod temp-val ((m <MoveBlock-response>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader cws_planning-srv:temp-val is deprecated.  Use cws_planning-srv:temp instead.")
-  (temp m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <MoveBlock-response>) ostream)
   "Serializes a message object of type '<MoveBlock-response>"
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'success) 1 0)) ostream)
-  (cl:let* ((signed (cl:slot-value msg 'temp)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
-    )
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <MoveBlock-response>) istream)
   "Deserializes a message object of type '<MoveBlock-response>"
     (cl:setf (cl:slot-value msg 'success) (cl:not (cl:zerop (cl:read-byte istream))))
-    (cl:let ((unsigned 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'temp) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<MoveBlock-response>)))
@@ -157,26 +135,24 @@
   "cws_planning/MoveBlockResponse")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<MoveBlock-response>)))
   "Returns md5sum for a message object of type '<MoveBlock-response>"
-  "ce9e787312db48692e8fbbc8b03d8015")
+  "e344a651812b0bbffc3452f20f9ea415")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'MoveBlock-response)))
   "Returns md5sum for a message object of type 'MoveBlock-response"
-  "ce9e787312db48692e8fbbc8b03d8015")
+  "e344a651812b0bbffc3452f20f9ea415")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MoveBlock-response>)))
   "Returns full string definition for message of type '<MoveBlock-response>"
-  (cl:format cl:nil "bool success~%int32 temp~%~%~%~%"))
+  (cl:format cl:nil "bool success~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'MoveBlock-response)))
   "Returns full string definition for message of type 'MoveBlock-response"
-  (cl:format cl:nil "bool success~%int32 temp~%~%~%~%"))
+  (cl:format cl:nil "bool success~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <MoveBlock-response>))
   (cl:+ 0
      1
-     4
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <MoveBlock-response>))
   "Converts a ROS message object to a list"
   (cl:list 'MoveBlock-response
     (cl:cons ':success (success msg))
-    (cl:cons ':temp (temp msg))
 ))
 (cl:defmethod roslisp-msg-protocol:service-request-type ((msg (cl:eql 'MoveBlock)))
   'MoveBlock-request)

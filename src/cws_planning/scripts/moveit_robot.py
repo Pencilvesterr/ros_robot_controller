@@ -51,9 +51,7 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String, Int16
 from moveit_commander.conversions import pose_to_list
-from cws_planning.srv import MoveBlock, MoveBlockResponse
-
-
+from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobotResponse
 
 def all_close(goal, actual, tolerance):
   """
@@ -415,26 +413,39 @@ class NodeManagerMoveIt(object):
         else:
             rospy.logerr("There is no position set for input: " + str(data.data))
 
+    #TODO: Finish this 
     def callback_move_block(self, req):
-        # TODO: Remove the temp return value from the service description
+        ''' Response in format: 
+                req.block_number
+                req.block_zone 
+        '''
         rospy.loginfo("Received >> block number: " + str(req.block_number))
-        req.block_number
-        req.block_zone 
 
-        return MoveBlockResponse(True, req.block_number + 1)
+        return MoveBlockResponse(True)
+
+    def callback_return_neutral(self, req):
+        try:
+            self.panda_move_group.move_to_neutral()
+            return ResetRobotResponse(True)
+        
+        # Would be useful to know what type of exception we expect
+        except Exception as e:
+            rospy.logerr(e)
+            return ResetRobotResponse(False)
             
-    def start_listener(self):
+    def start_services(self):
         # Reset Panda to home position
         self.panda_move_group.move_to_neutral()
         rospy.Subscriber('/cws_selected', Int16, self.callback_move_robot)
         rospy.Service("/move_block", MoveBlock, self.callback_move_block)
+        rospy.Service("/reset_to_neutral", ResetRobot, self.callback_return_neutral)
         rospy.loginfo("---MoveIt Robot Services Setup---")
         # spin() simply keeps python from exiting until this node is stopped
         rospy.spin()
 
 if __name__ == '__main__': 
     node_manager = NodeManagerMoveIt(MoveGroupPythonInteface())
-    node_manager.start_listener()
+    node_manager.start_services()
 
 #     try:
 #       ...      

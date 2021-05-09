@@ -24,12 +24,10 @@ struct MoveBlockResponse_
   typedef MoveBlockResponse_<ContainerAllocator> Type;
 
   MoveBlockResponse_()
-    : success(false)
-    , temp(0)  {
+    : success(false)  {
     }
   MoveBlockResponse_(const ContainerAllocator& _alloc)
-    : success(false)
-    , temp(0)  {
+    : success(false)  {
   (void)_alloc;
     }
 
@@ -37,9 +35,6 @@ struct MoveBlockResponse_
 
    typedef uint8_t _success_type;
   _success_type success;
-
-   typedef int32_t _temp_type;
-  _temp_type temp;
 
 
 
@@ -70,8 +65,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::cws_planning::MoveBlockResponse_<ContainerAllocator1> & lhs, const ::cws_planning::MoveBlockResponse_<ContainerAllocator2> & rhs)
 {
-  return lhs.success == rhs.success &&
-    lhs.temp == rhs.temp;
+  return lhs.success == rhs.success;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -128,12 +122,12 @@ struct MD5Sum< ::cws_planning::MoveBlockResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "64379aa9ffbb0f8771915781c7d12eac";
+    return "358e233cde0c8a8bcfea4ce193f8fc15";
   }
 
   static const char* value(const ::cws_planning::MoveBlockResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x64379aa9ffbb0f87ULL;
-  static const uint64_t static_value2 = 0x71915781c7d12eacULL;
+  static const uint64_t static_value1 = 0x358e233cde0c8a8bULL;
+  static const uint64_t static_value2 = 0xcfea4ce193f8fc15ULL;
 };
 
 template<class ContainerAllocator>
@@ -153,7 +147,6 @@ struct Definition< ::cws_planning::MoveBlockResponse_<ContainerAllocator> >
   static const char* value()
   {
     return "bool success\n"
-"int32 temp\n"
 "\n"
 ;
   }
@@ -174,7 +167,6 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.success);
-      stream.next(m.temp);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -195,8 +187,6 @@ struct Printer< ::cws_planning::MoveBlockResponse_<ContainerAllocator> >
   {
     s << indent << "success: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.success);
-    s << indent << "temp: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.temp);
   }
 };
 

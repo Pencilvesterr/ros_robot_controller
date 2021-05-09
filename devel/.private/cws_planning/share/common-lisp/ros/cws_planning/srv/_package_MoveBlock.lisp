@@ -5,6 +5,4 @@
           BLOCK_ZONE
           SUCCESS-VAL
           SUCCESS
-          TEMP-VAL
-          TEMP
 ))

@@ -55,6 +55,7 @@ include CMakeFiles/cws_planning_generate_messages_lisp.dir/progress.make
 
 CMakeFiles/cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/msg/TrafficLight.lisp
 CMakeFiles/cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/MoveBlock.lisp
+CMakeFiles/cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/ResetRobot.lisp
 
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/msg/TrafficLight.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
@@ -67,9 +68,15 @@ CMakeFiles/cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_pl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from cws_planning/MoveBlock.srv"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv
 
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/ResetRobot.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/ResetRobot.lisp: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from cws_planning/ResetRobot.srv"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv
+
 cws_planning_generate_messages_lisp: CMakeFiles/cws_planning_generate_messages_lisp
 cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/msg/TrafficLight.lisp
 cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/MoveBlock.lisp
+cws_planning_generate_messages_lisp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/ResetRobot.lisp
 cws_planning_generate_messages_lisp: CMakeFiles/cws_planning_generate_messages_lisp.dir/build.make
 
 .PHONY : cws_planning_generate_messages_lisp

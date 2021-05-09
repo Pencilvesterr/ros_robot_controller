@@ -1,18 +1,24 @@
 # Hashes of file build rules.
 0c200264351c2a57197286cbd70e289d /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveBlock.h
+d904aafcc981234917ae3b13a2e87f6d /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/ResetRobot.h
 0f5829649cb34f1aa66761342ce5e342 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/TrafficLight.h
 0e5ac28b82abbe170b7584d420d0bfc8 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py
 cd7fba7bebd299ccbbbdec98a12742d5 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py
 bdbe97df45a3237fc2939c84badfdce1 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py
+db16092510a781d4becb7901adc3ce03 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_ResetRobot.py
 92b41725f4f8ccd0e5cde4559d496e38 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py
 5a5adc7913a75ae9d2699f82f2a160e3 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/msg/TrafficLight.lisp
 005a1586d4a940cd9a952578342cb306 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/MoveBlock.lisp
+8435548b877beacdcc1d1eb177723c89 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/ResetRobot.lisp
 57c5bc2a58ec1803b2be01ce750fe5b7 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js
 d0f6a7a10be447e8b148f0b9ce8a616e /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js
+b10c4934a10874486fb05647f0c86008 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/ResetRobot.js
 588548e5790b8b58e9005ea263f2f765 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l
 75389217e140e662bc5fa69bd7b5e486 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/TrafficLight.l
 f8aefcfd81bb5414bc95fa97fea36dc3 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveBlock.l
+3fefc2f613549df3ba82e07b64d8bd61 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l
 5f25f809d1626cbc7727d22bf0fbde99 CMakeFiles/_cws_planning_generate_messages_check_deps_MoveBlock
+ae0af74dfcdbf4de3a1bc8a70f99e5c4 CMakeFiles/_cws_planning_generate_messages_check_deps_ResetRobot
 576193dd898bc26999025cc1f7bb00b6 CMakeFiles/_cws_planning_generate_messages_check_deps_TrafficLight
 2c8ec05a41b03dd20043c868b205c548 CMakeFiles/clean_test_results
 c874d6840985c811a8ac875d68852246 CMakeFiles/cws_planning_generate_messages_cpp
