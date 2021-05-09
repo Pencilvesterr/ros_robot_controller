@@ -160,7 +160,8 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
   scripts/talker_demo.py
-  scripts/moveit_listener.py
+  scripts/moveit_robot.py
+  scripts/robot_manager.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
