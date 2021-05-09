@@ -8,8 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/panda_moveit_config:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/panda_moveit_config/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/panda_moveit_config/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/morgan/projects/ros_cws_planner/build/panda_moveit_config'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/panda_moveit_config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/src/panda_moveit_config:$ROS_PACKAGE_PATH"

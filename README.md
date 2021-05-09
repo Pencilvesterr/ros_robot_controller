@@ -97,4 +97,5 @@ $ roslaunch rosbridge_server rosbridge_websocket.launch
         <arg name="load_robot_description" value="true"/>
     </include>
     ```
+- Adding additional python modules that aren't runnable scripts [link](https://roboticsbackend.com/ros-import-python-module-from-another-package/)
     

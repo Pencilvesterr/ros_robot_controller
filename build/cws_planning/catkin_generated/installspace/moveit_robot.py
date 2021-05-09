@@ -51,7 +51,12 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String, Int16
 from moveit_commander.conversions import pose_to_list
-from cws_planning.srv import MoveBlock, MoveBlockResponse
+from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobotResponse
+ 
+from python_utilities.light_status import LightStatus
+from python_utilities.robot_positions import RobotPositions
+rospy.loginfo(RobotPositions.block_locations['11'])
+
 
 
 
@@ -79,91 +84,36 @@ def all_close(goal, actual, tolerance):
 
 
 class MoveGroupPythonInteface(object):
-    LOCATION_POSITION = {
-        0: {
-            'position': {
-                'x': 0.307080198557,
-                'y': -9.97205457194e-06,
-                'z': 0.590302328723
-
-            },
-            'orientation': {
-                'x': -0.924134515813,
-                'y': 0.382067206133,
-                'z': 0.000214713655484,
-                'w': 2.40514983145e-05
-            }
-        },
-        1: {
-            'position': {
-                'x': 0.646289236272,
-                'y': -0.355556489697,
-                'z': 0.13777919752
-            },
-            'orientation': {
-                'x': -0.915028589418,
-                'y': 0.403388984442,
-                'z': 8.52940538641e-05,
-                'w': 2.24419984878e-05
-            }
-        },
-        2: {
-            'position': {
-                'x': 0.622829998345,
-                'y': 0.0357577454904,
-                'z': 0.137834093317
-            },
-            'orientation': {
-                'x': 0.936474723755,
-                'y': -0.35073505677,
-                'z': -9.3737621367e-05,
-                'w': 5.4161045041e-05
-            }
-        },
-        3: {
-           'position': {
-                'x': 0.616048174272,
-                'y': 0.471575637203,
-                'z': 0.137867542021
-           },
-
-            'orientation': {
-                'x': 0.934132804103,
-                'y': -0.356925615986,
-                'z': 1.39859732906e-05,
-                'w': 9.35795401475e-05
-            }
-        }
-    }
-
     def __init__(self):
         super(MoveGroupPythonInteface, self).__init__()
 
         moveit_commander.roscpp_initialize(sys.argv)
 
         # Provides information such as the robot's kinematic model and the robot's current joint states
-        robot = moveit_commander.RobotCommander()
+        self.robot = moveit_commander.RobotCommander()
 
         # interface for getting, setting, and updating the robot's internal understanding of the
         # surrounding world:
-        scene = moveit_commander.PlanningSceneInterface()
+        self.scene = moveit_commander.PlanningSceneInterface()
 
         # Interface for planning group of joints. Can be used to plan and execute motions:
-        group_name = "panda_arm"
-        move_group = moveit_commander.MoveGroupCommander(group_name)
+        group_name_arm = "panda_arm"
+        self.move_group = moveit_commander.MoveGroupCommander(group_name_arm)
 
-        ## Create a `DisplayTrajectory`_ ROS publisher which is used to display
+        group_name_hand = "hand"
+        self.move_group_hand = moveit_commander.MoveGroupCommander(group_name_arm)
+
+
+        ## Create a `DisplayTrajectory`_ ROS publisher which is used to displayF
         ## trajectories in Rviz:
         display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
                                                     queue_size=20)
 
         self.box_name = ''
-        self.robot = robot
-        self.scene = scene
-        self.move_group = move_group
         self.display_trajectory_publisher = display_trajectory_publisher
         self.eef_link = move_group.get_end_effector_link()
+        self.block_locations = RobotPositions.block_locations
 
     def go_to_pose_goal(self, pose_goal):
         """Move the EE to the pose goal.
@@ -230,12 +180,7 @@ class MoveGroupPythonInteface(object):
         """
         self.move_group.execute(plan, wait=True)
 
-    def move_to_predefined(self, cws_selected):
-        if cws_selected not in self.LOCATION_POSITION.keys():
-            rospy.logerr("No location predefined for: " + str(cws_selected))
-
-        coordinates = self.LOCATION_POSITION[cws_selected]
-
+    def pose_goal_from_predefined(self, coordinates):
         pose_goal = geometry_msgs.msg.Pose()
         pose_goal.position.x = coordinates['position']['x']
         pose_goal.position.y = coordinates['position']['y']
@@ -245,14 +190,112 @@ class MoveGroupPythonInteface(object):
         pose_goal.orientation.y = coordinates['orientation']['y']
         pose_goal.orientation.z = coordinates['orientation']['z']
 
+        return pose_goal
+        
+    def create_path(self, block_number, block_zone):
+        
+
+        if cws_selected not in self.block_locations.keys():
+            rospy.logerr("No location predefined for: " + str(cws_selected))
+
+        coordinates = self.block_locations[cws_selected]
+
         self.go_to_pose_goal(pose_goal)
+
+
+    def open_gripper(self):
+        joint_goal = self.move_group_hand.get_current_joint_values()
+        joint_goal[0] = 0.035
+        joint_goal[1] = 0.035
+
+        self.move_group_hand.go(joint_goal, wait=True)
+        self.move_group_hand.stop()
+
+    def close_gripper(self, end_pos=0.01):
+        joint_goal = self.move_group_hand.get_current_joint_values()
+        joint_goal[0] = end_pos
+        joint_goal[1] = end_pos
+
+        self.move_group_hand.go(joint_goal, wait=True)
+        self.move_group_hand.stop()
+
+
+        
+
 
     def move_to_neutral(self):
         self.move_to_predefined(0)
     
 
-    """
-    # Extra methods for dealing with objects within the scene
+class NodeManagerMoveIt(object):
+    def __init__(self, panda_move_group):
+        super(NodeManagerMoveIt, self).__init__()
+        self.panda_move_group = panda_move_group
+        self.current_cws = 0
+        rospy.init_node('cws_listener')
+
+    def callback_move_robot(self, data):
+        cws_selected = data.data
+        rospy.loginfo(rospy.get_caller_id() + 'Zone Selected:  %d', cws_selected)
+
+        # Ignore if current zone
+        if data.data == self.current_cws:
+            rospy.loginfo("Current zone is already " + str(self.current_cws))
+            return 
+        
+        self.panda_move_group.move_to_neutral()
+        # Leave in neutral
+        if data.data == 0:
+            self.current_cws = cws_selected
+        elif data.data in self.panda_move_group.block_locations.keys():
+            self.panda_move_group.move_to_predefined(data.data)
+            self.current_cws = cws_selected
+        else:
+            rospy.logerr("There is no position set for input: " + str(data.data))
+
+    #TODO: Finish this 
+    def callback_move_block(self, req):
+        ''' Response in format: 
+                req.block_number
+                req.block_zone 
+        '''
+        rospy.loginfo("Received >> block number: " + str(req.block_number))
+
+        return MoveBlockResponse(True)
+
+    def callback_return_neutral(self, req):
+        try:
+            self.panda_move_group.move_to_neutral()
+            return ResetRobotResponse(True)
+        
+        # Would be useful to know what type of exception we expect
+        except Exception as e:
+            rospy.logerr(e)
+            return ResetRobotResponse(False)
+            
+    def start_services(self):
+        # Reset Panda to home position
+        self.panda_move_group.move_to_neutral()
+        rospy.Subscriber('/cws_selected', Int16, self.callback_move_robot)
+        rospy.Service("/move_block", MoveBlock, self.callback_move_block)
+        rospy.Service("/reset_to_neutral", ResetRobot, self.callback_return_neutral)
+        rospy.loginfo("---MoveIt Robot Services Setup---")
+        # spin() simply keeps python from exiting until this node is stopped
+        rospy.spin()
+
+if __name__ == '__main__': 
+    panda_move_group = MoveGroupPythonInteface()
+    node_manager = NodeManagerMoveIt(panda_move_group)
+    node_manager.start_services()
+
+#     try:
+#       ...      
+#   except rospy.ROSInterruptException:
+#     return
+
+
+"""
+    # Extra Python Interface methods for dealing with objects within the scene
 
     def wait_for_state_update(self, box_is_known=False, box_is_attached=False, timeout=4):
         # Copy class variables to local variables to make the web tutorials more clear.
@@ -386,57 +429,4 @@ class MoveGroupPythonInteface(object):
 
         # We wait for the planning scene to update.
         return self.wait_for_state_update(box_is_attached=False, box_is_known=False, timeout=timeout)  
-    """
-
-
-class NodeManagerMoveIt(object):
-    def __init__(self, panda_move_group):
-        super(NodeManagerMoveIt, self).__init__()
-        self.panda_move_group = panda_move_group
-        self.current_cws = 0
-        rospy.init_node('cws_listener')
-
-    def callback_move_robot(self, data):
-        cws_selected = data.data
-        rospy.loginfo(rospy.get_caller_id() + 'Zone Selected:  %d', cws_selected)
-
-        # Ignore if current zone
-        if data.data == self.current_cws:
-            rospy.loginfo("Current zone is already " + str(self.current_cws))
-            return 
-        
-        self.panda_move_group.move_to_neutral()
-        # Leave in neutral
-        if data.data == 0:
-            self.current_cws = cws_selected
-        elif data.data in self.panda_move_group.LOCATION_POSITION.keys():
-            self.panda_move_group.move_to_predefined(data.data)
-            self.current_cws = cws_selected
-        else:
-            rospy.logerr("There is no position set for input: " + str(data.data))
-
-    def callback_move_block(self, req):
-        # TODO: Remove the temp return value from the service description
-        rospy.loginfo("Received >> block number: " + str(req.block_number))
-        req.block_number
-        req.block_zone 
-
-        return MoveBlockResponse(True, req.block_number + 1)
-            
-    def start_listener(self):
-        # Reset Panda to home position
-        self.panda_move_group.move_to_neutral()
-        rospy.Subscriber('/cws_selected', Int16, self.callback_move_robot)
-        rospy.Service("/move_block", MoveBlock, self.callback_move_block)
-        rospy.loginfo("---MoveIt Robot Services Setup---")
-        # spin() simply keeps python from exiting until this node is stopped
-        rospy.spin()
-
-if __name__ == '__main__': 
-    node_manager = NodeManagerMoveIt(MoveGroupPythonInteface())
-    node_manager.start_listener()
-
-#     try:
-#       ...      
-#   except rospy.ROSInterruptException:
-#     return
+"""
