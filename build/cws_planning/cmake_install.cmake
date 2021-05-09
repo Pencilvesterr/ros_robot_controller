@@ -133,6 +133,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning/srv" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning/cmake" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/build/cws_planning/catkin_generated/installspace/cws_planning-msg-paths.cmake")
 endif()
 
@@ -184,7 +188,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cws_planning" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/cws_planning/catkin_generated/installspace/moveit_listener.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cws_planning" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/cws_planning/catkin_generated/installspace/moveit_robot.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cws_planning" TYPE PROGRAM FILES "/home/morgan/projects/ros_cws_planner/build/cws_planning/catkin_generated/installspace/robot_manager.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

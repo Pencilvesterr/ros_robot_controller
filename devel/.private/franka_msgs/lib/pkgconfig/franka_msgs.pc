@@ -1,8 +1,0 @@
-prefix=/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs
-
-Name: franka_msgs
-Description: Description of franka_msgs
-Version: 0.7.1
-Cflags: -I/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_msgs/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime std_msgs actionlib_msgs

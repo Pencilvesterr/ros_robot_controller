@@ -51,6 +51,7 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String, Int16
 from moveit_commander.conversions import pose_to_list
+from cws_planning.srv import MoveBlock, MoveBlockResponse
 
 
 
@@ -388,14 +389,14 @@ class MoveGroupPythonInteface(object):
     """
 
 
-class NodeManagerCWS(object):
+class NodeManagerMoveIt(object):
     def __init__(self, panda_move_group):
-        super(NodeManagerCWS, self).__init__()
+        super(NodeManagerMoveIt, self).__init__()
         self.panda_move_group = panda_move_group
         self.current_cws = 0
         rospy.init_node('cws_listener')
 
-    def callback(self, data):
+    def callback_move_robot(self, data):
         cws_selected = data.data
         rospy.loginfo(rospy.get_caller_id() + 'Zone Selected:  %d', cws_selected)
 
@@ -413,28 +414,29 @@ class NodeManagerCWS(object):
             self.current_cws = cws_selected
         else:
             rospy.logerr("There is no position set for input: " + str(data.data))
-            
+
+    def callback_move_block(self, req):
+        # TODO: Remove the temp return value from the service description
+        rospy.loginfo("Received >> block number: " + str(req.block_number))
+        req.block_number
+        req.block_zone 
+
+        return MoveBlockResponse(True, req.block_number + 1)
             
     def start_listener(self):
         # Reset Panda to home position
         self.panda_move_group.move_to_neutral()
-
-        TOPIC = 'cws_selected'
-        rospy.Subscriber(TOPIC, Int16, self.callback)
-        rospy.loginfo("---Subscriber setup---")
+        rospy.Subscriber('/cws_selected', Int16, self.callback_move_robot)
+        rospy.Service("/move_block", MoveBlock, self.callback_move_block)
+        rospy.loginfo("---MoveIt Robot Services Setup---")
         # spin() simply keeps python from exiting until this node is stopped
         rospy.spin()
 
 if __name__ == '__main__': 
-    node_manager = NodeManagerCWS(MoveGroupPythonInteface())
+    node_manager = NodeManagerMoveIt(MoveGroupPythonInteface())
     node_manager.start_listener()
 
 #     try:
 #       ...      
 #   except rospy.ROSInterruptException:
 #     return
-
-
-
-
-

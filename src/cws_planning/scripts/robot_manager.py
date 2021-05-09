@@ -1,63 +1,52 @@
 #!/usr/bin/env python
-
-import sys
-import copy
 import rospy
 
-from std_msgs.msg import String, Int16
+from std_msgs.msg import String, Int16, Int32
 from cws_planning.msg import TrafficLight
-
+from cws_planning.srv import MoveBlock
 
 class RobotNode(object):
-    def __init__(self, panda_move_group):
+    def __init__(self):
         super(RobotNode, self).__init__()
+        rospy.init_node('robot_coordination', anonymous=True)
         # Node cycle rate (in Hz)
-        self.loop_rate = rospy.Rate(10)
+        self.loop_rate = rospy.Rate(1)
         self.gaze_selection = 0
         self.current_cwz = 0
-        self.panda_move_group = panda_move_group
-        self.panda_move_group.move_to_neutral()
 
-        rospy.init_node('robot_coordination', anonymous=True)
         self.pub = rospy.Publisher('/ar_selection',TrafficLight, queue_size=20)
-        rospy.Subscriber('/gaze_object_selected', Int16, self.callback_gaze_selection)
+        self.srv_move_block = rospy.ServiceProxy('/move_block', MoveBlock)
+        rospy.Subscriber('/gaze_object_selected', Int32, self.callback_gaze_selection)
+
         rospy.loginfo("---Robot Node Initilaised---")
-    )
+    
 
     def callback_gaze_selection(self, data):
         # TODO: Rework this so it's not based on actually moving the robot
-        cwz_selected = data.data
-        rospy.loginfo(rospy.get_caller_id() + 'Zone Selected:  %d', cwz_selected)
-
-        # Ignore if current zone
-        if data.data == self.current_cwz:
-            rospy.loginfo("Current zone is already " + str(self.current_cwz))
-            return 
-        
-        self.panda_move_group.move_to_neutral()
-        # Leave in neutral
-        if data.data == 0:
-            self.current_cwz = cwz_selected
-        elif data.data in self.panda_move_group.LOCATION_POSITION.keys():
-            self.panda_move_group.move_to_predefined(data.data)
-            self.current_cwz = cwz_selected
-        else:
-            rospy.logerr("There is no position set for input: " + str(data.data))
-            
+        return 
+   
 
     def start(self):
         rospy.loginfo('---Robot Node Started---')
+        rospy.loginfo('Robot node waiting to find moveit servies...')
+        rospy.wait_for_service('/move_block')
+        rospy.loginfo('---Robot Found MoveIt Services---')
+        resp = self.srv_move_block(1, 1)
+        rospy.loginfo(str(resp))
 
         while not rospy.is_shutdown():
             # Do something
             # Each iteration it needs to do something
             # Have function that does plan?
-            rospy.loginfo()
+            try: 
+                resp = self.srv_move_block(resp.temp, 1)
+            except rospy.ServiceException as e:
+                rospy.logerr("Service called failed: " + str(e))
+            
             self.loop_rate.sleep()
 
 if __name__ == '__main__': 
-    panda_move_group = MoveGroupPandaInteface()
-    robot_node = RobotNode(panda_move_group)
+    robot_node = RobotNode()
     robot_node.start()
 
 

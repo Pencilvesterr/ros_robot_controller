@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/cws_planning
 include CMakeFiles/cws_planning_generate_messages_nodejs.dir/progress.make
 
 CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js
+CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js
 
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from cws_planning/TrafficLight.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg
 
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from cws_planning/MoveBlock.srv"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv
+
 cws_planning_generate_messages_nodejs: CMakeFiles/cws_planning_generate_messages_nodejs
 cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js
+cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js
 cws_planning_generate_messages_nodejs: CMakeFiles/cws_planning_generate_messages_nodejs.dir/build.make
 
 .PHONY : cws_planning_generate_messages_nodejs

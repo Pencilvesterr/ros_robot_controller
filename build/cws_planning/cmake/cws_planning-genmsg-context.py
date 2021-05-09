@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
-services_str = ""
+services_str = "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
 pkg_name = "cws_planning"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

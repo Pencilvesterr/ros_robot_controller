@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "cws_planning: 1 messages, 0 services")
+message(STATUS "cws_planning: 1 messages, 1 services")
 
 set(MSG_I_FLAGS "-Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -16,6 +16,11 @@ add_custom_target(cws_planning_generate_messages ALL)
 # verify that message/service dependencies have not changed since configure
 
 
+
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" ""
+)
 
 get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
@@ -36,6 +41,12 @@ _generate_msg_cpp(cws_planning
 )
 
 ### Generating Services
+_generate_srv_cpp(cws_planning
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/cws_planning
+)
 
 ### Generating Module File
 _generate_module_cpp(cws_planning
@@ -49,6 +60,8 @@ add_custom_target(cws_planning_generate_messages_cpp
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
 
@@ -69,6 +82,12 @@ _generate_msg_eus(cws_planning
 )
 
 ### Generating Services
+_generate_srv_eus(cws_planning
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/cws_planning
+)
 
 ### Generating Module File
 _generate_module_eus(cws_planning
@@ -82,6 +101,8 @@ add_custom_target(cws_planning_generate_messages_eus
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
 
@@ -102,6 +123,12 @@ _generate_msg_lisp(cws_planning
 )
 
 ### Generating Services
+_generate_srv_lisp(cws_planning
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/cws_planning
+)
 
 ### Generating Module File
 _generate_module_lisp(cws_planning
@@ -115,6 +142,8 @@ add_custom_target(cws_planning_generate_messages_lisp
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
 
@@ -135,6 +164,12 @@ _generate_msg_nodejs(cws_planning
 )
 
 ### Generating Services
+_generate_srv_nodejs(cws_planning
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/cws_planning
+)
 
 ### Generating Module File
 _generate_module_nodejs(cws_planning
@@ -148,6 +183,8 @@ add_custom_target(cws_planning_generate_messages_nodejs
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
 
@@ -168,6 +205,12 @@ _generate_msg_py(cws_planning
 )
 
 ### Generating Services
+_generate_srv_py(cws_planning
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/cws_planning
+)
 
 ### Generating Module File
 _generate_module_py(cws_planning
@@ -181,6 +224,8 @@ add_custom_target(cws_planning_generate_messages_py
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
 

@@ -1,1 +1,1 @@
-/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/lib/pkgconfig/cws_planning.pc
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/pkgconfig/cws_planning.pc

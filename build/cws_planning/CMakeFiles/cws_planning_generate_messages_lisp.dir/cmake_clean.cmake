@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cws_planning_generate_messages_lisp"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/msg/TrafficLight.lisp"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/MoveBlock.lisp"
 )
 
 # Per-language clean rules from dependency scanning.
