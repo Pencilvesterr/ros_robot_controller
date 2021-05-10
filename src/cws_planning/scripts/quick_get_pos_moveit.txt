@@ -1,3 +1,6 @@
+Getting the current robot pos
+-----
+
 import sys
 import copy
 import rospy
@@ -17,3 +20,9 @@ group_name = "panda_arm"
 move_group = moveit_commander.MoveGroupCommander(group_name)
 
 move_group.get_current_pose().pose
+
+
+
+Calling a sercvice from CLI:
+-----
+rosservice call /move_robot "{block_number: 11, block_zone: -1}"
