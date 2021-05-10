@@ -51,7 +51,7 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String, Int16
 from moveit_commander.conversions import pose_to_list
-from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobotResponse
+from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobotResponse, MoveToPosition, MoveToPositionResponse
 from python_utilities.light_status import LightStatus
 from python_utilities.robot_positions import RobotPositions
 
@@ -189,12 +189,14 @@ class MoveGroupPythonInteface(object):
         
     def create_path(self, block_number, block_zone):
         coordinates_block = RobotPositions.block_locations[block_number]
-        coordinates_intermediate = RobotPositions.default_positions['side_default']
+        coordinates_side_default = RobotPositions.default_positions['side_default']
+        coordinates_zone_default = RobotPositions.default_positions['side_default']
         coordinates_zone = RobotPositions.zone_locations[block_zone]
 
         waypoints = []
         waypoints.append(self.get_pose_goal(coordinates_block))
-        waypoints.append(self.get_pose_goal(coordinates_intermediate))
+        waypoints.append(self.get_pose_goal(coordinates_side_default))
+        waypoints.append(self.get_pose_goal(coordinates_zone_default))
         waypoints.append(self.get_pose_goal(coordinates_zone))
 
         plan, fraction = self.plan_cartesian_path(waypoints)
@@ -219,7 +221,7 @@ class MoveGroupPythonInteface(object):
 
     def move_to_neutral(self):
         home_goal = self.get_pose_goal(RobotPositions.default_positions['home'])
-        rospy.loginfo('Moveing to home position')
+        rospy.loginfo('Moving to home position')
         self.move_to_pose_goal(home_goal)
 
 
@@ -231,12 +233,11 @@ class NodeManagerMoveIt(object):
         rospy.init_node('moveitt_robot')
 
     def valid_move_block_srv_args(self, req):
-        # Allowed to be -1 for moving robot to single location
-        if req.block_number not in RobotPositions.block_locations.keys() and req.block_number != -1:
+        if req.block_number not in RobotPositions.block_locations.keys():
             rospy.logerr("No location predefined for block: " + str(req.block_number))
             return False
 
-        if req.block_zone not in RobotPositions.zone_locations.keys() and req.block_zone != -1:
+        if req.block_zone not in RobotPositions.zone_locations.keys():
             rospy.logerr("No location predefined for zone: " + str(req.block_zone))
             return False
 
@@ -250,28 +251,39 @@ class NodeManagerMoveIt(object):
                 Open claw, Go to block position, Close claw, 
                 Create then execute path plan to zone, Open claw, Return to home position
         '''        
-        if not valid_move_block_srv_args(req):
+        log = rospy.loginfo
+        if not self.valid_move_block_srv_args(req):
             return MoveBlockResponse(False)
 
         rospy.loginfo("Moving from block number " + str(req.block_number) + " to zone " + str(req.block_zone))
         block_coordinates = RobotPositions.block_locations[req.block_number]
         
+        
+        # TODO: plan everything with cartesian path method. 
+        #  ALSO add additional interim point for more consistent movement.
+
         try: 
             # Go to block
+            log("opening gripper")
             self.panda_move_group.open_gripper()
             block_pose_goal = self.panda_move_group.get_pose_goal(block_coordinates)
             rospy.loginfo("Moving to block")
             self.panda_move_group.move_to_pose_goal(block_pose_goal)
-        
-            # Grab and move block
-            self.panda_move_group.close_gripper()
-            plan = self.panda_move_group.create_path(req.block_number, req.block_zone)
-            self.panda_move_group.execute_plan(plan)
 
-            # Drop block and return home
-            self.panda_move_group.open_gripper()
-            # TODO: Might have to move to intermediary position first, dont want to hit person
-            self.panda_move_group.move_to_neutral()
+            log("closing girpper")
+            self.panda_move_group.close_gripper()
+        
+            # # Grab and move block
+            
+            # plan = self.panda_move_group.create_path(req.block_number, req.block_zone)
+            # log("executing path")
+            # self.panda_move_group.execute_plan(plan)
+
+            # # Drop block and return home
+            # log("opening gripper")
+            # self.panda_move_group.open_gripper()
+            # # TODO: Might have to move to intermediary position first, dont want to hit person
+            # self.panda_move_group.move_to_neutral()
 
             return MoveBlockResponse(True)
 
@@ -281,25 +293,30 @@ class NodeManagerMoveIt(object):
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves"""
-        if not self.valid_move_block_srv_args(req):
-            return MoveBlockResponse(False)
-
-        if req.block_number == 0 and req.block_zone == 0:
+        if req.position_number == 0:
             self.panda_move_group.move_to_neutral()
-            return MoveBlockResponse(True)
+            return MoveToPositionResponse(True)
 
-        elif req.block_number > 0:
-            rospy.loginfo("Moving to block number: " + str(req.block_number))
-            coordinates = RobotPositions.block_locations[req.block_number]
+        elif req.position_number > 0 and  req.position_number < 5:
+            if req.position_number not in RobotPositions.zone_locations.keys():
+                rospy.logerr("No location predefined for zone: " + str(req.position_number))
+                return MoveToPositionResponse(False)
+            else: 
+                rospy.loginfo("Moving to block zone: " + str(req.position_number))
+                coordinates = RobotPositions.zone_locations[req.position_number]
 
-        elif req.block_zone > 0:
-            rospy.loginfo("Moving to block zone: " + str(req.block_zone))
-            coordinates = RobotPositions.zone_locations[req.block_zone]
+        elif req.position_number >= 5:
+            if req.position_number not in RobotPositions.block_locations.keys():
+                rospy.logerr("No location predefined for block: " + str(req.position_number))
+                return MoveToPositionResponse(False)
+            else:
+                rospy.loginfo("Moving to block number: " + str(req.position_number))
+                coordinates = RobotPositions.block_locations[req.position_number]
 
         pose_goal = self.panda_move_group.get_pose_goal(coordinates)
         self.panda_move_group.move_to_pose_goal(pose_goal)
 
-        return MoveBlockResponse(True)
+        return MoveToPositionResponse(True)
 
     def callback_return_neutral(self, req):
         try:
@@ -315,7 +332,7 @@ class NodeManagerMoveIt(object):
         # Reset Panda to home position
         self.panda_move_group.move_to_neutral()
         rospy.Service("/move_block", MoveBlock, self.callback_move_block)
-        rospy.Service("/move_robot", MoveBlock, self.callback_move_position)
+        rospy.Service("/move_robot", MoveToPosition, self.callback_move_position)
         rospy.Service("/reset_to_neutral", ResetRobot, self.callback_return_neutral)
         rospy.loginfo("---MoveIt Robot Services Setup---")
         # spin() simply keeps python from exiting until this node is stopped

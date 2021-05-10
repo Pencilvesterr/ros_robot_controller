@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/msg/TrafficLight.lisp"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/MoveBlock.lisp"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/ResetRobot.lisp"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/common-lisp/ros/cws_planning/srv/MoveToPosition.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

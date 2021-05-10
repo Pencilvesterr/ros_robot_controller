@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_ResetRobot.py"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py"
 )

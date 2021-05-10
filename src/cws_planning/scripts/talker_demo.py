@@ -29,12 +29,14 @@ def call_service():
         else:
             rospy.logerr("Failed movement")
             return
-        resp = srv(22, 1)
-        if resp.success:
-            rospy.loginfo("Finished second movement")
-        else:
-            rospy.logerr("Failed movement")
-            return
+
+        return
+        # resp = srv(22, 1)
+        # if resp.success:
+        #     rospy.loginfo("Finished second movement")
+        # else:
+        #     rospy.logerr("Failed movement")
+        #     return
         
         rospy.sleep(10)
 

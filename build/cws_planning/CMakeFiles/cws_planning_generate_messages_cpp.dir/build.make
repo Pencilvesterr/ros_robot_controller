@@ -56,6 +56,7 @@ include CMakeFiles/cws_planning_generate_messages_cpp.dir/progress.make
 CMakeFiles/cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/TrafficLight.h
 CMakeFiles/cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveBlock.h
 CMakeFiles/cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/ResetRobot.h
+CMakeFiles/cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h
 
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/TrafficLight.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -78,10 +79,18 @@ CMakeFiles/cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_pla
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from cws_planning/ResetRobot.srv"
 	cd /home/morgan/projects/ros_cws_planner/src/cws_planning && /home/morgan/projects/ros_cws_planner/build/cws_planning/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h: /opt/ros/melodic/share/gencpp/msg.h.template
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h: /opt/ros/melodic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from cws_planning/MoveToPosition.srv"
+	cd /home/morgan/projects/ros_cws_planner/src/cws_planning && /home/morgan/projects/ros_cws_planner/build/cws_planning/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning -e /opt/ros/melodic/share/gencpp/cmake/..
+
 cws_planning_generate_messages_cpp: CMakeFiles/cws_planning_generate_messages_cpp
 cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/TrafficLight.h
 cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveBlock.h
 cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/ResetRobot.h
+cws_planning_generate_messages_cpp: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h
 cws_planning_generate_messages_cpp: CMakeFiles/cws_planning_generate_messages_cpp.dir/build.make
 
 .PHONY : cws_planning_generate_messages_cpp

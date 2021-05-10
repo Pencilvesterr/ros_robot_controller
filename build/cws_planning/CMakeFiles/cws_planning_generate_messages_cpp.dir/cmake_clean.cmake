@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/TrafficLight.h"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveBlock.h"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/ResetRobot.h"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/include/cws_planning/MoveToPosition.h"
 )
 
 # Per-language clean rules from dependency scanning.

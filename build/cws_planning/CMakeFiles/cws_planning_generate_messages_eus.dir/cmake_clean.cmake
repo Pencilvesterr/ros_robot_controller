@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/TrafficLight.l"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveBlock.l"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l"
+  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l"
   "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l"
 )
 

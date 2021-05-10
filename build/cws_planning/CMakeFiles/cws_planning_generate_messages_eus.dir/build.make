@@ -56,6 +56,7 @@ include CMakeFiles/cws_planning_generate_messages_eus.dir/progress.make
 CMakeFiles/cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/TrafficLight.l
 CMakeFiles/cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveBlock.l
 CMakeFiles/cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l
+CMakeFiles/cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l
 CMakeFiles/cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l
 
 
@@ -74,14 +75,20 @@ CMakeFiles/cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_pla
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from cws_planning/ResetRobot.srv"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv
 
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from cws_planning/MoveToPosition.srv"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv
+
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp manifest code for cws_planning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for cws_planning"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning cws_planning std_msgs
 
 cws_planning_generate_messages_eus: CMakeFiles/cws_planning_generate_messages_eus
 cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/TrafficLight.l
 cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveBlock.l
 cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l
+cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l
 cws_planning_generate_messages_eus: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l
 cws_planning_generate_messages_eus: CMakeFiles/cws_planning_generate_messages_eus.dir/build.make
 

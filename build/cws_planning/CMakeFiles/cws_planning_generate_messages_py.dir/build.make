@@ -56,6 +56,7 @@ include CMakeFiles/cws_planning_generate_messages_py.dir/progress.make
 CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py
 CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py
 CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_ResetRobot.py
+CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py
 CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py
 CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py
 
@@ -75,24 +76,32 @@ CMakeFiles/cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_plan
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV cws_planning/ResetRobot"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv
 
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py: /opt/ros/melodic/lib/genpy/gensrv_py.py
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV cws_planning/MoveToPosition"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv
+
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_ResetRobot.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for cws_planning"
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for cws_planning"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg --initpy
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_ResetRobot.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for cws_planning"
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python srv __init__.py for cws_planning"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv --initpy
 
 cws_planning_generate_messages_py: CMakeFiles/cws_planning_generate_messages_py
 cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/_TrafficLight.py
 cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py
 cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_ResetRobot.py
+cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/_MoveToPosition.py
 cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/msg/__init__.py
 cws_planning_generate_messages_py: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/lib/python2.7/dist-packages/cws_planning/srv/__init__.py
 cws_planning_generate_messages_py: CMakeFiles/cws_planning_generate_messages_py.dir/build.make

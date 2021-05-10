@@ -56,6 +56,7 @@ add_service_files(
   FILES
   ResetRobot.srv
   MoveBlock.srv
+  MoveToPosition.srv
 )
 
 ## Generate actions in the 'action' folder
