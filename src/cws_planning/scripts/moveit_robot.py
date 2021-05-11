@@ -219,8 +219,6 @@ class MoveGroupPythonInteface(object):
 
         self.move_group.go(joint_goal, wait=True)
 
-        
-
 
 class NodeManagerMoveIt(object):
     def __init__(self, panda_move_group):
@@ -278,10 +276,8 @@ class NodeManagerMoveIt(object):
  
         return MoveBlockResponse(True)
 
-    
-
     def callback_move_position(self, req):
-        """Utility service to check where the robot moves"""
+        """Utility service to check where the robot moves for each position"""
         if req.position_number == 0:
             self.panda_move_group.move_to_neutral()
             return MoveToPositionResponse(True)
@@ -316,7 +312,7 @@ class NodeManagerMoveIt(object):
             self.panda_move_group.move_to_neutral()
             return ResetRobotResponse(True)
         
-        # Would be useful to know what type of exception we expect
+        # Would be useful to know what type of exception we expect...
         except Exception as e:
             rospy.logerr(e)
             return ResetRobotResponse(False)
@@ -330,6 +326,7 @@ class NodeManagerMoveIt(object):
         rospy.loginfo("---MoveIt Robot Services Setup---")
         # spin() simply keeps python from exiting until this node is stopped
         rospy.spin()
+
 
 if __name__ == '__main__': 
     panda_move_group = MoveGroupPythonInteface()
