@@ -25,4 +25,5 @@ move_group.get_current_pose().pose
 
 Calling a sercvice from CLI:
 -----
-rosservice call /move_robot "{block_number: 11, block_zone: -1}"
+rosservice call /move_robot "1"
+rosservice call /move_block "{block_number: 22, block_zone: 1}"

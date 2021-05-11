@@ -96,17 +96,16 @@ class MoveGroupPythonInteface(object):
         self.move_group = moveit_commander.MoveGroupCommander(group_name_arm)
 
         group_name_hand = "hand"
-        self.move_group_hand = moveit_commander.MoveGroupCommander(group_name_arm)
+        self.move_group_hand = moveit_commander.MoveGroupCommander(group_name_hand)
 
 
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to displayF
         ## trajectories in Rviz:
-        display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
+        self.display_trajectory_publisher  = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
                                                     queue_size=20)
 
         self.box_name = ''
-        self.display_trajectory_publisher = display_trajectory_publisher
         self.eef_link = self.move_group.get_end_effector_link()
         self.block_locations = RobotPositions.block_locations
 
@@ -175,28 +174,32 @@ class MoveGroupPythonInteface(object):
         """
         self.move_group.execute(plan, wait=True)
 
-    def get_pose_goal(self, coordinates):
+    def get_pose_goal(self, coordinates, orientation=True):
         pose_goal = geometry_msgs.msg.Pose()
         pose_goal.position.x = coordinates['position']['x']
         pose_goal.position.y = coordinates['position']['y']
         pose_goal.position.z = coordinates['position']['z']
-        pose_goal.orientation.w = coordinates['orientation']['w']
-        pose_goal.orientation.x = coordinates['orientation']['x']
-        pose_goal.orientation.y = coordinates['orientation']['y']
-        pose_goal.orientation.z = coordinates['orientation']['z']
+
+        if orientation:
+            pose_goal.orientation.w = coordinates['orientation']['w']
+            pose_goal.orientation.x = coordinates['orientation']['x']
+            pose_goal.orientation.y = coordinates['orientation']['y']
+            pose_goal.orientation.z = coordinates['orientation']['z']
 
         return pose_goal
         
     def create_path(self, block_number, block_zone):
         coordinates_block = RobotPositions.block_locations[block_number]
+        coordinates_home = RobotPositions.default_positions['home']
         coordinates_side_default = RobotPositions.default_positions['side_default']
-        coordinates_zone_default = RobotPositions.default_positions['side_default']
+        coordinates_zone_default = RobotPositions.default_positions['zone_default']
         coordinates_zone = RobotPositions.zone_locations[block_zone]
 
         waypoints = []
         waypoints.append(self.get_pose_goal(coordinates_block))
-        waypoints.append(self.get_pose_goal(coordinates_side_default))
-        waypoints.append(self.get_pose_goal(coordinates_zone_default))
+        waypoints.append(self.get_pose_goal(coordinates_home))
+        #waypoints.append(self.get_pose_goal(coordinates_side_default, orientation=False))
+        #waypoints.append(self.get_pose_goal(coordinates_zone_default, orientation=False))
         waypoints.append(self.get_pose_goal(coordinates_zone))
 
         plan, fraction = self.plan_cartesian_path(waypoints)
@@ -220,9 +223,21 @@ class MoveGroupPythonInteface(object):
         self.move_group_hand.stop()
 
     def move_to_neutral(self):
-        home_goal = self.get_pose_goal(RobotPositions.default_positions['home'])
         rospy.loginfo('Moving to home position')
-        self.move_to_pose_goal(home_goal)
+        self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, 1*pi/4]) 
+
+    def move_to_neutral_zoneside(self):
+        # second = -pi/4
+        self.move_to_joint([-2.8, 0, 0, -pi/2, 0, pi/2, 1*pi/4]) 
+
+    def move_to_joint(self, added_values):
+        joint_goal = self.move_group.get_current_joint_values()
+        for idx in range(len(added_values)):
+            joint_goal[idx] = added_values[idx]
+
+        self.move_group.go(joint_goal, wait=True)
+
+        
 
 
 class NodeManagerMoveIt(object):
@@ -257,44 +272,55 @@ class NodeManagerMoveIt(object):
 
         rospy.loginfo("Moving from block number " + str(req.block_number) + " to zone " + str(req.block_zone))
         block_coordinates = RobotPositions.block_locations[req.block_number]
+        zone_coordinates = RobotPositions.zone_locations[req.block_zone]
         
         
         # TODO: plan everything with cartesian path method. 
         #  ALSO add additional interim point for more consistent movement.
 
-        try: 
+        #try: 
             # Go to block
-            log("opening gripper")
-            self.panda_move_group.open_gripper()
-            block_pose_goal = self.panda_move_group.get_pose_goal(block_coordinates)
-            rospy.loginfo("Moving to block")
-            self.panda_move_group.move_to_pose_goal(block_pose_goal)
+        self.panda_move_group.move_to_neutral()
+        self.panda_move_group.open_gripper()
 
-            log("closing girpper")
-            self.panda_move_group.close_gripper()
+
+        rospy.loginfo("Moving to block " + str(req.block_number))
+
+        waypoint = [self.panda_move_group.get_pose_goal(block_coordinates)]
+        block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.execute_plan(block_plan)      
+        self.panda_move_group.close_gripper()
+        self.panda_move_group.move_to_neutral()
+        self.panda_move_group.move_to_neutral_zoneside()
+        rospy.loginfo("Placing in zone " + str(req.block_zone))
         
-            # # Grab and move block
-            
-            # plan = self.panda_move_group.create_path(req.block_number, req.block_zone)
-            # log("executing path")
-            # self.panda_move_group.execute_plan(plan)
+        
+        zone_pose_goal = self.panda_move_group.get_pose_goal(zone_coordinates)
+        self.panda_move_group.move_to_pose_goal(zone_pose_goal)
+        
+        waypoint = [self.panda_move_group.get_pose_goal(zone_coordinates)]
+        block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.execute_plan(block_plan)  
+        
+        self.panda_move_group.open_gripper()
+        self.panda_move_group.move_to_neutral_zoneside()
+        self.panda_move_group.move_to_neutral()
 
-            # # Drop block and return home
-            # log("opening gripper")
-            # self.panda_move_group.open_gripper()
-            # # TODO: Might have to move to intermediary position first, dont want to hit person
-            # self.panda_move_group.move_to_neutral()
+ 
+        return MoveBlockResponse(True)
 
-            return MoveBlockResponse(True)
-
-        except Exception as e:
-            rospy.logerr(e)
-            return MoveBlockResponse(False)
+        # except Exception as e:
+        #     rospy.logerr(e)
+        #     return MoveBlockResponse(False)
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves"""
         if req.position_number == 0:
             self.panda_move_group.move_to_neutral()
+            return MoveToPositionResponse(True)
+
+        if req.position_number == -1:
+            self.panda_move_group.move_to_neutral_zoneside()
             return MoveToPositionResponse(True)
 
         elif req.position_number > 0 and  req.position_number < 5:

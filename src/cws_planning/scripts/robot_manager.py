@@ -79,3 +79,8 @@ if __name__ == '__main__':
 #       ...      
 #   except rospy.ROSInterruptException:
 #     return
+
+
+TODO::::
+- Try and add path constraints, as this is getting pretty hard. Thinking about just moving 
+the bottom joint 90 and then 90 again. Would be way easier me thinks...
