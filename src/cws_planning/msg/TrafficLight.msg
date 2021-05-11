@@ -1,4 +1,4 @@
-uint8 block_selected
-uint8 block_status
-uint8 zone_selected
-uint8 zone_status
+int32 block_selected
+int32 block_status
+int32 zone_selected
+int32 zone_status

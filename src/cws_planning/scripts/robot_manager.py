@@ -27,21 +27,20 @@ class RobotNode(object):
         self.srv_reset_robot = rospy.ServiceProxy('/reset_to_neutral', ResetRobot)
         rospy.Subscriber('/gaze_object_selected', Int32, self.callback_gaze_selection)
 
-        rospy.loginfo("---Robot Node Initilaised---")
+        rospy.loginfo("---Robot Node Initialised---")
     
     def callback_gaze_selection(self, data):
         # TODO: Rework this so it's not based on actually moving the robot
         return 
    
-    def update_AR_selection(next_block, next_zone, colour):
+    def update_AR_Tselection(next_block, next_zone, colour):
         selection_status = TrafficLight()
         selection_status.block_selected = next_block
         selection_status.block_status = colour
-        selection_status.zone_selected = 
+        selection_status.zone_selected = next_zone
         selection_status.zone_status = colour
 
         self.pub_selection.publish(selection_status)
-
 
     def start(self):
         rospy.loginfo('---Robot Node Started---')
@@ -79,8 +78,3 @@ if __name__ == '__main__':
 #       ...      
 #   except rospy.ROSInterruptException:
 #     return
-
-
-TODO::::
-- Try and add path constraints, as this is getting pretty hard. Thinking about just moving 
-the bottom joint 90 and then 90 again. Would be way easier me thinks...
