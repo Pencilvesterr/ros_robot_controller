@@ -1,4 +1,4 @@
-prefix=/home/hrigroup2/projects/ros_cws_planner/devel/.private/catkin_tools_prebuild
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/catkin_tools_prebuild
 
 Name: catkin_tools_prebuild
 Description: Description of catkin_tools_prebuild

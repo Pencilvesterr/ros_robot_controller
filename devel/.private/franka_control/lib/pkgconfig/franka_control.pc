@@ -1,8 +1,0 @@
-prefix=/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_control
-
-Name: franka_control
-Description: Description of franka_control
-Version: 0.7.0
-Cflags: -I/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_control/include -I/home/hrigroup2/git/libfranka/include
-Libs: -L${prefix}/lib -lfranka_state_controller /home/hrigroup2/git/libfranka/build/libfranka.so.0.7.1
-Requires: controller_interface franka_hw franka_msgs geometry_msgs pluginlib realtime_tools roscpp sensor_msgs tf2_msgs

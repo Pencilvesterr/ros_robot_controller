@@ -1,1 +1,0 @@
-/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_core_msgs/share/gennodejs/ros/franka_core_msgs/msg/EndPointState.js

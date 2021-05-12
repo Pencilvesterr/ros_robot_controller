@@ -1,0 +1,23 @@
+[35m[1mScanning dependencies of target _cws_planning_generate_messages_check_deps_MoveToPosition[0m
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _cws_planning_generate_messages_check_deps_TrafficLight
+[  0%] Built target _cws_planning_generate_messages_check_deps_MoveToPosition
+[  0%] Built target _cws_planning_generate_messages_check_deps_MoveBlock
+[  0%] Built target _cws_planning_generate_messages_check_deps_ResetRobot
+[  4%] [34m[1mGenerating EusLisp code from cws_planning/MoveToPosition.srv[0m
+[ 13%] [34m[1mGenerating Python code from SRV cws_planning/MoveToPosition[0m
+[ 13%] [34m[1mGenerating Lisp code from cws_planning/MoveToPosition.srv[0m
+[ 17%] [34m[1mGenerating Javascript code from cws_planning/MoveToPosition.srv[0m
+[ 21%] [34m[1mGenerating C++ code from cws_planning/MoveToPosition.srv[0m
+[ 34%] Built target cws_planning_generate_messages_lisp
+[ 47%] Built target cws_planning_generate_messages_nodejs
+[ 65%] Built target cws_planning_generate_messages_eus
+[ 69%] [34m[1mGenerating Python srv __init__.py for cws_planning[0m
+[ 73%] [34m[1mGenerating Python msg __init__.py for cws_planning[0m
+[ 86%] Built target cws_planning_generate_messages_cpp
+[100%] Built target cws_planning_generate_messages_py
+[100%] Built target cws_planning_generate_messages

@@ -1,1 +1,0 @@
-/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_core_msgs/share/franka_core_msgs/cmake/franka_core_msgsConfig-version.cmake

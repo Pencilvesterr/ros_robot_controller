@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/_index.js

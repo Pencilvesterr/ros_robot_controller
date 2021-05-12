@@ -1,8 +1,0 @@
-prefix=/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper
-
-Name: franka_gripper
-Description: Description of franka_gripper
-Version: 0.7.0
-Cflags: -I/home/hrigroup2/projects/ros_cws_planner/devel/.private/franka_gripper/include -I/home/hrigroup2/projects/ros_cws_planner/src/franka_ros/franka_gripper/include -I/home/hrigroup2/git/libfranka/include
-Libs: -L${prefix}/lib -lfranka_gripper /home/hrigroup2/git/libfranka/build/libfranka.so.0.7.1
-Requires: roscpp message_runtime control_msgs actionlib sensor_msgs xmlrpcpp actionlib_msgs

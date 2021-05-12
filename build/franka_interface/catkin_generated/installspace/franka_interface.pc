@@ -1,8 +1,0 @@
-prefix=/home/hrigroup2/projects/ros_cws_planner/install
-
-Name: franka_interface
-Description: Description of franka_interface
-Version: 0.7.1
-Cflags: -I/home/hrigroup2/git/libfranka/include
-Libs: -L${prefix}/lib -lcustom_franka_state_controller /home/hrigroup2/git/libfranka/build/libfranka.so.0.7.1
-Requires: controller_interface franka_msgs dynamic_reconfigure franka_hw franka_control franka_core_msgs geometry_msgs hardware_interface pluginlib realtime_tools roscpp

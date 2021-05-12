@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l

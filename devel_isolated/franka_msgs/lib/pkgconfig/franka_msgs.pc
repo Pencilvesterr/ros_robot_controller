@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/cws_ws/devel_isolated/franka_msgs
-
-Name: franka_msgs
-Description: Description of franka_msgs
-Version: 0.7.0
-Cflags: -I/home/morgan/projects/cws_ws/devel_isolated/franka_msgs/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime std_msgs actionlib_msgs
