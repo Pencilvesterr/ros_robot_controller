@@ -13,4 +13,4 @@ export PKG_CONFIG_PATH='/opt/ros/melodic/lib/pkgconfig'
 export PWD='/home/morgan/projects/ros_cws_planner/build/catkin_tools_prebuild'
 export PYTHONPATH='/opt/ros/melodic/lib/python2.7/dist-packages'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/catkin_tools_prebuild/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH='/home/morgan/projects/ros_cws_planner/build/catkin_tools_prebuild:/home/morgan/projects/ros_cws_planner/src/cws_planning:/home/morgan/projects/ros_cws_planner/src/panda_moveit_config:/home/morgan/projects/ros_cws_planner/src/python_utilities:/opt/ros/melodic/share'
+export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"

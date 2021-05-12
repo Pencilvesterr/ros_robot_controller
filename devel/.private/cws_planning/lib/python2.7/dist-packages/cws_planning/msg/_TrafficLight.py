@@ -8,15 +8,15 @@ import struct
 
 
 class TrafficLight(genpy.Message):
-  _md5sum = "a0b344af9bc677669c5cc9a9babbe2c4"
+  _md5sum = "a5a4682048736e7ecf53045e87035b77"
   _type = "cws_planning/TrafficLight"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """uint8 block_selected
-uint8 block_status
-uint8 zone_selected
-uint8 zone_status"""
+  _full_text = """int32 block_selected
+int32 block_status
+int32 zone_selected
+int32 zone_status"""
   __slots__ = ['block_selected','block_status','zone_selected','zone_status']
-  _slot_types = ['uint8','uint8','uint8','uint8']
+  _slot_types = ['int32','int32','int32','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -62,7 +62,7 @@ uint8 zone_status"""
     """
     try:
       _x = self
-      buff.write(_get_struct_4B().pack(_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status))
+      buff.write(_get_struct_4i().pack(_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -76,8 +76,8 @@ uint8 zone_status"""
       end = 0
       _x = self
       start = end
-      end += 4
-      (_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status,) = _get_struct_4B().unpack(str[start:end])
+      end += 16
+      (_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status,) = _get_struct_4i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -91,7 +91,7 @@ uint8 zone_status"""
     """
     try:
       _x = self
-      buff.write(_get_struct_4B().pack(_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status))
+      buff.write(_get_struct_4i().pack(_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -106,8 +106,8 @@ uint8 zone_status"""
       end = 0
       _x = self
       start = end
-      end += 4
-      (_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status,) = _get_struct_4B().unpack(str[start:end])
+      end += 16
+      (_x.block_selected, _x.block_status, _x.zone_selected, _x.zone_status,) = _get_struct_4i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -116,9 +116,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_4B = None
-def _get_struct_4B():
-    global _struct_4B
-    if _struct_4B is None:
-        _struct_4B = struct.Struct("<4B")
-    return _struct_4B
+_struct_4i = None
+def _get_struct_4i():
+    global _struct_4i
+    if _struct_4i is None:
+        _struct_4i = struct.Struct("<4i")
+    return _struct_4i

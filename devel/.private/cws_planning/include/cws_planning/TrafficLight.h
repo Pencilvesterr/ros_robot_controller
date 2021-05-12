@@ -39,16 +39,16 @@ struct TrafficLight_
 
 
 
-   typedef uint8_t _block_selected_type;
+   typedef int32_t _block_selected_type;
   _block_selected_type block_selected;
 
-   typedef uint8_t _block_status_type;
+   typedef int32_t _block_status_type;
   _block_status_type block_status;
 
-   typedef uint8_t _zone_selected_type;
+   typedef int32_t _zone_selected_type;
   _zone_selected_type zone_selected;
 
-   typedef uint8_t _zone_status_type;
+   typedef int32_t _zone_status_type;
   _zone_status_type zone_status;
 
 
@@ -140,12 +140,12 @@ struct MD5Sum< ::cws_planning::TrafficLight_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "a0b344af9bc677669c5cc9a9babbe2c4";
+    return "a5a4682048736e7ecf53045e87035b77";
   }
 
   static const char* value(const ::cws_planning::TrafficLight_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xa0b344af9bc67766ULL;
-  static const uint64_t static_value2 = 0x9c5cc9a9babbe2c4ULL;
+  static const uint64_t static_value1 = 0xa5a4682048736e7eULL;
+  static const uint64_t static_value2 = 0xcf53045e87035b77ULL;
 };
 
 template<class ContainerAllocator>
@@ -164,10 +164,10 @@ struct Definition< ::cws_planning::TrafficLight_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "uint8 block_selected\n"
-"uint8 block_status\n"
-"uint8 zone_selected\n"
-"uint8 zone_status\n"
+    return "int32 block_selected\n"
+"int32 block_status\n"
+"int32 zone_selected\n"
+"int32 zone_status\n"
 ;
   }
 
@@ -209,13 +209,13 @@ struct Printer< ::cws_planning::TrafficLight_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::cws_planning::TrafficLight_<ContainerAllocator>& v)
   {
     s << indent << "block_selected: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.block_selected);
+    Printer<int32_t>::stream(s, indent + "  ", v.block_selected);
     s << indent << "block_status: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.block_status);
+    Printer<int32_t>::stream(s, indent + "  ", v.block_status);
     s << indent << "zone_selected: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.zone_selected);
+    Printer<int32_t>::stream(s, indent + "  ", v.zone_selected);
     s << indent << "zone_status: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.zone_status);
+    Printer<int32_t>::stream(s, indent + "  ", v.zone_status);
   }
 };
 

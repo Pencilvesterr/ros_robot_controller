@@ -49,6 +49,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   TrafficLight.msg
+  cws_planning.msg
 )
 
 ## Generate services in the 'srv' folder

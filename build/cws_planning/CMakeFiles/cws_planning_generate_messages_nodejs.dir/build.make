@@ -53,33 +53,40 @@ CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/cws_planning
 # Include the progress variables for this target.
 include CMakeFiles/cws_planning_generate_messages_nodejs.dir/progress.make
 
+CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/cws_planning.js
 CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js
 CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js
 CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/ResetRobot.js
 CMakeFiles/cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveToPosition.js
 
 
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/cws_planning.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/cws_planning.js: /home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from cws_planning/cws_planning.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg
+
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js: /home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from cws_planning/TrafficLight.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from cws_planning/TrafficLight.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from cws_planning/MoveBlock.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from cws_planning/MoveBlock.srv"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/ResetRobot.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/ResetRobot.js: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from cws_planning/ResetRobot.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from cws_planning/ResetRobot.srv"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv
 
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveToPosition.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveToPosition.js: /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from cws_planning/MoveToPosition.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from cws_planning/MoveToPosition.srv"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv -Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p cws_planning -o /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv
 
 cws_planning_generate_messages_nodejs: CMakeFiles/cws_planning_generate_messages_nodejs
+cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/cws_planning.js
 cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/msg/TrafficLight.js
 cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/MoveBlock.js
 cws_planning_generate_messages_nodejs: /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/gennodejs/ros/cws_planning/srv/ResetRobot.js

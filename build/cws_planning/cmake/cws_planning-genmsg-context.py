@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+messages_str = "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg;/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
 services_str = "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv;/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv;/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
 pkg_name = "cws_planning"
 dependencies_str = "std_msgs"

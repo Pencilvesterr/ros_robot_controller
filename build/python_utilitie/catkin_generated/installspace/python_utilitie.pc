@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/install
-
-Name: python_utilitie
-Description: Description of python_utilitie
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

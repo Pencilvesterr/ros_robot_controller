@@ -10,22 +10,22 @@
   ((block_selected
     :reader block_selected
     :initarg :block_selected
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (block_status
     :reader block_status
     :initarg :block_status
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (zone_selected
     :reader zone_selected
     :initarg :zone_selected
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (zone_status
     :reader zone_status
     :initarg :zone_status
-    :type cl:fixnum
+    :type cl:integer
     :initform 0))
 )
 
@@ -58,17 +58,57 @@
   (zone_status m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <TrafficLight>) ostream)
   "Serializes a message object of type '<TrafficLight>"
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'block_selected)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'block_status)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'zone_selected)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'zone_status)) ostream)
+  (cl:let* ((signed (cl:slot-value msg 'block_selected)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
+    )
+  (cl:let* ((signed (cl:slot-value msg 'block_status)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
+    )
+  (cl:let* ((signed (cl:slot-value msg 'zone_selected)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
+    )
+  (cl:let* ((signed (cl:slot-value msg 'zone_status)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
+    )
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <TrafficLight>) istream)
   "Deserializes a message object of type '<TrafficLight>"
-    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'block_selected)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'block_status)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'zone_selected)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'zone_status)) (cl:read-byte istream))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'block_selected) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'block_status) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'zone_selected) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
+    (cl:let ((unsigned 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'zone_status) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<TrafficLight>)))
@@ -79,22 +119,22 @@
   "cws_planning/TrafficLight")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<TrafficLight>)))
   "Returns md5sum for a message object of type '<TrafficLight>"
-  "a0b344af9bc677669c5cc9a9babbe2c4")
+  "a5a4682048736e7ecf53045e87035b77")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'TrafficLight)))
   "Returns md5sum for a message object of type 'TrafficLight"
-  "a0b344af9bc677669c5cc9a9babbe2c4")
+  "a5a4682048736e7ecf53045e87035b77")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<TrafficLight>)))
   "Returns full string definition for message of type '<TrafficLight>"
-  (cl:format cl:nil "uint8 block_selected~%uint8 block_status~%uint8 zone_selected~%uint8 zone_status~%~%"))
+  (cl:format cl:nil "int32 block_selected~%int32 block_status~%int32 zone_selected~%int32 zone_status~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'TrafficLight)))
   "Returns full string definition for message of type 'TrafficLight"
-  (cl:format cl:nil "uint8 block_selected~%uint8 block_status~%uint8 zone_selected~%uint8 zone_status~%~%"))
+  (cl:format cl:nil "int32 block_selected~%int32 block_status~%int32 zone_selected~%int32 zone_status~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <TrafficLight>))
   (cl:+ 0
-     1
-     1
-     1
-     1
+     4
+     4
+     4
+     4
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <TrafficLight>))
   "Converts a ROS message object to a list"

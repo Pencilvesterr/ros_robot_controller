@@ -45,54 +45,54 @@
   (:serialization-length
    ()
    (+
-    ;; uint8 _block_selected
-    1
-    ;; uint8 _block_status
-    1
-    ;; uint8 _zone_selected
-    1
-    ;; uint8 _zone_status
-    1
+    ;; int32 _block_selected
+    4
+    ;; int32 _block_status
+    4
+    ;; int32 _zone_selected
+    4
+    ;; int32 _zone_status
+    4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; uint8 _block_selected
-       (write-byte _block_selected s)
-     ;; uint8 _block_status
-       (write-byte _block_status s)
-     ;; uint8 _zone_selected
-       (write-byte _zone_selected s)
-     ;; uint8 _zone_status
-       (write-byte _zone_status s)
+     ;; int32 _block_selected
+       (write-long _block_selected s)
+     ;; int32 _block_status
+       (write-long _block_status s)
+     ;; int32 _zone_selected
+       (write-long _zone_selected s)
+     ;; int32 _zone_status
+       (write-long _zone_status s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; uint8 _block_selected
-     (setq _block_selected (sys::peek buf ptr- :char)) (incf ptr- 1)
-   ;; uint8 _block_status
-     (setq _block_status (sys::peek buf ptr- :char)) (incf ptr- 1)
-   ;; uint8 _zone_selected
-     (setq _zone_selected (sys::peek buf ptr- :char)) (incf ptr- 1)
-   ;; uint8 _zone_status
-     (setq _zone_status (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; int32 _block_selected
+     (setq _block_selected (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _block_status
+     (setq _block_status (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _zone_selected
+     (setq _zone_selected (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _zone_status
+     (setq _zone_status (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get cws_planning::TrafficLight :md5sum-) "a0b344af9bc677669c5cc9a9babbe2c4")
+(setf (get cws_planning::TrafficLight :md5sum-) "a5a4682048736e7ecf53045e87035b77")
 (setf (get cws_planning::TrafficLight :datatype-) "cws_planning/TrafficLight")
 (setf (get cws_planning::TrafficLight :definition-)
-      "uint8 block_selected
-uint8 block_status
-uint8 zone_selected
-uint8 zone_status
+      "int32 block_selected
+int32 block_status
+int32 zone_selected
+int32 zone_status
 ")
 
 
 
-(provide :cws_planning/TrafficLight "a0b344af9bc677669c5cc9a9babbe2c4")
+(provide :cws_planning/TrafficLight "a5a4682048736e7ecf53045e87035b77")
 
 

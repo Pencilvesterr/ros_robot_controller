@@ -129,7 +129,10 @@ file(INSTALL DESTINATION "/home/morgan/projects/ros_cws_planner/install" TYPE FI
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning/msg" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning/msg" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+    "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

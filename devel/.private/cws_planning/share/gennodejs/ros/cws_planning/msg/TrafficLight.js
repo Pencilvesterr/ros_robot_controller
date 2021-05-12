@@ -54,13 +54,13 @@ class TrafficLight {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type TrafficLight
     // Serialize message field [block_selected]
-    bufferOffset = _serializer.uint8(obj.block_selected, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.block_selected, buffer, bufferOffset);
     // Serialize message field [block_status]
-    bufferOffset = _serializer.uint8(obj.block_status, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.block_status, buffer, bufferOffset);
     // Serialize message field [zone_selected]
-    bufferOffset = _serializer.uint8(obj.zone_selected, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.zone_selected, buffer, bufferOffset);
     // Serialize message field [zone_status]
-    bufferOffset = _serializer.uint8(obj.zone_status, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.zone_status, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -69,18 +69,18 @@ class TrafficLight {
     let len;
     let data = new TrafficLight(null);
     // Deserialize message field [block_selected]
-    data.block_selected = _deserializer.uint8(buffer, bufferOffset);
+    data.block_selected = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [block_status]
-    data.block_status = _deserializer.uint8(buffer, bufferOffset);
+    data.block_status = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [zone_selected]
-    data.zone_selected = _deserializer.uint8(buffer, bufferOffset);
+    data.zone_selected = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [zone_status]
-    data.zone_status = _deserializer.uint8(buffer, bufferOffset);
+    data.zone_status = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    return 16;
   }
 
   static datatype() {
@@ -90,16 +90,16 @@ class TrafficLight {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'a0b344af9bc677669c5cc9a9babbe2c4';
+    return 'a5a4682048736e7ecf53045e87035b77';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    uint8 block_selected
-    uint8 block_status
-    uint8 zone_selected
-    uint8 zone_status
+    int32 block_selected
+    int32 block_status
+    int32 zone_selected
+    int32 zone_status
     `;
   }
 
