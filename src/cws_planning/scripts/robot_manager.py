@@ -79,18 +79,28 @@ class RobotNode(object):
 
             while not selection_valid:
                 next_block = self.get_next_block_selection()
+
+                if next_block == 0:
+                    self.plan.append(next_block)
+                    rospy.sleep(5)
+                    continue
+
                 self.update_AR_selection(next_block, next_zone, LightStatus.yellow.value)
                 rospy.sleep(5)
                 selection_valid = self.selection_still_valid(next_block)
                 if selection_valid:
                     self.update_AR_selection(next_block, next_zone, LightStatus.red.value)
                 else:
+                    # User override, reset
+                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected.value)
                     self.plan.append(next_block)
+                    continue
 
             # Have now marked block and zone red, so can proceed
             try: 
-                rospy.sleep(5)
                 resp = self.srv_move_block(next_block, next_zone)
+                self.update_AR_selection(next_block, next_zone, LightStatus.unselected.value)
+                
             except rospy.ServiceException as e:
                 rospy.logerr("Service called failed: " + str(e))
 
