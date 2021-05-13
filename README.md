@@ -84,6 +84,8 @@ To connect the HoloLens to the ROS nodes, you have to go through a ros bridge co
 
 For running the rosbridge, please refer to [this link](http://wiki.ros.org/rosbridge_suite/Tutorials/RunningRosbridge). Then ensure within the unity project ROS Connector > ROS Connector (Script) > ROS Brdige Server Url starts with the first IP address when you run 'hostname -I' in a terminal window. 
 
+Note: The lab computer is 192.0.1.69 for the rosbridge
+
 ``` shell
 # The launch the ros connector with 
 $ roslaunch rosbridge_server rosbridge_websocket.launch
