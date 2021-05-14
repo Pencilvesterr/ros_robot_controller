@@ -32,12 +32,12 @@ class RobotNode(object):
     
     def callback_gaze_selection(self, msg):
         self.gaze_selection = msg.data
-        rospy.loginfo("Gaze selection received: " + self.gaze_selection)
+        rospy.loginfo("Gaze selection received: " + str(self.gaze_selection))
         return 
 
     def callback_block_placed(self, msg):
         # The block should still be in the plan if the robot hasn't placed it 
-        rospy.loginfo("Block placement received: " + self.msg.data)
+        rospy.loginfo("Block placement received: " + str(msg.data))
         if msg.data in self.remaining_blocks:
             self.remaining_blocks.remove(msg.data)
    
