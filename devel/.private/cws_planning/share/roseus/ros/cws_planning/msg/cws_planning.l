@@ -14,39 +14,50 @@
 
 (defclass cws_planning::cws_planning
   :super ros::object
-  :slots ())
+  :slots (_hello ))
 
 (defmethod cws_planning::cws_planning
   (:init
    (&key
+    ((:hello __hello) 0)
     )
    (send-super :init)
+   (setq _hello (round __hello))
    self)
+  (:hello
+   (&optional __hello)
+   (if __hello (setq _hello __hello)) _hello)
   (:serialization-length
    ()
    (+
-    0
+    ;; int32 _hello
+    4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
+     ;; int32 _hello
+       (write-long _hello s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
+   ;; int32 _hello
+     (setq _hello (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get cws_planning::cws_planning :md5sum-) "d41d8cd98f00b204e9800998ecf8427e")
+(setf (get cws_planning::cws_planning :md5sum-) "9d9ca1866b512db488ffb6bed585ed1b")
 (setf (get cws_planning::cws_planning :datatype-) "cws_planning/cws_planning")
 (setf (get cws_planning::cws_planning :definition-)
-      "
+      "# This is needed just to make rosbridge happy, else it wont find TrafficLight.msg (idk why???)
+int32 hello
 ")
 
 
 
-(provide :cws_planning/cws_planning "d41d8cd98f00b204e9800998ecf8427e")
+(provide :cws_planning/cws_planning "9d9ca1866b512db488ffb6bed585ed1b")
 
 

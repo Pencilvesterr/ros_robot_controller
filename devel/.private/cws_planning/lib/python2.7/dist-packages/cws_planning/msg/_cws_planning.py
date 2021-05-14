@@ -8,12 +8,13 @@ import struct
 
 
 class cws_planning(genpy.Message):
-  _md5sum = "d41d8cd98f00b204e9800998ecf8427e"
+  _md5sum = "9d9ca1866b512db488ffb6bed585ed1b"
   _type = "cws_planning/cws_planning"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """"""
-  __slots__ = []
-  _slot_types = []
+  _full_text = """# This is needed just to make rosbridge happy, else it wont find TrafficLight.msg (idk why???)
+int32 hello"""
+  __slots__ = ['hello']
+  _slot_types = ['int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -23,7 +24,7 @@ class cws_planning(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       
+       hello
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -31,6 +32,11 @@ class cws_planning(genpy.Message):
     """
     if args or kwds:
       super(cws_planning, self).__init__(*args, **kwds)
+      # message fields cannot be None, assign default values for those that are
+      if self.hello is None:
+        self.hello = 0
+    else:
+      self.hello = 0
 
   def _get_types(self):
     """
@@ -44,7 +50,8 @@ class cws_planning(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      pass
+      _x = self.hello
+      buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -56,6 +63,9 @@ class cws_planning(genpy.Message):
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      start = end
+      end += 4
+      (self.hello,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -68,7 +78,8 @@ class cws_planning(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      pass
+      _x = self.hello
+      buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -81,6 +92,9 @@ class cws_planning(genpy.Message):
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      start = end
+      end += 4
+      (self.hello,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -89,3 +103,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i

@@ -24,14 +24,17 @@ struct cws_planning_
   typedef cws_planning_<ContainerAllocator> Type;
 
   cws_planning_()
-    {
+    : hello(0)  {
     }
   cws_planning_(const ContainerAllocator& _alloc)
-    {
+    : hello(0)  {
   (void)_alloc;
     }
 
 
+
+   typedef int32_t _hello_type;
+  _hello_type hello;
 
 
 
@@ -56,6 +59,19 @@ std::ostream& operator<<(std::ostream& s, const ::cws_planning::cws_planning_<Co
 {
 ros::message_operations::Printer< ::cws_planning::cws_planning_<ContainerAllocator> >::stream(s, "", v);
 return s;
+}
+
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator==(const ::cws_planning::cws_planning_<ContainerAllocator1> & lhs, const ::cws_planning::cws_planning_<ContainerAllocator2> & rhs)
+{
+  return lhs.hello == rhs.hello;
+}
+
+template<typename ContainerAllocator1, typename ContainerAllocator2>
+bool operator!=(const ::cws_planning::cws_planning_<ContainerAllocator1> & lhs, const ::cws_planning::cws_planning_<ContainerAllocator2> & rhs)
+{
+  return !(lhs == rhs);
 }
 
 
@@ -106,12 +122,12 @@ struct MD5Sum< ::cws_planning::cws_planning_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d41d8cd98f00b204e9800998ecf8427e";
+    return "9d9ca1866b512db488ffb6bed585ed1b";
   }
 
   static const char* value(const ::cws_planning::cws_planning_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd41d8cd98f00b204ULL;
-  static const uint64_t static_value2 = 0xe9800998ecf8427eULL;
+  static const uint64_t static_value1 = 0x9d9ca1866b512db4ULL;
+  static const uint64_t static_value2 = 0x88ffb6bed585ed1bULL;
 };
 
 template<class ContainerAllocator>
@@ -130,7 +146,8 @@ struct Definition< ::cws_planning::cws_planning_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "\n"
+    return "# This is needed just to make rosbridge happy, else it wont find TrafficLight.msg (idk why???)\n"
+"int32 hello\n"
 ;
   }
 
@@ -147,8 +164,10 @@ namespace serialization
 
   template<class ContainerAllocator> struct Serializer< ::cws_planning::cws_planning_<ContainerAllocator> >
   {
-    template<typename Stream, typename T> inline static void allInOne(Stream&, T)
-    {}
+    template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
+    {
+      stream.next(m.hello);
+    }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
   }; // struct cws_planning_
@@ -164,8 +183,11 @@ namespace message_operations
 template<class ContainerAllocator>
 struct Printer< ::cws_planning::cws_planning_<ContainerAllocator> >
 {
-  template<typename Stream> static void stream(Stream&, const std::string&, const ::cws_planning::cws_planning_<ContainerAllocator>&)
-  {}
+  template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::cws_planning::cws_planning_<ContainerAllocator>& v)
+  {
+    s << indent << "hello: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.hello);
+  }
 };
 
 } // namespace message_operations

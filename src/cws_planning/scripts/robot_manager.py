@@ -5,7 +5,7 @@ import random
 from std_msgs.msg import String, Int16, Int32
 from cws_planning.msg import TrafficLight
 from cws_planning.srv import MoveBlock, ResetRobot
-from . import LightStatus
+from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
     AVAILABLE_BLOCKS = [11, 22, 33]
@@ -18,13 +18,13 @@ class RobotNode(object):
         self.gaze_selection = 0
         # This shuffles the list in place
         random.shuffle(self.AVAILABLE_BLOCKS)
-        self.plan = self.AVAILABLE_BLOCKS
+        self.remaining_blocks = self.AVAILABLE_BLOCKS
 
         self.pub_selection = rospy.Publisher('/ar_selection',TrafficLight, queue_size=20)
         self.srv_move_block = rospy.ServiceProxy('/move_block', MoveBlock)
         self.srv_reset_robot = rospy.ServiceProxy('/reset_to_neutral', ResetRobot)
         rospy.Subscriber('/gaze_object_selected', Int32, self.callback_gaze_selection)
-        rospy.Subscriver('/block_placed', Int32, self.callback_block_placed)
+        rospy.Subscriber('/block_placed', Int32, self.callback_block_placed)
         rospy.loginfo("---Robot node waiting to find 'Robot MoveIt' services...---")
         rospy.wait_for_service('/move_block')
         rospy.wait_for_service('/reset_to_neutral')
@@ -32,28 +32,31 @@ class RobotNode(object):
     
     def callback_gaze_selection(self, msg):
         self.gaze_selection = msg.data
+        rospy.loginfo("Gaze selection received: " + self.gaze_selection)
         return 
 
     def callback_block_placed(self, msg):
         # The block should still be in the plan if the robot hasn't placed it 
-        if msg.data in self.plan:
-            self.plan.remove(msg.data)
+        rospy.loginfo("Block placement received: " + self.msg.data)
+        if msg.data in self.remaining_blocks:
+            self.remaining_blocks.remove(msg.data)
    
-    def update_AR_Tselection(self, next_block, next_zone, colour):
+    def update_AR_selection(self, next_block, next_zone, colour):
         selection_status = TrafficLight()
         selection_status.block_selected = next_block
-        selection_status.block_status = colour
+        selection_status.block_status = colour.value
         selection_status.zone_selected = next_zone
-        selection_status.zone_status = colour
+        selection_status.zone_status = colour.value
 
+        rospy.loginfo("Setting block {}, zone {}, to {}".format(next_block, next_zone, colour.name))
         self.pub_selection.publish(selection_status)
 
     def get_next_block_selection(self):
-        for idx, block in enumerate(self.plan):
+        for idx, block in enumerate(self.remaining_blocks):
             # Check that next block doesn't match the same zone of current eye selection
             zone_gaze_selection = str(self.gaze_selection)[0]
             if not str(block).startswith(zone_gaze_selection):
-                return self.plan.pop(idx)
+                return self.remaining_blocks.pop(idx)
 
         else:
             return 0
@@ -74,32 +77,34 @@ class RobotNode(object):
 
         while not rospy.is_shutdown():
             next_block = 0
-            next_zone = str(next_block)[0]
+            next_zone = 0
             selection_valid = False
 
             while not selection_valid:
                 next_block = self.get_next_block_selection()
+                next_zone = int(str(next_block)[0])
 
                 if next_block == 0:
-                    self.plan.append(next_block)
                     rospy.sleep(5)
                     continue
-
-                self.update_AR_selection(next_block, next_zone, LightStatus.yellow.value)
+                
+                rospy.sleep(3)
+                self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
                 rospy.sleep(5)
                 selection_valid = self.selection_still_valid(next_block)
                 if selection_valid:
-                    self.update_AR_selection(next_block, next_zone, LightStatus.red.value)
+                    self.update_AR_selection(next_block, next_zone, LightStatus.red)
+                    rospy.sleep(3)
                 else:
                     # User override, reset
                     self.update_AR_selection(next_block, next_zone, LightStatus.unselected.value)
-                    self.plan.append(next_block)
+                    self.remaining_blocks.append(next_block)
                     continue
 
             # Have now marked block and zone red, so can proceed
             try: 
                 resp = self.srv_move_block(next_block, next_zone)
-                self.update_AR_selection(next_block, next_zone, LightStatus.unselected.value)
+                self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
                 
             except rospy.ServiceException as e:
                 rospy.logerr("Service called failed: " + str(e))

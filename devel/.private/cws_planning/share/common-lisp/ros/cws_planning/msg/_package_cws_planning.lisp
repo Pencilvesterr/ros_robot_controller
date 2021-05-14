@@ -1,2 +1,4 @@
 (cl:in-package cws_planning-msg)
-(cl:export '())
+(cl:export '(HELLO-VAL
+          HELLO
+))
