@@ -218,13 +218,15 @@ class MoveGroupPythonInteface(object):
 
         self.move_group.go(joint_goal, wait=True)
 
-
 class NodeManagerMoveIt(object):
+    MAX_VELOCITY = 0.9
+
     def __init__(self, panda_move_group):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_move_group = panda_move_group
         self.current_cws = 0
         rospy.init_node('moveitt_robot')
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.MAX_VELOCITY)
 
     def valid_move_block_srv_args(self, req):
         if req.block_number not in RobotPositions.block_locations.keys():
