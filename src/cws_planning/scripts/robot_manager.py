@@ -8,7 +8,7 @@ from cws_planning.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [11, 22, 33]
+    AVAILABLE_BLOCKS = [11, 12, 13, 21, 22, 23, 31, 32, 33]
     AVAILABLE_ZONES = 3
 
     def __init__(self):
