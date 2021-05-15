@@ -18,9 +18,18 @@ robot = moveit_commander.RobotCommander()
 scene = moveit_commander.PlanningSceneInterface()
 group_name = "panda_arm"
 move_group = moveit_commander.MoveGroupCommander(group_name)
+move_group_hand = moveit_commander.MoveGroupCommander("hand")
 
 move_group.get_current_pose().pose
 
+
+Getting the hand position
+----
+joint_goal = move_group_hand.get_current_joint_values()
+joint_goal[0] = 0.05
+joint_goal[1] = 0.05
+
+move_group_hand.go(joint_goal, wait=True)
 
 
 Calling a sercvice from CLI:

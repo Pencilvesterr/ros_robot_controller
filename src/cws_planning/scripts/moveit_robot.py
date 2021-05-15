@@ -190,13 +190,13 @@ class MoveGroupPythonInteface(object):
 
     def open_gripper(self):
         joint_goal = self.move_group_hand.get_current_joint_values()
-        joint_goal[0] = 0.035
-        joint_goal[1] = 0.035
+        joint_goal[0] = 0.04
+        joint_goal[1] = 0.04
 
         self.move_group_hand.go(joint_goal, wait=True)
         self.move_group_hand.stop()
 
-    def close_gripper(self, end_pos=0.01):
+    def close_gripper(self, end_pos=0.028):
         joint_goal = self.move_group_hand.get_current_joint_values()
         joint_goal[0] = end_pos
         joint_goal[1] = end_pos
@@ -209,8 +209,7 @@ class MoveGroupPythonInteface(object):
         self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def move_to_neutral_zoneside(self):
-        # second = -pi/4
-        self.move_to_joint([-2.8, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+        self.move_to_joint([2.8, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def move_to_joint(self, added_values):
         joint_goal = self.move_group.get_current_joint_values()
@@ -282,7 +281,7 @@ class NodeManagerMoveIt(object):
             self.panda_move_group.move_to_neutral()
             return MoveToPositionResponse(True)
 
-        if req.position_number == -1:
+        if req.position_number == 99:
             self.panda_move_group.move_to_neutral_zoneside()
             return MoveToPositionResponse(True)
 

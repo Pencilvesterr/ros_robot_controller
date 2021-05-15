@@ -85,26 +85,28 @@ class RobotNode(object):
                 next_zone = int(str(next_block)[0])
 
                 if next_block == 0:
-                    rospy.sleep(5)
+                    rospy.sleep(10)
                     continue
                 
-                rospy.sleep(3)
                 self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
-                rospy.sleep(5)
-                selection_valid = self.selection_still_valid(next_block)
-                if selection_valid:
-                    self.update_AR_selection(next_block, next_zone, LightStatus.red)
-                    rospy.sleep(3)
-                else:
-                    # User override, reset
-                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected.value)
-                    self.remaining_blocks.append(next_block)
-                    continue
+                rospy.sleep(6)
 
+                selection_valid = self.selection_still_valid(next_block)
+                if not selection_valid:
+                    # User override, reset
+                    rospy.sleep(2)
+                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    rospy.sleep(5)
+                    self.remaining_blocks.append(next_block)
+            
             # Have now marked block and zone red, so can proceed
+            self.update_AR_selection(next_block, next_zone, LightStatus.red)
+            rospy.sleep(3)
+
             try: 
                 resp = self.srv_move_block(next_block, next_zone)
                 self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                rospy.sleep(2)
                 
             except rospy.ServiceException as e:
                 rospy.logerr("Service called failed: " + str(e))
@@ -112,6 +114,7 @@ class RobotNode(object):
 if __name__ == '__main__': 
     robot_node = RobotNode()
     robot_node.start()
+   
 
 
 #     try:
