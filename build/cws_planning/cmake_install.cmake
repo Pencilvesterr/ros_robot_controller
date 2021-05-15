@@ -203,7 +203,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning" TYPE FILE FILES "/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_nodes.launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cws_planning" TYPE FILE FILES
+    "/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_nodes.launch"
+    "/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_test.launch"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

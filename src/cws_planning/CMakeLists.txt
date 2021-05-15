@@ -190,6 +190,7 @@ catkin_install_python(PROGRAMS
 # Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
   cws_nodes.launch
+  cws_test.launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 

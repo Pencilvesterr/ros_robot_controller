@@ -1,23 +1,16 @@
-[  0%] Built target std_msgs_generate_messages_nodejs
-[  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target std_msgs_generate_messages_eus
 [  0%] Built target std_msgs_generate_messages_cpp
-[  0%] Built target _cws_planning_generate_messages_check_deps_ResetRobot
-[  0%] Built target _cws_planning_generate_messages_check_deps_MoveToPosition
-[  0%] Built target _cws_planning_generate_messages_check_deps_TrafficLight
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_py
 [  0%] Built target _cws_planning_generate_messages_check_deps_MoveBlock
+[  0%] Built target _cws_planning_generate_messages_check_deps_MoveToPosition
 [  0%] Built target _cws_planning_generate_messages_check_deps_cws_planning
-[  3%] [34m[1mGenerating Python from MSG cws_planning/cws_planning[0m
-[  7%] [34m[1mGenerating EusLisp code from cws_planning/cws_planning.msg[0m
-[ 10%] [34m[1mGenerating Lisp code from cws_planning/cws_planning.msg[0m
-[ 14%] [34m[1mGenerating C++ code from cws_planning/cws_planning.msg[0m
-[ 17%] [34m[1mGenerating Javascript code from cws_planning/cws_planning.msg[0m
-[ 32%] Built target cws_planning_generate_messages_lisp
-[ 46%] Built target cws_planning_generate_messages_nodejs
-[ 64%] Built target cws_planning_generate_messages_eus
-[ 67%] [34m[1mGenerating Python msg __init__.py for cws_planning[0m
-[ 71%] [34m[1mGenerating Python srv __init__.py for cws_planning[0m
-[ 85%] Built target cws_planning_generate_messages_cpp
-[100%] Built target cws_planning_generate_messages_py
+[  0%] Built target _cws_planning_generate_messages_check_deps_TrafficLight
+[  0%] Built target _cws_planning_generate_messages_check_deps_ResetRobot
+[ 17%] Built target cws_planning_generate_messages_lisp
+[ 39%] Built target cws_planning_generate_messages_eus
+[ 64%] Built target cws_planning_generate_messages_py
+[ 82%] Built target cws_planning_generate_messages_cpp
+[100%] Built target cws_planning_generate_messages_nodejs
 [100%] Built target cws_planning_generate_messages
