@@ -219,14 +219,15 @@ class MoveGroupPythonInteface(object):
         self.move_group.go(joint_goal, wait=True)
 
 class NodeManagerMoveIt(object):
-    MAX_VELOCITY = 0.9
+    REDUCED_MAX_VELOCITY = 0.6
+    FULL_MAX_VELOCITY = 1
 
     def __init__(self, panda_move_group):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_move_group = panda_move_group
         self.current_cws = 0
         rospy.init_node('moveitt_robot')
-        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.MAX_VELOCITY)
+        
 
     def valid_move_block_srv_args(self, req):
         if req.block_number not in RobotPositions.block_locations.keys():
@@ -260,19 +261,23 @@ class NodeManagerMoveIt(object):
         # Using cartesian plan as get more consistent results than move_group.go(...)
         waypoint = [self.panda_move_group.get_pose_goal(block_coordinates)]
         block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
         self.panda_move_group.execute_plan(block_plan)    
 
         self.panda_move_group.close_gripper()
         self.panda_move_group.move_to_neutral()
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         self.panda_move_group.move_to_neutral_zoneside()
         
         rospy.loginfo("Placing in zone " + str(req.block_zone))
         waypoint = [self.panda_move_group.get_pose_goal(zone_coordinates)]
         zone_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
         self.panda_move_group.execute_plan(zone_plan)  
         
         self.panda_move_group.open_gripper()
         self.panda_move_group.move_to_neutral_zoneside()
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         self.panda_move_group.move_to_neutral()
  
         return MoveBlockResponse(True)
