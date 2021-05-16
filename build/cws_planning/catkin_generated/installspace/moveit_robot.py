@@ -190,13 +190,13 @@ class MoveGroupPythonInteface(object):
 
     def open_gripper(self):
         joint_goal = self.move_group_hand.get_current_joint_values()
-        joint_goal[0] = 0.035
-        joint_goal[1] = 0.035
+        joint_goal[0] = 0.04
+        joint_goal[1] = 0.04
 
         self.move_group_hand.go(joint_goal, wait=True)
         self.move_group_hand.stop()
 
-    def close_gripper(self, end_pos=0.01):
+    def close_gripper(self, end_pos=0.028):
         joint_goal = self.move_group_hand.get_current_joint_values()
         joint_goal[0] = end_pos
         joint_goal[1] = end_pos
@@ -209,8 +209,7 @@ class MoveGroupPythonInteface(object):
         self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def move_to_neutral_zoneside(self):
-        # second = -pi/4
-        self.move_to_joint([-2.8, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+        self.move_to_joint([2.8, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def move_to_joint(self, added_values):
         joint_goal = self.move_group.get_current_joint_values()
@@ -219,13 +218,16 @@ class MoveGroupPythonInteface(object):
 
         self.move_group.go(joint_goal, wait=True)
 
-
 class NodeManagerMoveIt(object):
+    REDUCED_MAX_VELOCITY = 0.6
+    FULL_MAX_VELOCITY = 1
+
     def __init__(self, panda_move_group):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_move_group = panda_move_group
         self.current_cws = 0
         rospy.init_node('moveitt_robot')
+        
 
     def valid_move_block_srv_args(self, req):
         if req.block_number not in RobotPositions.block_locations.keys():
@@ -254,27 +256,41 @@ class NodeManagerMoveIt(object):
         self.panda_move_group.move_to_neutral()
         self.panda_move_group.open_gripper()
 
+        self._grab_block(req)
 
-        rospy.loginfo("Grabbing block " + str(req.block_number))
-        # Using cartesian plan as get more consistent results than move_group.go(...)
-        waypoint = [self.panda_move_group.get_pose_goal(block_coordinates)]
-        block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
-        self.panda_move_group.execute_plan(block_plan)    
-
-        self.panda_move_group.close_gripper()
-        self.panda_move_group.move_to_neutral()
         self.panda_move_group.move_to_neutral_zoneside()
         
         rospy.loginfo("Placing in zone " + str(req.block_zone))
         waypoint = [self.panda_move_group.get_pose_goal(zone_coordinates)]
         zone_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
         self.panda_move_group.execute_plan(zone_plan)  
         
         self.panda_move_group.open_gripper()
         self.panda_move_group.move_to_neutral_zoneside()
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         self.panda_move_group.move_to_neutral()
  
         return MoveBlockResponse(True)
+
+    def _grab_block(self, req):
+        """Assumes in neutral position, pick up a single block and return to neutral"""
+        rospy.loginfo("Grabbing block " + str(req.block_number))
+        
+        # Using cartesian plan as get more consistent results than move_group.go(...)
+        end_pose = self.panda_move_group.get_pose_goal(block_coordinates)
+        # Hover pose is slightly above block so arm comes down vertical
+        hover_pose = copy.deepcopy(end_pose).position.z += .15
+
+        waypoint = [hover_pose, end_pose]
+        block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
+        self.panda_move_group.execute_plan(block_plan)    
+
+        self.panda_move_group.close_gripper()
+        self.panda_move_group.move_to_neutral()
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
+
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves for each position"""
@@ -282,7 +298,7 @@ class NodeManagerMoveIt(object):
             self.panda_move_group.move_to_neutral()
             return MoveToPositionResponse(True)
 
-        if req.position_number == -1:
+        if req.position_number == 99:
             self.panda_move_group.move_to_neutral_zoneside()
             return MoveToPositionResponse(True)
 

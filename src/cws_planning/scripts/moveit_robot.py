@@ -249,24 +249,15 @@ class NodeManagerMoveIt(object):
         if not self.valid_move_block_srv_args(req):
             return MoveBlockResponse(False)
 
-        block_coordinates = RobotPositions.block_locations[req.block_number]
+        
         zone_coordinates = RobotPositions.zone_locations[req.block_zone]
 
         rospy.loginfo("Moving from block number {} to zone {}".format(str(req.block_number),str(req.block_zone)))
         self.panda_move_group.move_to_neutral()
         self.panda_move_group.open_gripper()
 
+        self._grab_block(req)
 
-        rospy.loginfo("Grabbing block " + str(req.block_number))
-        # Using cartesian plan as get more consistent results than move_group.go(...)
-        waypoint = [self.panda_move_group.get_pose_goal(block_coordinates)]
-        block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
-        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
-        self.panda_move_group.execute_plan(block_plan)    
-
-        self.panda_move_group.close_gripper()
-        self.panda_move_group.move_to_neutral()
-        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         self.panda_move_group.move_to_neutral_zoneside()
         
         rospy.loginfo("Placing in zone " + str(req.block_zone))
@@ -281,6 +272,27 @@ class NodeManagerMoveIt(object):
         self.panda_move_group.move_to_neutral()
  
         return MoveBlockResponse(True)
+
+    def _grab_block(self, req):
+        """Assumes in neutral position, pick up a single block and return to neutral"""
+        rospy.loginfo("Grabbing block " + str(req.block_number))
+        
+        # Using cartesian plan as get more consistent results than move_group.go(...)
+        block_coordinates = RobotPositions.block_locations[req.block_number]
+        end_pose = self.panda_move_group.get_pose_goal(block_coordinates)
+        # Hover pose is slightly above block so arm comes down vertical
+        hover_pose = copy.deepcopy(end_pose)
+        hover_pose.position.z += 0.15
+
+        waypoint = [hover_pose, end_pose]
+        block_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
+        self.panda_move_group.execute_plan(block_plan)    
+
+        self.panda_move_group.close_gripper()
+        self.panda_move_group.move_to_neutral()
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
+
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves for each position"""
