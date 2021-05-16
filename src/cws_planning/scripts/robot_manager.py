@@ -61,10 +61,10 @@ class RobotNode(object):
         else:
             return 0
 
-    def selection_still_valid(self, next_block):
+    def selection_still_valid(self, next_zone):
         '''User can still select a block for the same zone when the robot only highlihgt yellow'''
         zone_gaze_selection = str(self.gaze_selection)[0]
-        if (str(next_block).startswith(zone_gaze_selection)):
+        if (next_zone == int(zone_gaze_selection)):
             return False
         else:
             return True
@@ -82,9 +82,10 @@ class RobotNode(object):
 
             while not selection_valid:
                 next_block = self.get_next_block_selection()
-                next_zone = int(str(next_block)[0])
+                next_zone = random.randint(1, self.AVAILABLE_ZONES)
 
                 if next_block == 0:
+                    rospy.loginfo("No remaining placable blocks")
                     rospy.sleep(10)
                     continue
                 
