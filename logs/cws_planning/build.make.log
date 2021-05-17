@@ -1,16 +1,16 @@
 [  0%] Built target std_msgs_generate_messages_eus
-[  0%] Built target std_msgs_generate_messages_py
 [  0%] Built target std_msgs_generate_messages_nodejs
-[  0%] Built target std_msgs_generate_messages_cpp
-[  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target _cws_planning_generate_messages_check_deps_MoveToPosition
-[  0%] Built target _cws_planning_generate_messages_check_deps_TrafficLight
-[  0%] Built target _cws_planning_generate_messages_check_deps_cws_planning
-[  0%] Built target _cws_planning_generate_messages_check_deps_MoveBlock
 [  0%] Built target _cws_planning_generate_messages_check_deps_ResetRobot
-[ 17%] Built target cws_planning_generate_messages_cpp
-[ 39%] Built target cws_planning_generate_messages_eus
-[ 82%] Built target cws_planning_generate_messages_py
-[ 82%] Built target cws_planning_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target _cws_planning_generate_messages_check_deps_cws_planning
+[  0%] Built target _cws_planning_generate_messages_check_deps_TrafficLight
+[  0%] Built target _cws_planning_generate_messages_check_deps_MoveBlock
+[  0%] Built target _cws_planning_generate_messages_check_deps_MoveToPosition
+[ 25%] Built target cws_planning_generate_messages_py
+[ 42%] Built target cws_planning_generate_messages_cpp
+[ 60%] Built target cws_planning_generate_messages_lisp
+[ 82%] Built target cws_planning_generate_messages_eus
 [100%] Built target cws_planning_generate_messages_nodejs
 [100%] Built target cws_planning_generate_messages

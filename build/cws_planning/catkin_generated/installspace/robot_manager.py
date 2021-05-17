@@ -64,10 +64,10 @@ class RobotNode(object):
         else:
             return 0
 
-    def selection_still_valid(self, next_zone):
+    def selection_still_valid(self, next_block, next_zone):
         '''User can still select a block for the same zone when the robot only highlihgt yellow'''
         zone_gaze_selection = str(self.gaze_selection)[0]
-        if (next_zone == int(zone_gaze_selection)):
+        if (next_zone == int(zone_gaze_selection) or next_block == self.gaze_selection):
             return False
         else:
             return True
@@ -88,24 +88,25 @@ class RobotNode(object):
                 next_zone = random.randint(1, self.AVAILABLE_ZONES)
 
                 if next_block == 0:
-                    rospy.loginfo("No remaining placable blocks")
-                    rospy.sleep(10)
+                    rospy.logwarn("No remaining placable blocks")
+                    rospy.sleep(5)
                     continue
                 
                 self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
                 rospy.sleep(6)
 
-                selection_valid = self.selection_still_valid(next_block)
+                selection_valid = self.selection_still_valid(next_block, next_zone)
                 if not selection_valid:
+                    rospy.logwarn("Updating plan based on conflict")
                     # User override, reset
                     rospy.sleep(2)
                     self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                    rospy.sleep(5)
+                    rospy.sleep(3)
                     self.remaining_blocks.append(next_block)
             
             # Have now marked block and zone red, so can proceed
             self.update_AR_selection(next_block, next_zone, LightStatus.red)
-            rospy.sleep(3)
+            rospy.sleep(2)
 
             try: 
                 resp = self.srv_move_block(next_block, next_zone)

@@ -1,0 +1,8 @@
+prefix=/home/hrigroup2/projects/ros_cws_planner/install
+
+Name: franka_example_controllers
+Description: Description of franka_example_controllers
+Version: 0.7.1
+Cflags: -I${prefix}/include -I/home/hrigroup2/git/libfranka/include
+Libs: -L${prefix}/lib -lfranka_example_controllers /home/hrigroup2/git/libfranka/build/libfranka.so.0.7.1
+Requires: controller_interface dynamic_reconfigure eigen_conversions franka_hw franka_gripper geometry_msgs hardware_interface tf tf_conversions message_runtime pluginlib realtime_tools roscpp

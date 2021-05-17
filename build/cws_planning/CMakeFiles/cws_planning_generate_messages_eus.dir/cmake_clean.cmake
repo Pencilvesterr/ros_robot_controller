@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cws_planning_generate_messages_eus"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/cws_planning.l"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/TrafficLight.l"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveBlock.l"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l"
-  "/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/cws_planning.l"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/msg/TrafficLight.l"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveToPosition.l"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/ResetRobot.l"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/srv/MoveBlock.l"
+  "/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/roseus/ros/cws_planning/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.
