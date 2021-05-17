@@ -249,27 +249,12 @@ class NodeManagerMoveIt(object):
         if not self.valid_move_block_srv_args(req):
             return MoveBlockResponse(False)
 
-        
-        zone_coordinates = RobotPositions.zone_locations[req.block_zone]
-
         rospy.loginfo("Moving from block number {} to zone {}".format(str(req.block_number),str(req.block_zone)))
         self.panda_move_group.move_to_neutral()
         self.panda_move_group.open_gripper()
 
         self._grab_block(req)
-
-        self.panda_move_group.move_to_neutral_zoneside()
-        
-        rospy.loginfo("Placing in zone " + str(req.block_zone))
-        waypoint = [self.panda_move_group.get_pose_goal(zone_coordinates)]
-        zone_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
-        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
-        self.panda_move_group.execute_plan(zone_plan)  
-        
-        self.panda_move_group.open_gripper()
-        self.panda_move_group.move_to_neutral_zoneside()
-        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
-        self.panda_move_group.move_to_neutral()
+        self._place_in_zone(req)
  
         return MoveBlockResponse(True)
 
@@ -293,6 +278,21 @@ class NodeManagerMoveIt(object):
         self.panda_move_group.move_to_neutral()
         self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
 
+    def _place_in_zone(self, req):
+        """Assumes start in neutral with block in gripper"""
+        zone_coordinates = RobotPositions.zone_locations[req.block_zone]
+        rospy.loginfo("Placing in zone " + str(req.block_zone))
+        self.panda_move_group.move_to_neutral_zoneside()
+
+        waypoint = [self.panda_move_group.get_pose_goal(zone_coordinates)]
+        zone_plan, _ = self.panda_move_group.plan_cartesian_path(waypoint)
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
+        self.panda_move_group.execute_plan(zone_plan)  
+        
+        self.panda_move_group.open_gripper()
+        self.panda_move_group.move_to_neutral_zoneside()
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
+        self.panda_move_group.move_to_neutral()
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves for each position"""
