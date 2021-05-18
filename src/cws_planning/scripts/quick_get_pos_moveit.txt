@@ -41,3 +41,16 @@ rostopic echo /gaze_object_selection
 
 rostopic pub /study_conditi_msgs/Int32 '1'
 // 1: All, 2: Traffic Light Shown, 3: Eye Gaze Published, 4: None
+
+
+Tutorial 
+-----
+rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 2, zone_selected: 2}'
+rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 1, zone_status: 1, zone_selected: 2}'
+rosservice call /move_robot "11"
+rosservice call /move_robot "0"
+rosservice call /move_robot "99"
+rosservice call /move_robot "2"
+rosservice call /move_robot "99"
+rosservice call /move_robot "0"
+

@@ -8,13 +8,11 @@ from cws_planning.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    # Readd blocks 13, 15 and 25 when fixed coordinates
-    AVAILABLE_BLOCKS = [11, 12, 14, 21, 22, 23, 24, 31, 32, 33, 34, 35]
-    # Use this if you hit a failure state
+    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
+    # Use below if you hit a failure state during user study
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
 
-    # Zone 3 is fucked
-    AVAILABLE_ZONES = 2
+    AVAILABLE_ZONES = 3
 
     def __init__(self):
         super(RobotNode, self).__init__()
