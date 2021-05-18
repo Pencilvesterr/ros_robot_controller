@@ -1,1 +1,1 @@
-/home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning/share/cws_planning/cmake/cws_planningConfig.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/cws_planning/share/cws_planning/cmake/cws_planningConfig.cmake

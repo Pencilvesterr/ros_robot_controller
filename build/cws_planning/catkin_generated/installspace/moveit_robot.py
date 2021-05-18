@@ -164,7 +164,7 @@ class MoveGroupPythonInteface(object):
         display_trajectory.trajectory_start = self.robot.get_current_state()
         display_trajectory.trajectory.append(plan)
         # Publish
-        self.display_trajectory_publisher.publish(display_trajectory);
+        self.display_trajectory_publisher.publish(display_trajectory)
 
     def execute_plan(self, plan):
         """Use execute if you would like the robot to follow the plan that has already been computed.
@@ -190,13 +190,13 @@ class MoveGroupPythonInteface(object):
 
     def open_gripper(self):
         joint_goal = self.move_group_hand.get_current_joint_values()
-        joint_goal[0] = 0.04
-        joint_goal[1] = 0.04
+        joint_goal[0] = 0.038
+        joint_goal[1] = 0.038
 
         self.move_group_hand.go(joint_goal, wait=True)
         self.move_group_hand.stop()
 
-    def close_gripper(self, end_pos=0.028):
+    def close_gripper(self, end_pos=0.037):
         joint_goal = self.move_group_hand.get_current_joint_values()
         joint_goal[0] = end_pos
         joint_goal[1] = end_pos
@@ -207,9 +207,9 @@ class MoveGroupPythonInteface(object):
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
         self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4]) 
-
+ 
     def move_to_neutral_zoneside(self):
-        self.move_to_joint([2.8, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+        self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def move_to_joint(self, added_values):
         joint_goal = self.move_group.get_current_joint_values()
@@ -219,13 +219,14 @@ class MoveGroupPythonInteface(object):
         self.move_group.go(joint_goal, wait=True)
 
 class NodeManagerMoveIt(object):
-    REDUCED_MAX_VELOCITY = 0.2
-    FULL_MAX_VELOCITY = 1
+    REDUCED_MAX_VELOCITY = 0.05
+    FULL_MAX_VELOCITY = 0.2
 
     def __init__(self, panda_move_group):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_move_group = panda_move_group
         self.current_cws = 0
+        self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         rospy.init_node('moveitt_robot')
         
 

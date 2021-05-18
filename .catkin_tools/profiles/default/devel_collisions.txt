@@ -47,7 +47,7 @@
 /home/morgan/projects/ros_cws_planner/devel/share/python_utilities/cmake/python_utilitiesConfig.cmake 1
 /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/cws_planning/srv/_MoveBlock.py 1
 /home/morgan/projects/ros_cws_planner/devel/include/cws_planning/ResetRobot.h 1
-/home/morgan/projects/ros_cws_planner/devel/./cmake.lock 51
+/home/morgan/projects/ros_cws_planner/devel/./cmake.lock 54
 /home/morgan/projects/ros_cws_planner/devel/share/roseus/ros/cws_planning/msg/TrafficLight.l 1
 /home/morgan/projects/ros_cws_planner/devel/include/cws_planning/TrafficLight.h 1
 /home/morgan/projects/ros_cws_planner/devel/share/gennodejs/ros/cws_planning/_index.js 1

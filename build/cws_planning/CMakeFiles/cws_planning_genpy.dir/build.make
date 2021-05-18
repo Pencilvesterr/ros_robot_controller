@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/cws_planning
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/cws_planning
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/cws_planning
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/cws_planning
 
 # Utility rule file for cws_planning_genpy.
 
@@ -67,6 +67,6 @@ CMakeFiles/cws_planning_genpy.dir/clean:
 .PHONY : CMakeFiles/cws_planning_genpy.dir/clean
 
 CMakeFiles/cws_planning_genpy.dir/depend:
-	cd /home/hrigroup2/projects/ros_cws_planner/build/cws_planning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hrigroup2/projects/ros_cws_planner/src/cws_planning /home/hrigroup2/projects/ros_cws_planner/src/cws_planning /home/hrigroup2/projects/ros_cws_planner/build/cws_planning /home/hrigroup2/projects/ros_cws_planner/build/cws_planning /home/hrigroup2/projects/ros_cws_planner/build/cws_planning/CMakeFiles/cws_planning_genpy.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/cws_planning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/cws_planning /home/morgan/projects/ros_cws_planner/src/cws_planning /home/morgan/projects/ros_cws_planner/build/cws_planning /home/morgan/projects/ros_cws_planner/build/cws_planning /home/morgan/projects/ros_cws_planner/build/cws_planning/CMakeFiles/cws_planning_genpy.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cws_planning_genpy.dir/depend
 

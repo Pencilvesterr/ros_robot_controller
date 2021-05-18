@@ -67,14 +67,14 @@ set(cws_planning_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cws_planning_SOURCE_PREFIX /home/hrigroup2/projects/ros_cws_planner/src/cws_planning)
-  set(cws_planning_DEVEL_PREFIX /home/hrigroup2/projects/ros_cws_planner/devel/.private/cws_planning)
+  set(cws_planning_SOURCE_PREFIX /home/morgan/projects/ros_cws_planner/src/cws_planning)
+  set(cws_planning_DEVEL_PREFIX /home/morgan/projects/ros_cws_planner/devel/.private/cws_planning)
   set(cws_planning_INSTALL_PREFIX "")
   set(cws_planning_PREFIX ${cws_planning_DEVEL_PREFIX})
 else()
   set(cws_planning_SOURCE_PREFIX "")
   set(cws_planning_DEVEL_PREFIX "")
-  set(cws_planning_INSTALL_PREFIX /home/hrigroup2/projects/ros_cws_planner/install)
+  set(cws_planning_INSTALL_PREFIX /home/morgan/projects/ros_cws_planner/install)
   set(cws_planning_PREFIX ${cws_planning_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/hrigroup2/projects/ros_cws_planner/install/lib;/home/hrigroup2/projects/ros_cws_planner/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/morgan/projects/ros_cws_planner/install/lib;/home/morgan/projects/ros_cws_planner/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/python_utilities
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/python_utilities
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/python_utilities
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/python_utilities
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/hrigroup2/projects/ros_cws_planner/build/python_utilities && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hrigroup2/projects/ros_cws_planner/src/python_utilities /home/hrigroup2/projects/ros_cws_planner/src/python_utilities /home/hrigroup2/projects/ros_cws_planner/build/python_utilities /home/hrigroup2/projects/ros_cws_planner/build/python_utilities /home/hrigroup2/projects/ros_cws_planner/build/python_utilities/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/morgan/projects/ros_cws_planner/build/python_utilities && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/morgan/projects/ros_cws_planner/src/python_utilities /home/morgan/projects/ros_cws_planner/src/python_utilities /home/morgan/projects/ros_cws_planner/build/python_utilities /home/morgan/projects/ros_cws_planner/build/python_utilities /home/morgan/projects/ros_cws_planner/build/python_utilities/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 
