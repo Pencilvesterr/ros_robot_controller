@@ -62,6 +62,16 @@ $ rosrun cws_planning talker_demo.py
 ```
 
 # Running with real robot
+## Ensuring franka control is ready 
+Franka control is what actually commands the real robot and is required as a package in this workspace on the lab computer to work. Ensure that it's connected to the lab computer's libfranka install. If you get error with franka_control, refer to [building ros package](/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_nodes.launch). Make sure to instread use the commands:
+
+
+``` shell
+$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y --skip-keys libfranka
+$ catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=~/git/libfranka/build
+```
+
+## Running in the lab
 To get Panda Robot package to control the robot through the Franka ROS interface, you will first need to ensure that the interface is running and connected with the robot. The ./franka.sh file may need to be updated with your computer's IP address.
 
 ``` shell
