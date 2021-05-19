@@ -62,13 +62,13 @@ $ rosrun cws_planning talker_demo.py
 ```
 
 # Running with real robot
-## Ensuring franka control is ready 
-Franka control is what actually commands the real robot and is required as a package in this workspace on the lab computer to work. Ensure that it's connected to the lab computer's libfranka install. If you get error with franka_control, refer to [building ros package](/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_nodes.launch). Make sure to instread use the commands:
+## Ensuring franka control is ready (will have to do each time build on lab pc)
+Franka control is what actually commands the real robot and is required as a package in this workspace on the lab computer to work. Ensure that it's connected to the lab computer's libfranka install. If you get error with franka_control, refer to [building ros package](/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_nodes.launch). Make sure to instead use the commands:
 
 
 ``` shell
 $ rosdep install --from-paths src --ignore-src --rosdistro melodic -y --skip-keys libfranka
-$ catkin_make -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=~/git/libfranka/build
+$ catkin build -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=~/git/libfranka/build
 ```
 
 ## Running in the lab
@@ -77,16 +77,24 @@ To get Panda Robot package to control the robot through the Franka ROS interface
 ``` shell
 $ roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
 $ roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true
-$ roslaucnh panda_moveit_config moveit_rviz.launch
+$ roslaunch panda_moveit_config moveit_rviz.launch
 
 # Launch the rosconnector bridge to communicate with the robot
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 
-# Then launch the listener node that controls the robot
-$ rosrun cws_planning moveit_listener.py
+# Then launch the node that commands the robot with franka control
+$ rosrun cws_planning moveit_robot.py
 
-# If you want Rviz too
-$ roslaunch panda_moveit_config moveit_rviz.launch
+# To start, run the node that actually does the planning
+$ roslaunch cws_planning robot_manager.py
+```
+
+## Running user study
+``` shell 
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+$ roslaunch panda_moveit_config demo.launch
+$ rosrun cws_planning moveit_robot.py
+$ rosrun cws_planning robot_manager.py
 ```
 
 ## Setting Up ROS Bridge
