@@ -39,7 +39,7 @@ rosservice call /move_block "{block_number: 22, block_zone: 1}"
 rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 1, zone_selected: 2}'
 rostopic echo /gaze_object_selection
 
-rostopic pub /study_conditi_msgs/Int32 '1'
+rostopic pub /study_condition std_msgs/Int32 '1'
 // 1: All, 2: Traffic Light Shown, 3: Eye Gaze Published, 4: None
 
 
