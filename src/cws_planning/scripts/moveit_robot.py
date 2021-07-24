@@ -55,6 +55,7 @@ from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobo
 from python_utilities.light_status import LightStatus
 from python_utilities.robot_positions import RobotPositions
 
+
 def all_close(goal, actual, tolerance):
   """
   Convenience method for testing if a list of values are within a tolerance of their counterparts in another list
@@ -225,6 +226,7 @@ class MoveGroupPythonInteface(object):
 
         self.move_group.go(joint_goal, wait=True)
 
+
 class NodeManagerMoveIt(object):
     REDUCED_MAX_VELOCITY = 1 #0.1
     FULL_MAX_VELOCITY = 1 #0.3
@@ -249,7 +251,6 @@ class NodeManagerMoveIt(object):
             return False
 
         return True
-
 
     def callback_move_block(self, req):
         ''' Arg: req.block_number, req.block_zone 
@@ -360,12 +361,6 @@ if __name__ == '__main__':
     panda_move_group = MoveGroupPythonInteface()
     node_manager = NodeManagerMoveIt(panda_move_group)
     node_manager.start_services()
-
-#     try:
-#       ...      
-#   except rospy.ROSInterruptException:
-#     return
-
 
 """
     # Extra Python Interface methods for dealing with objects within the scene

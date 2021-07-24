@@ -60,6 +60,9 @@ $ chmod +x my_script.py
 
 # Running Robot Simulation
 ``` shell 
+# Only needed if communicating with Unity. Make sure to add port at end of ip x.x.x.x:9090
+roslaunch rosbridge_server rosbridge_websocket.launch
+
 # Launch the Rviz simulation with 
 $ roslaunch panda_moveit_config demo.launch
 
@@ -124,10 +127,20 @@ $ roslaunch rosbridge_server rosbridge_websocket.launch
 # Notes
 - Use `catkin build` rather than catkin_make. Explination [here.](https://answers.ros.org/question/320613/catkin_make-vs-catkin_make_isolated-which-is-preferred/)
 - Resolve the "robot model parameter not found", add the following to the launch file and make sure that the launch file has been run atleast once so that the param server has the correct values
-    ``` xml
-    <include file="$(find panda_moveit_config)/launch/planning_context.launch">
-        <arg name="load_robot_description" value="true"/>
-    </include>
-    ```
+``` xml
+<include file="$(find panda_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+</include>
+```
 - Adding additional python modules that aren't runnable scripts [link](https://roboticsbackend.com/ros-import-python-module-from-another-package/)
-    
+
+## Calling a ROS Service from CLI
+```shell
+$ rosservice call /move_robot "1"
+$ rosservice call /move_block "{block_number: 22, block_zone: 1}"
+$ rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 1, zone_selected: 2}'
+$ rostopic echo /gaze_object_selection
+
+# 1: All, 2: Traffic Light Shown, 3: Eye Gaze Published, 4: None
+$ rostopic pub /study_condition std_msgs/Int32 '1'
+```
