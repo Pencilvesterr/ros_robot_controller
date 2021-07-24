@@ -59,6 +59,10 @@ $ chmod +x my_script.py
 ```
 
 # Running Robot Simulation
+```shell
+ ~/projects/ros_cws_planner/run_simulation.sh
+```
+### Under the hood
 ``` shell 
 # Only needed if communicating with Unity. Make sure to add port at end of ip x.x.x.x:9090
 roslaunch rosbridge_server rosbridge_websocket.launch
@@ -89,6 +93,11 @@ $ catkin build -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=~/git/libfranka/buil
 ## Running in the lab
 To get Panda Robot package to control the robot through the Franka ROS interface, you will first need to ensure that the interface is running and connected with the robot. The ./franka.sh file may need to be updated with your computer's IP address.
 
+```shell
+# Run the following script to run all necessary launch files 
+$ ~/projects/ros_cws_planner/run_lab.sh
+```
+### Under the hood
 ``` shell
 $ roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
 $ roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true

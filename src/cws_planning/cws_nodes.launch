@@ -1,6 +1,6 @@
 <launch>
     <include file="$(find panda_moveit_config)/launch/demo.launch"/>
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+    <!--Cant manage to get the webserver launching at the same time...  include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/> -->
     <node pkg="cws_planning" name="moveit_robot" type="moveit_robot.py" output="screen" launch-prefix= "gnome-terminal --command" />
     <node pkg="cws_planning" name="robot_coordinator" type="robot_manager.py" output="screen" launch-prefix= "gnome-terminal --command" />
 </launch>
