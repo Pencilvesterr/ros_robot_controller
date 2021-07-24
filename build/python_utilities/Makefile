@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hrigroup2/projects/ros_cws_planner/src/python_utilities
+CMAKE_SOURCE_DIR = /home/morgan/projects/ros_cws_planner/src/python_utilities
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hrigroup2/projects/ros_cws_planner/build/python_utilities
+CMAKE_BINARY_DIR = /home/morgan/projects/ros_cws_planner/build/python_utilities
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/hrigroup2/projects/ros_cws_planner/build/python_utilities/CMakeFiles /home/hrigroup2/projects/ros_cws_planner/build/python_utilities/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/ros_cws_planner/build/python_utilities/CMakeFiles /home/morgan/projects/ros_cws_planner/build/python_utilities/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/hrigroup2/projects/ros_cws_planner/build/python_utilities/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/morgan/projects/ros_cws_planner/build/python_utilities/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -19,6 +19,17 @@ If you're running this at the lab, ensure that you dont install a new libfranka 
 
 If setting up a new environment, you'll want to follow the Franka Ros Interface [setup instructions](https://www.saifsidhik.page/franka_ros_interface/instructions.html#installation) too. 
 
+# Basic ROS Operations
+
+## Basics of building the package
+When you pull the repo down into a new environement (e.g. from windows to linux), things will usually break and this can be quickly fixed by rebuilding the catkin package.
+
+``` shell
+$ catkin clean
+$ catkin build
+```
+
+
 ## Running a node
 ### Single Node
 ``` shell
@@ -28,7 +39,7 @@ $ rosrun <package> <your_script.py>
 ```
 If you're getting 'permission densied', try first running $ sudo bash to run the shell from your super user account. 
 
-### Running a Launch file
+## Running a Launch file
 This should start all nodes needed for your application (if the launch file is configured correctly)
 ``` shell
 $ roslaunch <package> <filename.launch>
@@ -47,17 +58,18 @@ To add a python script to your packages ./scripts directory, you need to:
 $ chmod +x my_script.py
 ```
 
-# Running Simulation
+# Running Robot Simulation
 ``` shell 
 # Launch the Rviz simulation with 
 $ roslaunch panda_moveit_config demo.launch
-```
 
-# Setting up nodes for CWS Planning
-``` shell
-$ rosrun cws_planning moveit_listener.py
+# Seperate terminal
+$ rosrun cws_planning moveit_robot.py
 
-# Can also launch this if you want to send CWS zones manually during testing 
+# Seperate terminal 
+$ rosrun cws_planning robot_manager.py
+
+# Use to alternatively send CWS zones manually instead of running robot_manager.py
 $ rosrun cws_planning talker_demo.py
 ```
 

@@ -90,7 +90,7 @@ class MoveGroupPythonInteface(object):
         # interface for getting, setting, and updating the robot's internal understanding of the
         # surrounding world:
         self.scene = moveit_commander.PlanningSceneInterface()
-
+    
         # Interface for planning group of joints. Can be used to plan and execute motions:
         group_name_arm = "panda_arm"
         self.move_group = moveit_commander.MoveGroupCommander(group_name_arm)
@@ -108,6 +108,13 @@ class MoveGroupPythonInteface(object):
         self.box_name = ''
         self.eef_link = self.move_group.get_end_effector_link()
         self.block_locations = RobotPositions.block_locations
+
+    def _add_table_to_scene(self):
+        TABLE_PADDING_OFFSET = 0.02
+        # PoseStamped has a header which is required when adding collision objects to scene
+        pose = geometry_msgs.msg.PoseStamped()
+        pose.header.frame_id = self.robot.get_planning_frame()
+        self.scene.add_box("table", pose, (3, 3, TABLE_PADDING_OFFSET))
 
     def move_to_pose_goal(self, pose_goal):
         """Move the EE to the pose goal.
@@ -219,8 +226,8 @@ class MoveGroupPythonInteface(object):
         self.move_group.go(joint_goal, wait=True)
 
 class NodeManagerMoveIt(object):
-    REDUCED_MAX_VELOCITY = 0.1
-    FULL_MAX_VELOCITY = 0.3
+    REDUCED_MAX_VELOCITY = 1 #0.1
+    FULL_MAX_VELOCITY = 1 #0.3
 
     def __init__(self, panda_move_group):
         super(NodeManagerMoveIt, self).__init__()
@@ -228,6 +235,8 @@ class NodeManagerMoveIt(object):
         self.current_cws = 0
         self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         rospy.init_node('moveitt_robot')
+        # Can only add table to scene once node initi
+        self.panda_move_group._add_table_to_scene()
         
 
     def valid_move_block_srv_args(self, req):

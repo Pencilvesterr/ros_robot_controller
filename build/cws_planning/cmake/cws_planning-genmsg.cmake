@@ -2,7 +2,7 @@
 
 message(STATUS "cws_planning: 2 messages, 3 services")
 
-set(MSG_I_FLAGS "-Icws_planning:/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Icws_planning:/home/morgan/projects/ros_cws_planner/src/cws_planning/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,29 +17,29 @@ add_custom_target(cws_planning_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
 add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" ""
 )
 
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
 add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" ""
 )
 
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" ""
 )
 
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
 add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" ""
 )
 
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
 add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "cws_planning" "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" ""
 )
 
 #
@@ -49,13 +49,13 @@ add_custom_target(_cws_planning_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/cws_planning
 )
 _generate_msg_cpp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/cws_planning
@@ -63,19 +63,19 @@ _generate_msg_cpp(cws_planning
 
 ### Generating Services
 _generate_srv_cpp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/cws_planning
 )
 _generate_srv_cpp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/cws_planning
 )
 _generate_srv_cpp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/cws_planning
@@ -93,15 +93,15 @@ add_custom_target(cws_planning_generate_messages_cpp
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_cpp _cws_planning_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -114,13 +114,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS cws_planning_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/cws_planning
 )
 _generate_msg_eus(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/cws_planning
@@ -128,19 +128,19 @@ _generate_msg_eus(cws_planning
 
 ### Generating Services
 _generate_srv_eus(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/cws_planning
 )
 _generate_srv_eus(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/cws_planning
 )
 _generate_srv_eus(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/cws_planning
@@ -158,15 +158,15 @@ add_custom_target(cws_planning_generate_messages_eus
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_eus _cws_planning_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -179,13 +179,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS cws_planning_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/cws_planning
 )
 _generate_msg_lisp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/cws_planning
@@ -193,19 +193,19 @@ _generate_msg_lisp(cws_planning
 
 ### Generating Services
 _generate_srv_lisp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/cws_planning
 )
 _generate_srv_lisp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/cws_planning
 )
 _generate_srv_lisp(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/cws_planning
@@ -223,15 +223,15 @@ add_custom_target(cws_planning_generate_messages_lisp
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_lisp _cws_planning_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -244,13 +244,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS cws_planning_generate_messages_lisp
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/cws_planning
 )
 _generate_msg_nodejs(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/cws_planning
@@ -258,19 +258,19 @@ _generate_msg_nodejs(cws_planning
 
 ### Generating Services
 _generate_srv_nodejs(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/cws_planning
 )
 _generate_srv_nodejs(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/cws_planning
 )
 _generate_srv_nodejs(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/cws_planning
@@ -288,15 +288,15 @@ add_custom_target(cws_planning_generate_messages_nodejs
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_nodejs _cws_planning_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -309,13 +309,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS cws_planning_generate_messages_node
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/cws_planning
 )
 _generate_msg_py(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/cws_planning
@@ -323,19 +323,19 @@ _generate_msg_py(cws_planning
 
 ### Generating Services
 _generate_srv_py(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/cws_planning
 )
 _generate_srv_py(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/cws_planning
 )
 _generate_srv_py(cws_planning
-  "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv"
+  "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/cws_planning
@@ -353,15 +353,15 @@ add_custom_target(cws_planning_generate_messages_py
 add_dependencies(cws_planning_generate_messages cws_planning_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/cws_planning.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveBlock.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/msg/TrafficLight.msg" NAME_WE)
 add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/hrigroup2/projects/ros_cws_planner/src/cws_planning/srv/ResetRobot.srv" NAME_WE)
+get_filename_component(_filename "/home/morgan/projects/ros_cws_planner/src/cws_planning/srv/MoveToPosition.srv" NAME_WE)
 add_dependencies(cws_planning_generate_messages_py _cws_planning_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

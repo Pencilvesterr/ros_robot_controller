@@ -1,10 +1,10 @@
 
 "use strict";
 
-let TrafficLight = require('./TrafficLight.js');
 let cws_planning = require('./cws_planning.js');
+let TrafficLight = require('./TrafficLight.js');
 
 module.exports = {
-  TrafficLight: TrafficLight,
   cws_planning: cws_planning,
+  TrafficLight: TrafficLight,
 };

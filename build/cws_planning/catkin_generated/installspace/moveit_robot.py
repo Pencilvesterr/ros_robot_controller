@@ -129,7 +129,7 @@ class MoveGroupPythonInteface(object):
         return all_close(pose_goal, current_pose, 0.01)
 
     def plan_cartesian_path(self, waypoints, scale=1):
-        """Plan a Cartesian path directly by specifying a list of waypoints for the end-effector to go through. 
+        """Plan a Cartesian path directly bclosey specifying a list of waypoints for the end-effector to go through. 
 
         Examples:
             wpose = self.move_group.get_current_pose().pose
@@ -196,7 +196,7 @@ class MoveGroupPythonInteface(object):
         self.move_group_hand.go(joint_goal, wait=True)
         self.move_group_hand.stop()
 
-    def close_gripper(self, end_pos=0.037):
+    def close_gripper(self, end_pos=0.02):
         joint_goal = self.move_group_hand.get_current_joint_values()
         joint_goal[0] = end_pos
         joint_goal[1] = end_pos
@@ -219,8 +219,8 @@ class MoveGroupPythonInteface(object):
         self.move_group.go(joint_goal, wait=True)
 
 class NodeManagerMoveIt(object):
-    REDUCED_MAX_VELOCITY = 0.05
-    FULL_MAX_VELOCITY = 0.2
+    REDUCED_MAX_VELOCITY = 0.1
+    FULL_MAX_VELOCITY = 0.3
 
     def __init__(self, panda_move_group):
         super(NodeManagerMoveIt, self).__init__()

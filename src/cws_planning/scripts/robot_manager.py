@@ -11,8 +11,10 @@ class RobotNode(object):
     AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
     # Use below if you hit a failure state during user study
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
-
     AVAILABLE_ZONES = 3
+
+    SHORT_PAUSE = 0.1 # 1
+    LONG_PAUSE = 0.2 # 5
 
     def __init__(self):
         super(RobotNode, self).__init__()
@@ -89,29 +91,29 @@ class RobotNode(object):
 
                 if next_block == 0:
                     rospy.logwarn("No remaining placable blocks")
-                    rospy.sleep(5)
+                    rospy.sleep(self.LONG_PAUSE)
                     continue
                 
                 self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
-                rospy.sleep(3)
+                rospy.sleep(self.LONG_PAUSE)
 
                 selection_valid = self.selection_still_valid(next_block, next_zone)
                 if not selection_valid:
                     rospy.logwarn("Updating plan based on conflict")
                     # User override, reset
-                    rospy.sleep(1)
+                    rospy.sleep(self.SHORT_PAUSE)
                     self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                    rospy.sleep(1)
+                    rospy.sleep(self.SHORT_PAUSE)
                     self.remaining_blocks.append(next_block)
             
             # Have now marked block and zone red, so can proceed
             self.update_AR_selection(next_block, next_zone, LightStatus.red)
-            rospy.sleep(2)
+            rospy.sleep(self.SHORT_PAUSE)
 
             try: 
                 resp = self.srv_move_block(next_block, next_zone)
                 self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                rospy.sleep(1)
+                rospy.sleep(self.SHORT_PAUSE)
                 
             except rospy.ServiceException as e:
                 rospy.logerr("Service called failed: " + str(e))

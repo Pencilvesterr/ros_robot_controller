@@ -93,15 +93,15 @@ class RobotNode(object):
                     continue
                 
                 self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
-                rospy.sleep(6)
+                rospy.sleep(3)
 
                 selection_valid = self.selection_still_valid(next_block, next_zone)
                 if not selection_valid:
                     rospy.logwarn("Updating plan based on conflict")
                     # User override, reset
-                    rospy.sleep(2)
+                    rospy.sleep(1)
                     self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                    rospy.sleep(3)
+                    rospy.sleep(1)
                     self.remaining_blocks.append(next_block)
             
             # Have now marked block and zone red, so can proceed
@@ -111,7 +111,7 @@ class RobotNode(object):
             try: 
                 resp = self.srv_move_block(next_block, next_zone)
                 self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                rospy.sleep(2)
+                rospy.sleep(1)
                 
             except rospy.ServiceException as e:
                 rospy.logerr("Service called failed: " + str(e))

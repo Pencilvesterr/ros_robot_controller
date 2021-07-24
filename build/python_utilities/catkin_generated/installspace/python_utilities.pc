@@ -1,4 +1,4 @@
-prefix=/home/hrigroup2/projects/ros_cws_planner/install
+prefix=/home/morgan/projects/ros_cws_planner/install
 
 Name: python_utilities
 Description: Description of python_utilities
