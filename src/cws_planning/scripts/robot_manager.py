@@ -8,13 +8,16 @@ from cws_planning.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
+    AVAILABLE_BLOCKS = [11, 12, 13]
     # Use below if you hit a failure state during user study
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
     AVAILABLE_ZONES = 3
 
     SHORT_PAUSE = 0.1 # 1
     LONG_PAUSE = 0.2 # 5
+
+    replan_count = 0
+    moved_blocks_count = 0
 
     def __init__(self):
         super(RobotNode, self).__init__()
@@ -34,6 +37,54 @@ class RobotNode(object):
         rospy.wait_for_service('/move_block')
         rospy.wait_for_service('/reset_to_neutral')
         rospy.loginfo("---Robot Node Initialised---")
+    
+    def start(self):
+        resp = self.srv_reset_robot()
+        if resp.success == False:
+            rospy.logerror("Unable to reset robot, ending node")
+            return
+
+        while not rospy.is_shutdown():
+            next_block = 0
+            next_zone = 0
+            selection_valid = False
+
+            while not selection_valid:
+                if len(self.remaining_blocks) == 0:
+                    self.exit_process()
+                    break
+
+                next_block = self.get_next_block_selection()
+                next_zone = random.randint(1, self.AVAILABLE_ZONES)
+                if next_block == 0:
+                    rospy.logwarn("No remaining placable blocks")
+                    rospy.sleep(self.LONG_PAUSE)
+                    continue
+                
+                self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
+                rospy.sleep(self.LONG_PAUSE)
+
+                selection_valid = self.selection_still_valid(next_block, next_zone)
+                if not selection_valid:
+                    rospy.logwarn("Updating plan based on conflict")
+                    self.replan_count += 1
+                    # User override, reset selection
+                    rospy.sleep(self.SHORT_PAUSE)
+                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    rospy.sleep(self.SHORT_PAUSE)
+                    self.remaining_blocks.append(next_block)
+            
+            # A valid block selection was found
+            if next_block != 0:
+                self.update_AR_selection(next_block, next_zone, LightStatus.red)
+                rospy.sleep(self.SHORT_PAUSE)
+                try: 
+                    resp = self.srv_move_block(next_block, next_zone)
+                    self.moved_blocks_count += 1
+                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    rospy.sleep(self.SHORT_PAUSE)
+                except rospy.ServiceException as e:
+                    rospy.logerr("Service called failed: " + str(e))
     
     def callback_gaze_selection(self, msg):
         self.gaze_selection = msg.data
@@ -74,56 +125,19 @@ class RobotNode(object):
         else:
             return True
 
-    def start(self):
-        resp = self.srv_reset_robot()
-        if resp.success == False:
-            rospy.logerror("Unable to reset robot, ending node")
-            return
+    def exit_process(self):
+        rospy.loginfo("All blocks complete")
+        rospy.loginfo("------------------")
+        rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
+        rospy.loginfo("Robot replanned {} times".format(self.replan_count))
+        # Spin keeps the terminal open while allowing you to ctrl c at any time
+        rospy.spin()
 
-        while not rospy.is_shutdown():
-            next_block = 0
-            next_zone = 0
-            selection_valid = False
-
-            while not selection_valid:
-                next_block = self.get_next_block_selection()
-                next_zone = random.randint(1, self.AVAILABLE_ZONES)
-
-                if next_block == 0:
-                    rospy.logwarn("No remaining placable blocks")
-                    rospy.sleep(self.LONG_PAUSE)
-                    continue
-                
-                self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
-                rospy.sleep(self.LONG_PAUSE)
-
-                selection_valid = self.selection_still_valid(next_block, next_zone)
-                if not selection_valid:
-                    rospy.logwarn("Updating plan based on conflict")
-                    # User override, reset
-                    rospy.sleep(self.SHORT_PAUSE)
-                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                    rospy.sleep(self.SHORT_PAUSE)
-                    self.remaining_blocks.append(next_block)
-            
-            # Have now marked block and zone red, so can proceed
-            self.update_AR_selection(next_block, next_zone, LightStatus.red)
-            rospy.sleep(self.SHORT_PAUSE)
-
-            try: 
-                resp = self.srv_move_block(next_block, next_zone)
-                self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
-                rospy.sleep(self.SHORT_PAUSE)
-                
-            except rospy.ServiceException as e:
-                rospy.logerr("Service called failed: " + str(e))
 
 if __name__ == '__main__': 
     robot_node = RobotNode()
     robot_node.start()
    
-
-
 #     try:
 #       ...      
 #   except rospy.ROSInterruptException:

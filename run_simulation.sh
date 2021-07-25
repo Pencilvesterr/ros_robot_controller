@@ -5,3 +5,4 @@ sleep 1
 echo "Starting ROS nodes"
 gnome-terminal --tab -- roslaunch cws_planning cws_nodes.launch
 read
+exit 0
