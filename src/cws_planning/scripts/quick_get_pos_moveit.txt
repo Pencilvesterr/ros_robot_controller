@@ -23,6 +23,14 @@ move_group_hand = moveit_commander.MoveGroupCommander("hand")
 move_group.get_current_pose().pose
 
 
+Adding an object to the scene
+----
+pose = geometry_msgs.msg.PoseStamped()
+pose.header.frame_id = robot.get_planning_frame()
+pose.pose.position.x = 1
+scene.add_box("test", pose, (1, 1, 1))
+
+
 Getting the hand position
 ----
 joint_goal = move_group_hand.get_current_joint_values()

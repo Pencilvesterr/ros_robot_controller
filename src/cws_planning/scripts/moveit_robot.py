@@ -110,12 +110,18 @@ class MoveGroupPythonInteface(object):
         self.eef_link = self.move_group.get_end_effector_link()
         self.block_locations = RobotPositions.block_locations
 
-    def _add_table_to_scene(self):
-        TABLE_PADDING_OFFSET = 0.02
+    def add_collision_box(self, box_name, size, pose_offset=(0,0,0)):
+        """Pose offset takes in a touple for adding translation to (x, y, z)"""
         # PoseStamped has a header which is required when adding collision objects to scene
-        pose = geometry_msgs.msg.PoseStamped()
-        pose.header.frame_id = self.robot.get_planning_frame()
-        self.scene.add_box("table", pose, (3, 3, TABLE_PADDING_OFFSET))
+        pose_msg = geometry_msgs.msg.PoseStamped()
+        pose_msg.header.frame_id = self.robot.get_planning_frame()
+        pose_msg.pose.position.x += pose_offset[0]
+        pose_msg.pose.position.y += pose_offset[1]
+        pose_msg.pose.position.z += pose_offset[2]
+
+        self.scene.add_box(box_name, pose_msg, size)
+    
+        return self.wait_for_state_update(box_name, box_is_known=True)
 
     def move_to_pose_goal(self, pose_goal):
         """Move the EE to the pose goal.
@@ -226,6 +232,33 @@ class MoveGroupPythonInteface(object):
 
         self.move_group.go(joint_goal, wait=True)
 
+    def wait_for_state_update(self, box_name, box_is_known=False, box_is_attached=False, timeout=4):
+        ## If the Python node dies before publishing a collision object update message, the message
+        ## could get lost and the box will not appear. To ensure that the updates are
+        ## made, we wait until we see the changes reflected in the
+        ## ``get_attached_objects()`` and ``get_known_object_names()`` lists.
+        ## Call this function after adding, removing, attaching or detaching an object in the planning scene. 
+        start = rospy.get_time()
+        seconds = rospy.get_time()
+        while (seconds - start < timeout) and not rospy.is_shutdown():
+            # Test if the box is in attached objects
+            attached_objects = self.scene.get_attached_objects([box_name])
+            is_attached = len(attached_objects.keys()) > 0
+
+            # Test if the box is in the scene.
+            # Note that attaching the box will remove it from known_objects
+            is_known = box_name in self.scene.get_known_object_names()
+
+            # Test if we are in the expected state
+            if (box_is_attached == is_attached) and (box_is_known == is_known):
+                return True
+
+            # Sleep so that we give other threads time on the processor
+            rospy.sleep(0.1)
+            seconds = rospy.get_time()
+
+        return False
+
 
 class NodeManagerMoveIt(object):
     REDUCED_MAX_VELOCITY = 1 #0.1
@@ -237,9 +270,24 @@ class NodeManagerMoveIt(object):
         self.current_cws = 0
         self.panda_move_group.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         rospy.init_node('moveitt_robot')
-        # Can only add table to scene once node initi
-        self.panda_move_group._add_table_to_scene()
+        rospy.sleep(1)  # Needed to allow init of node before collision objects will add
+        self.add_collision_objects()
         
+        
+    def add_collision_objects(self):
+        # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
+        TABLE_HEIGHT_OFFSET = 0.02
+        collision_objects_added = self.panda_move_group.add_collision_box("Table", size=(3,3, TABLE_HEIGHT_OFFSET), pose_offset=(1.8, 0, 0.0))
+        if not collision_objects_added:
+            rospy.logerr("Collision objects for table failed to add to scene")
+        else:
+            rospy.loginfo("Added 'Table' collision object")
+        
+        collision_objects_added = self.panda_move_group.add_collision_box("User_Space", size=(1,0.1,1), pose_offset=(-0.2, -0.4, 0.5))
+        if not collision_objects_added:
+            rospy.logerr("Collision objects for 'User_Space' failed to add to scene")
+        else:
+            rospy.loginfo("Added 'User_Space' collision object")
 
     def valid_move_block_srv_args(self, req):
         if req.block_number not in RobotPositions.block_locations.keys():
@@ -355,6 +403,7 @@ class NodeManagerMoveIt(object):
         rospy.loginfo("---MoveIt Robot Services Setup---")
         # spin() simply keeps python from exiting until this node is stopped
         rospy.spin()
+        # Extra Python Interface methods for dealing with objects within the scene
 
 
 if __name__ == '__main__': 
@@ -363,48 +412,7 @@ if __name__ == '__main__':
     node_manager.start_services()
 
 """
-    # Extra Python Interface methods for dealing with objects within the scene
 
-    def wait_for_state_update(self, box_is_known=False, box_is_attached=False, timeout=4):
-        # Copy class variables to local variables to make the web tutorials more clear.
-        # In practice, you should use the class variables directly unless you have a good
-        # reason not to.
-        box_name = self.box_name
-        scene = self.scene
-
-        ## BEGIN_SUB_TUTORIAL wait_for_scene_update
-        ##
-        ## Ensuring Collision Updates Are Receieved
-        ## ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        ## If the Python node dies before publishing a collision object update message, the message
-        ## could get lost and the box will not appear. To ensure that the updates are
-        ## made, we wait until we see the changes reflected in the
-        ## ``get_attached_objects()`` and ``get_known_object_names()`` lists.
-        ## For the purpose of this tutorial, we call this function after adding,
-        ## removing, attaching or detaching an object in the planning scene. We then wait
-        ## until the updates have been made or ``timeout`` seconds have passed
-        start = rospy.get_time()
-        seconds = rospy.get_time()
-        while (seconds - start < timeout) and not rospy.is_shutdown():
-            # Test if the box is in attached objects
-            attached_objects = scene.get_attached_objects([box_name])
-            is_attached = len(attached_objects.keys()) > 0
-
-            # Test if the box is in the scene.
-            # Note that attaching the box will remove it from known_objects
-            is_known = box_name in scene.get_known_object_names()
-
-            # Test if we are in the expected state
-            if (box_is_attached == is_attached) and (box_is_known == is_known):
-            return True
-
-            # Sleep so that we give other threads time on the processor
-            rospy.sleep(0.1)
-            seconds = rospy.get_time()
-
-        # If we exited the while loop without returning then we timed out
-        return False
-        ## END_SUB_TUTORIAL
 
     def add_box(self, timeout=4):
         # Copy class variables to local variables to make the web tutorials more clear.
