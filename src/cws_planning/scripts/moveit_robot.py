@@ -288,8 +288,10 @@ class MoveGroupPythonInteface(object):
         pos_gripper_closed.positions.append(0.00)
         pick_grasp.grasp_posture.points.append(pos_gripper_closed)
 
+        rospy.logwarn(str(pick_grasp))
 
-        self.move_group.pick(block_name, pick_grasp)
+
+        self.move_group.pick(str(block_name))#, pick_grasp)
 
     def wait_for_state_update(self, box_name, box_is_known=False, box_is_attached=False, timeout=4):
         ## If the Python node dies before publishing a collision object update message, the message
