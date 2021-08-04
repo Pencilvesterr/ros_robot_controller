@@ -49,8 +49,10 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 import genpy
+import tf
 
-from math import pi
+from copy import deepcopy
+from math import pi, atan2
 from std_msgs.msg import String, Int16
 from moveit_commander.conversions import pose_to_list
 from trajectory_msgs.msg import JointTrajectoryPoint
@@ -266,8 +268,8 @@ class MoveGroupPythonInteface(object):
         
         # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
         OFFSET_TABLE_PANDA_BASE_FRAME = 0
-        TABLE_HEIGHT = 0.1
-        BLOCK_LENGTH = 0.05
+        TABLE_HEIGHT = 0.01
+        BLOCK_LENGTH =  0.02 #0.05
         
         object_name = "table1"
         object_size = (3, 3, TABLE_HEIGHT)
@@ -294,48 +296,141 @@ class MoveGroupPythonInteface(object):
         # Allow the scene to catchup
         rospy.sleep(2)
                 
+        rospy.loginfo("Generating grasp")
         grasp = moveit_msgs.msg.Grasp()
         
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         x,y,z,w = self.euler_to_quaternion(pi, 0, -pi/4)
+        tf.transformations.quaternion_from_euler(pi)
+        grasps = []
+        for i in range(40):
+            
+            # Grasp goal
+            grasp_pose = self._get_pose_stamped(position=(0.6, 0, BLOCK_LENGTH/2 + i/100), orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
         
-        # Grasp goal
-        grasp_pose = self._get_pose_stamped(position=(0.6, 0, BLOCK_LENGTH/2 + 0.1), orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
-      
-        # Set approach gripper open
-        open_pos = JointTrajectoryPoint()
-        open_pos.positions.append(0.04)
-        open_pos.positions.append(0.04)
-        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint1")
-        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint2")
-        grasp.pre_grasp_posture.points.append(open_pos)
-      
-        # Approach      
-        grasp.pre_grasp_approach.direction.header.frame_id = self.robot.get_planning_frame()
-        grasp.pre_grasp_approach.direction.vector.z = -1.0
-        grasp.pre_grasp_approach.min_distance = 0.1 
-        grasp.pre_grasp_approach.desired_distance = 0.12
+            # Set approach gripper open
+            open_pos = JointTrajectoryPoint()
+            open_pos.positions.append(0.04)
+            open_pos.positions.append(0.04)
+            grasp.pre_grasp_posture.joint_names.append("panda_finger_joint1")
+            grasp.pre_grasp_posture.joint_names.append("panda_finger_joint2")
+            grasp.pre_grasp_posture.points.append(open_pos)
         
-        # Set grasp gripper closed
-        closed_pos = JointTrajectoryPoint()
-        closed_pos.positions.append(0.00)
-        closed_pos.positions.append(0.00)
-        grasp.grasp_posture.joint_names.append("panda_finger_joint1")
-        grasp.grasp_posture.joint_names.append("panda_finger_joint2")
-        grasp.grasp_posture.points.append(open_pos)
-        
-        # Retreat
-        grasp.pre_grasp_approach.direction.header.frame_id = self.robot.get_planning_frame()
-        grasp.pre_grasp_approach.direction.vector.z = 1.0
-        grasp.pre_grasp_approach.min_distance = 0.1
-        grasp.pre_grasp_approach.desired_distance = 0.25
+            # Approach      
+            grasp.pre_grasp_approach.direction.header.frame_id = self.robot.get_planning_frame()
+            grasp.pre_grasp_approach.direction.vector.z = -1.0
+            grasp.pre_grasp_approach.min_distance = 0.1 
+            grasp.pre_grasp_approach.desired_distance = 0.12
+            
+            # Set grasp gripper closed
+            closed_pos = JointTrajectoryPoint()
+            closed_pos.positions.append(0.00)
+            closed_pos.positions.append(0.00)
+            grasp.grasp_posture.joint_names.append("panda_finger_joint1")
+            grasp.grasp_posture.joint_names.append("panda_finger_joint2")
+            grasp.grasp_posture.points.append(open_pos)
+            
+            # Retreat
+            grasp.pre_grasp_approach.direction.header.frame_id = self.robot.get_planning_frame()
+            grasp.pre_grasp_approach.direction.vector.z = 1.0
+            grasp.pre_grasp_approach.min_distance = 0.1
+            grasp.pre_grasp_approach.desired_distance = 0.25
+            
+            grasps.append(grasp)
         
         self.move_group_arm.set_support_surface_name("table1")
-        self.move_group_arm.set_planning_time(5)
-        self.move_group_arm.pick("block")    
+        self.move_group_arm.set_planning_time(10)
+        
+        # Fuck it, try and manually put it to that spot to verify that it even works!
+        
+        #self.tf_listener = tf.TransformListener()
+        
+        #grasps = self.make_grasps(grasp_pose, ["block"], grasp.pre_grasp_posture, grasp.grasp_posture )
+        rospy.loginfo(len(grasps))
+        self.move_group_arm.pick("block", grasps)    
         
         # TODO: Dont forget to remove all scene objects when this is run to clear them!
         
+     # Generate a list of possible grasps
+    def make_grasps(self, initial_pose_stamped, allowed_touch_objects, pre_grasp_posture, grasp_posture):
+        # Initialize the grasp object
+        g = moveit_msgs.msg.Grasp()
+
+        # Set the pre-grasp and grasp postures appropriately;
+        # grasp_opening should be a bit smaller than target width
+        g.pre_grasp_posture = pre_grasp_posture
+        g.grasp_posture = grasp_posture
+
+        # Set the approach and retreat parameters as desired
+        g.pre_grasp_approach = self.make_gripper_translation(0.01, 0.1, [1.0, 0.0, 0.0])
+        g.post_grasp_retreat = self.make_gripper_translation(0.1, 0.15, [0.0, -1.0, 1.0])
+
+        # Set the first grasp pose to the input pose
+        g.grasp_pose = initial_pose_stamped
+
+        # Pitch angles to try
+        pitch_vals = [0, 0.1, -0.1, 0.2, -0.2, 0.4, -0.4]
+
+        # Yaw angles to try; given the limited dofs of turtlebot_arm, we must calculate the heading
+        # from arm base to the object to pick (first we must transform its pose to arm base frame)
+        target_pose_arm_ref = self.tf_listener.transformPose(self.robot.get_planning_frame(), initial_pose_stamped)
+        x = target_pose_arm_ref.pose.position.x
+        y = target_pose_arm_ref.pose.position.y
+
+        self.pick_yaw = atan2(y, x)   # check in make_places method why we store the calculated yaw
+        yaw_vals = [0, 0.1,-0.1, self.pick_yaw]
+
+        # A list to hold the grasps
+        grasps = []
+
+        # Generate a grasp for each pitch and yaw angle
+        for yaw in yaw_vals:
+            for pitch in pitch_vals:
+                # Create a quaternion from the Euler angles
+                q = tf.transformations.quaternion_from_euler(0, pitch, yaw)
+
+                # Set the grasp pose orientation accordingly
+                g.grasp_pose.pose.orientation.x = q[0]
+                g.grasp_pose.pose.orientation.y = q[1]
+                g.grasp_pose.pose.orientation.z = q[2]
+                g.grasp_pose.pose.orientation.w = q[3]
+
+                # Set and id for this grasp (simply needs to be unique)
+                g.id = str(len(grasps))
+
+                # Set the allowed touch objects to the input list
+                g.allowed_touch_objects = allowed_touch_objects
+
+                # Don't restrict contact force
+                g.max_contact_force = 0
+
+                # Degrade grasp quality for increasing pitch angles
+                g.grasp_quality = 1.0 - abs(pitch)
+
+                # Append the grasp to the list
+                grasps.append(deepcopy(g))
+
+        # Return the list
+        return grasps
+    
+    def make_gripper_translation(self, min_dist, desired, vector):
+        # Initialize the gripper translation object
+        g = moveit_msgs.msg.GripperTranslation()
+
+        # Set the direction vector components to the input
+        g.direction.vector.x = vector[0]
+        g.direction.vector.y = vector[1]
+        g.direction.vector.z = vector[2]
+
+        # The vector is relative to the gripper frame
+        g.direction.header.frame_id = "panda_hand"
+
+        # Assign the min and desired distances from the input
+        g.min_distance = min_dist
+        g.desired_distance = desired
+
+        return g
+            
     def euler_to_quaternion(self,roll, pitch, yaw):
         qx = np.sin(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) - np.cos(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
         qy = np.cos(roll/2) * np.sin(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.cos(pitch/2) * np.sin(yaw/2)
