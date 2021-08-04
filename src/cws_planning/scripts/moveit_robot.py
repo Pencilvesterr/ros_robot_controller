@@ -105,18 +105,18 @@ class MoveGroupPythonInteface(object):
   
     def add_scene_objects(self):
         # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
-        TABLE_HEIGHT_OFFSET = 0.02
+        OFFSET_TABLE_PANDA_BASE_FRAME = -0.05
         BLOCK_LENGTH = 0.05
         
         object_name = "Table"
-        object_size = (3,3, TABLE_HEIGHT_OFFSET)
-        self.table_pose_msg = self._get_pose_stamped(pose_offset=(1.8, 0, -TABLE_HEIGHT_OFFSET/2))
+        object_size = (3, 3, 0.1)
+        self.table_pose_msg = self._get_pose_stamped(pose_offset=(1.8, 0, OFFSET_TABLE_PANDA_BASE_FRAME))
         self.scene.add_box(table_name, self.table_pose_msg, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for table failed to add to scene")
                 
         object_name = "User_Space"
-        object_size = (1,0.1,1)
+        object_size = (1, 0.1, 1)
         pose_msg = self._get_pose_stamped(pose_offset=(-0.2, -0.4, 0.5))
         self.scene.add_box(object_name, pose_msg,object_size)
         object_added = self._wait_for_state_update(box_name, box_is_known=True)
