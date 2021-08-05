@@ -99,12 +99,9 @@ class MoveGroupPythonInteface(object):
         self.move_group_hand = moveit_commander.MoveGroupCommander(group_name_hand)
 
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to display trajectories in Rviz:
-        self.display_trajectory_publisher  = rospy.Publisher('/move_group/display_planned_path',
+        self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
                                                     queue_size=20)
-
-        self.eef_link = self.move_group_arm.get_end_effector_link()
-        self.table_pose_msg = None
   
     def add_scene_objects(self):
         # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
@@ -205,7 +202,7 @@ class MoveGroupPythonInteface(object):
     def get_pose_goal(self, coordinates, orientation=True, pose_stamped=False):
         if pose_stamped:
             pose_goal = geometry_msgs.msg.PoseStamped()
-            pose_goal.header.frame_id = self.robot.get_planning_frame()
+            pose_goal.header.frame_id = "panda_link0"
             pose_goal.pose.position.x = coordinates['position']['x']
             pose_goal.pose.position.y = coordinates['position']['y']
             pose_goal.pose.position.z = coordinates['position']['z']
@@ -248,7 +245,9 @@ class MoveGroupPythonInteface(object):
 
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
-        self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+        self.move_to_joint([0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
+        # TODO: This was the previous joint target
+        #self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4])      
  
     def move_to_neutral_zoneside(self):
         self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
@@ -261,10 +260,15 @@ class MoveGroupPythonInteface(object):
         self.move_group_arm.go(joint_goal, wait=True)
 
     def pickup_block(self, block_name):
+        """
+        ********** next steps ************
+        1. get their version of the code working
+        2. With their version, try and grap from the top
+        3. adjust so their objects are the same size as my cube
+        4. Make the tables their normal size and move the cubes down, hopefully this should work!!!!
+        """
         block_coordinates = RobotPositions.block_locations[block_name]
         grasp_pose_coords = self.get_pose_goal(block_coordinates, pose_stamped=True)
-        
-        collision_objects = []
         
         # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
         OFFSET_TABLE_PANDA_BASE_FRAME = 0
@@ -272,82 +276,89 @@ class MoveGroupPythonInteface(object):
         BLOCK_LENGTH =  0.02 #0.05
         
         object_name = "table1"
-        object_size = (3, 3, TABLE_HEIGHT)
-        object_pose = self._get_pose_stamped(position=(1.8, 0, -TABLE_HEIGHT/2))  # Table surface should be at z = 0
+        object_size = (0.2, 0.4, 0.4)  #(3, 3, TABLE_HEIGHT)
+        object_position =  (0.5, 0, 0.2) #(1.8, 0, -TABLE_HEIGHT/2)
+        object_pose = self._get_pose_stamped(object_position)  # Table surface should be at z = 0
         self.scene.add_box(object_name, object_pose, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for table failed to add to scene")
         
         object_name = "table2"
-        object_size = (3, 3, TABLE_HEIGHT)
-        object_pose = self._get_pose_stamped(position=(-1.8, 0, TABLE_HEIGHT/2))
+        object_size = (0.4, 0.2, 0.4)  #(3, 3, TABLE_HEIGHT)
+        object_position = (0, 0.5, 0.2)  #(-1.8, 0, TABLE_HEIGHT/2)
+        object_pose = self._get_pose_stamped(position=object_position)
         self.scene.add_box(object_name, object_pose, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for table failed to add to scene")
         
         # Make sure object is on the table
         object_name = "block"
-        object_size = (BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
-        object_pose = self._get_pose_stamped(position=(0.6, 0, BLOCK_LENGTH/2))  # Box should be sittin on table surface
+        object_size = (0.02,0.02,0.2)#(BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
+        object_position = (0.5, 0, 0.5) #(0.6, 0, BLOCK_LENGTH/2)
+        object_pose = self._get_pose_stamped(position=object_position)  # Box should be sittin on table surface
         self.scene.add_box(object_name, object_pose, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for table failed to add to scene")
             
         # Allow the scene to catchup
-        rospy.sleep(2)
+        rospy.sleep(4)
                 
         rospy.loginfo("Generating grasp")
         grasp = moveit_msgs.msg.Grasp()
         
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
-        x,y,z,w = self.euler_to_quaternion(pi, 0, -pi/4)
-        tf.transformations.quaternion_from_euler(pi)
-        grasps = []
-        for i in range(40):
+        tau = 2 * pi
+        x,y,z,w = self.euler_to_quaternion(-tau/4, -tau/8, -tau/4)
+        #x,y,z,w = tf.transformations.quaternion_from_euler(-tau/4, -tau/8, -tau/4)   #(pi, 0, -pi/4)
             
-            # Grasp goal
-            grasp_pose = self._get_pose_stamped(position=(0.6, 0, BLOCK_LENGTH/2 + i/100), orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
+        # Grasp goal
+        grasp_position = (0.415, 0, 0.5) # (0.6, 0, BLOCK_LENGTH/2 + i/100)
+        grasp.grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
+    
         
-            # Set approach gripper open
-            open_pos = JointTrajectoryPoint()
-            open_pos.positions.append(0.04)
-            open_pos.positions.append(0.04)
-            grasp.pre_grasp_posture.joint_names.append("panda_finger_joint1")
-            grasp.pre_grasp_posture.joint_names.append("panda_finger_joint2")
-            grasp.pre_grasp_posture.points.append(open_pos)
+    
+        # Set approach gripper open
+        open_pos = JointTrajectoryPoint()
+        open_pos.positions.append(0.04)
+        open_pos.positions.append(0.04)
+        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint1")
+        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint2")
+        grasp.pre_grasp_posture.points.append(open_pos)
         
-            # Approach      
-            grasp.pre_grasp_approach.direction.header.frame_id = self.robot.get_planning_frame()
-            grasp.pre_grasp_approach.direction.vector.z = -1.0
-            grasp.pre_grasp_approach.min_distance = 0.1 
-            grasp.pre_grasp_approach.desired_distance = 0.12
-            
-            # Set grasp gripper closed
-            closed_pos = JointTrajectoryPoint()
-            closed_pos.positions.append(0.00)
-            closed_pos.positions.append(0.00)
-            grasp.grasp_posture.joint_names.append("panda_finger_joint1")
-            grasp.grasp_posture.joint_names.append("panda_finger_joint2")
-            grasp.grasp_posture.points.append(open_pos)
-            
-            # Retreat
-            grasp.pre_grasp_approach.direction.header.frame_id = self.robot.get_planning_frame()
-            grasp.pre_grasp_approach.direction.vector.z = 1.0
-            grasp.pre_grasp_approach.min_distance = 0.1
-            grasp.pre_grasp_approach.desired_distance = 0.25
-            
-            grasps.append(grasp)
+        # Set grasp gripper closed
+        closed_pos = JointTrajectoryPoint()
+        closed_pos.positions.append(0.00)
+        closed_pos.positions.append(0.00)
+        rospy.Duration
+        grasp.grasp_posture.joint_names.append("panda_finger_joint1")
+        grasp.grasp_posture.joint_names.append("panda_finger_joint2")
+        grasp.grasp_posture.points.append(closed_pos)
+    
+        # Approach      
+        grasp.pre_grasp_approach.direction.header.frame_id = "panda_link0"
+        grasp.pre_grasp_approach.direction.vector.x = 1 # -1.0 in z
+        grasp.pre_grasp_approach.min_distance = 0.095 #0.1 
+        grasp.pre_grasp_approach.desired_distance = 0.115 #0.12
+                
+        # Retreat
+        grasp.post_grasp_retreat.direction.header.frame_id = "panda_link0"
+        grasp.post_grasp_retreat.direction.vector.z = 1.0
+        grasp.post_grasp_retreat.min_distance = 0.1
+        grasp.post_grasp_retreat.desired_distance = 0.25
         
         self.move_group_arm.set_support_surface_name("table1")
-        self.move_group_arm.set_planning_time(10)
+        self.move_group_arm.set_planning_time(20)
+        
+        rospy.sleep(2)
         
         # Fuck it, try and manually put it to that spot to verify that it even works!
         
         #self.tf_listener = tf.TransformListener()
         
         #grasps = self.make_grasps(grasp_pose, ["block"], grasp.pre_grasp_posture, grasp.grasp_posture )
-        rospy.loginfo(len(grasps))
-        self.move_group_arm.pick("block", grasps)    
+        # rospy.loginfo(len(grasps))
+        rospy.loginfo(grasp)
+        self.move_group_arm.pick("block", grasp)    
         
         # TODO: Dont forget to remove all scene objects when this is run to clear them!
         
@@ -373,7 +384,7 @@ class MoveGroupPythonInteface(object):
 
         # Yaw angles to try; given the limited dofs of turtlebot_arm, we must calculate the heading
         # from arm base to the object to pick (first we must transform its pose to arm base frame)
-        target_pose_arm_ref = self.tf_listener.transformPose(self.robot.get_planning_frame(), initial_pose_stamped)
+        target_pose_arm_ref = self.tf_listener.transformPose("panda_link0", initial_pose_stamped)
         x = target_pose_arm_ref.pose.position.x
         y = target_pose_arm_ref.pose.position.y
 
@@ -430,7 +441,8 @@ class MoveGroupPythonInteface(object):
         g.desired_distance = desired
 
         return g
-            
+    
+    # Probs dont need this anymore lol 
     def euler_to_quaternion(self,roll, pitch, yaw):
         qx = np.sin(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) - np.cos(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
         qy = np.cos(roll/2) * np.sin(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.cos(pitch/2) * np.sin(yaw/2)
@@ -442,7 +454,7 @@ class MoveGroupPythonInteface(object):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""
         # PoseStamped has a header which is required when adding collision objects to scene
         pose_msg = geometry_msgs.msg.PoseStamped()
-        pose_msg.header.frame_id = self.robot.get_planning_frame()  # panda_link0
+        pose_msg.header.frame_id = "panda_link0"
         pose_msg.pose.position.x = position[0]
         pose_msg.pose.position.y = position[1]
         pose_msg.pose.position.z = position[2]
@@ -454,7 +466,6 @@ class MoveGroupPythonInteface(object):
             pose_msg.pose.orientation.y = orientation[1]
             pose_msg.pose.orientation.z = orientation[2]
             pose_msg.pose.orientation.w = orientation[3]
-            
             
         return pose_msg
 
@@ -486,7 +497,6 @@ class MoveGroupPythonInteface(object):
         return False
         
 
-
 class NodeManagerMoveIt(object):
     REDUCED_MAX_VELOCITY = 1 #0.1
     FULL_MAX_VELOCITY = 1 #0.3
@@ -499,24 +509,24 @@ class NodeManagerMoveIt(object):
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
         #self.add_scene_objects()
-               
-    def valid_move_block_srv_args(self, req):
-        if req.block_number not in RobotPositions.block_locations.keys():
-            rospy.logerr("No location predefined for block: " + str(req.block_number))
-            return False
-
-        if req.block_zone not in RobotPositions.zone_locations.keys():
-            rospy.logerr("No location predefined for zone: " + str(req.block_zone))
-            return False
-
-        return True
+        
+    def start_services(self):
+        # Reset Panda to home position
+        self.panda_interface.move_to_neutral()
+        rospy.Service("/move_block", MoveBlock, self.callback_move_block)
+        rospy.Service("/move_robot", MoveToPosition, self.callback_move_position)
+        rospy.Service("/reset_to_neutral", ResetRobot, self.callback_return_neutral)
+        rospy.loginfo("---MoveIt Robot Services Setup---")
+        # spin() simply keeps python from exiting until this node is stopped
+        rospy.spin()
+        # Extra Python Interface methods for dealing with objects within the scene
 
     def callback_move_block(self, req):
         ''' Arg: req.block_number, req.block_zone 
 
             Process is Open claw, Go to block position, Close claw, Create then execute path plan to zone, Open claw, Return to home position
         '''        
-        if not self.valid_move_block_srv_args(req):
+        if not self._valid_move_block_srv_args(req):
             return MoveBlockResponse(False)
 
         rospy.loginfo("Moving from block number {} to zone {}".format(str(req.block_number),str(req.block_zone)))
@@ -531,6 +541,59 @@ class NodeManagerMoveIt(object):
  
         return MoveBlockResponse(True)
 
+
+    def callback_move_position(self, req):
+        """Utility service to check where the robot moves for each position"""
+        if req.position_number == 0:
+            self.panda_interface.move_to_neutral()
+            return MoveToPositionResponse(True)
+
+        if req.position_number == 99:
+            self.panda_interface.move_to_neutral_zoneside()
+            return MoveToPositionResponse(True)
+
+        elif req.position_number > 0 and  req.position_number < 5:
+            if req.position_number not in RobotPositions.zone_locations.keys():
+                rospy.logerr("No location predefined for zone: " + str(req.position_number))
+                return MoveToPositionResponse(False)
+            else: 
+                rospy.loginfo("Moving to block zone: " + str(req.position_number))
+                coordinates = RobotPositions.zone_locations[req.position_number]
+
+        elif req.position_number >= 5:
+            if req.position_number not in RobotPositions.block_locations.keys():
+                rospy.logerr("No location predefined for block: " + str(req.position_number))
+                return MoveToPositionResponse(False)
+            else:
+                rospy.loginfo("Moving to block number: " + str(req.position_number))
+                coordinates = RobotPositions.block_locations[req.position_number]
+
+        pose_goal = self.panda_interface.get_pose_goal(coordinates)
+        self.panda_interface.move_to_pose_goal(pose_goal)
+
+        return MoveToPositionResponse(True)
+
+    def callback_return_neutral(self, req):
+        try:
+            self.panda_interface.move_to_neutral()
+            return ResetRobotResponse(True)
+        
+        # Would be useful to know what type of exception we expect...
+        except Exception as e:
+            rospy.logerr(e)
+            return ResetRobotResponse(False)
+        
+    def _valid_move_block_srv_args(self, req):
+        if req.block_number not in RobotPositions.block_locations.keys():
+            rospy.logerr("No location predefined for block: " + str(req.block_number))
+            return False
+
+        if req.block_zone not in RobotPositions.zone_locations.keys():
+            rospy.logerr("No location predefined for zone: " + str(req.block_zone))
+            return False
+
+        return True
+        
     # OLD VERSION, can be removed when proper pick pipeline added
     def _grab_block(self, req):
         """Assumes in neutral position, pick up a single block and return to neutral"""
@@ -588,59 +651,6 @@ class NodeManagerMoveIt(object):
         self.panda_interface.move_to_neutral_zoneside()
         self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         self.panda_interface.move_to_neutral()
-
-    def callback_move_position(self, req):
-        """Utility service to check where the robot moves for each position"""
-        if req.position_number == 0:
-            self.panda_interface.move_to_neutral()
-            return MoveToPositionResponse(True)
-
-        if req.position_number == 99:
-            self.panda_interface.move_to_neutral_zoneside()
-            return MoveToPositionResponse(True)
-
-        elif req.position_number > 0 and  req.position_number < 5:
-            if req.position_number not in RobotPositions.zone_locations.keys():
-                rospy.logerr("No location predefined for zone: " + str(req.position_number))
-                return MoveToPositionResponse(False)
-            else: 
-                rospy.loginfo("Moving to block zone: " + str(req.position_number))
-                coordinates = RobotPositions.zone_locations[req.position_number]
-
-        elif req.position_number >= 5:
-            if req.position_number not in RobotPositions.block_locations.keys():
-                rospy.logerr("No location predefined for block: " + str(req.position_number))
-                return MoveToPositionResponse(False)
-            else:
-                rospy.loginfo("Moving to block number: " + str(req.position_number))
-                coordinates = RobotPositions.block_locations[req.position_number]
-
-        pose_goal = self.panda_interface.get_pose_goal(coordinates)
-        self.panda_interface.move_to_pose_goal(pose_goal)
-
-        return MoveToPositionResponse(True)
-
-    def callback_return_neutral(self, req):
-        try:
-            self.panda_interface.move_to_neutral()
-            return ResetRobotResponse(True)
-        
-        # Would be useful to know what type of exception we expect...
-        except Exception as e:
-            rospy.logerr(e)
-            return ResetRobotResponse(False)
-            
-    def start_services(self):
-        # Reset Panda to home position
-        self.panda_interface.move_to_neutral()
-        rospy.Service("/move_block", MoveBlock, self.callback_move_block)
-        rospy.Service("/move_robot", MoveToPosition, self.callback_move_position)
-        rospy.Service("/reset_to_neutral", ResetRobot, self.callback_return_neutral)
-        rospy.loginfo("---MoveIt Robot Services Setup---")
-        # spin() simply keeps python from exiting until this node is stopped
-        rospy.spin()
-        # Extra Python Interface methods for dealing with objects within the scene
-
 
 if __name__ == '__main__': 
     panda_interface = MoveGroupPythonInteface()
