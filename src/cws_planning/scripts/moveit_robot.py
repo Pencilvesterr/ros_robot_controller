@@ -300,22 +300,16 @@ class MoveGroupPythonInteface(object):
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for table failed to add to scene")
             
-        # Allow the scene to catchup
-        rospy.sleep(4)
-                
         rospy.loginfo("Generating grasp")
         grasp = moveit_msgs.msg.Grasp()
         
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         tau = 2 * pi
-        x,y,z,w = self.euler_to_quaternion(-tau/4, -tau/8, -tau/4)
-        #x,y,z,w = tf.transformations.quaternion_from_euler(-tau/4, -tau/8, -tau/4)   #(pi, 0, -pi/4)
+        x,y,z,w = tf.transformations.quaternion_from_euler(-tau/4, -tau/8, -tau/4)   #(pi, 0, -pi/4)
             
         # Grasp goal
         grasp_position = (0.415, 0, 0.5) # (0.6, 0, BLOCK_LENGTH/2 + i/100)
         grasp.grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
-    
-        
     
         # Set approach gripper open
         open_pos = JointTrajectoryPoint()
@@ -329,7 +323,6 @@ class MoveGroupPythonInteface(object):
         closed_pos = JointTrajectoryPoint()
         closed_pos.positions.append(0.00)
         closed_pos.positions.append(0.00)
-        rospy.Duration
         grasp.grasp_posture.joint_names.append("panda_finger_joint1")
         grasp.grasp_posture.joint_names.append("panda_finger_joint2")
         grasp.grasp_posture.points.append(closed_pos)
@@ -347,109 +340,13 @@ class MoveGroupPythonInteface(object):
         grasp.post_grasp_retreat.desired_distance = 0.25
         
         self.move_group_arm.set_support_surface_name("table1")
-        self.move_group_arm.set_planning_time(20)
-        
-        rospy.sleep(2)
-        
-        # Fuck it, try and manually put it to that spot to verify that it even works!
-        
-        #self.tf_listener = tf.TransformListener()
         
         #grasps = self.make_grasps(grasp_pose, ["block"], grasp.pre_grasp_posture, grasp.grasp_posture )
         # rospy.loginfo(len(grasps))
-        rospy.loginfo(grasp)
+        rospy.loginfo("Running pickup")
         self.move_group_arm.pick("block", grasp)    
-        
         # TODO: Dont forget to remove all scene objects when this is run to clear them!
         
-     # Generate a list of possible grasps
-    def make_grasps(self, initial_pose_stamped, allowed_touch_objects, pre_grasp_posture, grasp_posture):
-        # Initialize the grasp object
-        g = moveit_msgs.msg.Grasp()
-
-        # Set the pre-grasp and grasp postures appropriately;
-        # grasp_opening should be a bit smaller than target width
-        g.pre_grasp_posture = pre_grasp_posture
-        g.grasp_posture = grasp_posture
-
-        # Set the approach and retreat parameters as desired
-        g.pre_grasp_approach = self.make_gripper_translation(0.01, 0.1, [1.0, 0.0, 0.0])
-        g.post_grasp_retreat = self.make_gripper_translation(0.1, 0.15, [0.0, -1.0, 1.0])
-
-        # Set the first grasp pose to the input pose
-        g.grasp_pose = initial_pose_stamped
-
-        # Pitch angles to try
-        pitch_vals = [0, 0.1, -0.1, 0.2, -0.2, 0.4, -0.4]
-
-        # Yaw angles to try; given the limited dofs of turtlebot_arm, we must calculate the heading
-        # from arm base to the object to pick (first we must transform its pose to arm base frame)
-        target_pose_arm_ref = self.tf_listener.transformPose("panda_link0", initial_pose_stamped)
-        x = target_pose_arm_ref.pose.position.x
-        y = target_pose_arm_ref.pose.position.y
-
-        self.pick_yaw = atan2(y, x)   # check in make_places method why we store the calculated yaw
-        yaw_vals = [0, 0.1,-0.1, self.pick_yaw]
-
-        # A list to hold the grasps
-        grasps = []
-
-        # Generate a grasp for each pitch and yaw angle
-        for yaw in yaw_vals:
-            for pitch in pitch_vals:
-                # Create a quaternion from the Euler angles
-                q = tf.transformations.quaternion_from_euler(0, pitch, yaw)
-
-                # Set the grasp pose orientation accordingly
-                g.grasp_pose.pose.orientation.x = q[0]
-                g.grasp_pose.pose.orientation.y = q[1]
-                g.grasp_pose.pose.orientation.z = q[2]
-                g.grasp_pose.pose.orientation.w = q[3]
-
-                # Set and id for this grasp (simply needs to be unique)
-                g.id = str(len(grasps))
-
-                # Set the allowed touch objects to the input list
-                g.allowed_touch_objects = allowed_touch_objects
-
-                # Don't restrict contact force
-                g.max_contact_force = 0
-
-                # Degrade grasp quality for increasing pitch angles
-                g.grasp_quality = 1.0 - abs(pitch)
-
-                # Append the grasp to the list
-                grasps.append(deepcopy(g))
-
-        # Return the list
-        return grasps
-    
-    def make_gripper_translation(self, min_dist, desired, vector):
-        # Initialize the gripper translation object
-        g = moveit_msgs.msg.GripperTranslation()
-
-        # Set the direction vector components to the input
-        g.direction.vector.x = vector[0]
-        g.direction.vector.y = vector[1]
-        g.direction.vector.z = vector[2]
-
-        # The vector is relative to the gripper frame
-        g.direction.header.frame_id = "panda_hand"
-
-        # Assign the min and desired distances from the input
-        g.min_distance = min_dist
-        g.desired_distance = desired
-
-        return g
-    
-    # Probs dont need this anymore lol 
-    def euler_to_quaternion(self,roll, pitch, yaw):
-        qx = np.sin(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) - np.cos(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
-        qy = np.cos(roll/2) * np.sin(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.cos(pitch/2) * np.sin(yaw/2)
-        qz = np.cos(roll/2) * np.cos(pitch/2) * np.sin(yaw/2) - np.sin(roll/2) * np.sin(pitch/2) * np.cos(yaw/2)
-        qw = np.cos(roll/2) * np.cos(pitch/2) * np.cos(yaw/2) + np.sin(roll/2) * np.sin(pitch/2) * np.sin(yaw/2)
-        return (qx, qy, qz, qw)
-    
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""
         # PoseStamped has a header which is required when adding collision objects to scene
