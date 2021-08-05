@@ -293,8 +293,8 @@ class MoveGroupPythonInteface(object):
         
         # Make sure object is on the table
         object_name = "block"
-        object_size = (0.02,0.02,0.2)#(BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
-        object_position = (0.5, 0, 0.5) #(0.6, 0, BLOCK_LENGTH/2)
+        object_size = (0.05,0.05,0.05)#(BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
+        object_position = (0.5, 0, 0.425) #(0.6, 0, BLOCK_LENGTH/2)
         object_pose = self._get_pose_stamped(position=object_position)  # Box should be sittin on table surface
         self.scene.add_box(object_name, object_pose, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
@@ -305,10 +305,11 @@ class MoveGroupPythonInteface(object):
         
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         tau = 2 * pi
-        x,y,z,w = tf.transformations.quaternion_from_euler(-tau/4, -tau/8, -tau/4)   #(pi, 0, -pi/4)
+        x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, -pi/4)
             
         # Grasp goal
-        grasp_position = (0.415, 0, 0.5) # (0.6, 0, BLOCK_LENGTH/2 + i/100)
+        WRITST_TO_GRIPPER = 0.113
+        grasp_position = (0.5, 0, 0.425 + WRITST_TO_GRIPPER) # (0.6, 0, BLOCK_LENGTH/2 + i/100)
         grasp.grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
     
         # Set approach gripper open
@@ -321,15 +322,15 @@ class MoveGroupPythonInteface(object):
         
         # Set grasp gripper closed
         closed_pos = JointTrajectoryPoint()
-        closed_pos.positions.append(0.00)
-        closed_pos.positions.append(0.00)
+        closed_pos.positions.append(0.02)
+        closed_pos.positions.append(0.02)
         grasp.grasp_posture.joint_names.append("panda_finger_joint1")
         grasp.grasp_posture.joint_names.append("panda_finger_joint2")
         grasp.grasp_posture.points.append(closed_pos)
     
         # Approach      
         grasp.pre_grasp_approach.direction.header.frame_id = "panda_link0"
-        grasp.pre_grasp_approach.direction.vector.x = 1 # -1.0 in z
+        grasp.pre_grasp_approach.direction.vector.z = -1 # -1.0 in z
         grasp.pre_grasp_approach.min_distance = 0.095 #0.1 
         grasp.pre_grasp_approach.desired_distance = 0.115 #0.12
                 
