@@ -330,11 +330,11 @@ class MoveGroupPythonInteface(object):
         
         # TODO: Keep checking how close to the given place conditions below we can get. Dont need to be placing directly on the ground
         # Also make sure to remove a block from the scene once it has been placed
+        # Also then make sure it can get coordinates from the config file
         
-        # -x is definitely the right direction
-        place_position = (-0.5, 0.4, 0.05)# (-0.6, 0.4, 0.025)
+        place_position = (-0.6, 0.4, 0.1) # (-0.6, 0.4, 0.025)
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
-        x,y,z,w = tf.transformations.quaternion_from_euler(0, 0, pi) #(pi, 0, -pi/4)
+        x,y,z,w = tf.transformations.quaternion_from_euler(0, 0, pi) 
         place_loc.place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
         
         # Set release gripper open
@@ -353,7 +353,7 @@ class MoveGroupPythonInteface(object):
                 
         # Retreat
         place_loc.post_place_retreat.direction.header.frame_id = "panda_link0"
-        place_loc.post_place_retreat.direction.vector.y = -1.0 # 1 z
+        place_loc.post_place_retreat.direction.vector.z = 1.0 
         place_loc.post_place_retreat.min_distance = 0.1
         place_loc.post_place_retreat.desired_distance = 0.25
         
