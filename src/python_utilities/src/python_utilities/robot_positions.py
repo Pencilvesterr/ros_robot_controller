@@ -1,3 +1,4 @@
+# Some of this stuff like orientation for locations is no longer needed
 class RobotPositions:
     block_locations = {
         11: {

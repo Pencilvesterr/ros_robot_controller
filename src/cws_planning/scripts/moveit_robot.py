@@ -138,7 +138,7 @@ class MoveGroupPythonInteface(object):
         block_size = (BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
         for block_location in RobotPositions.block_locations.keys():
             block_name = str(block_location)
-            if block_name not in ['22', '12', '11']:
+            if block_name not in ['32', '12', '11']:
                 continue
             x = RobotPositions.block_locations[block_location]['position']['x']
             y = RobotPositions.block_locations[block_location]['position']['y']
@@ -274,18 +274,17 @@ class MoveGroupPythonInteface(object):
         
     def place_block_in_zone(self, block_number, block_zone_int):
         """Assumes start in neutral with block in gripper"""
+        ZONE_PLACEMENT_HEIGHT = 0.2
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         block_name = str(block_number)
         rospy.loginfo("Placing in zone " + str(block_zone_int))
         
         place_loc = moveit_msgs.msg.PlaceLocation()
         
-        # continue from here!
+        place_position = (zone_coordinates['position']['x'], 
+                          zone_coordinates['position']['y'],
+                          ZONE_PLACEMENT_HEIGHT) 
         
-        # TODO: Place block at some height
-        # Make sure to use block number to get position from config file. 
-        
-        place_position = (-0.6, 0.4, 0.1) # (-0.6, 0.4, 0.025)
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         x,y,z,w = tf.transformations.quaternion_from_euler(0, 0, pi) 
         place_loc.place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
@@ -301,8 +300,8 @@ class MoveGroupPythonInteface(object):
         # Approach      
         place_loc.pre_place_approach.direction.header.frame_id = "panda_link0"
         place_loc.pre_place_approach.direction.vector.z = -1
-        place_loc.pre_place_approach.min_distance = 0.195 
-        place_loc.pre_place_approach.desired_distance = 0.215
+        place_loc.pre_place_approach.min_distance = 0.05 
+        place_loc.pre_place_approach.desired_distance = 0.1
                 
         # Retreat
         place_loc.post_place_retreat.direction.header.frame_id = "panda_link0"
