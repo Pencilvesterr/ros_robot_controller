@@ -199,7 +199,188 @@ class MoveGroupPythonInteface(object):
         """
         self.move_group_arm.execute(plan, wait=True)
 
-    def get_pose_goal(self, coordinates, orientation=True, pose_stamped=False):
+    def open_gripper(self):
+        joint_goal = self.move_group_hand.get_current_joint_values()
+        joint_goal[0] = 0.038
+        joint_goal[1] = 0.038
+
+        self.move_group_hand.go(joint_goal, wait=True)
+        self.move_group_hand.stop()
+
+    def close_gripper(self, end_pos=0.02):
+        joint_goal = self.move_group_hand.get_current_joint_values()
+        joint_goal[0] = end_pos
+        joint_goal[1] = end_pos
+
+        self.move_group_hand.go(joint_goal, wait=True)
+        self.move_group_hand.stop()
+
+    def move_to_neutral(self):
+        rospy.loginfo('Moving to home position')
+        self.move_to_joint([0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
+        # TODO: This was the previous joint target
+        #self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4])      
+ 
+    def move_to_neutral_zoneside(self):
+        self.move_to_joint([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
+        # TODO: This was the previous joint target. Maybe have it move here after the turn?
+        #self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+
+    def move_to_joint(self, added_values):
+        joint_goal = self.move_group_arm.get_current_joint_values()
+        for idx in range(len(added_values)):
+            joint_goal[idx] = added_values[idx]
+
+        self.move_group_arm.go(joint_goal, wait=True)
+
+    def pickup_block(self, block_name):
+        block_coordinates = RobotPositions.block_locations[block_name]
+        grasp_pose_coords = self._get_pose_from_dict(block_coordinates, pose_stamped=True)
+        
+        object_name = "user_side_prevention"
+        object_size = (1, 0.1, 1)
+        object_position =  (-0.2, -0.4, 0.5)
+        object_pose = self._get_pose_stamped(object_position)  # Table surface should be at z = 0
+        self.scene.add_box(object_name, object_pose, object_size)
+        if not self._wait_for_state_update(object_name, box_is_known=True):
+            rospy.logerr("Collision objects for table failed to add to scene")
+        
+        # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
+        OFFSET_TABLE_PANDA_BASE_FRAME = 0
+        TABLE_HEIGHT = 0.01
+        BLOCK_LENGTH =  0.05
+        
+        object_name = "table1"
+        object_size = (3, 3, TABLE_HEIGHT)
+        object_position =  (1.8, 0, -TABLE_HEIGHT/2)
+        object_pose = self._get_pose_stamped(object_position)  # Table surface should be at z = 0
+        self.scene.add_box(object_name, object_pose, object_size)
+        if not self._wait_for_state_update(object_name, box_is_known=True):
+            rospy.logerr("Collision objects for table failed to add to scene")
+        
+        object_name = "table2"
+        object_size = (3, 3, TABLE_HEIGHT)
+        object_position = (-1.8, 0, TABLE_HEIGHT/2)
+        object_pose = self._get_pose_stamped(position=object_position)
+        self.scene.add_box(object_name, object_pose, object_size)
+        if not self._wait_for_state_update(object_name, box_is_known=True):
+            rospy.logerr("Collision objects for table failed to add to scene")
+        
+        block_position = (0.5, 0, BLOCK_LENGTH/2)  # Centre of the block
+        
+        # Make sure object is on the table
+        object_name = "block"
+        object_size = (0.05,0.05,0.05)#(BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
+        object_pose = self._get_pose_stamped(position=block_position)  # Box should be sittin on table surface
+        self.scene.add_box(object_name, object_pose, object_size)
+        if not self._wait_for_state_update(object_name, box_is_known=True):
+            rospy.logerr("Collision objects for table failed to add to scene")
+            
+        grasp = moveit_msgs.msg.Grasp()
+        
+        # Grasp goal
+        WRITST_TO_GRIPPER = 0.113
+        grasp_position = (block_position[0], block_position[1], block_position[2] + WRITST_TO_GRIPPER) # (0.6, 0, BLOCK_LENGTH/2 + i/100)
+        # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
+        x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, -pi/4)
+        grasp.grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w)) 
+    
+        # Set approach gripper open
+        open_pos = JointTrajectoryPoint()
+        open_pos.positions.append(0.04)
+        open_pos.positions.append(0.04)
+        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint1")
+        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint2")
+        grasp.pre_grasp_posture.points.append(open_pos)
+        
+        # Set grasp gripper closed
+        closed_pos = JointTrajectoryPoint()
+        closed_pos.positions.append(0.02)
+        closed_pos.positions.append(0.02)
+        grasp.grasp_posture.joint_names.append("panda_finger_joint1")
+        grasp.grasp_posture.joint_names.append("panda_finger_joint2")
+        grasp.grasp_posture.points.append(closed_pos)
+    
+        # Approach      
+        grasp.pre_grasp_approach.direction.header.frame_id = "panda_link0"
+        grasp.pre_grasp_approach.direction.vector.z = -1
+        grasp.pre_grasp_approach.min_distance = 0.095 
+        grasp.pre_grasp_approach.desired_distance = 0.115
+                
+        # Retreat
+        grasp.post_grasp_retreat.direction.header.frame_id = "panda_link0"
+        grasp.post_grasp_retreat.direction.vector.z = 1.0
+        grasp.post_grasp_retreat.min_distance = 0.1
+        grasp.post_grasp_retreat.desired_distance = 0.25
+        
+        self.move_group_arm.set_support_surface_name("table1")
+        
+        #grasps = self.make_grasps(grasp_pose, ["block"], grasp.pre_grasp_posture, grasp.grasp_posture )
+        # rospy.loginfo(len(grasps))
+        rospy.loginfo("Running pickup")
+        self.move_group_arm.pick("block", grasp)    
+        # TODO: Dont forget to remove all scene objects when this is run to clear them!
+        
+    def place_block_in_zone(self, block_zone_int):
+        """Assumes start in neutral with block in gripper"""
+        zone_coordinates = RobotPositions.zone_locations[block_zone_int]
+        rospy.loginfo("Placing in zone " + str(block_zone_int))
+        
+        place_loc = moveit_msgs.msg.PlaceLocation()
+        
+        # TODO: Keep checking how close to the given place conditions below we can get. Dont need to be placing directly on the ground
+        # Also make sure to remove a block from the scene once it has been placed
+        
+        # -x is definitely the right direction
+        place_position = (-0.5, 0.4, 0.05)# (-0.6, 0.4, 0.025)
+        # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
+        x,y,z,w = tf.transformations.quaternion_from_euler(0, 0, pi) #(pi, 0, -pi/4)
+        place_loc.place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
+        
+        # Set release gripper open
+        open_pos = JointTrajectoryPoint()
+        open_pos.positions.append(0.04)
+        open_pos.positions.append(0.04)
+        place_loc.post_place_posture.joint_names.append("panda_finger_joint1")
+        place_loc.post_place_posture.joint_names.append("panda_finger_joint2")
+        place_loc.post_place_posture.points.append(open_pos)
+    
+        # Approach      
+        place_loc.pre_place_approach.direction.header.frame_id = "panda_link0"
+        place_loc.pre_place_approach.direction.vector.z = -1
+        place_loc.pre_place_approach.min_distance = 0.095 
+        place_loc.pre_place_approach.desired_distance = 0.115
+                
+        # Retreat
+        place_loc.post_place_retreat.direction.header.frame_id = "panda_link0"
+        place_loc.post_place_retreat.direction.vector.y = -1.0 # 1 z
+        place_loc.post_place_retreat.min_distance = 0.1
+        place_loc.post_place_retreat.desired_distance = 0.25
+        
+        self.move_group_arm.set_support_surface_name("table2")
+        rospy.loginfo(place_loc)
+        self.move_group_arm.place("block", place_loc)
+           
+    def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
+        """Pose offset takes in a touple for adding translation to (x, y, z)"""
+        # PoseStamped has a header which is required when adding collision objects to scene
+        pose_msg = geometry_msgs.msg.PoseStamped()
+        pose_msg.header.frame_id = "panda_link0"
+        pose_msg.pose.position.x = position[0]
+        pose_msg.pose.position.y = position[1]
+        pose_msg.pose.position.z = position[2]
+        
+        if orientation is (0,0,0,1):
+            pose_msg.pose.orientation.w = 1
+        else:
+            pose_msg.pose.orientation.x = orientation[0]
+            pose_msg.pose.orientation.y = orientation[1]
+            pose_msg.pose.orientation.z = orientation[2]
+            pose_msg.pose.orientation.w = orientation[3]
+            
+        return pose_msg
+
+    def _get_pose_from_dict(self, coordinates, orientation=True, pose_stamped=False):
         if pose_stamped:
             pose_goal = geometry_msgs.msg.PoseStamped()
             pose_goal.header.frame_id = "panda_link0"
@@ -227,145 +408,6 @@ class MoveGroupPythonInteface(object):
 
         return pose_goal
 
-    def open_gripper(self):
-        joint_goal = self.move_group_hand.get_current_joint_values()
-        joint_goal[0] = 0.038
-        joint_goal[1] = 0.038
-
-        self.move_group_hand.go(joint_goal, wait=True)
-        self.move_group_hand.stop()
-
-    def close_gripper(self, end_pos=0.02):
-        joint_goal = self.move_group_hand.get_current_joint_values()
-        joint_goal[0] = end_pos
-        joint_goal[1] = end_pos
-
-        self.move_group_hand.go(joint_goal, wait=True)
-        self.move_group_hand.stop()
-
-    def move_to_neutral(self):
-        rospy.loginfo('Moving to home position')
-        self.move_to_joint([0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
-        # TODO: This was the previous joint target
-        #self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4])      
- 
-    def move_to_neutral_zoneside(self):
-        self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
-
-    def move_to_joint(self, added_values):
-        joint_goal = self.move_group_arm.get_current_joint_values()
-        for idx in range(len(added_values)):
-            joint_goal[idx] = added_values[idx]
-
-        self.move_group_arm.go(joint_goal, wait=True)
-
-    def pickup_block(self, block_name):
-        """
-        ********** next steps ************
-        1. get their version of the code working
-        2. With their version, try and grap from the top
-        3. adjust so their objects are the same size as my cube
-        4. Make the tables their normal size and move the cubes down, hopefully this should work!!!!
-        """
-        block_coordinates = RobotPositions.block_locations[block_name]
-        grasp_pose_coords = self.get_pose_goal(block_coordinates, pose_stamped=True)
-        
-        # As you increase table height, the arm will just move to the closest point above the table which does no cause a collision
-        OFFSET_TABLE_PANDA_BASE_FRAME = 0
-        TABLE_HEIGHT = 0.01
-        BLOCK_LENGTH =  0.02 #0.05
-        
-        object_name = "table1"
-        object_size = (0.2, 0.4, 0.4)  #(3, 3, TABLE_HEIGHT)
-        object_position =  (0.5, 0, 0.2) #(1.8, 0, -TABLE_HEIGHT/2)
-        object_pose = self._get_pose_stamped(object_position)  # Table surface should be at z = 0
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for table failed to add to scene")
-        
-        object_name = "table2"
-        object_size = (0.4, 0.2, 0.4)  #(3, 3, TABLE_HEIGHT)
-        object_position = (0, 0.5, 0.2)  #(-1.8, 0, TABLE_HEIGHT/2)
-        object_pose = self._get_pose_stamped(position=object_position)
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for table failed to add to scene")
-        
-        # Make sure object is on the table
-        object_name = "block"
-        object_size = (0.05,0.05,0.05)#(BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
-        object_position = (0.5, 0, 0.425) #(0.6, 0, BLOCK_LENGTH/2)
-        object_pose = self._get_pose_stamped(position=object_position)  # Box should be sittin on table surface
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for table failed to add to scene")
-            
-        rospy.loginfo("Generating grasp")
-        grasp = moveit_msgs.msg.Grasp()
-        
-        # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
-        tau = 2 * pi
-        x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, -pi/4)
-            
-        # Grasp goal
-        WRITST_TO_GRIPPER = 0.113
-        grasp_position = (0.5, 0, 0.425 + WRITST_TO_GRIPPER) # (0.6, 0, BLOCK_LENGTH/2 + i/100)
-        grasp.grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w))  # 0.08 is for the gripper length hopefully
-    
-        # Set approach gripper open
-        open_pos = JointTrajectoryPoint()
-        open_pos.positions.append(0.04)
-        open_pos.positions.append(0.04)
-        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint1")
-        grasp.pre_grasp_posture.joint_names.append("panda_finger_joint2")
-        grasp.pre_grasp_posture.points.append(open_pos)
-        
-        # Set grasp gripper closed
-        closed_pos = JointTrajectoryPoint()
-        closed_pos.positions.append(0.02)
-        closed_pos.positions.append(0.02)
-        grasp.grasp_posture.joint_names.append("panda_finger_joint1")
-        grasp.grasp_posture.joint_names.append("panda_finger_joint2")
-        grasp.grasp_posture.points.append(closed_pos)
-    
-        # Approach      
-        grasp.pre_grasp_approach.direction.header.frame_id = "panda_link0"
-        grasp.pre_grasp_approach.direction.vector.z = -1 # -1.0 in z
-        grasp.pre_grasp_approach.min_distance = 0.095 #0.1 
-        grasp.pre_grasp_approach.desired_distance = 0.115 #0.12
-                
-        # Retreat
-        grasp.post_grasp_retreat.direction.header.frame_id = "panda_link0"
-        grasp.post_grasp_retreat.direction.vector.z = 1.0
-        grasp.post_grasp_retreat.min_distance = 0.1
-        grasp.post_grasp_retreat.desired_distance = 0.25
-        
-        self.move_group_arm.set_support_surface_name("table1")
-        
-        #grasps = self.make_grasps(grasp_pose, ["block"], grasp.pre_grasp_posture, grasp.grasp_posture )
-        # rospy.loginfo(len(grasps))
-        rospy.loginfo("Running pickup")
-        self.move_group_arm.pick("block", grasp)    
-        # TODO: Dont forget to remove all scene objects when this is run to clear them!
-        
-    def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
-        """Pose offset takes in a touple for adding translation to (x, y, z)"""
-        # PoseStamped has a header which is required when adding collision objects to scene
-        pose_msg = geometry_msgs.msg.PoseStamped()
-        pose_msg.header.frame_id = "panda_link0"
-        pose_msg.pose.position.x = position[0]
-        pose_msg.pose.position.y = position[1]
-        pose_msg.pose.position.z = position[2]
-        
-        if orientation is (0,0,0,1):
-            pose_msg.pose.orientation.w = 1
-        else:
-            pose_msg.pose.orientation.x = orientation[0]
-            pose_msg.pose.orientation.y = orientation[1]
-            pose_msg.pose.orientation.z = orientation[2]
-            pose_msg.pose.orientation.w = orientation[3]
-            
-        return pose_msg
 
     def _wait_for_state_update(self, box_name, box_is_known=False, box_is_attached=False, timeout=4):
         ## If the Python node dies before publishing a collision object update message, the message
@@ -396,8 +438,8 @@ class MoveGroupPythonInteface(object):
         
 
 class NodeManagerMoveIt(object):
-    REDUCED_MAX_VELOCITY = 1 #0.1
-    FULL_MAX_VELOCITY = 1 #0.3
+    REDUCED_MAX_VELOCITY = 1 # 0.1
+    FULL_MAX_VELOCITY = 1 # 0.3
 
     def __init__(self, panda_interface):
         super(NodeManagerMoveIt, self).__init__()
@@ -406,6 +448,7 @@ class NodeManagerMoveIt(object):
         self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
+        # TODO: Refactor out and readd back in
         #self.add_scene_objects()
         
     def start_services(self):
@@ -417,7 +460,6 @@ class NodeManagerMoveIt(object):
         rospy.loginfo("---MoveIt Robot Services Setup---")
         # spin() simply keeps python from exiting until this node is stopped
         rospy.spin()
-        # Extra Python Interface methods for dealing with objects within the scene
 
     def callback_move_block(self, req):
         ''' Arg: req.block_number, req.block_zone 
@@ -428,17 +470,16 @@ class NodeManagerMoveIt(object):
             return MoveBlockResponse(False)
 
         rospy.loginfo("Moving from block number {} to zone {}".format(str(req.block_number),str(req.block_zone)))
-        self.panda_interface.move_to_neutral()
-        self.panda_interface.open_gripper()  # TODO: pick and place makes this redundant?
-         
-        self.panda_interface.pickup_block(req.block_number)
-        #self._grab_block_using_pipeline(req)
         
-        # TODO: Add back in once grasp works
-        #self._place_in_zone(req)
+        self.panda_interface.move_to_neutral()
+        self.panda_interface.pickup_block(req.block_number)
+        self.panda_interface.move_to_neutral()
+        self.panda_interface.move_to_neutral_zoneside()
+        self.panda_interface.place_block_in_zone(req.block_zone)
+        self.panda_interface.move_to_neutral_zoneside()
+        
  
         return MoveBlockResponse(True)
-
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves for each position"""
@@ -466,7 +507,7 @@ class NodeManagerMoveIt(object):
                 rospy.loginfo("Moving to block number: " + str(req.position_number))
                 coordinates = RobotPositions.block_locations[req.position_number]
 
-        pose_goal = self.panda_interface.get_pose_goal(coordinates)
+        pose_goal = self.panda_interface._get_pose_from_dict(coordinates)
         self.panda_interface.move_to_pose_goal(pose_goal)
 
         return MoveToPositionResponse(True)
@@ -491,27 +532,6 @@ class NodeManagerMoveIt(object):
             return False
 
         return True
-        
-    # OLD VERSION, can be removed when proper pick pipeline added
-    def _grab_block(self, req):
-        """Assumes in neutral position, pick up a single block and return to neutral"""
-        rospy.loginfo("Grabbing block " + str(req.block_number))
-        
-        # Using cartesian plan as get more consistent results than move_group.go(...)
-        block_coordinates = RobotPositions.block_locations[req.block_number]
-        end_pose = self.panda_interface.get_pose_goal(block_coordinates)
-        # Hover pose is slightly above block so arm comes down vertical
-        hover_pose = copy.deepcopy(end_pose)
-        hover_pose.position.z += 0.15
-
-        waypoint = [hover_pose, end_pose]
-        block_plan, _ = self.panda_interface.plan_cartesian_path(waypoint)
-        self.panda_interface.move_group.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
-        self.panda_interface.execute_plan(block_plan)    
-
-        self.panda_interface.close_gripper()
-        self.panda_interface.move_to_neutral()
-        self.panda_interface.move_group.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
 
     def _grab_block_using_pipeline(self, req):
         """Assumes in neutral position, pick up a single block and return to neutral"""
@@ -519,7 +539,7 @@ class NodeManagerMoveIt(object):
         
         # Using cartesian plan as get more consistent results than move_group.go(...)
         block_coordinates = RobotPositions.block_locations[req.block_number]
-        end_pose = self.panda_interface.get_pose_goal(block_coordinates)
+        end_pose = self.panda_interface._get_pose_from_dict(block_coordinates)
         # Hover pose is slightly above block so arm comes down vertical
         hover_pose = copy.deepcopy(end_pose)
         hover_pose.position.z += 0.1
@@ -534,21 +554,7 @@ class NodeManagerMoveIt(object):
         self.panda_interface.move_to_neutral()
         self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
 
-    def _place_in_zone(self, req):
-        """Assumes start in neutral with block in gripper"""
-        zone_coordinates = RobotPositions.zone_locations[req.block_zone]
-        rospy.loginfo("Placing in zone " + str(req.block_zone))
-        self.panda_interface.move_to_neutral_zoneside()
 
-        waypoint = [self.panda_interface.get_pose_goal(zone_coordinates)]
-        zone_plan, _ = self.panda_interface.plan_cartesian_path(waypoint)
-        self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.REDUCED_MAX_VELOCITY)
-        self.panda_interface.execute_plan(zone_plan)  
-        
-        self.panda_interface.open_gripper()
-        self.panda_interface.move_to_neutral_zoneside()
-        self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
-        self.panda_interface.move_to_neutral()
 
 if __name__ == '__main__': 
     panda_interface = MoveGroupPythonInteface()
@@ -556,8 +562,6 @@ if __name__ == '__main__':
     node_manager.start_services()
 
 """
-
-
     def add_box(self, timeout=4):
         # Copy class variables to local variables to make the web tutorials more clear.
         # In practice, you should use the class variables directly unless you have a good

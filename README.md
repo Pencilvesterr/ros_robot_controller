@@ -82,7 +82,7 @@ $ rosrun cws_planning talker_demo.py
 
 # Running with real robot
 ## Ensuring franka control is ready (will have to do each time build on lab pc)
-Franka control is what actually commands the real robot and is required as a package in this workspace on the lab computer to work. Ensure that it's connected to the lab computer's libfranka install. If you get error with franka_control, refer to [building ros package](/home/morgan/projects/ros_cws_planner/src/cws_planning/cws_nodes.launch). Make sure to instead use the commands:
+Franka control is what actually commands the real robot and is required as a package in this workspace on the lab computer to work. Ensure that it's connected to the lab computer's libfranka install. If you get error with franka_control, refer to [building ros package](https://frankaemika.github.io/docs/installation_linux.html). Make sure to instead use the commands:
 
 
 ``` shell
