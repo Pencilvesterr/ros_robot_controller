@@ -131,7 +131,7 @@ class MoveGroupPythonInteface(object):
                 'position': (-0.4, -0.3, 0.7)
             },
             'height_prevention': {
-                'size': (1, 1, 0.01),
+                'size': (2, 2, 0.01),
                 'position': (0, 0, 0.9)
             }
         }
