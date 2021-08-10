@@ -8,7 +8,7 @@ from cws_planning.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [32, 12, 11]
+    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
     # Use below if you hit a failure state during user study
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
     AVAILABLE_ZONES = 3
@@ -80,7 +80,11 @@ class RobotNode(object):
                 rospy.sleep(self.SHORT_PAUSE)
                 try: 
                     resp = self.srv_move_block(next_block, next_zone)
-                    self.moved_blocks_count += 1
+                    if resp:
+                        self.moved_blocks_count += 1
+                    else:
+                        rospy.logwarn("MoveIt failed to move block {}".format(next_block))
+                        
                     self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
                     rospy.sleep(self.SHORT_PAUSE)
                 except rospy.ServiceException as e:

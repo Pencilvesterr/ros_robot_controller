@@ -127,19 +127,25 @@ class MoveGroupPythonInteface(object):
             rospy.logerr("Collision objects for table2 failed to add to scene")
             
         object_name = "user_side_prevention"
-        object_size = (1, 0.1, 1)
-        object_position =  (-0.2, -0.4, 0.5)
+        object_size = (1, 0.1, 1.4)
+        object_position =  (-0.2, -0.4, 0.7)
         object_pose = self._get_pose_stamped(object_position)
         self.scene.add_box(object_name, object_pose, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for side_prevention failed to add to scene")
+            
+        object_name = "twist_motion_prevention"
+        object_size = (0.2, 0.1, 1.4)
+        object_position =  (-0.4, -0.3, 0.7)
+        object_pose = self._get_pose_stamped(object_position)
+        self.scene.add_box(object_name, object_pose, object_size)
+        if not self._wait_for_state_update(object_name, box_is_known=True):
+            rospy.logerr("Collision objects for twist_motion_prevention failed to add to scene")
                
         # Iterate through all blocks and add them to scene 
         block_size = (BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
         for block_location in RobotPositions.block_locations.keys():
             block_name = str(block_location)
-            if block_name not in ['32', '12', '11']:
-                continue
             x = RobotPositions.block_locations[block_location]['position']['x']
             y = RobotPositions.block_locations[block_location]['position']['y']
             pose_msg = self._get_pose_stamped(position=(x, y, BLOCK_LENGTH/2))
@@ -225,6 +231,7 @@ class MoveGroupPythonInteface(object):
         self.move_group_arm.go(joint_goal, wait=True)
 
     def pickup_block(self, block_number):
+        "Grabs block and returns bool if possible"
         block_coordinates = RobotPositions.block_locations[block_number]
         block_position = (block_coordinates['position']['x'], 
                           block_coordinates['position']['y'],
@@ -270,7 +277,9 @@ class MoveGroupPythonInteface(object):
         
         self.move_group_arm.set_support_surface_name("table1")
         rospy.loginfo("Running pickup for {}".format(block_number))
-        self.move_group_arm.pick(str(block_number), grasp)    
+        result = self.move_group_arm.pick(str(block_number), grasp)    
+        
+        return True if result == 1 else False
         
     def place_block_in_zone(self, block_number, block_zone_int):
         """Assumes start in neutral with block in gripper"""
@@ -310,8 +319,10 @@ class MoveGroupPythonInteface(object):
         place_loc.post_place_retreat.desired_distance = 0.25
         
         self.move_group_arm.set_support_surface_name("table2")
-        self.move_group_arm.place(block_name, place_loc)
+        result = self.move_group_arm.place(block_name, place_loc)
         self.scene.remove_world_object(block_name)
+        
+        return True if result == 1 else False
            
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""
@@ -423,13 +434,16 @@ class NodeManagerMoveIt(object):
 
         rospy.loginfo("Moving from block number {} to zone {}".format(
             str(req.block_number), str(req.block_zone)))
+        
         self.panda_interface.move_to_neutral()
-        self.panda_interface.pickup_block(req.block_number)
+        if not self.panda_interface.pickup_block(req.block_number):
+            return MoveBlockResponse(False)
         self.panda_interface.move_to_neutral()
         self.panda_interface.move_to_neutral_zoneside()
-        self.panda_interface.place_block_in_zone(req.block_number, req.block_zone)
+        if not self.panda_interface.place_block_in_zone(req.block_number, req.block_zone):
+            return MoveBlockResponse(False)
         self.panda_interface.move_to_neutral_zoneside()
-    
+        
         return MoveBlockResponse(True)
 
     def callback_move_position(self, req):
