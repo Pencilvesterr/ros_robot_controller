@@ -116,7 +116,11 @@ class MoveGroupPythonInteface(object):
             },
             'table2': {
                 'size': (3, 3, TABLE_HEIGHT),
-                'position': (-1.8, 0, TABLE_HEIGHT/2)
+                'position': (-1.8, 0, -TABLE_HEIGHT/2)
+            },
+            'table_fill_middle': {
+                'size': (0.6, 0.6, TABLE_HEIGHT),
+                'position': (0, 0.5, -TABLE_HEIGHT/2)
             },
             'user_side_prevention': {
                 'size': (1, 0.1, 1.4),
