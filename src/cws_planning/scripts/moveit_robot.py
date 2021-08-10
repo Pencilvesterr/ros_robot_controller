@@ -109,37 +109,36 @@ class MoveGroupPythonInteface(object):
         # Clear all objects from previous run
         self.scene.remove_world_object()
         
-        object_name = "table1"
-        object_size = (3, 3, TABLE_HEIGHT)
-        object_position =  (1.8, 0, -TABLE_HEIGHT/2)
-        object_pose = self._get_pose_stamped(object_position)  # Table surface should be at z = 0
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for table1 failed to add to scene")
+        scene_objects = {
+            'table1': {
+                'size': (3, 3, TABLE_HEIGHT),
+                'position': (1.8, 0, -TABLE_HEIGHT/2)
+            },
+            'table2': {
+                'size': (3, 3, TABLE_HEIGHT),
+                'position': (-1.8, 0, TABLE_HEIGHT/2)
+            },
+            'user_side_prevention': {
+                'size': (1, 0.1, 1.4),
+                'position': (-0.2, -0.4, 0.7)
+            },
+            'twist_motion_prevention': {
+                'size': (0.2, 0.4, 1.4),
+                'position': (-0.4, -0.3, 0.7)
+            },
+            'height_prevention': {
+                'size': (1, 1, 0.01),
+                'position': (0, 0, 0.9)
+            }
+        }
         
-        object_name = "table2"
-        object_size = (3, 3, TABLE_HEIGHT)
-        object_position = (-1.8, 0, TABLE_HEIGHT/2)
-        object_pose = self._get_pose_stamped(position=object_position)
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for table2 failed to add to scene")
-            
-        object_name = "user_side_prevention"
-        object_size = (1, 0.1, 1.4)
-        object_position =  (-0.2, -0.4, 0.7)
-        object_pose = self._get_pose_stamped(object_position)
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for side_prevention failed to add to scene")
-            
-        object_name = "twist_motion_prevention"
-        object_size = (0.2, 0.1, 1.4)
-        object_position =  (-0.4, -0.3, 0.7)
-        object_pose = self._get_pose_stamped(object_position)
-        self.scene.add_box(object_name, object_pose, object_size)
-        if not self._wait_for_state_update(object_name, box_is_known=True):
-            rospy.logerr("Collision objects for twist_motion_prevention failed to add to scene")
+        for object_name in scene_objects.keys():
+            position = scene_objects[object_name]['position']
+            object_size = scene_objects[object_name]['size']
+            object_pose = self._get_pose_stamped(position)
+            self.scene.add_box(object_name, object_pose, object_size)
+            if not self._wait_for_state_update(object_name, box_is_known=True):
+                rospy.logerr("Collision objects for {} failed to add to scene".format(object_name))
                   
     def move_to_pose_goal(self, pose_goal):
         """Move the EE to the pose goal.
@@ -269,7 +268,7 @@ class MoveGroupPythonInteface(object):
         
     def place_block_in_zone(self, block_number, block_zone_int):
         """Assumes start in neutral with block in gripper"""
-        ZONE_PLACEMENT_HEIGHT = 0.2
+        ZONE_PLACEMENT_HEIGHT = 0.15
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         block_name = str(block_number)
         rospy.loginfo("Placing in zone " + str(block_zone_int))
@@ -302,7 +301,7 @@ class MoveGroupPythonInteface(object):
         place_loc.post_place_retreat.direction.header.frame_id = "panda_link0"
         place_loc.post_place_retreat.direction.vector.z = 1.0 
         place_loc.post_place_retreat.min_distance = 0.1
-        place_loc.post_place_retreat.desired_distance = 0.25
+        place_loc.post_place_retreat.desired_distance = 0.15
         
         self.move_group_arm.set_support_surface_name("table2")
         result = self.move_group_arm.place(block_name, place_loc)
