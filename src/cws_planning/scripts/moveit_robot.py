@@ -105,7 +105,6 @@ class MoveGroupPythonInteface(object):
   
     def add_scene_objects(self):
         TABLE_HEIGHT = 0.01
-        BLOCK_LENGTH =  0.05    
         
         # Clear all objects from previous run
         self.scene.remove_world_object()
@@ -141,20 +140,7 @@ class MoveGroupPythonInteface(object):
         self.scene.add_box(object_name, object_pose, object_size)
         if not self._wait_for_state_update(object_name, box_is_known=True):
             rospy.logerr("Collision objects for twist_motion_prevention failed to add to scene")
-               
-        # Iterate through all blocks and add them to scene 
-        block_size = (BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
-        for block_location in RobotPositions.block_locations.keys():
-            block_name = str(block_location)
-            x = RobotPositions.block_locations[block_location]['position']['x']
-            y = RobotPositions.block_locations[block_location]['position']['y']
-            pose_msg = self._get_pose_stamped(position=(x, y, BLOCK_LENGTH/2))
-            self.scene.add_box(block_name, pose_msg, block_size)
-            if not self._wait_for_state_update(block_name, box_is_known=True):
-                rospy.logerr("Collision objects for block {} failed to add to scene".format(block_name))    
-            # Enough time to not overflow buffer
-            rospy.sleep(0.05)  
-            
+                  
     def move_to_pose_goal(self, pose_goal):
         """Move the EE to the pose goal.
 
@@ -231,7 +217,7 @@ class MoveGroupPythonInteface(object):
         self.move_group_arm.go(joint_goal, wait=True)
 
     def pickup_block(self, block_number):
-        "Grabs block and returns bool if possible"
+        "Grabs block and returns success bool"        
         block_coordinates = RobotPositions.block_locations[block_number]
         block_position = (block_coordinates['position']['x'], 
                           block_coordinates['position']['y'],
@@ -397,7 +383,21 @@ class MoveGroupPythonInteface(object):
             seconds = rospy.get_time()
 
         return False
+    
+    def _add_block_scene(self, block_number):
+        BLOCK_LENGTH =  0.05    
         
+        block_name = str(block_number)
+        block_size = (BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
+        x =  RobotPositions.block_locations[block_number]['position']['x']
+        y =  RobotPositions.block_locations[block_number]['position']['y']
+        pose_msg = self._get_pose_stamped(position=(x, y, BLOCK_LENGTH/2))
+        self.scene.add_box(block_name, pose_msg, block_size)
+        if not self._wait_for_state_update(block_name, box_is_known=True):
+            rospy.logerr("Collision objects for block {} failed to add to scene".format(block_name))    
+        
+        # Enough time to not update scene
+        rospy.sleep(0.05)
 
 class NodeManagerMoveIt(object):
     REDUCED_MAX_VELOCITY = 1 # 0.1
@@ -436,6 +436,8 @@ class NodeManagerMoveIt(object):
             str(req.block_number), str(req.block_zone)))
         
         self.panda_interface.move_to_neutral()
+        # Add blocks to scene individually as otherwise they prevent motion plan being found
+        self.panda_interface._add_block_scene(req.block_number)
         if not self.panda_interface.pickup_block(req.block_number):
             return MoveBlockResponse(False)
         self.panda_interface.move_to_neutral()
