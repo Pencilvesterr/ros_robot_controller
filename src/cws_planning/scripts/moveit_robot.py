@@ -83,7 +83,9 @@ def all_close(goal, actual, tolerance):
   return True
 
 
-class MoveGroupPythonInteface(object):    
+class MoveGroupPythonInteface(object):   
+    BLOCK_LENGTH =  0.05
+     
     def __init__(self):
         super(MoveGroupPythonInteface, self).__init__()
 
@@ -95,6 +97,7 @@ class MoveGroupPythonInteface(object):
         # Interface for planning group of joints. Can be used to plan and execute motions:
         group_name_arm = "panda_arm"
         self.move_group_arm = moveit_commander.MoveGroupCommander(group_name_arm)
+        
         group_name_hand = "hand"
         self.move_group_hand = moveit_commander.MoveGroupCommander(group_name_hand)
 
@@ -165,39 +168,29 @@ class MoveGroupPythonInteface(object):
 
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
-        self.move_to_joint([0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
-        # TODO: This was the previous joint target
-        #self.move_to_joint([0, 0, 0, -pi/2, 0, pi/2, pi/4])      
+        self._move_to_joint([0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
  
     def move_to_neutral_zoneside(self):
-        self.move_to_joint([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
+        self._move_to_joint([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
         
     def move_to_zoneside_preplace(self):
-        self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
-
-    def move_to_joint(self, added_values):
-        joint_goal = self.move_group_arm.get_current_joint_values()
-        for idx in range(len(added_values)):
-            joint_goal[idx] = added_values[idx]
-
-        self.move_group_arm.go(joint_goal, wait=True)
+        self._move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def pickup_block(self, block_number):
-        "Grabs block and returns success bool"        
+        "Grabs block and returns success bool"     
+        WRITST_TO_GRIPPER = 0.113
+           
         block_coordinates = RobotPositions.block_locations[block_number]
         block_position = (block_coordinates['position']['x'], 
                           block_coordinates['position']['y'],
-                          0.05/2) 
+                          self.BLOCK_LENGTH/2) 
                
         grasp = moveit_msgs.msg.Grasp()
-        
-        # Grasp goal
-        WRITST_TO_GRIPPER = 0.113
+    
         grasp_position = (block_position[0], block_position[1], block_position[2] + WRITST_TO_GRIPPER) 
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, -pi/4)
         grasp.grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w)) 
-        
     
         # Set approach gripper open
         open_pos = JointTrajectoryPoint()
@@ -322,6 +315,26 @@ class MoveGroupPythonInteface(object):
                 pose_goal.orientation.z = coordinates['orientation']['z']
 
         return pose_goal
+    
+    def _move_to_joint(self, added_values):
+        joint_goal = self.move_group_arm.get_current_joint_values()
+        for idx in range(len(added_values)):
+            joint_goal[idx] = added_values[idx]
+
+        self.move_group_arm.go(joint_goal, wait=True)
+        
+    def _add_block_scene(self, block_number):
+        block_name = str(block_number)
+        block_size = (self.BLOCK_LENGTH, self.BLOCK_LENGTH, self.BLOCK_LENGTH)
+        x =  RobotPositions.block_locations[block_number]['position']['x']
+        y =  RobotPositions.block_locations[block_number]['position']['y']
+        pose_msg = self._get_pose_stamped(position=(x, y, self.BLOCK_LENGTH/2))
+        self.scene.add_box(block_name, pose_msg, block_size)
+        if not self._wait_for_state_update(block_name, box_is_known=True):
+            rospy.logerr("Collision objects for block {} failed to add to scene".format(block_name))    
+        
+        # Enough time to not update scene
+        rospy.sleep(0.05)
 
     def _wait_for_state_update(self, box_name, box_is_known=False, box_is_attached=False, timeout=4):
         ## If the Python node dies before publishing a collision object update message, the message
@@ -350,20 +363,6 @@ class MoveGroupPythonInteface(object):
 
         return False
     
-    def _add_block_scene(self, block_number):
-        BLOCK_LENGTH =  0.05    
-        
-        block_name = str(block_number)
-        block_size = (BLOCK_LENGTH, BLOCK_LENGTH, BLOCK_LENGTH)
-        x =  RobotPositions.block_locations[block_number]['position']['x']
-        y =  RobotPositions.block_locations[block_number]['position']['y']
-        pose_msg = self._get_pose_stamped(position=(x, y, BLOCK_LENGTH/2))
-        self.scene.add_box(block_name, pose_msg, block_size)
-        if not self._wait_for_state_update(block_name, box_is_known=True):
-            rospy.logerr("Collision objects for block {} failed to add to scene".format(block_name))    
-        
-        # Enough time to not update scene
-        rospy.sleep(0.05)
 
 class NodeManagerMoveIt(object):
     REDUCED_MAX_VELOCITY = 1 # 0.1
@@ -441,7 +440,6 @@ class NodeManagerMoveIt(object):
                 rospy.loginfo("Moving to block number: " + str(req.position_number))
                 coordinates = RobotPositions.block_locations[req.position_number]
 
-        # TODO: See if you can use the other pose method that exists to remove this one
         pose_goal = self.panda_interface._get_pose_from_dict(coordinates)
         self.panda_interface.move_to_pose_goal(pose_goal)
 
