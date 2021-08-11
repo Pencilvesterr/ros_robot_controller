@@ -163,44 +163,6 @@ class MoveGroupPythonInteface(object):
         current_pose = self.move_group_arm.get_current_pose().pose
         return all_close(pose_goal, current_pose, 0.01)
 
-    def plan_cartesian_path(self, waypoints, scale=1):
-        """Plan a Cartesian path directly bclosey specifying a list of waypoints for the end-effector to go through. 
-
-        Examples:
-            wpose = self.move_group.get_current_pose().pose
-            wpose.position.z -= scale * 0.1  # First move up (z)
-            waypoints.append(copy.deepcopy(wpose))
-
-            Args:
-                waypoints (list): list of poses from move_group.get_current_pose().pose
-        """
-
-        # We want the Cartesian path to be interpolated at a resolution of 1 cm
-        # which is why we will specify 0.01 as the eef_step in Cartesian
-        # translation.  We will disable the jump threshold by setting it to 0.0,
-        # ignoring the check for infeasible jumps in joint space, which is sufficient
-        # for this tutorial.
-        (plan, fraction) = self.move_group_arm.compute_cartesian_path(
-                                            waypoints,   # waypoints to follow
-                                            0.01,        # eef_step
-                                            0.0)         # jump_threshold
-
-        return plan, fraction
-
-    def display_trajectory(self, plan):
-        ## You can ask RViz to visualize a plan (aka trajectory) for you. But the
-        ## group.plan() method does this automatically so this is not that useful
-        ## here (it just displays the same trajectory again):
-        ##
-        ## A `DisplayTrajectory`_ msg has two primary fields, trajectory_start and trajectory.
-        ## We populate the trajectory_start with our current robot state to copy over
-        ## any AttachedCollisionObjects and add our plan to the trajectory.
-        display_trajectory = moveit_msgs.msg.DisplayTrajectory()
-        display_trajectory.trajectory_start = self.robot.get_current_state()
-        display_trajectory.trajectory.append(plan)
-        # Publish
-        self.display_trajectory_publisher.publish(display_trajectory)
-
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
         self.move_to_joint([0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
@@ -209,8 +171,9 @@ class MoveGroupPythonInteface(object):
  
     def move_to_neutral_zoneside(self):
         self.move_to_joint([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
-        # TODO: This was the previous joint target. Maybe have it move here after the turn?
-        #self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+        
+    def move_to_zoneside_preplace(self):
+        self.move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
 
     def move_to_joint(self, added_values):
         joint_goal = self.move_group_arm.get_current_joint_values()
@@ -445,6 +408,7 @@ class NodeManagerMoveIt(object):
             return MoveBlockResponse(False)
         self.panda_interface.move_to_neutral()
         self.panda_interface.move_to_neutral_zoneside()
+        self.panda_interface.move_to_zoneside_preplace()
         if not self.panda_interface.place_block_in_zone(req.block_number, req.block_zone):
             return MoveBlockResponse(False)
         self.panda_interface.move_to_neutral_zoneside()
