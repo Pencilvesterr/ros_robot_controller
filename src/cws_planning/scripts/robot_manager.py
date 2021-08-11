@@ -13,9 +13,6 @@ class RobotNode(object):
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35]
     AVAILABLE_ZONES = 3
 
-    SHORT_PAUSE = 0.1 # 1
-    LONG_PAUSE = 0.2 # 5
-
     replan_count = 0
     moved_blocks_count = 0
 
@@ -36,6 +33,10 @@ class RobotNode(object):
         rospy.loginfo("---Robot node waiting to find 'Robot MoveIt' services...---")
         rospy.wait_for_service('/move_block')
         rospy.wait_for_service('/reset_to_neutral')
+        # Params coming from the relevant launch file 
+        self.SHORT_PAUSE = rospy.get_param('/short_pause', default=1)
+        self.LONG_PAUSE = rospy.get_param('/short_pause', default=4)        
+        
         rospy.loginfo("---Robot Node Initialised---")
     
     def start(self):
@@ -117,7 +118,6 @@ class RobotNode(object):
             zone_gaze_selection = str(self.gaze_selection)[0]
             if not str(block).startswith(zone_gaze_selection):
                 return self.remaining_blocks.pop(idx)
-
         else:
             return 0
 
@@ -141,8 +141,3 @@ class RobotNode(object):
 if __name__ == '__main__': 
     robot_node = RobotNode()
     robot_node.start()
-   
-#     try:
-#       ...      
-#   except rospy.ROSInterruptException:
-#     return

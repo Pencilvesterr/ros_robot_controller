@@ -359,16 +359,18 @@ class MoveGroupPythonInteface(object):
         return True
 
 class NodeManagerMoveIt(object):
-    REDUCED_MAX_VELOCITY = 1 # 0.1
-    FULL_MAX_VELOCITY = 1 # 0.3
-
     def __init__(self, panda_interface):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_interface = panda_interface
         self.current_cws = 0
-        self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY)
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
+        
+        # Param values coming from launch file
+        self.FULL_MAX_VELOCITY = rospy.get_param("/max_velocity", default=0.4)
+        self.REDUCED_MAX_VELOCITY = rospy.get_param("/reduced_velocity", default=0.1)   
+        self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY) 
+        
         self.panda_interface.add_scene_objects()
         
     def start_services(self):
@@ -381,7 +383,7 @@ class NodeManagerMoveIt(object):
         rospy.loginfo("---MoveIt Robot Services Setup---")
         # Keeps python from exiting until this node is stopped
         rospy.spin()  
-
+        
     def callback_move_block(self, req):
         ''' Arg: req.block_number, req.block_zone 
 
@@ -462,6 +464,14 @@ class NodeManagerMoveIt(object):
 
 
 if __name__ == '__main__': 
+
+    # result = rospy.get_param(found)
+    # rospy.logerr("Param Value: {}".format(result))
+    
     panda_interface = MoveGroupPythonInteface()
     node_manager = NodeManagerMoveIt(panda_interface)
+    
+ 
+    
     node_manager.start_services()
+    

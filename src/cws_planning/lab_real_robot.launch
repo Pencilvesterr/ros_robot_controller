@@ -1,4 +1,8 @@
 <launch>
+    <param name="short_pause" value="1"/>
+    <param name="long_pause" value="4"/>
+    <param name="max_velocity" value="0.4"/>
+    <param name="reduced_velocity" value="0.1"/>
     <node pkg="cws_planning" name="moveit_robot" type="moveit_robot.py" output="screen" launch-prefix= "gnome-terminal --command" />
     <node pkg="cws_planning" name="robot_coordinator" type="robot_manager.py" output="screen" launch-prefix= "gnome-terminal --command" />
 </launch>

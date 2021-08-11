@@ -1,6 +1,0 @@
-<!--Best for when you want to verify everything is working before running the robot manager node-->
-<launch>
-    <include file="$(find panda_moveit_config)/launch/demo.launch"/>
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
-    <node pkg="cws_planning" name="moveit_robot" type="moveit_robot.py" output="screen" launch-prefix= "gnome-terminal --command" />
-</launch>
