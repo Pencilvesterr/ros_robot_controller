@@ -60,28 +60,6 @@ from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobo
 from python_utilities.light_status import LightStatus
 from python_utilities.robot_positions import RobotPositions
 
-def all_close(goal, actual, tolerance):
-  """
-  Convenience method for testing if a list of values are within a tolerance of their counterparts in another list
-  @param: goal       A list of floats, a Pose or a PoseStamped
-  @param: actual     A list of floats, a Pose or a PoseStamped
-  @param: tolerance  A float
-  @returns: bool
-  """
-  all_equal = True
-  if type(goal) is list:
-    for index in range(len(goal)):
-      if abs(actual[index] - goal[index]) > tolerance:
-        return False
-
-  elif type(goal) is geometry_msgs.msg.PoseStamped:
-    return all_close(goal.pose, actual.pose, tolerance)
-
-  elif type(goal) is geometry_msgs.msg.Pose:
-    return all_close(pose_to_list(goal), pose_to_list(actual), tolerance)
-
-  return True
-
 
 class MoveGroupPythonInteface(object):   
     BLOCK_LENGTH =  0.05
@@ -164,7 +142,7 @@ class MoveGroupPythonInteface(object):
         self.move_group_arm.clear_pose_targets()
 
         current_pose = self.move_group_arm.get_current_pose().pose
-        return all_close(pose_goal, current_pose, 0.01)
+        return self._all_close(pose_goal, current_pose, 0.01)
 
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
@@ -363,6 +341,27 @@ class MoveGroupPythonInteface(object):
 
         return False
     
+    def _all_close(self, goal, actual, tolerance):
+        """
+        Convenience method for testing if a list of values are within a tolerance of their counterparts in another list
+        @param: goal       A list of floats, a Pose or a PoseStamped
+        @param: actual     A list of floats, a Pose or a PoseStamped
+        @param: tolerance  A float
+        @returns: bool
+        """
+        all_equal = True
+        if type(goal) is list:
+            for index in range(len(goal)):
+                if abs(actual[index] - goal[index]) > tolerance:
+                    return False
+
+        elif type(goal) is geometry_msgs.msg.PoseStamped:
+            return self._all_close(goal.pose, actual.pose, tolerance)
+
+        elif type(goal) is geometry_msgs.msg.Pose:
+            return self._all_close(pose_to_list(goal), pose_to_list(actual), tolerance)
+
+        return True
 
 class NodeManagerMoveIt(object):
     REDUCED_MAX_VELOCITY = 1 # 0.1
