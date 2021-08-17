@@ -8,9 +8,9 @@ from cws_planning.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 15, 17, 18, 21, 22, 23, 24, 25, 26, 27]
+    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     # Use below if you hit a failure state during user study
-    # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 15, 17, 18, 21, 22, 23, 24, 25, 26, 27]
+    # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     AVAILABLE_ZONES = 2
 
     replan_count = 0
@@ -52,7 +52,7 @@ class RobotNode(object):
 
             while not selection_valid:
                 if len(self.remaining_blocks) == 0:
-                    self.exit_process()
+                    self._exit_process()
                     break
 
                 next_block = self.get_next_block_selection()
@@ -62,7 +62,7 @@ class RobotNode(object):
                     rospy.sleep(self.LONG_PAUSE)
                     continue
                 
-                self.update_AR_selection(next_block, next_zone, LightStatus.yellow)
+                self._update_AR_selection(next_block, next_zone, LightStatus.yellow)
                 rospy.sleep(self.LONG_PAUSE)
 
                 selection_valid = self.selection_still_valid(next_block, next_zone)
@@ -71,13 +71,13 @@ class RobotNode(object):
                     self.replan_count += 1
                     # User override, reset selection
                     rospy.sleep(self.SHORT_PAUSE)
-                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    self._update_AR_selection(next_block, next_zone, LightStatus.unselected)
                     rospy.sleep(self.SHORT_PAUSE)
                     self.remaining_blocks.append(next_block)
             
             # A valid block selection was found
             if next_block != 0:
-                self.update_AR_selection(next_block, next_zone, LightStatus.red)
+                self._update_AR_selection(next_block, next_zone, LightStatus.red)
                 rospy.sleep(self.SHORT_PAUSE)
                 try: 
                     resp = self.srv_move_block(next_block, next_zone)
@@ -86,7 +86,7 @@ class RobotNode(object):
                     else:
                         rospy.logwarn("MoveIt failed to move block {}".format(next_block))
                         
-                    self.update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    self._update_AR_selection(next_block, next_zone, LightStatus.unselected)
                     rospy.sleep(self.SHORT_PAUSE)
                 except rospy.ServiceException as e:
                     rospy.logerr("Service called failed: " + str(e))
@@ -101,16 +101,10 @@ class RobotNode(object):
         rospy.loginfo("Block placement received: " + str(msg.data))
         if msg.data in self.remaining_blocks:
             self.remaining_blocks.remove(msg.data)
-   
-    def update_AR_selection(self, next_block, next_zone, colour):
-        selection_status = TrafficLight()
-        selection_status.block_selected = next_block
-        selection_status.block_status = colour.value
-        selection_status.zone_selected = next_zone
-        selection_status.zone_status = colour.value
-
-        rospy.loginfo("Setting block {}, zone {}, to {}".format(next_block, next_zone, colour.name))
-        self.pub_selection.publish(selection_status)
+            # Clear the gaze selection of user after confirming placement
+            self.gaze_selection = 0
+        else:
+            rospy.logwarn("Block placement {} recieved for block not in remaining queue".format(msg.data))
 
     def get_next_block_selection(self):
         for idx, block in enumerate(self.remaining_blocks):
@@ -128,8 +122,18 @@ class RobotNode(object):
             return False
         else:
             return True
+    
+    def _update_AR_selection(self, next_block, next_zone, colour):
+        selection_status = TrafficLight()
+        selection_status.block_selected = next_block
+        selection_status.block_status = colour.value
+        selection_status.zone_selected = next_zone
+        selection_status.zone_status = colour.value
 
-    def exit_process(self):
+        rospy.loginfo("Setting block {}, zone {}, to {}".format(next_block, next_zone, colour.name))
+        self.pub_selection.publish(selection_status)
+
+    def _exit_process(self):
         rospy.loginfo("All blocks complete")
         rospy.loginfo("------------------")
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
