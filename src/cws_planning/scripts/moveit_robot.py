@@ -104,11 +104,15 @@ class MoveGroupPythonInteface(object):
                 'position': (0, 0.5, -TABLE_HEIGHT/2)
             },
             'user_side_prevention': {
-                'size': (1, 0.1, 1.4),
+                'size': (1, 0.05, 1.4),
                 'position': (-0.2, -0.4, 0.7)
             },
+            'computer_side_prevention': {
+                'size': (1, 0.05, 1.4),
+                'position': (-0.2, 0.6, 0.7)
+            },
             'twist_motion_prevention': {
-                'size': (0.2, 0.4, 1.4),
+                'size': (0.2, 0.4, 1),
                 'position': (-0.4, -0.3, 0.7)
             },
             'height_prevention': {
@@ -147,7 +151,7 @@ class MoveGroupPythonInteface(object):
         self._move_to_joint([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
         
     def move_to_zoneside_preplace(self):
-        self._move_to_joint([2.5, 0, 0, -pi/2, 0, pi/2, pi/4]) 
+        self._move_to_joint([2.5, 0.1, 0, -pi/2, 0, pi/2, 0]) 
 
     def pickup_block(self, block_number):
         "Grabs block and returns success bool"     
@@ -184,14 +188,15 @@ class MoveGroupPythonInteface(object):
         # Approach      
         grasp.pre_grasp_approach.direction.header.frame_id = "panda_link0"
         grasp.pre_grasp_approach.direction.vector.z = -1
-        grasp.pre_grasp_approach.min_distance = 0.195 
-        grasp.pre_grasp_approach.desired_distance = 0.215
+        grasp.pre_grasp_approach.min_distance = 0.18 
+        grasp.pre_grasp_approach.desired_distance = 0.2
                 
         # Retreat
         grasp.post_grasp_retreat.direction.header.frame_id = "panda_link0"
         grasp.post_grasp_retreat.direction.vector.z = 1.0
         grasp.post_grasp_retreat.min_distance = 0.1
         grasp.post_grasp_retreat.desired_distance = 0.25
+        
         
         self.move_group_arm.set_support_surface_name("table1")
         rospy.loginfo("Running pickup for {}".format(block_number))
