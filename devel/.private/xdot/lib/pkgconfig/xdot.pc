@@ -1,0 +1,8 @@
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/xdot
+
+Name: xdot
+Description: Description of xdot
+Version: 2.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/posedetection_msgs/share/roseus/ros/posedetection_msgs/msg/Feature1D.l

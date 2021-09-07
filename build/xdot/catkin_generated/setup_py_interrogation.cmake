@@ -1,0 +1,7 @@
+set(xdot_SETUP_PY_SETUP_MODULE "distutils.core")
+set(xdot_SETUP_PY_VERSION "2.0.1")
+set(xdot_SETUP_PY_SCRIPTS "")
+set(xdot_SETUP_PY_PACKAGES "xdot")
+set(xdot_SETUP_PY_PACKAGE_DIRS "src/xdot")
+set(xdot_SETUP_PY_MODULES "")
+set(xdot_SETUP_PY_MODULE_DIRS "")

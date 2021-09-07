@@ -1,0 +1,8 @@
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking
+
+Name: robohub_object_tracking
+Description: Description of robohub_object_tracking
+Version: 0.0.0
+Cflags: -I/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

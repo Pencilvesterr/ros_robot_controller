@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/usb_cam/share/usb_cam/cmake/usb_camConfig-version.cmake

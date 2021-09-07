@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/speech_recognition_msgs/share/roseus/ros/speech_recognition_msgs/srv/SpeechRecognition.l

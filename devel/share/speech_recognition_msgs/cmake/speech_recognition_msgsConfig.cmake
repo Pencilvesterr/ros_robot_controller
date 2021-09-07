@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/speech_recognition_msgs/share/speech_recognition_msgs/cmake/speech_recognition_msgsConfig.cmake

@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/hrca_msgs/share/common-lisp/ros/hrca_msgs/srv/_package_GetRobotPose.lisp

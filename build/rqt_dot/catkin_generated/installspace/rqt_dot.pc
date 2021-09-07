@@ -1,0 +1,8 @@
+prefix=/home/morgan/projects/ros_cws_planner/install
+
+Name: rqt_dot
+Description: Description of rqt_dot
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

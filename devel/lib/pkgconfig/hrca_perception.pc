@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/hrca_perception/lib/pkgconfig/hrca_perception.pc

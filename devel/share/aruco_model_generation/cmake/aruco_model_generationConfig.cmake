@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake

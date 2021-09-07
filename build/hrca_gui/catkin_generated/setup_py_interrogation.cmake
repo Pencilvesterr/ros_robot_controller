@@ -1,0 +1,7 @@
+set(hrca_gui_SETUP_PY_SETUP_MODULE "distutils.core")
+set(hrca_gui_SETUP_PY_VERSION "0.0.0")
+set(hrca_gui_SETUP_PY_SCRIPTS "")
+set(hrca_gui_SETUP_PY_PACKAGES "hrca_gui")
+set(hrca_gui_SETUP_PY_PACKAGE_DIRS "src/hrca_gui")
+set(hrca_gui_SETUP_PY_MODULES "")
+set(hrca_gui_SETUP_PY_MODULE_DIRS "")

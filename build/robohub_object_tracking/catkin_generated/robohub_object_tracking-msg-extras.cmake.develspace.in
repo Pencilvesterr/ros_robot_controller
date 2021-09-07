@@ -1,0 +1,2 @@
+set(robohub_object_tracking_MESSAGE_FILES "/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_dependencies/robohub_object_tracking/robohub_object_tracking/msg/TrackedObjectPose.msg;/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_dependencies/robohub_object_tracking/robohub_object_tracking/msg/TrackedObjectPoseList.msg")
+set(robohub_object_tracking_SERVICE_FILES "")

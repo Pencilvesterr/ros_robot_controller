@@ -1,0 +1,8 @@
+prefix=/home/morgan/projects/ros_cws_planner/devel/.private/jsk_footstep_msgs
+
+Name: jsk_footstep_msgs
+Description: Description of jsk_footstep_msgs
+Version: 4.3.1
+Cflags: -I/home/morgan/projects/ros_cws_planner/devel/.private/jsk_footstep_msgs/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs actionlib_msgs message_runtime

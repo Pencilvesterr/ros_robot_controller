@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/jsk_hark_msgs/include/jsk_hark_msgs/HarkPower.h

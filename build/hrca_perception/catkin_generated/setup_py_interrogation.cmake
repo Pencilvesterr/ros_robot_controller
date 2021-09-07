@@ -1,0 +1,7 @@
+set(hrca_perception_SETUP_PY_SETUP_MODULE "distutils.core")
+set(hrca_perception_SETUP_PY_VERSION "0.0.0")
+set(hrca_perception_SETUP_PY_SCRIPTS "")
+set(hrca_perception_SETUP_PY_PACKAGES "hrca_perception")
+set(hrca_perception_SETUP_PY_PACKAGE_DIRS "src/hrca_perception")
+set(hrca_perception_SETUP_PY_MODULES "")
+set(hrca_perception_SETUP_PY_MODULE_DIRS "")

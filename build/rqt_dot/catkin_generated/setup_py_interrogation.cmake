@@ -1,0 +1,7 @@
+set(rqt_dot_SETUP_PY_SETUP_MODULE "distutils.core")
+set(rqt_dot_SETUP_PY_VERSION "0.1.0")
+set(rqt_dot_SETUP_PY_SCRIPTS "scripts/rqt_dot")
+set(rqt_dot_SETUP_PY_PACKAGES "rqt_dot")
+set(rqt_dot_SETUP_PY_PACKAGE_DIRS "src/rqt_dot")
+set(rqt_dot_SETUP_PY_MODULES "")
+set(rqt_dot_SETUP_PY_MODULE_DIRS "")

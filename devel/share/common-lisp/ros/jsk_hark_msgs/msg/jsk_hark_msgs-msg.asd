@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/jsk_hark_msgs/share/common-lisp/ros/jsk_hark_msgs/msg/jsk_hark_msgs-msg.asd

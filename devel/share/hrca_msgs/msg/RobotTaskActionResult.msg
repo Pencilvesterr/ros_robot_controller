@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/hrca_msgs/share/hrca_msgs/msg/RobotTaskActionResult.msg
