@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/share/gennodejs/ros/hrca_decision/srv/MoveBlock.js

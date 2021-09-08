@@ -11,5 +11,5 @@ sleep 1
 echo "Starting Rosbridge"
 gnome-terminal --tab -- roslaunch rosbridge_server rosbridge_websocket.launch 
 echo "Starting ROS nodes"
-gnome-terminal --tab -- roslaunch cws_planning lab_real_robot.launch
+gnome-terminal --tab -- roslaunch hrca_decision lab_real_robot.launch 
 read

@@ -10,6 +10,6 @@
 export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_common_utils:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_common_utils/lib:$LD_LIBRARY_PATH"
 export PWD='/home/morgan/projects/ros_cws_planner/build/hrca_common_utils'
-export PYTHONPATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_common_utils/lib/python2.7/dist-packages:$PYTHONPATH"
+export PYTHONPATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_common_utils/lib/python2.7/dist-packages:/home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_common_utils/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_common_utils:$ROS_PACKAGE_PATH"

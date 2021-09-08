@@ -1,4 +1,0 @@
-int32 block_selected
-int32 block_status
-int32 zone_selected
-int32 zone_status

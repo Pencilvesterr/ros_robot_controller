@@ -3,6 +3,6 @@ prefix=/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision
 Name: hrca_decision
 Description: Description of hrca_decision
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: rospy std_msgs message_runtime

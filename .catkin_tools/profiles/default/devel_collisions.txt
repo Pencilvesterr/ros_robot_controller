@@ -47,7 +47,7 @@
 /home/morgan/projects/ros_cws_planner/devel/share/python_utilities/cmake/python_utilitiesConfig.cmake 1
 /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/python_utilities.pc 1
 /home/morgan/projects/ros_cws_planner/devel/share/common-lisp/ros/cws_planning/srv/MoveToPosition.lisp 1
-/home/morgan/projects/ros_cws_planner/devel/./cmake.lock 57
+/home/morgan/projects/ros_cws_planner/devel/./cmake.lock 255
 /home/morgan/projects/ros_cws_planner/devel/share/common-lisp/ros/cws_planning/srv/_package_MoveToPosition.lisp 1
 /home/morgan/projects/ros_cws_planner/devel/include/cws_planning/TrafficLight.h 1
 /home/morgan/projects/ros_cws_planner/devel/share/common-lisp/ros/cws_planning/srv/_package.lisp 1

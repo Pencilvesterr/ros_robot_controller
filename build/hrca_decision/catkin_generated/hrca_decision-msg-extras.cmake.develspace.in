@@ -1,0 +1,2 @@
+set(hrca_decision_MESSAGE_FILES "/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_decision/msg/TrafficLight.msg;/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_decision/msg/cws_planning.msg")
+set(hrca_decision_SERVICE_FILES "/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_decision/srv/ResetRobot.srv;/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_decision/srv/MoveBlock.srv;/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_decision/srv/MoveToPosition.srv")
