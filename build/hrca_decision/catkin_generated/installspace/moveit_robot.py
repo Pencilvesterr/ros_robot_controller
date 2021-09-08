@@ -51,19 +51,18 @@ import geometry_msgs.msg
 import genpy
 import tf
 
-from hrca_action.panda_arm import PandaArm 
-from hrca_action.utilities import *
-from hrca_msgs.msg import RobotTaskAction, RobotTaskFeedback, RobotTaskResult, RobotTaskGoal
-
-
 from copy import deepcopy
 from math import pi, atan2
+
 from std_msgs.msg import String, Int16
 from moveit_commander.conversions import pose_to_list
 from trajectory_msgs.msg import JointTrajectoryPoint
-from cws_planning.srv import MoveBlock, MoveBlockResponse, ResetRobot, ResetRobotResponse, MoveToPosition, MoveToPositionResponse
+from hrca_decision.srv import  MoveBlock, MoveBlockResponse, ResetRobot, ResetRobotResponse, MoveToPosition, MoveToPositionResponse
 from python_utilities.light_status import LightStatus
 from python_utilities.robot_positions import RobotPositions
+from hrca_action.panda_arm import PandaArm
+from hrca_action.utilities import MoveitObjectHandler, test
+from hrca_msgs.msg import RobotTaskAction, RobotTaskFeedback, RobotTaskResult, RobotTaskGoal
 
 
 class NodeManagerMoveIt(object):
@@ -71,10 +70,13 @@ class NodeManagerMoveIt(object):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_interface = panda_interface
         self.current_cws = 0
+        self.moh = MoveitObjectHandler()
+    
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
         
         # Param values coming from launch file
+        # TODO: See if this is needed with the new hri_framework methods
         self.FULL_MAX_VELOCITY = rospy.get_param("/max_velocity", default=0.4)
         self.REDUCED_MAX_VELOCITY = rospy.get_param("/reduced_velocity", default=0.1)   
         self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY) 
@@ -279,7 +281,6 @@ class MoveGroupPythonInteface(object):
         rospy.loginfo('Moving to home position')
         self.panda_arm.home_gripper()
        
-    ********* Continue refactoring the methods
  
     def move_to_neutral_zoneside(self):
         self.panda_arm.move_to_joint_position([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])

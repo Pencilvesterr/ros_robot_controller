@@ -9,6 +9,7 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/morgan/projects/ros_cws_planner/build/hrca_decision'
 export PYTHONPATH="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
