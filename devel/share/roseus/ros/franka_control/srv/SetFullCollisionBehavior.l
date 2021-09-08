@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/share/roseus/ros/franka_control/srv/SetFullCollisionBehavior.l

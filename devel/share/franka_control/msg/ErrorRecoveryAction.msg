@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_control/share/franka_control/msg/ErrorRecoveryAction.msg

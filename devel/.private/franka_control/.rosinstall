@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/morgan/projects/ros_cws_planner/devel/.private/franka_control/setup.sh

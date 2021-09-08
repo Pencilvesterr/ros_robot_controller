@@ -1,0 +1,1 @@
+/home/morgan/projects/ros_cws_planner/devel/.private/franka_example_controllers/share/roseus/ros/franka_example_controllers/msg/JointTorqueComparison.l
