@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/rqt_dot/lib/python2.7/dist-packages/rqt_dot/__init__.py

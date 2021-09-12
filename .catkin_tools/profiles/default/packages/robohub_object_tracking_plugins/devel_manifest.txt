@@ -1,6 +1,0 @@
-hri_framework/hrca_dependencies/robohub_object_tracking/robohub_object_tracking_plugins
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking_plugins/cmake.lock /home/morgan/projects/ros_cws_planner/devel/./cmake.lock
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking_plugins/share/robohub_object_tracking_plugins/cmake/robohub_object_tracking_pluginsConfig.cmake /home/morgan/projects/ros_cws_planner/devel/share/robohub_object_tracking_plugins/cmake/robohub_object_tracking_pluginsConfig.cmake
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking_plugins/share/robohub_object_tracking_plugins/cmake/robohub_object_tracking_pluginsConfig-version.cmake /home/morgan/projects/ros_cws_planner/devel/share/robohub_object_tracking_plugins/cmake/robohub_object_tracking_pluginsConfig-version.cmake
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking_plugins/lib/pkgconfig/robohub_object_tracking_plugins.pc /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/robohub_object_tracking_plugins.pc
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking_plugins/lib/python2.7/dist-packages/robohub_object_tracking_plugins/__init__.py /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/robohub_object_tracking_plugins/__init__.py

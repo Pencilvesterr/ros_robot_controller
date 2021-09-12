@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="robot_ip" default="172.16.0.2"/>
+  <arg name="load_gripper" default="true" />
+  <arg name="launch_rviz" default="true" />
+  <arg name="gripper_center" default="true"/>
+
+  <include file="$(find panda_simulator_support)/launch/franka_control.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+  <rosparam command="load" file="$(find panda_moveit_config)/config/velocity_controller.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller"/>
+
+  <!-- <rosparam command="load" file="$(find panda_simulator_support)/config/panda_control_position.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="panda_arm_controller"/> -->
+ 
+  <!-- <rosparam command="load" ns="franka_control" file="$(find panda_simulator_support)/config/real_robot_collision_behaviour.yaml" /> -->
+
+  <include file="$(find panda_moveit_config)/launch/move_group.launch" >
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+    <!-- <arg name="gripper_center" value="$(arg gripper_center)"/> -->
+  </include>
+  <param name="/move_group/octomap_frame" type="string" value="tin_haha" />
+  <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find franka_visualization)/launch/franka_visualization.rviz"/>
+  <!-- <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg launch_rviz)" /> -->
+  <!-- <node name="caitlin_arm_server" pkg="hrca_action" type="panda_arm_server.py" respawn="false" output="screen" /> -->
+  <include file="$(find rv_panda_realsense)/launch/temp_realsense.launch" />
+  <node name="caitlin_object_publisher" pkg="hrca_decision" type="object_publisher.py" respawn="false" output="screen" />
+</launch>

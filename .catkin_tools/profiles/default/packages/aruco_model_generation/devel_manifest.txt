@@ -1,5 +1,5 @@
 hri_framework/hrca_dependencies/ros_object_tracking_utilities/aruco_model_generation
-/home/morgan/projects/ros_cws_planner/devel/.private/aruco_model_generation/cmake.lock /home/morgan/projects/ros_cws_planner/devel/./cmake.lock
-/home/morgan/projects/ros_cws_planner/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig-version.cmake /home/morgan/projects/ros_cws_planner/devel/share/aruco_model_generation/cmake/aruco_model_generationConfig-version.cmake
-/home/morgan/projects/ros_cws_planner/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake /home/morgan/projects/ros_cws_planner/devel/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake
-/home/morgan/projects/ros_cws_planner/devel/.private/aruco_model_generation/lib/pkgconfig/aruco_model_generation.pc /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/aruco_model_generation.pc
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/aruco_model_generation/cmake.lock /home/morgan/projects/ros_cws_hri_framework/devel/./cmake.lock
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig-version.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/aruco_model_generation/cmake/aruco_model_generationConfig-version.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/aruco_model_generation/lib/pkgconfig/aruco_model_generation.pc /home/morgan/projects/ros_cws_hri_framework/devel/lib/pkgconfig/aruco_model_generation.pc

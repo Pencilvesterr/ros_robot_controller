@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking/lib/python2.7/dist-packages/robohub_object_tracking/msg/__init__.py

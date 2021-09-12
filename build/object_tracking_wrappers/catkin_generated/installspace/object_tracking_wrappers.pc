@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/install
-
-Name: object_tracking_wrappers
-Description: Description of object_tracking_wrappers
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

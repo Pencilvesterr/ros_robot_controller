@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/jsk_hark_msgs/lib/python2.7/dist-packages/jsk_hark_msgs/msg/__init__.py

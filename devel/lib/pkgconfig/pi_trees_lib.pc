@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/pi_trees_lib/lib/pkgconfig/pi_trees_lib.pc

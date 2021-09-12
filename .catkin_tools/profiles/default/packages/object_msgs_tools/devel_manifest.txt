@@ -1,0 +1,8 @@
+panda_simulator/general-message-pkgs/object_msgs_tools
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/cmake.lock /home/morgan/projects/ros_cws_hri_framework/devel/./cmake.lock
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/share/object_msgs_tools/cmake/object_msgs_toolsConfig.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/object_msgs_tools/cmake/object_msgs_toolsConfig.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/share/object_msgs_tools/cmake/object_msgs_toolsConfig-version.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/object_msgs_tools/cmake/object_msgs_toolsConfig-version.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/lib/libobject_msgs_tools.so /home/morgan/projects/ros_cws_hri_framework/devel/lib/libobject_msgs_tools.so
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/lib/object_msgs_tools/object_tf_broadcaster_node /home/morgan/projects/ros_cws_hri_framework/devel/lib/object_msgs_tools/object_tf_broadcaster_node
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/lib/object_msgs_tools/register_object_client /home/morgan/projects/ros_cws_hri_framework/devel/lib/object_msgs_tools/register_object_client
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/object_msgs_tools/lib/pkgconfig/object_msgs_tools.pc /home/morgan/projects/ros_cws_hri_framework/devel/lib/pkgconfig/object_msgs_tools.pc

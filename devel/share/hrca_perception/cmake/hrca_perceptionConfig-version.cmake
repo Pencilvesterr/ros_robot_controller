@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/hrca_perception/share/hrca_perception/cmake/hrca_perceptionConfig-version.cmake

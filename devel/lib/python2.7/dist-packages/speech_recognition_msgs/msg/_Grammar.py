@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/speech_recognition_msgs/lib/python2.7/dist-packages/speech_recognition_msgs/msg/_Grammar.py

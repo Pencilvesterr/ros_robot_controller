@@ -1,7 +1,0 @@
-set(robohub_object_tracking_plugins_SETUP_PY_SETUP_MODULE "distutils.core")
-set(robohub_object_tracking_plugins_SETUP_PY_VERSION "0.0.0")
-set(robohub_object_tracking_plugins_SETUP_PY_SCRIPTS "")
-set(robohub_object_tracking_plugins_SETUP_PY_PACKAGES "robohub_object_tracking_plugins")
-set(robohub_object_tracking_plugins_SETUP_PY_PACKAGE_DIRS "src/robohub_object_tracking_plugins")
-set(robohub_object_tracking_plugins_SETUP_PY_MODULES "")
-set(robohub_object_tracking_plugins_SETUP_PY_MODULE_DIRS "")

@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/install
-
-Name: jsk_rqt_plugins
-Description: Description of jsk_rqt_plugins
-Version: 2.1.5
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

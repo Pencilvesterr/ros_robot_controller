@@ -1,0 +1,5 @@
+panda_simulator/panda_simulator_support
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulator_support/cmake.lock /home/morgan/projects/ros_cws_hri_framework/devel/./cmake.lock
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulator_support/share/panda_simulator_support/cmake/panda_simulator_supportConfig.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/panda_simulator_support/cmake/panda_simulator_supportConfig.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulator_support/share/panda_simulator_support/cmake/panda_simulator_supportConfig-version.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/panda_simulator_support/cmake/panda_simulator_supportConfig-version.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulator_support/lib/pkgconfig/panda_simulator_support.pc /home/morgan/projects/ros_cws_hri_framework/devel/lib/pkgconfig/panda_simulator_support.pc

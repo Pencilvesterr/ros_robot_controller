@@ -1,0 +1,65 @@
+Getting the current robot pos
+-----
+
+import sys
+import copy
+import rospy
+import moveit_commander
+import moveit_msgs.msg
+import geometry_msgs.msg
+from math import pi
+from std_msgs.msg import String
+from moveit_commander.conversions import pose_to_list
+
+moveit_commander.roscpp_initialize(sys.argv)
+rospy.init_node('move_group_python_interface_tutorial', anonymous=True)
+
+robot = moveit_commander.RobotCommander()
+scene = moveit_commander.PlanningSceneInterface()
+group_name = "panda_arm"
+move_group = moveit_commander.MoveGroupCommander(group_name)
+move_group_hand = moveit_commander.MoveGroupCommander("hand")
+
+move_group.get_current_pose().pose
+
+
+Adding an object to the scene
+----
+pose = geometry_msgs.msg.PoseStamped()
+pose.header.frame_id = robot.get_planning_frame()
+pose.pose.position.x = 1
+scene.add_box("test", pose, (1, 1, 1))
+
+
+Getting the hand position
+----
+joint_goal = move_group_hand.get_current_joint_values()
+joint_goal[0] = 0.05
+joint_goal[1] = 0.05
+
+move_group_hand.go(joint_goal, wait=True)
+
+
+Calling a sercvice from CLI:
+-----
+rosservice call /move_robot "1"
+rosservice call /move_block "{block_number: 22, block_zone: 1}"
+rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 1, zone_selected: 2}'
+rostopic echo /gaze_object_selection
+
+// 1: All, 2: Traffic Light Shown, 3: Eye Gaze Published, 4: None
+rostopic pub /study_condition std_msgs/Int32 '1'
+
+
+
+Tutorial 
+-----
+rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 2, zone_selected: 2}'
+rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 1, zone_status: 1, zone_selected: 2}'
+rosservice call /move_robot "11"
+rosservice call /move_robot "0"
+rosservice call /move_robot "99"
+rosservice call /move_robot "2"
+rosservice call /move_robot "99"
+rosservice call /move_robot "0"
+

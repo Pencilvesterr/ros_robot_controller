@@ -1,0 +1,8 @@
+int64 ID
+bool update
+---
+bool success
+float64 angle
+float64[3] Cartesian_Pos
+float64[3] Cam_Pos
+string error

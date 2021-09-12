@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/devel/.private/posedetection_msgs
-
-Name: posedetection_msgs
-Description: Description of posedetection_msgs
-Version: 4.3.1
-Cflags: -I/home/morgan/projects/ros_cws_planner/devel/.private/posedetection_msgs/include -I/home/morgan/projects/ros_cws_planner/src/hri_framework/hrca_dependencies/jsk_common_msgs/posedetection_msgs/include
-Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs sensor_msgs geometry_msgs message_runtime

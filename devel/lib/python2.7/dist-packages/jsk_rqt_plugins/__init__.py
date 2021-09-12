@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/jsk_rqt_plugins/lib/python2.7/dist-packages/jsk_rqt_plugins/__init__.py

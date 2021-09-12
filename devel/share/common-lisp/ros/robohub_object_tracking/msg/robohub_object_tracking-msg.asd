@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/robohub_object_tracking/share/common-lisp/ros/robohub_object_tracking/msg/robohub_object_tracking-msg.asd

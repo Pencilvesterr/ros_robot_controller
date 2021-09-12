@@ -1,0 +1,5 @@
+int64 ID
+float64 angle
+---
+bool success
+string error

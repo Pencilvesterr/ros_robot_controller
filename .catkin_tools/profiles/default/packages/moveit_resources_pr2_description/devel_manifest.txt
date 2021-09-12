@@ -1,0 +1,5 @@
+moveit_resources/pr2_description
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_resources_pr2_description/cmake.lock /home/morgan/projects/ros_cws_hri_framework/devel/./cmake.lock
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_resources_pr2_description/share/moveit_resources_pr2_description/cmake/moveit_resources_pr2_descriptionConfig-version.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/moveit_resources_pr2_description/cmake/moveit_resources_pr2_descriptionConfig-version.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_resources_pr2_description/share/moveit_resources_pr2_description/cmake/moveit_resources_pr2_descriptionConfig.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/moveit_resources_pr2_description/cmake/moveit_resources_pr2_descriptionConfig.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_resources_pr2_description/lib/pkgconfig/moveit_resources_pr2_description.pc /home/morgan/projects/ros_cws_hri_framework/devel/lib/pkgconfig/moveit_resources_pr2_description.pc

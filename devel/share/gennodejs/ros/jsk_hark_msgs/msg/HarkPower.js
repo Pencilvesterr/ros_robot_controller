@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/jsk_hark_msgs/share/gennodejs/ros/jsk_hark_msgs/msg/HarkPower.js

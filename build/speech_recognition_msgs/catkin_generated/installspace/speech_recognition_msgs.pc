@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/install
-
-Name: speech_recognition_msgs
-Description: Description of speech_recognition_msgs
-Version: 4.3.1
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: std_msgs message_runtime

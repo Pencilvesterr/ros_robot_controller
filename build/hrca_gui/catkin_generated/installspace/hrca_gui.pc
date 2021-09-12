@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/install
-
-Name: hrca_gui
-Description: Description of hrca_gui
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

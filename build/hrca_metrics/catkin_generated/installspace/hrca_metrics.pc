@@ -1,8 +1,0 @@
-prefix=/home/morgan/projects/ros_cws_planner/install
-
-Name: hrca_metrics
-Description: Description of hrca_metrics
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

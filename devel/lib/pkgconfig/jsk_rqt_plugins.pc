@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/jsk_rqt_plugins/lib/pkgconfig/jsk_rqt_plugins.pc

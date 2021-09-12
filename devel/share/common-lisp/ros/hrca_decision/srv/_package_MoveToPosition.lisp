@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/share/common-lisp/ros/hrca_decision/srv/_package_MoveToPosition.lisp

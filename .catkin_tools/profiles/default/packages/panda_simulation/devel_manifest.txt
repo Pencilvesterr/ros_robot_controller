@@ -1,0 +1,9 @@
+panda_simulator/panda_simulation
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/cmake.lock /home/morgan/projects/ros_cws_hri_framework/devel/./cmake.lock
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/share/panda_simulation/cmake/panda_simulationConfig.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/panda_simulation/cmake/panda_simulationConfig.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/share/panda_simulation/cmake/panda_simulationConfig-version.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/panda_simulation/cmake/panda_simulationConfig-version.cmake
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/lib/libpanda_simulation_controllers_lib.so /home/morgan/projects/ros_cws_hri_framework/devel/lib/libpanda_simulation_controllers_lib.so
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/lib/panda_simulation/robot_state_initializer_node /home/morgan/projects/ros_cws_hri_framework/devel/lib/panda_simulation/robot_state_initializer_node
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/lib/panda_simulation/box_publisher_node /home/morgan/projects/ros_cws_hri_framework/devel/lib/panda_simulation/box_publisher_node
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/lib/panda_simulation/robot_control_node /home/morgan/projects/ros_cws_hri_framework/devel/lib/panda_simulation/robot_control_node
+/home/morgan/projects/ros_cws_hri_framework/devel/.private/panda_simulation/lib/pkgconfig/panda_simulation.pc /home/morgan/projects/ros_cws_hri_framework/devel/lib/pkgconfig/panda_simulation.pc

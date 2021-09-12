@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/hrca_decision/share/roseus/ros/hrca_decision/msg/cws_planning.l

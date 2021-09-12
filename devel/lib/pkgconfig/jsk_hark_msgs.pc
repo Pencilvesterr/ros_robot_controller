@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/jsk_hark_msgs/lib/pkgconfig/jsk_hark_msgs.pc

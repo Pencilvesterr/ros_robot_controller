@@ -1,1 +1,0 @@
-/home/morgan/projects/ros_cws_planner/devel/.private/hrca_msgs/share/common-lisp/ros/hrca_msgs/msg/RobotTaskAction.lisp
