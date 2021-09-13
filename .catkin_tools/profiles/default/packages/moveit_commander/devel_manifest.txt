@@ -1,6 +1,6 @@
 moveit/moveit_commander
-/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_commander/cmake.lock /home/morgan/projects/ros_cws_hri_framework/devel/./cmake.lock
-/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_commander/share/moveit_commander/cmake/moveit_commanderConfig.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/moveit_commander/cmake/moveit_commanderConfig.cmake
-/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_commander/share/moveit_commander/cmake/moveit_commanderConfig-version.cmake /home/morgan/projects/ros_cws_hri_framework/devel/share/moveit_commander/cmake/moveit_commanderConfig-version.cmake
-/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_commander/lib/pkgconfig/moveit_commander.pc /home/morgan/projects/ros_cws_hri_framework/devel/lib/pkgconfig/moveit_commander.pc
-/home/morgan/projects/ros_cws_hri_framework/devel/.private/moveit_commander/lib/python2.7/dist-packages/moveit_commander/__init__.py /home/morgan/projects/ros_cws_hri_framework/devel/lib/python2.7/dist-packages/moveit_commander/__init__.py
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_commander/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_commander/share/moveit_commander/cmake/moveit_commanderConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/moveit_commander/cmake/moveit_commanderConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_commander/share/moveit_commander/cmake/moveit_commanderConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/moveit_commander/cmake/moveit_commanderConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_commander/lib/python2.7/dist-packages/moveit_commander/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/moveit_commander/__init__.py
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_commander/lib/pkgconfig/moveit_commander.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/moveit_commander.pc
