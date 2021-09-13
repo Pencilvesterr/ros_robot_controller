@@ -73,7 +73,6 @@ class NodeManagerMoveIt(object):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_interface = panda_interface
         self.current_cws = 0
-        self.moh = MoveitObjectHandler()
         
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
@@ -114,12 +113,14 @@ class NodeManagerMoveIt(object):
         self.panda_interface.move_to_neutral()
         # Add blocks to scene individually as otherwise they prevent motion plan being found
         self.panda_interface._add_block_scene(req.block_number)
-        
-        pick_pose, place_pose = self.panda_interface.create_pick_place_poses(req.block_number, req.block_zone)
-        result = self._call_server("pick_and_place", pick_pose, place_pose, str(req.block_number))
-        
+        self.panda_interface.grap_object(req.block_number)
+        self.panda_interface.move_to_neutral()
+        self.panda_interface.move_to_neutral_zoneside()
+        self.panda_interface.place_object(req.block_number, req.block_zone)
+        self.self.panda_interface.move_to_neutral_zoneside()
+                
         # TODO: Exception handling if the result is bad, and respond MoveBlockResponse(False)    
-        return MoveBlockResponse(result.success)
+        return MoveBlockResponse(True)
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves for each position"""
@@ -173,35 +174,6 @@ class NodeManagerMoveIt(object):
 
         return True
     
-    def _call_server(self, action, pose1, pose2, obj_name):       
-        rospy.wait_for_service('/panda_arm_server/get_robot_pose', 20)
-        try:
-            get_obj_pos = rospy.ServiceProxy('/panda_arm_server/get_robot_pose', GetRobotPose)
-            pose_resp = get_obj_pos('world')
-        except rospy.ServiceException as e:
-            print("Service call failed: %s"%e)
-        
-        
-        client = actionlib.SimpleActionClient('panda_arm_server', RobotTaskAction)
-        # print("waiting for server")
-        client.wait_for_server(rospy.Duration(10))
-
-        goal = RobotTaskGoal()
-        goal.action = action
-        goal.pose1 = pose1
-        goal.pose2 = pose2
-        goal.object_name = obj_name
-
-        client.send_goal(goal, feedback_cb=self._feedback_cb)
-        rospy.logwarn('waiting result')
-        client.wait_for_result()
-        result = client.get_result()
-
-        return result
-    
-    def _feedback_cb(self, msg):
-        print msg
-    
 
 class MoveGroupPythonInteface(object):   
     BLOCK_LENGTH =  0.05
@@ -216,9 +188,13 @@ class MoveGroupPythonInteface(object):
         self.scene = moveit_commander.PlanningSceneInterface()
         
         # Uses the Panda Arm Server
-        real_robot = rospy.get_param("/using_real_robot", default=True)
-        self.panda_arm = PandaArm(simulation=real_robot)
+        self.object_handler = MoveitObjectHandler()
+
+        self.simulation_mode = rospy.get_param("/simulation", default=True)
+        rospy.loginfo("Using simulated robot: " + str(self.simulation_mode))
+        self.panda_arm = PandaArm(simulation=self.simulation_mode)
         
+        #TODO: Remove these 
         # Interface for planning group of joints. Can be used to plan and execute motions:
         group_name_arm = "panda_arm"
         self.move_group_arm = moveit_commander.MoveGroupCommander(group_name_arm)
@@ -229,7 +205,7 @@ class MoveGroupPythonInteface(object):
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to display trajectories in Rviz:
         self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
-                                                    queue_size=20)
+                                                    queue_size=20) 
   
     def add_scene_objects(self):
         TABLE_HEIGHT = 0.01
@@ -276,22 +252,7 @@ class MoveGroupPythonInteface(object):
             if not self._wait_for_state_update(object_name, box_is_known=True):
                 rospy.logerr("Collision objects for {} failed to add to scene".format(object_name))
                 
-    def call_arm_server(action, pose1, pose2, obj_name):
-        """Call the panda arm server with an action to complete."""
-        client = actionlib.SimpleActionClient('panda_arm_server', RobotTaskAction)
-        client.wait_for_server()
 
-        goal = RobotTaskGoal()
-        goal.action = action
-        goal.pose1 = pose1
-        goal.pose2 = pose2
-        goal.object_name = obj_name
-
-        client.send_goal(goal, feedback_cb=feedback_cb)
-        client.wait_for_result()
-        result = client.get_result()
-
-        return result
                   
     def move_to_pose_goal(self, pose_goal):
         """Move the EE to the pose goal given by a geometry_msgs.msg.Pose()."""
@@ -310,16 +271,23 @@ class MoveGroupPythonInteface(object):
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
         self.panda_arm.move_to_home()
-
  
     def move_to_neutral_zoneside(self):
-        self.panda_arm.move_to_joint_position([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
-        
+        joint_goals = self._get_joint_goals([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
+        self.panda_arm.move_to_joint_positions(joint_goals) 
+
     def move_to_zoneside_preplace(self):
-        self.panda_arm.move_to_joint_position([2.5, 0.1, 0, -pi/2, 0, pi/2, 0]) 
-        
-    def create_pick_place_poses(self, block_number, block_zone_int):     
+        joint_goals = self._get_joint_goals([2.5, 0.1, 0, -pi/2, 0, pi/2, 0])
+        self.panda_arm.move_to_joint_positions(joint_goals) 
+
+    def _get_joint_goals(joint_angles):
+        joint_goal = self.panda_arm.get_current_joint_values()
+        for idx in range(len(joint_angles)):
+            joint_goal[idx] = joint_angles[idx]
+
+    def grap_object(self, block_number):
         WRITST_TO_GRIPPER = 0.113
+        HOVER_Z_HEIGHT = 0.1
            
         block_coordinates = RobotPositions.block_locations[block_number]
         block_position = (block_coordinates['position']['x'], 
@@ -327,16 +295,27 @@ class MoveGroupPythonInteface(object):
                           self.BLOCK_LENGTH/2) 
                
         grasp_position = (block_position[0], block_position[1], block_position[2] + WRITST_TO_GRIPPER) 
+        grasp_hover_position = (block_position[0], block_position[1], block_position[2] + WRITST_TO_GRIPPER + HOVER_Z_HEIGHT) 
+
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, -pi/4)
-        pick_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w)) 
+        grasp_hover_pose = self._get_pose_stamped(position=grasp_hover_position, orientation=(x,y,z,w))
+        grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w)) 
+
+        success = self.panda_arm.move_to_pose(grasp_hover_pose)
+        success = self.panda_arm.move_to_pose(grasp_pose)
+
+        if not self.simulation_mode:
+            self.panda_arm.grasp(width=self.BLOCK_LENGTH, e_inner=0.01, e_outer=0.01, speed=0.1, force=1)
+        self.object_handler.attach_gripper_object(str(block_number), self.panda_arm, "hand")
+
     
+    def place_object(self, block_number, block_zone_int):
+        """Place the object at a location, assuming starting at neutral_zoneside"""
         ZONE_PLACEMENT_HEIGHT = 0.15
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         block_name = str(block_number)
         rospy.loginfo("Placing in zone " + str(block_zone_int))
-        
-        place_loc = moveit_msgs.msg.PlaceLocation()
         
         place_position = (zone_coordinates['position']['x'], 
                           zone_coordinates['position']['y'],
@@ -346,11 +325,13 @@ class MoveGroupPythonInteface(object):
         x,y,z,w = tf.transformations.quaternion_from_euler(0, 0, pi) 
         place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
         
-        return pick_pose, place_pose
+        success = self.panda_arm.move_to_pose(place_pose)
 
-    
-    
-           
+        if not self.simulation_mode:
+            self.panda_arm.open_gripper()
+
+        self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, False)
+        
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""
         # PoseStamped has a header which is required when adding collision objects to scene
@@ -397,15 +378,9 @@ class MoveGroupPythonInteface(object):
                 pose_goal.orientation.z = coordinates['orientation']['z']
 
         return pose_goal
-    
-    def _move_to_joint(self, added_values):
-        joint_goal = self.move_group_arm.get_current_joint_values()
-        for idx in range(len(added_values)):
-            joint_goal[idx] = added_values[idx]
-
-        self.move_group_arm.go(joint_goal, wait=True)
         
     def _add_block_scene(self, block_number):
+        # TODO: Seems this isnt used anymore
         block_name = str(block_number)
         block_size = (self.BLOCK_LENGTH, self.BLOCK_LENGTH, self.BLOCK_LENGTH)
         x =  RobotPositions.block_locations[block_number]['position']['x']
@@ -468,12 +443,7 @@ class MoveGroupPythonInteface(object):
         return True
 
 
-
 if __name__ == '__main__': 
-
-    # result = rospy.get_param(found)
-    # rospy.logerr("Param Value: {}".format(result))
-    
     panda_interface = MoveGroupPythonInteface()
     node_manager = NodeManagerMoveIt(panda_interface)
     node_manager.start_services()

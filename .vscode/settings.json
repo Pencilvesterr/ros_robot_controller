@@ -6,5 +6,6 @@
     "python.analysis.extraPaths": [
         "/home/morgan/projects/ros_cws_hri_framework/devel/lib/python2.7/dist-packages",
         "/opt/ros/melodic/lib/python2.7/dist-packages"
-    ]
+    ],
+    "cmake.configureOnOpen": true
 }

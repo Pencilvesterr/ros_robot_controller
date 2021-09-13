@@ -364,7 +364,7 @@ class ArmServer(object):
 
 if __name__ == '__main__':
     rospy.init_node('panda_arm_server')
-    panda_arm = PandaArm(simulation=False)
+    panda_arm = PandaArm(simulation=True)
     panda_arm.set_end_effector_link("panda_gripper_center")
     # panda_arm.set_end_effector_link("panda_link7")
     panda_arm.moveit_arm_group.set_pose_reference_frame("panda_link0")
