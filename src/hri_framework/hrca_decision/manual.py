@@ -39,8 +39,8 @@ def main():
     ob_pose = create_pose_stamped(create_pose(-0.35,-0.4,-0.15,obj_ori[0],obj_ori[1],obj_ori[2],obj_ori[3]),"world")
     objects.add_box_object("table2", pose = ob_pose, size = (1,0.5,0.3))
 
-    ob_pose = create_pose_stamped(create_pose(-0.5,0.275,0.6,obj_ori[0],obj_ori[1],obj_ori[2],obj_ori[3]),"world")
-    objects.add_box_object("wall", pose = ob_pose, size = (1.2,0.1,1.2))  
+    #ob_pose = create_pose_stamped(create_pose(-0.5,0.275,0.6,obj_ori[0],obj_ori[1],obj_ori[2],obj_ori[3]),"world")
+    #objects.add_box_object("wall", pose = ob_pose, size = (1.2,0.1,1.2))  
 
     """ob_pose = create_pose_stamped(create_pose(-0.4,0,0.85,obj_ori[0],obj_ori[1],obj_ori[2],obj_ori[3]),"world")
     objects.add_box_object("roof", pose = ob_pose, size = (3,3,0.1))

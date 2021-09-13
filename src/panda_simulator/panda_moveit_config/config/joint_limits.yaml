@@ -7,10 +7,13 @@
 # to max accel in 1 ms) the acceleration limits are the ones that satisfy
 # max_jerk = (max_acceleration - min_acceleration) / 0.001
 
+# Joint limits have been updated to prevent strange motion.
+# The real limits can be found below (notably, joint1 min_pos has been restricted)
+# https://frankaemika.github.io/docs/control_parameters.html
 joint_limits:
   panda_joint1:
-    max_position: 0.5
-    min_position: -2.7973
+    max_position: 2.8
+    min_position: -0.5
     has_velocity_limits: true
     max_velocity: 2.1750
     has_acceleration_limits: true

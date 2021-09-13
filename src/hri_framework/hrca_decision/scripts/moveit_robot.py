@@ -117,7 +117,7 @@ class NodeManagerMoveIt(object):
         self.panda_interface.move_to_neutral()
         self.panda_interface.move_to_neutral_zoneside()
         self.panda_interface.place_object(req.block_number, req.block_zone)
-        self.self.panda_interface.move_to_neutral_zoneside()
+        self.panda_interface.move_to_neutral_zoneside()
                 
         # TODO: Exception handling if the result is bad, and respond MoveBlockResponse(False)    
         return MoveBlockResponse(True)
@@ -222,27 +222,28 @@ class MoveGroupPythonInteface(object):
                 'size': (3, 3, TABLE_HEIGHT),
                 'position': (-1.8, 0, -TABLE_HEIGHT/2)
             },
-            'table_fill_middle': {
-                'size': (0.6, 0.6, TABLE_HEIGHT),
-                'position': (0, 0.5, -TABLE_HEIGHT/2)
-            },
-            'user_side_prevention': {
-                'size': (1, 0.05, 1.4),
-                'position': (-0.2, -0.4, 0.7)
-            },
-            'computer_side_prevention': {
-                'size': (1, 0.05, 1.4),
-                'position': (-0.2, 0.6, 0.7)
-            },
-            'twist_motion_prevention': {
-                'size': (0.2, 0.4, 1),
-                'position': (-0.4, -0.3, 0.7)
-            },
-            'height_prevention': {
-                'size': (2, 2, 0.01),
-                'position': (0, 0, 0.9)
-            }
         }
+        #     'table_fill_middle': {
+        #         'size': (0.6, 0.6, TABLE_HEIGHT),
+        #         'position': (0, 0.5, -TABLE_HEIGHT/2)
+        #     },
+        #     'user_side_prevention': {
+        #         'size': (1, 0.05, 1.4),
+        #         'position': (-0.2, -0.4, 0.7)
+        #     },
+        #     'computer_side_prevention': {
+        #         'size': (1, 0.05, 1.4),
+        #         'position': (-0.2, 0.6, 0.7)
+        #     },
+        #     'twist_motion_prevention': {
+        #         'size': (0.2, 0.4, 1),
+        #         'position': (-0.4, -0.3, 0.7)
+        #     },
+        #     'height_prevention': {
+        #         'size': (2, 2, 0.01),
+        #         'position': (0, 0, 0.9)
+        #     }
+        # }
         
         for object_name in scene_objects.keys():
             position = scene_objects[object_name]['position']
@@ -273,14 +274,14 @@ class MoveGroupPythonInteface(object):
         self.panda_arm.move_to_home()
  
     def move_to_neutral_zoneside(self):
-        joint_goals = self._get_joint_goals([2.5, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785])
-        self.panda_arm.move_to_joint_positions(joint_goals) 
+        rospy.loginfo("Moving to zoneside")
+        success = self.panda_arm.move_to_joint_positions([2.7, -0.78, 0.0, -2.36, 0, 1.57, 0.78]) 
 
     def move_to_zoneside_preplace(self):
         joint_goals = self._get_joint_goals([2.5, 0.1, 0, -pi/2, 0, pi/2, 0])
         self.panda_arm.move_to_joint_positions(joint_goals) 
 
-    def _get_joint_goals(joint_angles):
+    def _get_joint_goals(self, joint_angles):
         joint_goal = self.panda_arm.get_current_joint_values()
         for idx in range(len(joint_angles)):
             joint_goal[idx] = joint_angles[idx]
@@ -331,6 +332,7 @@ class MoveGroupPythonInteface(object):
             self.panda_arm.open_gripper()
 
         self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, False)
+        self.object_handler.remove_world_object(str(block_name))
         
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""
