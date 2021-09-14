@@ -1,46 +1,5 @@
 #!/usr/bin/env python
 
-# Software License Agreement (BSD License)
-#
-# Copyright (c) 2013, SRI International
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions
-# are met:
-#
-#  * Redistributions of source code must retain the above copyright
-#    notice, this list of conditions and the following disclaimer.
-#  * Redistributions in binary form must reproduce the above
-#    copyright notice, this list of conditions and the following
-#    disclaimer in the documentation and/or other materials provided
-#    with the distribution.
-#  * Neither the name of SRI International nor the names of its
-#    contributors may be used to endorse or promote products derived
-#    from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-# POSSIBILITY OF SUCH DAMAGE.
-#
-# Original author: Acorn Pooley, Mike Lautman
-# Updated: Morgan Crouch
-
-
-## To use the Python MoveIt interfaces, we will import the `moveit_commander`_ namespace.
-## This namespace provides us with a `MoveGroupCommander`_ class, a `PlanningSceneInterface`_ class,
-## and a `RobotCommander`_ class. More on these below. We also import `rospy`_ and some messages that we will use:
-##
-
 import sys
 import copy
 import rospy
@@ -246,15 +205,6 @@ class MoveGroupPythonInteface(object):
         rospy.loginfo("Moving to zoneside")
         success = self.panda_arm.move_to_joint_positions([2.7, -0.78, 0.0, -2.36, 0, 1.57, 0.78]) 
 
-    def move_to_zoneside_preplace(self):
-        joint_goals = self._get_joint_goals([2.5, 0.1, 0, -pi/2, 0, pi/2, 0])
-        self.panda_arm.move_to_joint_positions(joint_goals) 
-
-    def _get_joint_goals(self, joint_angles):
-        joint_goal = self.panda_arm.get_current_joint_values()
-        for idx in range(len(joint_angles)):
-            joint_goal[idx] = joint_angles[idx]
-
     def grap_object(self, block_number):
         WRITST_TO_GRIPPER = 0.113
         HOVER_Z_HEIGHT = 0.1
@@ -330,6 +280,7 @@ class MoveGroupPythonInteface(object):
         return pose_msg
 
     def _get_pose_from_dict(self, coordinates, orientation=True, pose_stamped=False):
+        # TODO: Function only used by service to go to specific location. Might not be needed
         if pose_stamped:
             pose_goal = geometry_msgs.msg.PoseStamped()
             pose_goal.header.frame_id = "panda_link0"
@@ -358,7 +309,6 @@ class MoveGroupPythonInteface(object):
         return pose_goal
         
     def _add_block_scene(self, block_number):
-        # TODO: Seems this isnt used anymore
         block_name = str(block_number)
         block_size = (self.BLOCK_LENGTH, self.BLOCK_LENGTH, self.BLOCK_LENGTH)
         x =  RobotPositions.block_locations[block_number]['position']['x']
@@ -398,28 +348,6 @@ class MoveGroupPythonInteface(object):
 
         return False
     
-    def _all_close(self, goal, actual, tolerance):
-        """
-        Convenience method for testing if a list of values are within a tolerance of their counterparts in another list
-        @param: goal       A list of floats, a Pose or a PoseStamped
-        @param: actual     A list of floats, a Pose or a PoseStamped
-        @param: tolerance  A float
-        @returns: bool
-        """
-        all_equal = True
-        if type(goal) is list:
-            for index in range(len(goal)):
-                if abs(actual[index] - goal[index]) > tolerance:
-                    return False
-
-        elif type(goal) is geometry_msgs.msg.PoseStamped:
-            return self._all_close(goal.pose, actual.pose, tolerance)
-
-        elif type(goal) is geometry_msgs.msg.Pose:
-            return self._all_close(pose_to_list(goal), pose_to_list(actual), tolerance)
-
-        return True
-
 
 if __name__ == '__main__': 
     panda_interface = MoveGroupPythonInteface()
