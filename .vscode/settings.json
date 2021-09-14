@@ -7,5 +7,10 @@
         "/home/morgan/projects/ros_cws_hri_framework/devel/lib/python2.7/dist-packages",
         "/opt/ros/melodic/lib/python2.7/dist-packages"
     ],
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "files.watcherExclude": {
+        "**/build/**": true,
+        "**/devel/**": true,
+        "**/logs/**": true
+    }
 }
