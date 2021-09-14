@@ -8,5 +8,4 @@
     <!--Cant manage to get the webserver launching at the same time...  include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/> -->
     <node pkg="hrca_decision" name="moveit_robot" type="moveit_robot.py" output="screen" clear_params="true" launch-prefix= "gnome-terminal --command" />
     <node pkg="hrca_decision" name="robot_coordinator" type="robot_manager.py" output="screen" launch-prefix= "gnome-terminal --command" />
-    <node pkg="hrca_action" name="panda_arm_server" type="panda_arm_server.py" output="screen" launch-prefix= "gnome-terminal --command" />
 </launch>
