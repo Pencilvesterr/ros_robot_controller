@@ -208,7 +208,8 @@ class MoveGroupPythonInteface(object):
     def grap_object(self, block_number):
         WRITST_TO_GRIPPER = 0.113
         HOVER_Z_HEIGHT = 0.1
-           
+    
+        rospy.loginfo("Picking block " + str(block_number))
         block_coordinates = RobotPositions.block_locations[block_number]
         block_position = (block_coordinates['position']['x'], 
                           block_coordinates['position']['y'],
@@ -236,7 +237,6 @@ class MoveGroupPythonInteface(object):
         ZONE_PLACEMENT_HEIGHT = 0.35
         ZONE_PLACEMENT_HOVER = 0.1
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
-        block_name = str(block_number)
         rospy.loginfo("Placing in zone " + str(block_zone_int))
         
         place_position = (zone_coordinates['position']['x'], 
@@ -258,7 +258,7 @@ class MoveGroupPythonInteface(object):
             self.panda_arm.open_gripper()
 
         self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, False)
-        self.object_handler.remove_world_object(str(block_name))
+        self.object_handler.remove_world_object(str(block_number))
         
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""

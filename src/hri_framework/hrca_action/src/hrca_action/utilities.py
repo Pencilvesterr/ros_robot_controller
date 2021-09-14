@@ -242,7 +242,6 @@ class MoveitObjectHandler(object):
         ''' 
         assert object_name is not None, 'Please pass in an object_name for the object!'
         self.planning_scene_interface.remove_world_object(object_name)
-        self.clear_octomap()
 
     def get_object_positions(self, object_name):
         '''
@@ -272,7 +271,6 @@ class MoveitObjectHandler(object):
         object_name = str(object_name)
         eef_link = arm.get_end_effector_link()
         touch_links = arm.robot.get_link_names(group=gripper_planning_group)
-        self.clear_octomap()
         self.planning_scene_interface.attach_box(eef_link, object_name, touch_links=touch_links)
 
     def detach_gripper_object(self, object_name, arm, remove_from_world=False):
@@ -293,9 +291,6 @@ class MoveitObjectHandler(object):
         if remove_from_world is True:
             self.remove_world_object(object_name)
         
-        self.clear_octomap()
-
-
     def wait_for_planning_scene_object(self, object_name):
         '''
         Waits for object to appear in planning scene

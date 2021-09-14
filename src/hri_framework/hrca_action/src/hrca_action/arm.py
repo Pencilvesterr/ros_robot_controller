@@ -160,8 +160,6 @@ class Arm(object):
                 raise ValueError('MoveIt! is not initialized, '
                                  'did you pass in use_moveit=True?')
 
-            rospy.loginfo('MoveIt! Motion Planning...')
-
             success = self.moveit_arm_group.go(joint_goals, wait)
             self.moveit_arm_group.stop()
         else:
