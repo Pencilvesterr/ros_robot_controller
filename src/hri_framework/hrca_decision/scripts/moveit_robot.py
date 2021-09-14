@@ -310,6 +310,7 @@ class MoveGroupPythonInteface(object):
             self.panda_arm.grasp(width=self.BLOCK_LENGTH, e_inner=0.01, e_outer=0.01, speed=0.1, force=1)
         self.object_handler.attach_gripper_object(str(block_number), self.panda_arm, "hand")
 
+        success = self.panda_arm.move_to_pose(grasp_hover_pose)
     
     def place_object(self, block_number, block_zone_int):
         """Place the object at a location, assuming starting at neutral_zoneside"""
