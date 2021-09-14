@@ -65,8 +65,12 @@ class RobotNode(object):
                     continue
                 
                 self._update_AR_selection(next_block, next_zone, LightStatus.yellow)
+                # May already be reset, so ensures it always waits atleast LONG_PAUSE seconds
+                start_pause = timeit.default_timer()
                 resp = self.srv_reset_robot()
-                rospy.sleep(self.LONG_PAUSE)
+                paused_time = timeit.default_timer() - start_pause
+                if paused_time <= self.LONG_PAUSE:
+                    rospy.sleep(self.LONG_PAUSE - paused_time)
 
                 selection_valid = self.selection_still_valid(next_block, next_zone)
                 if not selection_valid:
