@@ -62,6 +62,7 @@ class NodeManagerMoveIt(object):
         rospy.loginfo("Moving from block number {} to zone {}".format(
             str(req.block_number), str(req.block_zone)))
         
+        # Reset position should be done by robot_manager.py, but just incase
         self.panda_interface.move_to_neutral()
         # Add blocks to scene individually as otherwise they prevent motion plan being found
         self.panda_interface._add_block_scene(req.block_number)
@@ -258,6 +259,7 @@ class MoveGroupPythonInteface(object):
             self.panda_arm.open_gripper()
 
         self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, False)
+        rospy.sleep(0.05)  # Need to sleep before or else it gets skipped over...
         self.object_handler.remove_world_object(str(block_number))
         
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import rospy
 import random
+import timeit
 
 from std_msgs.msg import String, Int16, Int32
 from hrca_decision.msg import TrafficLight
@@ -39,7 +40,8 @@ class RobotNode(object):
         
         rospy.loginfo("---Robot Node Initialised---")
     
-    def start(self):
+    def run_node(self):
+        self.start_time = timeit.default_timer()
         resp = self.srv_reset_robot()
         if resp.success == False:
             rospy.logerror("Unable to reset robot, ending node")
@@ -63,6 +65,7 @@ class RobotNode(object):
                     continue
                 
                 self._update_AR_selection(next_block, next_zone, LightStatus.yellow)
+                resp = self.srv_reset_robot()
                 rospy.sleep(self.LONG_PAUSE)
 
                 selection_valid = self.selection_still_valid(next_block, next_zone)
@@ -138,10 +141,11 @@ class RobotNode(object):
         rospy.loginfo("------------------")
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
         rospy.loginfo("Robot replanned {} times".format(self.replan_count))
+        rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
         # Spin keeps the terminal open while allowing you to ctrl c at any time
         rospy.spin()
 
 
 if __name__ == '__main__': 
     robot_node = RobotNode()
-    robot_node.start()
+    robot_node.run_node()
