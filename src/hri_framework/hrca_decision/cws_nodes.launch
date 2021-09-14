@@ -1,9 +1,7 @@
 <launch>
     <param name="short_pause" value="0.1"/>
     <param name="long_pause" value="0.1"/>
-    <param name="max_velocity" value="1"/>
     <param name="simulation" value="True"/>
-    <param name="reduced_velocity" value="1"/>
     <include file="$(find panda_moveit_config)/launch/demo.launch"/>
     <!--Cant manage to get the webserver launching at the same time...  include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/> -->
     <node pkg="hrca_decision" name="moveit_robot" type="moveit_robot.py" output="screen" clear_params="true" launch-prefix= "gnome-terminal --command" />

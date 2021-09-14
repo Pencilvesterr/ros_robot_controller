@@ -77,12 +77,6 @@ class NodeManagerMoveIt(object):
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
         
-        # Param values coming from launch file
-        # TODO: See if this is needed with the new hri_framework methods
-        self.FULL_MAX_VELOCITY = rospy.get_param("/max_velocity", default=0.4)
-        self.REDUCED_MAX_VELOCITY = rospy.get_param("/reduced_velocity", default=0.1)   
-        self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY) 
-        
         self.panda_interface.add_scene_objects()
         
     def start_services(self):
