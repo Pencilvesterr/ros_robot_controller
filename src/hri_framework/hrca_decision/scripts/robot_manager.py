@@ -36,7 +36,7 @@ class RobotNode(object):
         rospy.wait_for_service('/reset_to_neutral')
         # Params coming from the relevant launch file 
         self.SHORT_PAUSE = rospy.get_param('/short_pause', default=1)
-        self.LONG_PAUSE = rospy.get_param('/short_pause', default=4)        
+        self.LONG_PAUSE = rospy.get_param('/long_pause', default=4)        
         
         rospy.loginfo("---Robot Node Initialised---")
     
