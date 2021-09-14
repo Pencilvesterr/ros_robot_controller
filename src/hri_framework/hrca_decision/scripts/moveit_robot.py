@@ -32,7 +32,12 @@ class NodeManagerMoveIt(object):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_interface = panda_interface
         self.current_cws = 0
-        
+        # Upper limit on scalling factor for val and accel
+        #TODO: Update
+        self.high_factor = 0.8
+        self.default_vel = panda_interface.panda_arm.max_vel
+        self.default_accel = panda_interface.panda_arm.max_accel
+
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
         self.panda_interface.add_scene_objects()
@@ -58,7 +63,7 @@ class NodeManagerMoveIt(object):
         '''        
         if not self._valid_move_block_srv_args(req):
             return MoveBlockResponse(False)
-
+        
         rospy.loginfo("Moving from block number {} to zone {}".format(
             str(req.block_number), str(req.block_zone)))
         
@@ -68,7 +73,9 @@ class NodeManagerMoveIt(object):
         self.panda_interface._add_block_scene(req.block_number)
         self.panda_interface.grap_object(req.block_number)
         self.panda_interface.move_to_neutral()
+        self.panda_interface.panda_arm.set_movement_scaling_factors(self.high_factor, self.high_factor)
         self.panda_interface.move_to_neutral_zoneside()
+        self.panda_interface.panda_arm.reset_movement_scaling_factors()
         self.panda_interface.place_object(req.block_number, req.block_zone)
         self.panda_interface.move_to_neutral_zoneside()
                 
@@ -103,13 +110,16 @@ class NodeManagerMoveIt(object):
                 coordinates = RobotPositions.block_locations[req.position_number]
 
         pose_goal = self.panda_interface._get_pose_from_dict(coordinates, pose_stamped=True)
-        self.panda_arm.move_to_pose(pose_goal)
+        self.panda_arm.move_to_pose(pose_goal, self.default_vel, self.default_accel)
 
         return MoveToPositionResponse(True)
 
     def callback_return_neutral(self, req):
         try:
+            self.panda_interface.panda_arm.set_movement_scaling_factors(
+                self.high_factor, self.high_factor)
             self.panda_interface.move_to_neutral()
+            self.panda_interface.panda_arm.reset_movement_scaling_factors()
             return ResetRobotResponse(True)
         
         # Would be useful to know what type of exception we expect...
@@ -136,8 +146,6 @@ class MoveGroupPythonInteface(object):
         super(MoveGroupPythonInteface, self).__init__()
 
         moveit_commander.roscpp_initialize(sys.argv)
-        # Provides information such as the robot's kinematic model and the robot's current joint states
-        self.robot = moveit_commander.RobotCommander()
         # Manages robot's internal understanding of the surrounding world:
         self.scene = moveit_commander.PlanningSceneInterface()
         
@@ -148,10 +156,17 @@ class MoveGroupPythonInteface(object):
         rospy.loginfo("Using simulated robot: " + str(self.simulation_mode))
         self.panda_arm = PandaArm(simulation=self.simulation_mode)
         
+        # #TODO: Remove
+        # self.panda_arm.max_vel = 0.05
+        # self.panda_arm.max_accel = 0.05
+        
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to display trajectories in Rviz:
         self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
                                                     queue_size=20) 
+
+        self.default_vel = self.panda_arm.max_vel
+        self.default_accel = self.panda_arm.max_accel
   
     def add_scene_objects(self):
         TABLE_HEIGHT = 0.01
@@ -224,14 +239,14 @@ class MoveGroupPythonInteface(object):
         grasp_hover_pose = self._get_pose_stamped(position=grasp_hover_position, orientation=(x,y,z,w))
         grasp_pose = self._get_pose_stamped(position=grasp_position, orientation=(x,y,z,w)) 
 
-        success = self.panda_arm.move_to_pose(grasp_hover_pose)
-        success = self.panda_arm.move_to_pose(grasp_pose)
+        success = self.panda_arm.move_to_pose(grasp_hover_pose, self.default_vel, self.default_accel)
+        success = self.panda_arm.move_to_pose(grasp_pose, self.default_vel, self.default_accel)
 
         if not self.simulation_mode:
             self.panda_arm.grasp(width=self.BLOCK_LENGTH, e_inner=0.01, e_outer=0.01, speed=0.1, force=1)
         self.object_handler.attach_gripper_object(str(block_number), self.panda_arm, "hand")
 
-        success = self.panda_arm.move_to_pose(grasp_hover_pose)
+        success = self.panda_arm.move_to_pose(grasp_hover_pose, self.default_vel, self.default_accel)
     
     def place_object(self, block_number, block_zone_int):
         """Place the object at a location, assuming starting at neutral_zoneside"""
@@ -252,8 +267,8 @@ class MoveGroupPythonInteface(object):
         place_hover_pose = self._get_pose_stamped(position=place_hover_position, orientation=(x,y,z,w))
         place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
         
-        success = self.panda_arm.move_to_pose(place_hover_pose)
-        success = self.panda_arm.move_to_pose(place_pose)
+        success = self.panda_arm.move_to_pose(place_hover_pose, self.default_vel, self.default_accel)
+        success = self.panda_arm.move_to_pose(place_pose, self.default_vel, self.default_accel)
 
         if not self.simulation_mode:
             self.panda_arm.open_gripper()

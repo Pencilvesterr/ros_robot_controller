@@ -166,6 +166,21 @@ class Arm(object):
             pass #TODO: implement non-moveit joint positions
 
         return success
+
+    def set_movement_scaling_factors(self, velocity_scaling, acceleration_scaling):
+        """
+        Change the available velocity and acceleration as a percentage of their max.
+
+        :param velocity_scaling: Percentage of max velocity available [0.0, 1.0]
+        :param acceleration_scaling: Percentage of max acceleration available [0.0, 1.0]
+        """
+
+        self.moveit_arm_group.set_max_velocity_scaling_factor(velocity_scaling)
+        self.moveit_arm_group.set_max_acceleration_scaling_factor(acceleration_scaling) 
+
+    def reset_movement_scaling_factors(self):
+        """Reset vel and accel scaling factors to default."""
+        self.set_movement_scaling_factors(velocity_scaling=self.max_vel, acceleration_scaling=self.max_accel)
     
     def move_to_pose(self, pose, vel=0.25, accel=0.25, wait=True):
         """
