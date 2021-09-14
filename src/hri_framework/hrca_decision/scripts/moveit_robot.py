@@ -76,7 +76,6 @@ class NodeManagerMoveIt(object):
         
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
-        
         self.panda_interface.add_scene_objects()
         
     def start_services(self):
@@ -118,6 +117,7 @@ class NodeManagerMoveIt(object):
 
     def callback_move_position(self, req):
         """Utility service to check where the robot moves for each position"""
+        # TODO: Is this needed anymore? Not sure it'll work as expected
         if req.position_number == 0:
             self.panda_interface.move_to_neutral()
             return MoveToPositionResponse(True)
@@ -188,11 +188,6 @@ class MoveGroupPythonInteface(object):
         rospy.loginfo("Using simulated robot: " + str(self.simulation_mode))
         self.panda_arm = PandaArm(simulation=self.simulation_mode)
         
-        #TODO: Remove these 
-        # Interface for planning group of joints. Can be used to plan and execute motions:
-        group_name_arm = "panda_arm"
-        self.move_group_arm = moveit_commander.MoveGroupCommander(group_name_arm)
-
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to display trajectories in Rviz:
         self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
