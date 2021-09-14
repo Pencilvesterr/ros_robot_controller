@@ -83,7 +83,7 @@ class NodeManagerMoveIt(object):
         self.REDUCED_MAX_VELOCITY = rospy.get_param("/reduced_velocity", default=0.1)   
         self.panda_interface.move_group_arm.set_max_velocity_scaling_factor(self.FULL_MAX_VELOCITY) 
         
-        #self.panda_interface.add_scene_objects()
+        self.panda_interface.add_scene_objects()
         
     def start_services(self):
         # Reset Panda to home position between runs
@@ -222,28 +222,27 @@ class MoveGroupPythonInteface(object):
                 'size': (3, 3, TABLE_HEIGHT),
                 'position': (-1.8, 0, -TABLE_HEIGHT/2)
             },
+            'table_fill_middle': {
+                'size': (0.6, 0.6, TABLE_HEIGHT),
+                'position': (0, 0.5, -TABLE_HEIGHT/2)
+            },
+            'user_side_prevention': {
+                'size': (1, 0.05, 1.4),
+                'position': (-0.2, -0.4, 0.7)
+            },
+            'computer_side_prevention': {
+                'size': (1, 0.05, 1.4),
+                'position': (-0.2, 0.6, 0.7)
+            },
+            'twist_motion_prevention': {
+                'size': (0.2, 0.4, 1),
+                'position': (-0.4, -0.3, 0.7)
+            },
+            'height_prevention': {
+                'size': (2, 2, 0.01),
+                'position': (0, 0, 0.9)
+            }
         }
-        #     'table_fill_middle': {
-        #         'size': (0.6, 0.6, TABLE_HEIGHT),
-        #         'position': (0, 0.5, -TABLE_HEIGHT/2)
-        #     },
-        #     'user_side_prevention': {
-        #         'size': (1, 0.05, 1.4),
-        #         'position': (-0.2, -0.4, 0.7)
-        #     },
-        #     'computer_side_prevention': {
-        #         'size': (1, 0.05, 1.4),
-        #         'position': (-0.2, 0.6, 0.7)
-        #     },
-        #     'twist_motion_prevention': {
-        #         'size': (0.2, 0.4, 1),
-        #         'position': (-0.4, -0.3, 0.7)
-        #     },
-        #     'height_prevention': {
-        #         'size': (2, 2, 0.01),
-        #         'position': (0, 0, 0.9)
-        #     }
-        # }
         
         for object_name in scene_objects.keys():
             position = scene_objects[object_name]['position']
