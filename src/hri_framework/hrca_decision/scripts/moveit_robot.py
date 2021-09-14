@@ -148,8 +148,8 @@ class NodeManagerMoveIt(object):
                 rospy.loginfo("Moving to block number: " + str(req.position_number))
                 coordinates = RobotPositions.block_locations[req.position_number]
 
-        pose_goal = self.panda_interface._get_pose_from_dict(coordinates)
-        self.panda_interface.move_to_pose_goal(pose_goal)
+        pose_goal = self.panda_interface._get_pose_from_dict(coordinates, pose_stamped=True)
+        self.panda_arm.move_to_pose(pose_goal)
 
         return MoveToPositionResponse(True)
 
@@ -198,9 +198,6 @@ class MoveGroupPythonInteface(object):
         # Interface for planning group of joints. Can be used to plan and execute motions:
         group_name_arm = "panda_arm"
         self.move_group_arm = moveit_commander.MoveGroupCommander(group_name_arm)
-        
-        group_name_hand = "hand"
-        self.move_group_hand = moveit_commander.MoveGroupCommander(group_name_hand)
 
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to display trajectories in Rviz:
         self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
@@ -251,22 +248,6 @@ class MoveGroupPythonInteface(object):
             self.scene.add_box(object_name, object_pose, object_size)
             if not self._wait_for_state_update(object_name, box_is_known=True):
                 rospy.logerr("Collision objects for {} failed to add to scene".format(object_name))
-                
-
-                  
-    def move_to_pose_goal(self, pose_goal):
-        """Move the EE to the pose goal given by a geometry_msgs.msg.Pose()."""
-        self.move_group_arm.set_pose_target(pose_goal)
-
-        ## Now, we call the planner to compute the plan and execute it.
-        plan = self.move_group_arm.go(wait=True)
-        # Calling `stop()` ensures that there is no residual movement
-        self.move_group_arm.stop()
-        # It is always good to clear your targets after planning with poses.
-        self.move_group_arm.clear_pose_targets()
-
-        current_pose = self.move_group_arm.get_current_pose().pose
-        return self._all_close(pose_goal, current_pose, 0.01)
 
     def move_to_neutral(self):
         rospy.loginfo('Moving to home position')
