@@ -32,11 +32,6 @@ class NodeManagerMoveIt(object):
         super(NodeManagerMoveIt, self).__init__()
         self.panda_interface = panda_interface
         self.current_cws = 0
-        # Upper limit on scalling factor for val and accel
-        #TODO: Update
-        self.high_factor = 0.8
-        self.default_vel = panda_interface.panda_arm.max_vel
-        self.default_accel = panda_interface.panda_arm.max_accel
 
         rospy.init_node('moveitt_robot')
         rospy.sleep(1)  # Needed to allow init of node before collision objects will add
@@ -69,13 +64,14 @@ class NodeManagerMoveIt(object):
         
         # Reset position should be done by robot_manager.py, but just incase
         self.panda_interface.move_to_neutral()
+        self.panda_interface.open_gripper()
         # Add blocks to scene individually as otherwise they prevent motion plan being found
         self.panda_interface._add_block_scene(req.block_number)
         self.panda_interface.grap_object(req.block_number)
         self.panda_interface.move_to_neutral()
-        self.panda_interface.panda_arm.set_movement_scaling_factors(self.high_factor, self.high_factor)
+        self.panda_interface.set_high_movement_scaling()
         self.panda_interface.move_to_neutral_zoneside()
-        self.panda_interface.panda_arm.reset_movement_scaling_factors()
+        self.panda_interface.reset_movement_scaling()
         self.panda_interface.place_object(req.block_number, req.block_zone)
         self.panda_interface.move_to_neutral_zoneside()
                 
@@ -110,16 +106,22 @@ class NodeManagerMoveIt(object):
                 coordinates = RobotPositions.block_locations[req.position_number]
 
         pose_goal = self.panda_interface._get_pose_from_dict(coordinates, pose_stamped=True)
-        self.panda_arm.move_to_pose(pose_goal, self.default_vel, self.default_accel)
+        # TODO: Create a new method for going to single place if needed
+        self.panda_interface.panda_arm.move_to_pose(pose_goal)
 
         return MoveToPositionResponse(True)
 
     def callback_return_neutral(self, req):
         try:
-            self.panda_interface.panda_arm.set_movement_scaling_factors(
-                self.high_factor, self.high_factor)
+            # If 0 is received in message, then use defualt speed as isn't first reset of program run
+            if req.movement_scaling_factor == 0:
+                self.panda_interface.set_high_movement_scaling()
+            else:
+                self.panda_interface.set_movement_scaling(
+                    req.movement_scaling_factor, req.movement_scaling_factor)
+
             self.panda_interface.move_to_neutral()
-            self.panda_interface.panda_arm.reset_movement_scaling_factors()
+            self.panda_interface.reset_movement_scaling()
             return ResetRobotResponse(True)
         
         # Would be useful to know what type of exception we expect...
@@ -141,6 +143,12 @@ class NodeManagerMoveIt(object):
 
 class MoveGroupPythonInteface(object):   
     BLOCK_LENGTH =  0.05
+    # Scaling factor used when rotating base joint for vel and accel
+    FAST_MOTION_SCALING = 0.6
+
+    # Use a speed limit when testing new (risky) movements with Panda
+    speed_limit_used = False
+    LIMIT_SCALING_FACTOR = 0.1
      
     def __init__(self):
         super(MoveGroupPythonInteface, self).__init__()
@@ -156,10 +164,6 @@ class MoveGroupPythonInteface(object):
         rospy.loginfo("Using simulated robot: " + str(self.simulation_mode))
         self.panda_arm = PandaArm(simulation=self.simulation_mode)
         
-        # #TODO: Remove
-        # self.panda_arm.max_vel = 0.05
-        # self.panda_arm.max_accel = 0.05
-        
         ## Create a `DisplayTrajectory`_ ROS publisher which is used to display trajectories in Rviz:
         self.display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
                                                     moveit_msgs.msg.DisplayTrajectory,
@@ -167,12 +171,17 @@ class MoveGroupPythonInteface(object):
 
         self.default_vel = self.panda_arm.max_vel
         self.default_accel = self.panda_arm.max_accel
-  
+        
+        if self.speed_limit_used:
+            self._set_speed_limit(self.LIMIT_SCALING_FACTOR)
+
     def add_scene_objects(self):
         TABLE_HEIGHT = 0.01
-        
+        #Removes any objects attached to the panda arm still
+        self.object_handler.detach_gripper_object(None, self.panda_arm, False)
         # Clear all objects from previous run
-        self.scene.remove_world_object()
+        self.object_handler.remove_all_objects()
+
         
         scene_objects = {
             'table1': {
@@ -222,7 +231,7 @@ class MoveGroupPythonInteface(object):
         success = self.panda_arm.move_to_joint_positions([2.7, -0.78, 0.0, -2.36, 0, 1.57, 0.78]) 
 
     def grap_object(self, block_number):
-        WRITST_TO_GRIPPER = 0.113
+        TABLE_PADDING_OFFSET = 0.1
         HOVER_Z_HEIGHT = 0.1
     
         rospy.loginfo("Picking block " + str(block_number))
@@ -231,8 +240,8 @@ class MoveGroupPythonInteface(object):
                           block_coordinates['position']['y'],
                           self.BLOCK_LENGTH/2) 
                
-        grasp_position = (block_position[0], block_position[1], block_position[2] + WRITST_TO_GRIPPER) 
-        grasp_hover_position = (block_position[0], block_position[1], block_position[2] + WRITST_TO_GRIPPER + HOVER_Z_HEIGHT) 
+        grasp_position = (block_position[0], block_position[1], block_position[2] + TABLE_PADDING_OFFSET) 
+        grasp_hover_position = (block_position[0], block_position[1], block_position[2] + TABLE_PADDING_OFFSET + HOVER_Z_HEIGHT) 
 
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, -pi/4)
@@ -250,7 +259,7 @@ class MoveGroupPythonInteface(object):
     
     def place_object(self, block_number, block_zone_int):
         """Place the object at a location, assuming starting at neutral_zoneside"""
-        ZONE_PLACEMENT_HEIGHT = 0.35
+        ZONE_PLACEMENT_HEIGHT = 0.3
         ZONE_PLACEMENT_HOVER = 0.1
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         rospy.loginfo("Placing in zone " + str(block_zone_int))
@@ -273,9 +282,23 @@ class MoveGroupPythonInteface(object):
         if not self.simulation_mode:
             self.panda_arm.open_gripper()
 
-        self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, False)
+        # True means it will also remove object from the world
+        self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, True)
         rospy.sleep(0.05)  # Need to sleep before or else it gets skipped over...
-        self.object_handler.remove_world_object(str(block_number))
+
+    def set_high_movement_scaling(self):
+        self.set_movement_scaling(self.FAST_MOTION_SCALING, self.FAST_MOTION_SCALING)
+
+    def reset_movement_scaling(self):
+        self.set_movement_scaling(self.default_vel, self.default_accel)
+
+    def set_movement_scaling(self, vel_factor, accel_factor):
+        if self.speed_limit_used:
+            return 
+        self.panda_arm.set_movement_scaling_factors(vel_factor, accel_factor)
+    
+    def open_gripper(self):
+        self.panda_arm.open_gripper()
         
     def _get_pose_stamped(self, position=(0,0,0), orientation=(0,0,0,1)):
         """Pose offset takes in a touple for adding translation to (x, y, z)"""
@@ -364,6 +387,13 @@ class MoveGroupPythonInteface(object):
             seconds = rospy.get_time()
 
         return False
+
+    def _set_speed_limit(self, scaling_factor):
+        rospy.logwarn("Speed limit scaling factor on")
+        self.default_vel = scaling_factor
+        self.default_accel = scaling_factor
+        self.panda_arm.max_vel = scaling_factor
+        self.panda_arm.max_accel = scaling_factor
     
 
 if __name__ == '__main__': 

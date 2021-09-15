@@ -9,7 +9,7 @@ from hrca_decision.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
+    AVAILABLE_BLOCKS = [14]
     # Use below if you hit a failure state during user study
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     AVAILABLE_ZONES = 2
@@ -42,7 +42,7 @@ class RobotNode(object):
     
     def run_node(self):
         self.start_time = timeit.default_timer()
-        resp = self.srv_reset_robot()
+        resp = self.srv_reset_robot(0.1)
         if resp.success == False:
             rospy.logerror("Unable to reset robot, ending node")
             return
@@ -67,7 +67,7 @@ class RobotNode(object):
                 self._update_AR_selection(next_block, next_zone, LightStatus.yellow)
                 # May already be reset, so ensures it always waits atleast LONG_PAUSE seconds
                 start_pause = timeit.default_timer()
-                resp = self.srv_reset_robot()
+                resp = self.srv_reset_robot(0.0) # 0 will use default value
                 paused_time = timeit.default_timer() - start_pause
                 if paused_time <= self.LONG_PAUSE:
                     rospy.sleep(self.LONG_PAUSE - paused_time)
@@ -146,6 +146,7 @@ class RobotNode(object):
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
         rospy.loginfo("Robot replanned {} times".format(self.replan_count))
         rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
+        self.srv_reset_robot(0.0)
         # Spin keeps the terminal open while allowing you to ctrl c at any time
         rospy.spin()
 
