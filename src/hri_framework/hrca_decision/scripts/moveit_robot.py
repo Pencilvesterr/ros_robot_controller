@@ -174,6 +174,8 @@ class MoveGroupPythonInteface(object):
         
         if self.speed_limit_used:
             self._set_speed_limit(self.LIMIT_SCALING_FACTOR)
+        elif self.simulation_mode:
+            self._set_speed_limit(1)
 
     def add_scene_objects(self):
         TABLE_HEIGHT = 0.01
