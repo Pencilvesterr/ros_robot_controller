@@ -107,10 +107,10 @@ $ roslaunch panda_moveit_config moveit_rviz.launch
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 
 # Then launch the node that commands the robot with franka control
-$ rosrun cws_planning moveit_robot.py
+$ rosrun hrca_decision moveit_robot.py
 
 # To start, run the node that actually does the planning
-$ roslaunch cws_planning robot_manager.py
+$ rosrun hrca_decision robot_manager.py
 ```
 
 ## Running user study

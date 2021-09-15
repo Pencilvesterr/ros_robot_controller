@@ -1,10 +1,10 @@
 #!/bin/bash
 echo "Starting franka control"
 gnome-terminal --tab -- roslaunch franka_control franka_control.launch robot_ip:=172.16.0.2
-sleep 1
+sleep 5
 echo "Starting MoveIt"
 gnome-terminal --tab -- roslaunch panda_moveit_config panda_moveit.launch load_gripper:=true
-sleep 1
+sleep 5
 echo "Starting Rviz"
 gnome-terminal --tab -- roslaunch panda_moveit_config moveit_rviz.launch
 sleep 1
