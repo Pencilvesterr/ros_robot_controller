@@ -234,7 +234,7 @@ class MoveGroupPythonInteface(object):
 
     def grap_object(self, block_number):
         TABLE_PADDING_OFFSET = 0.1
-        HOVER_Z_HEIGHT = 0.1
+        HOVER_Z_HEIGHT = 0.08
     
         rospy.loginfo("Picking block " + str(block_number))
         block_coordinates = RobotPositions.block_locations[block_number]
@@ -281,7 +281,10 @@ class MoveGroupPythonInteface(object):
 
         # True means it will also remove object from the world
         self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, True)
-        rospy.sleep(0.05)  # Need to sleep before or else it gets skipped over...
+        rospy.sleep(0.5)  # Need to sleep before or else it gets skipped over...
+        self.object_handler.remove_world_object(str(block_number))
+        rospy.sleep(0.5)  # Need to sleep before or else it gets skipped over...
+
 
     def set_high_movement_scaling(self):
         self.set_movement_scaling(self.FAST_MOTION_SCALING, self.FAST_MOTION_SCALING)
