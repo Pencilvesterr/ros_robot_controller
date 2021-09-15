@@ -144,7 +144,7 @@ class NodeManagerMoveIt(object):
 class MoveGroupPythonInteface(object):   
     BLOCK_LENGTH =  0.05
     # Scaling factor used when rotating base joint for vel and accel
-    FAST_MOTION_SCALING = 0.5
+    FAST_MOTION_SCALING = 0.45
 
     # Use a speed limit when testing new (risky) movements with Panda
     speed_limit_used = False
