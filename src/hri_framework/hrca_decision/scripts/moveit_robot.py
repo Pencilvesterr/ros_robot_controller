@@ -144,7 +144,7 @@ class NodeManagerMoveIt(object):
 class MoveGroupPythonInteface(object):   
     BLOCK_LENGTH =  0.05
     # Scaling factor used when rotating base joint for vel and accel
-    FAST_MOTION_SCALING = 0.6
+    FAST_MOTION_SCALING = 0.5
 
     # Use a speed limit when testing new (risky) movements with Panda
     speed_limit_used = False
@@ -262,23 +262,18 @@ class MoveGroupPythonInteface(object):
     def place_object(self, block_number, block_zone_int):
         """Place the object at a location, assuming starting at neutral_zoneside"""
         ZONE_PLACEMENT_HEIGHT = 0.3
-        ZONE_PLACEMENT_HOVER = 0.1
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         rospy.loginfo("Placing in zone " + str(block_zone_int))
         
         place_position = (zone_coordinates['position']['x'], 
                           zone_coordinates['position']['y'],
                           ZONE_PLACEMENT_HEIGHT) 
-        place_hover_position = (zone_coordinates['position']['x'], 
-                          zone_coordinates['position']['y'],
-                          ZONE_PLACEMENT_HEIGHT + ZONE_PLACEMENT_HOVER)
+
         
         # Dealing with pose of panda_link8 so have to compensate for the transform from the palm of 8 to the end effector
         x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, 3*pi/4) 
-        place_hover_pose = self._get_pose_stamped(position=place_hover_position, orientation=(x,y,z,w))
         place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
         
-        success = self.panda_arm.move_to_pose(place_hover_pose, self.default_vel, self.default_accel)
         success = self.panda_arm.move_to_pose(place_pose, self.default_vel, self.default_accel)
 
         if not self.simulation_mode:
