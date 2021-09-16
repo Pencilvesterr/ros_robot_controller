@@ -2,6 +2,6 @@
     <param name="short_pause" value="1"/>
     <param name="long_pause" value="4"/>
     <param name="simulation" value="False"/>
-    <node pkg="hrca_decision" name="moveit_robot" type="moveit_robot.py" output="screen" launch-prefix= "gnome-terminal --command" />
+    <node pkg="hrca_decision" name="moveit_robot" type="moveit_robot.py" output="screen" />
     <node pkg="hrca_decision" name="robot_coordinator" type="robot_manager.py" output="screen" launch-prefix= "gnome-terminal --command" />
 </launch>
