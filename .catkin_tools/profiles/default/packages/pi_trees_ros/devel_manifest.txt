@@ -1,6 +1,0 @@
-hri_framework/hrca_dependencies/pi_trees/pi_trees_ros
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_ros/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_ros/share/pi_trees_ros/cmake/pi_trees_rosConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/pi_trees_ros/cmake/pi_trees_rosConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_ros/share/pi_trees_ros/cmake/pi_trees_rosConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/pi_trees_ros/cmake/pi_trees_rosConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_ros/lib/python2.7/dist-packages/pi_trees_ros/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/pi_trees_ros/__init__.py
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_ros/lib/pkgconfig/pi_trees_ros.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/pi_trees_ros.pc

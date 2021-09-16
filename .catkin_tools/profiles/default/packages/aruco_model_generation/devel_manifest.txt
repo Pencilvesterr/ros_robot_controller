@@ -1,5 +1,0 @@
-hri_framework/hrca_dependencies/ros_object_tracking_utilities/aruco_model_generation
-/home/hrigroup2/projects/now-using-framework/devel/.private/aruco_model_generation/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/aruco_model_generation/cmake/aruco_model_generationConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/aruco_model_generation/share/aruco_model_generation/cmake/aruco_model_generationConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/aruco_model_generation/cmake/aruco_model_generationConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/aruco_model_generation/lib/pkgconfig/aruco_model_generation.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/aruco_model_generation.pc

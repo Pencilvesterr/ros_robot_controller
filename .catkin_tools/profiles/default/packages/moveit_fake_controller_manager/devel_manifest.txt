@@ -1,7 +1,0 @@
-moveit/moveit_plugins/moveit_fake_controller_manager
-/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_fake_controller_manager/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_fake_controller_manager/share/moveit_fake_controller_manager/cmake/moveit_fake_controller_managerConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/moveit_fake_controller_manager/cmake/moveit_fake_controller_managerConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_fake_controller_manager/share/moveit_fake_controller_manager/cmake/moveit_fake_controller_managerConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/moveit_fake_controller_manager/cmake/moveit_fake_controller_managerConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_fake_controller_manager/lib/libmoveit_fake_controller_manager.so.1.1.0 /home/hrigroup2/projects/now-using-framework/devel/lib/libmoveit_fake_controller_manager.so.1.1.0
-/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_fake_controller_manager/lib/libmoveit_fake_controller_manager.so /home/hrigroup2/projects/now-using-framework/devel/lib/libmoveit_fake_controller_manager.so
-/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_fake_controller_manager/lib/pkgconfig/moveit_fake_controller_manager.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/moveit_fake_controller_manager.pc

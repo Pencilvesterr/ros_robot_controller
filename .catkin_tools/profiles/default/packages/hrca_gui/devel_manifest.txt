@@ -1,6 +1,0 @@
-hri_framework/hrca_gui
-/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_gui/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_gui/share/hrca_gui/cmake/hrca_guiConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/hrca_gui/cmake/hrca_guiConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_gui/share/hrca_gui/cmake/hrca_guiConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/hrca_gui/cmake/hrca_guiConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_gui/lib/python2.7/dist-packages/hrca_gui/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/hrca_gui/__init__.py
-/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_gui/lib/pkgconfig/hrca_gui.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/hrca_gui.pc

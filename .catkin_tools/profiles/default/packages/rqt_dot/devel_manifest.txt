@@ -1,8 +1,0 @@
-hri_framework/hrca_dependencies/rqt_dot
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/share/rqt_dot/cmake/rqt_dotConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/rqt_dot/cmake/rqt_dotConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/share/rqt_dot/cmake/rqt_dotConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/rqt_dot/cmake/rqt_dotConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/lib/python2.7/dist-packages/rqt_dot/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/rqt_dot/__init__.py
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/lib/pkgconfig/rqt_dot.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/rqt_dot.pc
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/bin/rqt_dot /home/hrigroup2/projects/now-using-framework/devel/bin/rqt_dot
-/home/hrigroup2/projects/now-using-framework/devel/.private/rqt_dot/bin/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/bin/cmake.lock

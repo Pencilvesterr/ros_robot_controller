@@ -1,6 +1,0 @@
-hri_framework/hrca_dependencies/pi_trees/pi_trees_lib
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_lib/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_lib/share/pi_trees_lib/cmake/pi_trees_libConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/pi_trees_lib/cmake/pi_trees_libConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_lib/share/pi_trees_lib/cmake/pi_trees_libConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/pi_trees_lib/cmake/pi_trees_libConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_lib/lib/python2.7/dist-packages/pi_trees_lib/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/pi_trees_lib/__init__.py
-/home/hrigroup2/projects/now-using-framework/devel/.private/pi_trees_lib/lib/pkgconfig/pi_trees_lib.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/pi_trees_lib.pc

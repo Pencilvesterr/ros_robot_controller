@@ -1,5 +1,0 @@
-rv_panda_realsense
-/home/hrigroup2/projects/now-using-framework/devel/.private/rv_panda_realsense/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/rv_panda_realsense/share/rv_panda_realsense/cmake/rv_panda_realsenseConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/rv_panda_realsense/cmake/rv_panda_realsenseConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/rv_panda_realsense/share/rv_panda_realsense/cmake/rv_panda_realsenseConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/rv_panda_realsense/cmake/rv_panda_realsenseConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/rv_panda_realsense/lib/pkgconfig/rv_panda_realsense.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/rv_panda_realsense.pc
