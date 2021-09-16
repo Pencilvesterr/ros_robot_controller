@@ -59,20 +59,24 @@ class NodeManagerMoveIt(object):
         rospy.loginfo("Moving from block number {} to zone {}".format(
             str(req.block_number), str(req.block_zone)))
         
-        # Reset position should be done by robot_manager.py, but just incase
-        self.panda_interface.move_to_neutral()
-        self.panda_interface.open_gripper()
-        # Add blocks to scene individually as otherwise they prevent motion plan being found
-        self.panda_interface._add_block_scene(req.block_number)
-        self.panda_interface.grap_object(req.block_number)
-        self.panda_interface.move_to_neutral()
-        self.panda_interface.set_high_movement_scaling()
-        self.panda_interface.move_to_neutral_zoneside()
-        self.panda_interface.reset_movement_scaling()
-        self.panda_interface.place_object(req.block_number, req.block_zone)
-        self.panda_interface.move_to_neutral_zoneside()
+        try: 
+            # Reset position should be done by robot_manager.py, but just incase
+            self.panda_interface.move_to_neutral()
+            self.panda_interface.open_gripper()
+            # Add blocks to scene individually as otherwise they prevent motion plan being found
+            self.panda_interface._add_block_scene(req.block_number)
+            self.panda_interface.grap_object(req.block_number)
+            self.panda_interface.move_to_neutral()
+            self.panda_interface.set_high_movement_scaling()
+            self.panda_interface.move_to_neutral_zoneside()
+            self.panda_interface.reset_movement_scaling()
+            self.panda_interface.place_object(req.block_number, req.block_zone)
+            self.panda_interface.move_to_neutral_zoneside()
+        except Exception as e:  
+            # Catch all isn't ideal, but unsure what type of excpetions it will throw
+            rospy.logerr("Unable to move block: " + e)
+            return MoveBlockResponse(False)
                 
-        # TODO: Exception handling if the result is bad, and respond MoveBlockResponse(False)    
         return MoveBlockResponse(True)
 
     def callback_return_neutral(self, req):
@@ -259,9 +263,9 @@ class MoveGroupPythonInteface(object):
 
         # True means it will also remove object from the world
         self.object_handler.detach_gripper_object(str(block_number), self.panda_arm, True)
-        rospy.sleep(0.5)  # Need to sleep before or else it gets skipped over...
+        rospy.sleep(0.1)  # Need to sleep before or else it gets skipped over...
         self.object_handler.remove_world_object(str(block_number))
-        rospy.sleep(0.5)  # Need to sleep before or else it gets skipped over...
+        rospy.sleep(0.1)  # Need to sleep before or else it gets skipped over...
 
 
     def set_high_movement_scaling(self):
