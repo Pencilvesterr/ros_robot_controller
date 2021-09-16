@@ -41,7 +41,7 @@ class RobotNode(object):
         self.start_time = timeit.default_timer()
         resp = self.srv_reset_robot(0.1)
         if resp.success == False:
-            rospy.logerror("Unable to reset robot, ending node")
+            rospy.logerr("Unable to reset robot, ending node")
             return
 
         while not rospy.is_shutdown():

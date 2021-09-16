@@ -38,8 +38,6 @@ class NodeManagerMoveIt(object):
         self.panda_interface.add_scene_objects()
         
     def start_services(self):
-        # Reset Panda to home position between runs
-        self.panda_interface.move_to_neutral()  
         try: 
             rospy.Service("/move_block", MoveBlock, self.callback_move_block)
             rospy.Service("/move_robot", MoveToPosition, self.callback_move_position)
@@ -225,8 +223,18 @@ class MoveGroupPythonInteface(object):
                 rospy.logerr("Collision objects for {} failed to add to scene".format(object_name))
 
     def move_to_neutral(self):
-        rospy.loginfo('Moving to home position')
-        self.panda_arm.move_to_home()
+        current_joints = self.panda_arm.get_current_joint_values()
+        in_home_position = True
+        for i in range(len(current_joints)):
+            real_joint = current_joints[i]
+            ideal_joint = self.panda_arm.home_position[i]
+            if abs(real_joint - ideal_joint) > 0.1:
+                in_home_position = False
+                break 
+        
+        if not in_home_position:
+            rospy.loginfo('Moving to home position')
+            self.panda_arm.move_to_home()
  
     def move_to_neutral_zoneside(self):
         rospy.loginfo("Moving to zoneside")
