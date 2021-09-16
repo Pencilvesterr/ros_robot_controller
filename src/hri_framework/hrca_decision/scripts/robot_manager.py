@@ -36,8 +36,7 @@ class RobotNode(object):
         
         rospy.loginfo("---Robot Node Initialised---")
     
-    def run_study_condition(self):
-        self._reset_study()
+    def _run_study_condition(self):
         self.start_time = timeit.default_timer()
         resp = self.srv_reset_robot(0.1)
         if resp.success == False:
@@ -151,23 +150,25 @@ class RobotNode(object):
         rospy.loginfo("Robot replanned {} times".format(self.replan_count))
         rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
         self.srv_reset_robot(0.0)
-        
-        rospy.loginfo("--------------------")
-        rospy.loginfo("Next study condition")
-        rospy.loginfo("--------------------")        
-        rospy.loginfo("1: Traffic light and eye gaze")
-        rospy.loginfo("2: Traffic light only")
-        rospy.loginfo("3: Eye gaze only")
-        rospy.loginfo("4: Neither on")
-        study_condition = int(raw_input("Selection: "))
-        if study_condition in [1, 2, 3, 4]:
-            self.pub_study_consition.publish(study_condition)
-            self.run_study_condition()
 
-        # Spin keeps the terminal open while allowing you to ctrl c at any time
-        rospy.spin()
-
+    def _get_study_condition(self):
+        valid_study_condition = False
+        while not valid_study_condition:
+            rospy.loginfo("--------------------")
+            rospy.loginfo("Choose study condition")
+            rospy.loginfo("--------------------")        
+            rospy.loginfo("1: Traffic light and eye gaze")
+            rospy.loginfo("2: Traffic light only")
+            rospy.loginfo("3: Eye gaze only")
+            rospy.loginfo("4: Neither on")
+            study_condition = int(raw_input("Selection: "))
+            if study_condition in [1, 2, 3, 4]:
+                self.pub_study_consition.publish(study_condition)
+                valid_study_condition = True
 
 if __name__ == '__main__': 
     robot_node = RobotNode()
-    robot_node.run_study_condition()
+    while not rospy.is_shutdown():
+        robot_node._get_study_condition()
+        robot_node._reset_study()
+        robot_node._run_study_condition()
