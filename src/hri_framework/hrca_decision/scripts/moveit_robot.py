@@ -40,7 +40,6 @@ class NodeManagerMoveIt(object):
     def start_services(self):
         try: 
             rospy.Service("/move_block", MoveBlock, self.callback_move_block)
-            rospy.Service("/move_robot", MoveToPosition, self.callback_move_position)
             rospy.Service("/reset_to_neutral", ResetRobot, self.callback_return_neutral)
             rospy.loginfo("---MoveIt Robot Services Setup---")
         except Exception as e:
@@ -75,39 +74,6 @@ class NodeManagerMoveIt(object):
                 
         # TODO: Exception handling if the result is bad, and respond MoveBlockResponse(False)    
         return MoveBlockResponse(True)
-
-    def callback_move_position(self, req):
-        """Utility service to check where the robot moves for each position"""
-        # TODO: Is this needed anymore? Not sure it'll work as expected
-        if req.position_number == 0:
-            self.panda_interface.move_to_neutral()
-            return MoveToPositionResponse(True)
-
-        if req.position_number == 99:
-            self.panda_interface.move_to_neutral_zoneside()
-            return MoveToPositionResponse(True)
-
-        elif req.position_number > 0 and  req.position_number < 5:
-            if req.position_number not in RobotPositions.zone_locations.keys():
-                rospy.logerr("No location predefined for zone: " + str(req.position_number))
-                return MoveToPositionResponse(False)
-            else: 
-                rospy.loginfo("Moving to block zone: " + str(req.position_number))
-                coordinates = RobotPositions.zone_locations[req.position_number]
-
-        elif req.position_number >= 5:
-            if req.position_number not in RobotPositions.block_locations.keys():
-                rospy.logerr("No location predefined for block: " + str(req.position_number))
-                return MoveToPositionResponse(False)
-            else:
-                rospy.loginfo("Moving to block number: " + str(req.position_number))
-                coordinates = RobotPositions.block_locations[req.position_number]
-
-        pose_goal = self.panda_interface._get_pose_from_dict(coordinates, pose_stamped=True)
-        # TODO: Create a new method for going to single place if needed
-        self.panda_interface.panda_arm.move_to_pose(pose_goal)
-
-        return MoveToPositionResponse(True)
 
     def callback_return_neutral(self, req):
         try:
@@ -330,35 +296,6 @@ class MoveGroupPythonInteface(object):
             pose_msg.pose.orientation.w = orientation[3]
             
         return pose_msg
-
-    def _get_pose_from_dict(self, coordinates, orientation=True, pose_stamped=False):
-        # TODO: Function only used by service to go to specific location. Might not be needed
-        if pose_stamped:
-            pose_goal = geometry_msgs.msg.PoseStamped()
-            pose_goal.header.frame_id = "panda_link0"
-            pose_goal.pose.position.x = coordinates['position']['x']
-            pose_goal.pose.position.y = coordinates['position']['y']
-            pose_goal.pose.position.z = coordinates['position']['z']
-
-            if orientation:  
-                pose_goal.pose.orientation.w = coordinates['orientation']['w']
-                pose_goal.pose.orientation.x = coordinates['orientation']['x']
-                pose_goal.pose.orientation.y = coordinates['orientation']['y']
-                pose_goal.pose.orientation.z = coordinates['orientation']['z']
-        
-        else:
-            pose_goal = geometry_msgs.msg.Pose()
-            pose_goal.position.x = coordinates['position']['x']
-            pose_goal.position.y = coordinates['position']['y']
-            pose_goal.position.z = coordinates['position']['z']
-
-            if orientation:
-                pose_goal.orientation.w = coordinates['orientation']['w']
-                pose_goal.orientation.x = coordinates['orientation']['x']
-                pose_goal.orientation.y = coordinates['orientation']['y']
-                pose_goal.orientation.z = coordinates['orientation']['z']
-
-        return pose_goal
         
     def _add_block_scene(self, block_number):
         block_name = str(block_number)

@@ -42,7 +42,7 @@ move_group_hand.go(joint_goal, wait=True)
 
 Calling a sercvice from CLI:
 -----
-rosservice call /move_robot "1"
+rosservice call /move_robot "1"  # Depreciated 
 rosservice call /move_block "{block_number: 22, block_zone: 1}"
 rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 1, zone_selected: 2}'
 rostopic echo /gaze_object_selection
@@ -56,6 +56,8 @@ Tutorial
 -----
 rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 2, zone_selected: 2}'
 rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 1, zone_status: 1, zone_selected: 2}'
+
+# These commands will no longer work
 rosservice call /move_robot "11"
 rosservice call /move_robot "0"
 rosservice call /move_robot "99"
