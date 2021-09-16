@@ -9,9 +9,8 @@ from hrca_decision.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [11, 12, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
+    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     # Use below if you hit a failure state during user study
-    # Failing blocks = [13]
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     AVAILABLE_ZONES = 2
 
@@ -20,14 +19,10 @@ class RobotNode(object):
 
     def __init__(self):
         super(RobotNode, self).__init__()
-        rospy.init_node('robot_coordination', anonymous=True)
-        
-        self.gaze_selection = 0
-        # This shuffles the list in place
-        random.shuffle(self.AVAILABLE_BLOCKS)
-        self.remaining_blocks = self.AVAILABLE_BLOCKS
+        rospy.init_node('robot_coordination', anonymous=True)  
 
         self.pub_selection = rospy.Publisher('/ar_selection',TrafficLight, queue_size=20)
+        self.pub_study_consition = rospy.Publisher('/study_condition', Int32, queue_size=10)
         self.srv_move_block = rospy.ServiceProxy('/move_block', MoveBlock)
         self.srv_reset_robot = rospy.ServiceProxy('/reset_to_neutral', ResetRobot)
         rospy.Subscriber('/gaze_object_selected', Int32, self.callback_gaze_selection)
@@ -41,7 +36,8 @@ class RobotNode(object):
         
         rospy.loginfo("---Robot Node Initialised---")
     
-    def run_node(self):
+    def run_study_condition(self):
+        self._reset_study()
         self.start_time = timeit.default_timer()
         resp = self.srv_reset_robot(0.1)
         if resp.success == False:
@@ -141,6 +137,13 @@ class RobotNode(object):
         rospy.loginfo("Setting block {}, zone {}, to {}".format(next_block, next_zone, colour.name))
         self.pub_selection.publish(selection_status)
 
+    def _reset_study(self):
+        self.gaze_selection = 0
+        # Shuffle the list in place
+        random.shuffle(self.AVAILABLE_BLOCKS)
+        # List slicing copies list content instead of reference
+        self.remaining_blocks = self.AVAILABLE_BLOCKS[:]  
+
     def _exit_process(self):
         rospy.loginfo("All blocks complete")
         rospy.loginfo("------------------")
@@ -148,10 +151,23 @@ class RobotNode(object):
         rospy.loginfo("Robot replanned {} times".format(self.replan_count))
         rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
         self.srv_reset_robot(0.0)
+        
+        rospy.loginfo("--------------------")
+        rospy.loginfo("Next study condition")
+        rospy.loginfo("--------------------")        
+        rospy.loginfo("1: Traffic light and eye gaze")
+        rospy.loginfo("2: Traffic light only")
+        rospy.loginfo("3: Eye gaze only")
+        rospy.loginfo("4: Neither on")
+        study_condition = int(raw_input("Selection: "))
+        if study_condition in [1, 2, 3, 4]:
+            self.pub_study_consition.publish(study_condition)
+            self.run_study_condition()
+
         # Spin keeps the terminal open while allowing you to ctrl c at any time
         rospy.spin()
 
 
 if __name__ == '__main__': 
     robot_node = RobotNode()
-    robot_node.run_node()
+    robot_node.run_study_condition()
