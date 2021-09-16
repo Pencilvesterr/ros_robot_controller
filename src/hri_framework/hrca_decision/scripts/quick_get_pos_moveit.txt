@@ -54,8 +54,8 @@ rostopic pub /study_condition std_msgs/Int32 '1'
 
 Tutorial 
 -----
-rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 2, zone_selected: 2}'
-rostopic pub /ar_selection cws_planning/TrafficLight '{block_selected: 11, block_status: 1, zone_status: 1, zone_selected: 2}'
+rostopic pub /ar_selection hrca_decision/TrafficLight '{block_selected: 11, block_status: 2, zone_status: 2, zone_selected: 2}'
+rostopic pub /ar_selection hrca_decision/TrafficLight '{block_selected: 11, block_status: 1, zone_status: 1, zone_selected: 2}'
 
 # These commands will no longer work
 rosservice call /move_robot "11"
