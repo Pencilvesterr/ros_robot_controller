@@ -1,0 +1,5 @@
+hri_framework/hrca_metrics
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_metrics/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_metrics/share/hrca_metrics/cmake/hrca_metricsConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/hrca_metrics/cmake/hrca_metricsConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_metrics/share/hrca_metrics/cmake/hrca_metricsConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/hrca_metrics/cmake/hrca_metricsConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_metrics/lib/pkgconfig/hrca_metrics.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/hrca_metrics.pc

@@ -1,0 +1,6 @@
+hri_framework/hrca_perception
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_perception/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_perception/share/hrca_perception/cmake/hrca_perceptionConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/hrca_perception/cmake/hrca_perceptionConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_perception/share/hrca_perception/cmake/hrca_perceptionConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/hrca_perception/cmake/hrca_perceptionConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_perception/lib/python2.7/dist-packages/hrca_perception/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/hrca_perception/__init__.py
+/home/hrigroup2/projects/now-using-framework/devel/.private/hrca_perception/lib/pkgconfig/hrca_perception.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/hrca_perception.pc
