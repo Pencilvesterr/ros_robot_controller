@@ -256,7 +256,8 @@ class MoveGroupPythonInteface(object):
         x,y,z,w = tf.transformations.quaternion_from_euler(pi, 0, 3*pi/4) 
         place_pose = self._get_pose_stamped(position=place_position, orientation=(x,y,z,w))
         
-        success = self.panda_arm.move_to_pose(place_pose, self.default_vel, self.default_accel)
+        plan_to_pose = self.panda_arm.plan_to_pose_optimized(place_pose)
+        success = self.panda_arm.execute_plan_unsafe(plan_to_pose)
 
         if not self.simulation_mode:
             self.panda_arm.open_gripper()
