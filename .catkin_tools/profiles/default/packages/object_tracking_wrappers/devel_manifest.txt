@@ -1,0 +1,5 @@
+hri_framework/hrca_dependencies/ros_object_tracking_utilities/object_tracking_wrappers
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_wrappers/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_wrappers/share/object_tracking_wrappers/cmake/object_tracking_wrappersConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/object_tracking_wrappers/cmake/object_tracking_wrappersConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_wrappers/share/object_tracking_wrappers/cmake/object_tracking_wrappersConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/object_tracking_wrappers/cmake/object_tracking_wrappersConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_wrappers/lib/pkgconfig/object_tracking_wrappers.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/object_tracking_wrappers.pc

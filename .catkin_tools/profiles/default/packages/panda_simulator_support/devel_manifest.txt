@@ -1,0 +1,5 @@
+panda_simulator/panda_simulator_support
+/home/hrigroup2/projects/now-using-framework/devel/.private/panda_simulator_support/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/panda_simulator_support/share/panda_simulator_support/cmake/panda_simulator_supportConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/panda_simulator_support/cmake/panda_simulator_supportConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/panda_simulator_support/share/panda_simulator_support/cmake/panda_simulator_supportConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/panda_simulator_support/cmake/panda_simulator_supportConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/panda_simulator_support/lib/pkgconfig/panda_simulator_support.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/panda_simulator_support.pc

@@ -9,7 +9,7 @@ from hrca_decision.srv import MoveBlock, ResetRobot
 from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
-    AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
+    AVAILABLE_BLOCKS = [25]
     # Use below if you hit a failure state during user study
     # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     AVAILABLE_ZONES = 2
@@ -51,7 +51,7 @@ class RobotNode(object):
             while not selection_valid:
                 if len(self.remaining_blocks) == 0:
                     self._exit_process()
-                    break
+                    return
 
                 next_block = self.get_next_block_selection()
                 next_zone = random.randint(1, self.AVAILABLE_ZONES)

@@ -1,0 +1,5 @@
+hri_framework/hrca_dependencies/ros_object_tracking_utilities/object_tracking_demos
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_demos/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_demos/share/object_tracking_demos/cmake/object_tracking_demosConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/object_tracking_demos/cmake/object_tracking_demosConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_demos/share/object_tracking_demos/cmake/object_tracking_demosConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/object_tracking_demos/cmake/object_tracking_demosConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/object_tracking_demos/lib/pkgconfig/object_tracking_demos.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/object_tracking_demos.pc

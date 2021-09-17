@@ -1,0 +1,11 @@
+moveit/moveit_setup_assistant
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/share/moveit_setup_assistant/cmake/moveit_setup_assistantConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/moveit_setup_assistant/cmake/moveit_setup_assistantConfig-version.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/share/moveit_setup_assistant/cmake/moveit_setup_assistantConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/moveit_setup_assistant/cmake/moveit_setup_assistantConfig.cmake
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/libmoveit_setup_assistant_tools.so.1.1.0 /home/hrigroup2/projects/now-using-framework/devel/lib/libmoveit_setup_assistant_tools.so.1.1.0
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/libmoveit_setup_assistant_widgets.so /home/hrigroup2/projects/now-using-framework/devel/lib/libmoveit_setup_assistant_widgets.so
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/libmoveit_setup_assistant_widgets.so.1.1.0 /home/hrigroup2/projects/now-using-framework/devel/lib/libmoveit_setup_assistant_widgets.so.1.1.0
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/libmoveit_setup_assistant_tools.so /home/hrigroup2/projects/now-using-framework/devel/lib/libmoveit_setup_assistant_tools.so
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/moveit_setup_assistant/moveit_setup_assistant /home/hrigroup2/projects/now-using-framework/devel/lib/moveit_setup_assistant/moveit_setup_assistant
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/moveit_setup_assistant/collisions_updater /home/hrigroup2/projects/now-using-framework/devel/lib/moveit_setup_assistant/collisions_updater
+/home/hrigroup2/projects/now-using-framework/devel/.private/moveit_setup_assistant/lib/pkgconfig/moveit_setup_assistant.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/moveit_setup_assistant.pc
