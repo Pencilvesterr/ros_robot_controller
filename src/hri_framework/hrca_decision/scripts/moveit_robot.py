@@ -3,6 +3,7 @@
 import sys
 import copy
 import rospy
+import random
 import numpy as np
 import moveit_commander
 import moveit_msgs.msg
@@ -112,7 +113,7 @@ class NodeManagerMoveIt(object):
 class MoveGroupPythonInteface(object):   
     BLOCK_LENGTH =  0.05
     # Scaling factor used when rotating base joint for vel and accel
-    FAST_MOTION_SCALING = 0.45
+    FAST_MOTION_SCALING = 0.4  # 0.45 leading to "comminication_contraints_violation" error
 
     # Use a speed limit when testing new (risky) movements with Panda
     speed_limit_used = False
@@ -247,8 +248,9 @@ class MoveGroupPythonInteface(object):
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         rospy.loginfo("Placing in zone " + str(block_zone_int))
         
-        place_position = (zone_coordinates['position']['x'], 
-                          zone_coordinates['position']['y'],
+        # Add a small randomness to placement so the blocks dont stack
+        place_position = (zone_coordinates['position']['x']+random.uniform(-0.02, 0.02), 
+                          zone_coordinates['position']['y']+random.uniform(-0.02, 0.02),
                           ZONE_PLACEMENT_HEIGHT) 
 
         
@@ -291,7 +293,7 @@ class MoveGroupPythonInteface(object):
         pose_msg.pose.position.x = position[0]
         pose_msg.pose.position.y = position[1]
         pose_msg.pose.position.z = position[2]
-        
+           
         if orientation is (0,0,0,1):
             pose_msg.pose.orientation.w = 1
         else:
