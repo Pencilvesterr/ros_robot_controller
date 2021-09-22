@@ -243,7 +243,7 @@ class MoveGroupPythonInteface(object):
     
     def place_object(self, block_number, block_zone_int):
         """Place the object at a location, assuming starting at neutral_zoneside"""
-        ZONE_PLACEMENT_HEIGHT = 0.3
+        ZONE_PLACEMENT_HEIGHT = 0.4
         zone_coordinates = RobotPositions.zone_locations[block_zone_int]
         rospy.loginfo("Placing in zone " + str(block_zone_int))
         

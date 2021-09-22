@@ -213,8 +213,8 @@ class RobotPositions:
         },
         2: {
             'position': {
-                'x': -0.506,
-                'y': 0.22,
+                'x': -0.55,
+                'y': 0.3,
                 'z': 0.119
             },
             'orientation': {
