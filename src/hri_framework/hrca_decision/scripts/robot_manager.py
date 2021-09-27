@@ -98,7 +98,7 @@ class RobotNode(object):
     def callback_gaze_selection(self, msg):
         self.gaze_selection = msg.data
         if self.gaze_selection == 0:
-            rospy.loginfo("Gaze selection reset)
+            rospy.loginfo("Gaze selection reset")
         else: 
             rospy.loginfo("Gaze selection received: " + str(self.gaze_selection))
         return 
