@@ -1,6 +1,6 @@
 hri_framework/hrca_dependencies/xdot
-/home/hrigroup2/projects/now-using-framework/devel/.private/xdot/cmake.lock /home/hrigroup2/projects/now-using-framework/devel/./cmake.lock
-/home/hrigroup2/projects/now-using-framework/devel/.private/xdot/share/xdot/cmake/xdotConfig.cmake /home/hrigroup2/projects/now-using-framework/devel/share/xdot/cmake/xdotConfig.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/xdot/share/xdot/cmake/xdotConfig-version.cmake /home/hrigroup2/projects/now-using-framework/devel/share/xdot/cmake/xdotConfig-version.cmake
-/home/hrigroup2/projects/now-using-framework/devel/.private/xdot/lib/python2.7/dist-packages/xdot/__init__.py /home/hrigroup2/projects/now-using-framework/devel/lib/python2.7/dist-packages/xdot/__init__.py
-/home/hrigroup2/projects/now-using-framework/devel/.private/xdot/lib/pkgconfig/xdot.pc /home/hrigroup2/projects/now-using-framework/devel/lib/pkgconfig/xdot.pc
+/home/morgan/projects/ros_cws_planner/devel/.private/xdot/cmake.lock /home/morgan/projects/ros_cws_planner/devel/./cmake.lock
+/home/morgan/projects/ros_cws_planner/devel/.private/xdot/share/xdot/cmake/xdotConfig-version.cmake /home/morgan/projects/ros_cws_planner/devel/share/xdot/cmake/xdotConfig-version.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/xdot/share/xdot/cmake/xdotConfig.cmake /home/morgan/projects/ros_cws_planner/devel/share/xdot/cmake/xdotConfig.cmake
+/home/morgan/projects/ros_cws_planner/devel/.private/xdot/lib/pkgconfig/xdot.pc /home/morgan/projects/ros_cws_planner/devel/lib/pkgconfig/xdot.pc
+/home/morgan/projects/ros_cws_planner/devel/.private/xdot/lib/python2.7/dist-packages/xdot/__init__.py /home/morgan/projects/ros_cws_planner/devel/lib/python2.7/dist-packages/xdot/__init__.py

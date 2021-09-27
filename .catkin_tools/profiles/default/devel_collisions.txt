@@ -1,3 +1,4 @@
 /home/hrigroup2/callum_ws/devel/./cmake.lock 419
-/home/hrigroup2/projects/now-using-framework/devel/./cmake.lock 1108
+/home/hrigroup2/projects/now-using-framework/devel/./cmake.lock 1033
 /home/cal/catkin_ws/devel/./cmake.lock 384
+/home/morgan/projects/ros_cws_planner/devel/./cmake.lock 170
