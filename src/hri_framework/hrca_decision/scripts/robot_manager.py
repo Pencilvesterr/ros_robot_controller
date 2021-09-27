@@ -142,6 +142,7 @@ class RobotNode(object):
 
     def _reset_study(self):
         self.gaze_selection = 0
+        self.moved_blocks_count = 0
         # Shuffle the list in place
         random.shuffle(self.AVAILABLE_BLOCKS)
         # List slicing copies list content instead of reference
