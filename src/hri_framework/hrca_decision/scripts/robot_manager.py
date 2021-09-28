@@ -54,8 +54,8 @@ class RobotNode(object):
                     return
 
                 next_block = self.get_next_block_selection()
-                # next_zone = random.randint(1, self.AVAILABLE_ZONES)
-                next_zone = int(str(next_block)[0])  # Gets the first digit of the block number
+                next_zone = random.randint(1, self.AVAILABLE_ZONES)
+                # next_zone = int(str(next_block)[0])  # Gets the first digit of the block number
                 if next_block == 0:
                     rospy.logwarn("No remaining placable blocks")
                     rospy.sleep(self.LONG_PAUSE)
