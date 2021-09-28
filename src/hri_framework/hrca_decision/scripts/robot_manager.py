@@ -108,8 +108,6 @@ class RobotNode(object):
         rospy.loginfo("Block placement received: " + str(msg.data))
         if msg.data in self.remaining_blocks:
             self.remaining_blocks.remove(msg.data)
-            # Clear the gaze selection of user after confirming placement
-            self.gaze_selection = 0
         else:
             rospy.logwarn("Block placement {} recieved for block not in remaining queue".format(msg.data))
 
