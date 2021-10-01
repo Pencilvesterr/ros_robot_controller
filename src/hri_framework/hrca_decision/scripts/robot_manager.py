@@ -15,6 +15,8 @@ class RobotNode(object):
     AVAILABLE_ZONES = 2
 
     replan_count = 0
+    incorrect_gaze_prediction = 0
+    correct_gaze_prediction = 0
     moved_blocks_count = 0
 
     def __init__(self):
@@ -26,7 +28,7 @@ class RobotNode(object):
         self.srv_move_block = rospy.ServiceProxy('/move_block', MoveBlock)
         self.srv_reset_robot = rospy.ServiceProxy('/reset_to_neutral', ResetRobot)
         rospy.Subscriber('/gaze_object_selected', Int32, self.callback_gaze_selection)
-        rospy.Subscriber('/block_placed', Int32, self.callback_block_placed)
+        rospy.Subscriber('/block_placed', Int32, self.callback_block_selected)
         rospy.loginfo("---Robot node waiting to find 'Robot MoveIt' services...---")
         rospy.wait_for_service('/move_block')
         rospy.wait_for_service('/reset_to_neutral')
@@ -55,7 +57,8 @@ class RobotNode(object):
 
                 next_block = self.get_next_block_selection()
                 next_zone = random.randint(1, self.AVAILABLE_ZONES)
-                # next_zone = int(str(next_block)[0])  # Gets the first digit of the block number
+                # Uses the first digit of the block number for zone
+                # next_zone = int(str(next_block)[0])  
                 if next_block == 0:
                     rospy.logwarn("No remaining placable blocks")
                     rospy.sleep(self.LONG_PAUSE)
@@ -103,13 +106,20 @@ class RobotNode(object):
             rospy.loginfo("Gaze selection received: " + str(self.gaze_selection))
         return 
 
-    def callback_block_placed(self, msg):
+    def callback_block_selected(self, msg):
         # The block should still be in the plan if the robot hasn't placed it 
-        rospy.loginfo("Block placement received: " + str(msg.data))
-        if msg.data in self.remaining_blocks:
-            self.remaining_blocks.remove(msg.data)
+        block_selection = msg.data
+        rospy.loginfo("Block selection received: " + str(block_selection))
+        if block_selection in self.remaining_blocks:
+            self.remaining_blocks.remove(block_selection)
+            if block_selection == self.gaze_selection:
+                self.correct_gaze_prediction += 1
+            # A prediction was made, but it was incorrect. Dont care when there is no current prediction
+            elif self.gaze_selection != 0:
+                self.incorrect_gaze_prediction += 1
+                
         else:
-            rospy.logwarn("Block placement {} recieved for block not in remaining queue".format(msg.data))
+            rospy.logwarn("Block selection {} recieved, but block not in remaining queue".format(msg.data))
 
     def get_next_block_selection(self):
         for idx, block in enumerate(self.remaining_blocks):
@@ -141,6 +151,8 @@ class RobotNode(object):
     def _reset_study(self):
         self.gaze_selection = 0
         self.moved_blocks_count = 0
+        self.incorrect_gaze_prediction = 0
+        self.correct_gaze_prediction = 0
         # Shuffle the list in place
         random.shuffle(self.AVAILABLE_BLOCKS)
         # List slicing copies list content instead of reference
@@ -151,6 +163,8 @@ class RobotNode(object):
         rospy.loginfo("------------------")
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
         rospy.loginfo("Robot replanned {} times".format(self.replan_count))
+        rospy.loginfo("Gaze incorrectly predicted user selection {} times".format(self.incorrect_gaze_prediction))
+        rospy.loginfo("Gaze correctly predicted user selection {} times".format(self.correct_gaze_prediction))
         rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
         self.srv_reset_robot(0.0)
 
