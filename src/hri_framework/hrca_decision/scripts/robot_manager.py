@@ -81,7 +81,7 @@ class RobotNode(object):
                     self.remaining_blocks.append(next_block)
             
             # A valid block selection was found
-            if next_blogazeck != 0:
+            if next_block != 0:
                 self._update_AR_selection(next_block, next_zone, LightStatus.red)
                 rospy.sleep(self.SHORT_PAUSE)
                 try: 
