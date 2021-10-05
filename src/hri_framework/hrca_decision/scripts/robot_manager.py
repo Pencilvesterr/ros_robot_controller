@@ -18,7 +18,7 @@ class RobotNode(object):
     incorrect_gaze_prediction = 0
     correct_gaze_prediction = 0
     moved_blocks_count = 0
-    in_study = False
+    study_running = False
 
     def __init__(self):
         super(RobotNode, self).__init__()
@@ -40,7 +40,7 @@ class RobotNode(object):
         rospy.loginfo("---Robot Node Initialised---")
     
     def _run_study_condition(self):
-        self.in_study = True
+        self.study_running = True
 
         self.start_time = timeit.default_timer()
         while not rospy.is_shutdown():
@@ -98,7 +98,7 @@ class RobotNode(object):
     
     def callback_gaze_selection(self, msg):
         self.gaze_selection = msg.data
-        if not self.in_study:
+        if not self.study_running:
             return 
 
         if self.gaze_selection == 0:
@@ -150,7 +150,7 @@ class RobotNode(object):
         self.pub_selection.publish(selection_status)
 
     def _finalise_study(self):
-        self.in_study = False
+        self.study_running = False
         rospy.loginfo("All blocks complete")
         rospy.loginfo("------------------")
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
