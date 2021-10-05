@@ -40,11 +40,6 @@ class RobotNode(object):
     
     def _run_study_condition(self):
         self.start_time = timeit.default_timer()
-        resp = self.srv_reset_robot(0.1)
-        if resp.success == False:
-            rospy.logerr("Unable to reset robot, ending node")
-            return
-
         while not rospy.is_shutdown():
             next_block = 0
             next_zone = 0
@@ -52,7 +47,7 @@ class RobotNode(object):
 
             while not selection_valid:
                 if len(self.remaining_blocks) == 0:
-                    self._exit_process()
+                    self._finalise_study()
                     return
 
                 next_block = self.get_next_block_selection()
@@ -148,6 +143,16 @@ class RobotNode(object):
         rospy.loginfo("Setting block {}, zone {}, to {}".format(next_block, next_zone, colour.name))
         self.pub_selection.publish(selection_status)
 
+    def _finalise_study(self):
+        rospy.loginfo("All blocks complete")
+        rospy.loginfo("------------------")
+        rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
+        rospy.loginfo("Robot replanned {} times".format(self.replan_count))
+        rospy.loginfo("Gaze incorrectly predicted user selection {} times".format(self.incorrect_gaze_prediction))
+        rospy.loginfo("Gaze correctly predicted user selection {} times".format(self.correct_gaze_prediction))
+        rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
+        self.srv_reset_robot(0.0)
+        
     def _reset_study(self):
         self.gaze_selection = 0
         self.moved_blocks_count = 0
@@ -157,16 +162,6 @@ class RobotNode(object):
         random.shuffle(self.AVAILABLE_BLOCKS)
         # List slicing copies list content instead of reference
         self.remaining_blocks = self.AVAILABLE_BLOCKS[:]  
-
-    def _exit_process(self):
-        rospy.loginfo("All blocks complete")
-        rospy.loginfo("------------------")
-        rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
-        rospy.loginfo("Robot replanned {} times".format(self.replan_count))
-        rospy.loginfo("Gaze incorrectly predicted user selection {} times".format(self.incorrect_gaze_prediction))
-        rospy.loginfo("Gaze correctly predicted user selection {} times".format(self.correct_gaze_prediction))
-        rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
-        self.srv_reset_robot(0.0)
 
     def _get_study_condition(self):
         valid_study_condition = False
@@ -185,6 +180,12 @@ class RobotNode(object):
 
 if __name__ == '__main__': 
     robot_node = RobotNode()
+    # Initial slow reset of robot to home pos
+    resp = robot_node.srv_reset_robot(0.1)
+    if resp.success == False:
+        rospy.logerr("Unable to reset robot. Ending node.")
+        rospy.signal_shutdown("Failure to reset robot")
+    
     while not rospy.is_shutdown():
         robot_node._get_study_condition()
         robot_node._reset_study()
