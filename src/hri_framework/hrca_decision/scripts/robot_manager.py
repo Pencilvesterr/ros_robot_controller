@@ -18,6 +18,7 @@ class RobotNode(object):
     incorrect_gaze_prediction = 0
     correct_gaze_prediction = 0
     moved_blocks_count = 0
+    in_study = False
 
     def __init__(self):
         super(RobotNode, self).__init__()
@@ -39,6 +40,8 @@ class RobotNode(object):
         rospy.loginfo("---Robot Node Initialised---")
     
     def _run_study_condition(self):
+        self.in_study = True
+
         self.start_time = timeit.default_timer()
         while not rospy.is_shutdown():
             next_block = 0
@@ -78,7 +81,7 @@ class RobotNode(object):
                     self.remaining_blocks.append(next_block)
             
             # A valid block selection was found
-            if next_block != 0:
+            if next_blogazeck != 0:
                 self._update_AR_selection(next_block, next_zone, LightStatus.red)
                 rospy.sleep(self.SHORT_PAUSE)
                 try: 
@@ -95,6 +98,9 @@ class RobotNode(object):
     
     def callback_gaze_selection(self, msg):
         self.gaze_selection = msg.data
+        if not self.in_study:
+            return 
+
         if self.gaze_selection == 0:
             rospy.loginfo("Gaze selection reset")
         else: 
@@ -144,6 +150,7 @@ class RobotNode(object):
         self.pub_selection.publish(selection_status)
 
     def _finalise_study(self):
+        self.in_study = False
         rospy.loginfo("All blocks complete")
         rospy.loginfo("------------------")
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
@@ -187,6 +194,6 @@ if __name__ == '__main__':
         rospy.signal_shutdown("Failure to reset robot")
     
     while not rospy.is_shutdown():
-        robot_node._get_study_condition()
         robot_node._reset_study()
+        robot_node._get_study_condition()
         robot_node._run_study_condition()
