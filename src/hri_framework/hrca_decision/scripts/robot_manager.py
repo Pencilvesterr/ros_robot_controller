@@ -10,8 +10,6 @@ from python_utilities.light_status import LightStatus
 
 class RobotNode(object):
     AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
-    # Use below if you hit a failure state during user study
-    # AVAILABLE_BLOCKS = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27]
     AVAILABLE_ZONES = 2
 
     replan_count = 0
@@ -110,7 +108,7 @@ class RobotNode(object):
     def callback_block_selected(self, msg):
         # The block should still be in the plan if the robot hasn't placed it 
         block_selection = msg.data
-        rospy.loginfo("Block selection received: " + str(block_selection))
+        rospy.logwarn("Block selection received: " + str(block_selection))
         if block_selection in self.remaining_blocks:
             self.remaining_blocks.remove(block_selection)
             if block_selection == self.gaze_selection:
