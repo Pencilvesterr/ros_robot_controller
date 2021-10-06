@@ -16,6 +16,9 @@ class RobotNode(object):
     incorrect_gaze_prediction = 0
     correct_gaze_prediction = 0
     moved_blocks_count = 0
+    potential_errors = 0
+    next_zone = 0
+    
     study_running = False
 
     def __init__(self):
@@ -42,8 +45,8 @@ class RobotNode(object):
 
         self.start_time = timeit.default_timer()
         while not rospy.is_shutdown():
-            next_block = 0
-            next_zone = 0
+            robot_block = 0
+            self.robot_zone = 0
             selection_valid = False
 
             while not selection_valid:
@@ -51,16 +54,16 @@ class RobotNode(object):
                     self._finalise_study()
                     return
 
-                next_block = self.get_next_block_selection()
-                next_zone = random.randint(1, self.AVAILABLE_ZONES)
+                robot_block = self.get_next_block_selection()
+                self.robot_zone = random.randint(1, self.AVAILABLE_ZONES)
                 # Uses the first digit of the block number for zone
-                # next_zone = int(str(next_block)[0])  
-                if next_block == 0:
+                # self.robot_zone = int(str(robot_block)[0])  
+                if robot_block == 0:
                     rospy.logwarn("No remaining placable blocks")
                     rospy.sleep(self.LONG_PAUSE)
                     continue
                 
-                self._update_AR_selection(next_block, next_zone, LightStatus.yellow)
+                self._update_AR_selection(robot_block, self.robot_zone, LightStatus.yellow)
                 # May already be reset, so ensures it always waits atleast LONG_PAUSE seconds
                 start_pause = timeit.default_timer()
                 resp = self.srv_reset_robot(0.0) # 0 will use default value
@@ -68,28 +71,28 @@ class RobotNode(object):
                 if paused_time <= self.LONG_PAUSE:
                     rospy.sleep(self.LONG_PAUSE - paused_time)
 
-                selection_valid = self.selection_still_valid(next_block, next_zone)
+                selection_valid = self.selection_still_valid(robot_block, self.robot_zone)
                 if not selection_valid:
                     rospy.logwarn("Updating plan based on conflict")
                     self.replan_count += 1
                     # User override, reset selection
                     rospy.sleep(self.SHORT_PAUSE)
-                    self._update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    self._update_AR_selection(robot_block, self.robot_zone, LightStatus.unselected)
                     rospy.sleep(self.SHORT_PAUSE)
-                    self.remaining_blocks.append(next_block)
+                    self.remaining_blocks.append(robot_block)
             
             # A valid block selection was found
-            if next_block != 0:
-                self._update_AR_selection(next_block, next_zone, LightStatus.red)
+            if robot_block != 0:
+                self._update_AR_selection(robot_block, self.robot_zone, LightStatus.red)
                 rospy.sleep(self.SHORT_PAUSE)
                 try: 
-                    resp = self.srv_move_block(next_block, next_zone)
+                    resp = self.srv_move_block(robot_block, self.robot_zone)
                     if resp:
                         self.moved_blocks_count += 1
                     else:
-                        rospy.logwarn("MoveIt failed to move block {}".format(next_block))
+                        rospy.logwarn("MoveIt failed to move block {}".format(robot_block))
                         
-                    self._update_AR_selection(next_block, next_zone, LightStatus.unselected)
+                    self._update_AR_selection(robot_block, self.robot_zone, LightStatus.unselected)
                     rospy.sleep(self.SHORT_PAUSE)
                 except rospy.ServiceException as e:
                     rospy.logerr("Service called failed: " + str(e))
@@ -117,8 +120,14 @@ class RobotNode(object):
             elif self.gaze_selection != 0:
                 self.incorrect_gaze_prediction += 1
                 
+            user_zone = int(str(block_selection)[0])  
+            if user_zone == self.robot_zone:
+                # The user has selected to place a block in a zone the robot has selected.
+                # This doesn't mean they will enter the zone / count as an error
+                self.potential_errors += 1
+                
         else:
-            rospy.logwarn("Block selection {} recieved, but block not in remaining queue".format(msg.data))
+            rospy.logerr("Block selection {} recieved, but block not in remaining queue".format(msg.data))
 
     def get_next_block_selection(self):
         for idx, block in enumerate(self.remaining_blocks):
@@ -155,6 +164,7 @@ class RobotNode(object):
         rospy.loginfo("Robot replanned {} times".format(self.replan_count))
         rospy.loginfo("Gaze incorrectly predicted user selection {} times".format(self.incorrect_gaze_prediction))
         rospy.loginfo("Gaze correctly predicted user selection {} times".format(self.correct_gaze_prediction))
+        rospy.loginfo("User potentially entered the robot's zone {} times".format(self.potential_errors))
         rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
         self.srv_reset_robot(0.0)
         
@@ -163,6 +173,7 @@ class RobotNode(object):
         self.moved_blocks_count = 0
         self.incorrect_gaze_prediction = 0
         self.correct_gaze_prediction = 0
+        self.potential_errors = 0
         # Shuffle the list in place
         random.shuffle(self.AVAILABLE_BLOCKS)
         # List slicing copies list content instead of reference
