@@ -15,6 +15,7 @@ class RobotNode(object):
     replan_count = 0
     incorrect_gaze_prediction = 0
     correct_gaze_prediction = 0
+    no_gaze_prediction = 0
     moved_blocks_count = 0
     potential_errors = 0
     next_zone = 0
@@ -115,7 +116,9 @@ class RobotNode(object):
             if block_selection == self.gaze_selection:
                 self.correct_gaze_prediction += 1
             # A prediction was made, but it was incorrect. Dont care when there is no current prediction
-            elif self.gaze_selection != 0:
+            elif self.gaze_selection == 0:
+                self.no_gaze_prediction += 1
+            else:
                 self.incorrect_gaze_prediction += 1
                 
             user_zone = int(str(block_selection)[0])  
@@ -147,7 +150,6 @@ class RobotNode(object):
                 return 2    
             else:
                 return 1
-            
         else: 
             return random.randint(1, self.AVAILABLE_ZONES)
         
@@ -179,11 +181,14 @@ class RobotNode(object):
         rospy.loginfo("All blocks complete")
         rospy.loginfo("------------------")
         rospy.loginfo("Robot moved {} blocks".format(self.moved_blocks_count))
-        rospy.loginfo("Robot replanned {} times".format(self.replan_count))
-        rospy.loginfo("Gaze incorrectly predicted user selection {} times".format(self.incorrect_gaze_prediction))
-        rospy.loginfo("Gaze correctly predicted user selection {} times".format(self.correct_gaze_prediction))
-        rospy.loginfo("User potentially entered the robot's zone {} times".format(self.potential_errors))
         rospy.loginfo("Total time taken: {:.2f}s".format(timeit.default_timer() - self.start_time))
+        rospy.loginfo("Robot replanned {} times".format(self.replan_count))
+        rospy.loginfo("User potentially entered the robot's zone {} times".format(self.potential_errors))
+        rospy.loginfo(" ")
+        rospy.loginfo("User selection correctly predicted by gaze {} times".format(self.correct_gaze_prediction))
+        rospy.loginfo("User selection incorrectly predicted by gaze {} times".format(self.incorrect_gaze_prediction))
+        rospy.loginfo("User selection not predicted by gaze {} times".format(self.no_gaze_prediction))
+
         self.srv_reset_robot(0.0)
         
     def _reset_study(self):
@@ -192,6 +197,7 @@ class RobotNode(object):
         self.incorrect_gaze_prediction = 0
         self.correct_gaze_prediction = 0
         self.potential_errors = 0
+        self.no_gaze_prediction = 0
         # Shuffle the list in place
         random.shuffle(self.AVAILABLE_BLOCKS)
         # List slicing copies list content instead of reference
