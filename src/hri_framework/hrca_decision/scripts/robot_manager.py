@@ -18,7 +18,7 @@ class RobotNode(object):
     moved_blocks_count = 0
     potential_errors = 0
     next_zone = 0
-    
+    gaze_selection = 0
     study_running = False
 
     def __init__(self):
@@ -42,7 +42,6 @@ class RobotNode(object):
     
     def _run_study_condition(self):
         self.study_running = True
-
         self.start_time = timeit.default_timer()
         while not rospy.is_shutdown():
             robot_block = 0
@@ -98,10 +97,10 @@ class RobotNode(object):
                     rospy.logerr("Service called failed: " + str(e))
     
     def callback_gaze_selection(self, msg):
-        self.gaze_selection = msg.data
         if not self.study_running:
             return 
-
+        
+        self.gaze_selection = msg.data
         if self.gaze_selection == 0:
             rospy.loginfo("Gaze selection reset")
         else: 
